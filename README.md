@@ -1,2 +1,2 @@
-# ApartMeet
-A web based application for managing apartment communities
+# Healify
+A web based application for personalized mental-health monitoring.
