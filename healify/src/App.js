@@ -17,6 +17,7 @@ function App() {
         >
           Learn React
         </a>
+        <p>Dummy commit</p>
       </header>
     </div>
   );
