@@ -4,18 +4,20 @@ import logo1 from "../Assets/mentalhealth_icon_round.png";
 import styles from "./Signup.module.css";
 export const Signup = () => {
   return (
-    <div className={"container px-4 py-5 mx-auto"}>
-      <div className="card card0">
+    <div className={"px-4 py-5 mx-auto container " + styles.container}>
+      <div className={styles.card + " " + styles.card0}>
         <div className="d-flex flex-lg-row flex-column-reverse">
-          <div className="card card1">
+          <div className={styles.card + " " + styles.card1}>
             <div className="row justify-content-center my-auto">
               <div className="col-md-8 col-10 my-5">
                 <div className="row justify-content-center px-3 mb-3">
-                  <img id="logo" src={logo1} alt="logo1" />{" "}
+                  <img id={styles.logo} src={logo1} alt="logo1" />{" "}
                 </div>
-                <h3 className="mb-5 text-center heading">Welcome again!</h3>
+                <h3 className={"mb-5 text-center " + styles.heading}>
+                  Welcome again!
+                </h3>
                 <div className="form-group">
-                  <label className="form-control-label text-muted">
+                  <label className={"text-muted " + styles.formControlLabel}>
                     Username
                   </label>
                   <input
@@ -28,7 +30,7 @@ export const Signup = () => {
                 </div>
                 <div className="form-group">
                   {" "}
-                  <label className="form-control-label text-muted">
+                  <label className={"text-muted " + styles.formControlLabel}>
                     Password
                   </label>
                   <input
@@ -41,7 +43,7 @@ export const Signup = () => {
                 </div>
                 <div className="row justify-content-center my-3 px-3">
                   {" "}
-                  <button className="btn-block btn-color">
+                  <button className={"btn-block " + styles.btnColor}>
                     Login to Healify
                   </button>{" "}
                 </div>
@@ -53,15 +55,17 @@ export const Signup = () => {
                 </div>
               </div>
             </div>
-            <div className="bottom text-center mb-5">
-              <p href="#" className="sm-text mx-auto mb-3">
+            <div className={"text-center mb-5 " + styles.bottom}>
+              <p href="#" className={"mx-auto mb-3 " + styles.smText}>
                 Don't have an account?
-                <button className="btn btn-white ml-2">Create new</button>
+                <button className={"btn ml-2 " + styles.btnWhite}>
+                  Create new
+                </button>
               </p>
             </div>
           </div>
-          <div className="card card2">
-            <div className="my-auto mx-md-5 px-md-5 right">
+          <div className={styles.card + " " + styles.card2}>
+            <div className={"my-auto mx-md-5 px-md-5 right" + styles.right}>
               <div>
                 <img
                   className="rounded mx-auto d-block"

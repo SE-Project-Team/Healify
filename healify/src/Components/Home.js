@@ -14,33 +14,26 @@ export const Home = () => {
         </a>
       </header>
 
-      <div className="styles.top-container">
-        <img className="img" src={image} alt="image not found" />
-        <section className="booklist">
-          <div className="card">
-            <div className="card-header">
-              <div className="card-title-group">
-                <h5 className="card-title">Play Quiz</h5>
-                <div className="card-date">01-10-2021</div>
+      <div className={styles["top-container"]}>
+        <img className={styles.img} src={image} alt="image not found" />
+        <section className={styles.booklist}>
+          <div className={"card " + styles.card}>
+            <div className={styles["card-header"]}>
+              <div className={styles["card-title-group"]}>
+                <h5 className={"card-title " + styles["card-title"]}>
+                  Play Quiz
+                </h5>
+                <div className={"card-date " + styles["card-date"]}>
+                  01-10-2021
+                </div>
               </div>
             </div>
-            <img className="card-image" src={brainImg} alt="Logo" />
-            <div className="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
-              quibusdam vel hic, aliquam maxime corporis a esse et maiores
-              corrupti, soluta cum magnam fuga optio illo iure rerum, assumenda
-              harum?
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-header">
-              <div className="card-title-group">
-                <h5 className="card-title">Play Quiz</h5>
-                <div className="card-date">01-10-2021</div>
-              </div>
-            </div>
-            <img className="card-image" src={brainImg} alt="Logo" />
-            <div className="card-text">
+            <img
+              className={"card-image " + styles["card-image"]}
+              src={brainImg}
+              alt="Logo"
+            />
+            <div className={"card-text " + styles["card-text"]}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
               quibusdam vel hic, aliquam maxime corporis a esse et maiores
               corrupti, soluta cum magnam fuga optio illo iure rerum, assumenda
@@ -51,6 +44,7 @@ export const Home = () => {
       </div>
 
       <footer>
+        {" "}
         <div className="bottom-container">
           <a
             className="footer-link"
