@@ -1,24 +1,24 @@
 import React from "react";
+import image from "../Assets/lady.jpg";
+import brainImg from "../Assets/brain.jpg";
+
 export const Home = () => {
   return (
     <>
-      <header
-        className="header"
-        style={{
-          background:
-            "https://img.freepik.com/free-vector/gradient-liquid-abstract-background_52683-60469.jpg?size=626&ext=jpg",
-        }}
-      >
-        <img className="img" src="" style={{ alignContent: "left" }} />
-        <h1 class="">Healify</h1>
+      <header>
+        <img className="logo" src={brainImg} />
+        <h1 className="heading">Healify</h1>
+        <a className="login" href="">
+          Log In
+        </a>
       </header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light navv">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">
             Navbar
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -26,23 +26,23 @@ export const Home = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#">
                   Home
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
                   Link
                 </a>
               </li>
-              <li class="nav-item dropdown">
+              <li className="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle"
                   href="#"
                   id="navbarDropdown"
                   role="button"
@@ -51,46 +51,46 @@ export const Home = () => {
                 >
                   Dropdown
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Action
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Another action
                     </a>
                   </li>
                   <li>
-                    <hr class="dropdown-divider" />
+                    <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Something else here
                     </a>
                   </li>
                 </ul>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a
-                  class="nav-link disabled"
+                  className="nav-link disabled"
                   href="#"
-                  tabindex="-1"
+                  tabIndex="-1"
                   aria-disabled="true"
                 >
                   Disabled
                 </a>
               </li>
             </ul>
-            <form class="d-flex">
+            <form className="d-flex">
               <input
-                class="form-control me-2"
+                className="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn btn-outline-success" type="submit">
+              <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
             </form>
@@ -98,7 +98,56 @@ export const Home = () => {
         </div>
       </nav>
 
-      <footer>This is a footer</footer>
+      <div className="top-container">
+        <img className="img" src={image} alt="image not found" />
+        <section className="booklist">
+          <div className="card">
+            <div className="card-header">
+              <div className="card-title-group">
+                <h5 className="card-title">Play Quiz</h5>
+                <div className="card-date">01-10-2021</div>
+              </div>
+            </div>
+            <img className="card-image" src={brainImg} alt="Logo" />
+            <div className="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+              quibusdam vel hic, aliquam maxime corporis a esse et maiores
+              corrupti, soluta cum magnam fuga optio illo iure rerum, assumenda
+              harum?
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-header">
+              <div className="card-title-group">
+                <h5 className="card-title">Play Quiz</h5>
+                <div className="card-date">01-10-2021</div>
+              </div>
+            </div>
+            <img className="card-image" src={brainImg} alt="Logo" />
+            <div className="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+              quibusdam vel hic, aliquam maxime corporis a esse et maiores
+              corrupti, soluta cum magnam fuga optio illo iure rerum, assumenda
+              harum?
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer>
+        <div className="bottom-container">
+          <a
+            className="footer-link"
+            href="https://twitter.com/iit_tirupati?s=20"
+          >
+            Twitter
+          </a>
+          <a className="footer-link" href="https://iittp.ac.in/">
+            Website
+          </a>
+          <p className="copyright">© 2021 IIT Tirupati</p>
+        </div>
+      </footer>
     </>
   );
 };
