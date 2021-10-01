@@ -1,19 +1,21 @@
 import React from "react";
 import image from "../Assets/lady.jpg";
 import brainImg from "../Assets/brain.jpg";
+import logo from "../Assets/mentalhealth_icon_round.png";
 import styles from "./Home.module.css";
 
 export const Home = () => {
   return (
     <>
-      <header>
-        <img className={styles.logo} src={brainImg} />
+      <header className={styles.header}>
+        <img className={styles.logo} src={logo} />
         <h1 className={styles.heading}>Healify</h1>
         <a className={styles.login} href="">
           Log In
         </a>
       </header>
 
+      <br />
       <div className={styles["top-container"]}>
         <img className={styles.img} src={image} alt="image not found" />
         <section className={styles.booklist}>
