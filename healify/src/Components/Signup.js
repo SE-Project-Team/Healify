@@ -31,7 +31,7 @@ export const Signup = () =>
                 <div class="my-auto mx-md-5 px-md-5 right">
                     <div ><img class="rounded mx-auto d-block" src={image1} alt="healthgif" width="450px" height="280px" /></div><br /><br />
                     <div><h3 class="text-white text-center mb-5">Healify</h3> </div>
-                    <div><small class="text-white">Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it. Even if we are open about it, there is a global shortage of psychiatrists and lack of mental health care access in rural regions. In this context, we feel our website can serve as a viable tool to bridge the mental health treatment gap. Our app serves as a user feedback system for self-management and maintaining good mental health of every individual</small></div>
+                    <div><small class="text-white">Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it. Even if we are open about it, there is a global shortage of psychiatrists and lack of mental health care access in rural regions. In this context, we feel our website can serve as a viable tool to bridge the mental health treatment gap. Our app serves as a user feedback system for self-management of every individual</small></div>
                 </div>
             </div>
         </div>
