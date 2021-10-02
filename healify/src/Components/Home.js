@@ -34,7 +34,11 @@ export const Home = () => {
 
       <div className={styles["top-container"]}>
         <img className={styles.img} src={image} alt="image not found" />
-        <MDBRow className="row-cols-1 row-cols-md-4 g-4">
+        <MDBRow
+          className={
+            "row-cols-1 row-cols-md-4 row-cols-sm-2 g-4 " + styles.mdbCustom
+          }
+        >
           <MDBCol>
             <MDBCard className={styles.homecard}>
               <MDBCardImage src={quizimg} alt="..." position="top" />

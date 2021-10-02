@@ -4,7 +4,7 @@
   height: 100%;
   background-image: linear-gradient(to right, #d500f9, #ffd54f);
   background-repeat: no-repeat;
-}
+} */
 
 input,
 textarea {
@@ -56,13 +56,3 @@ a {
 a:hover {
   color: #000;
 }
-
-a {
-  color: blue;
-  font-family: "Open Sans", sans-serif;
-  margin: 10px 20px;
-  text-decoration: none;
-}
-a:hover {
-  color: #eaf6f6;
-} */

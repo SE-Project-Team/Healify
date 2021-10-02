@@ -10,9 +10,6 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/Registration">
-            <Registration />
-          </Route>
           <Route exact path="/">
             <Signup />
           </Route>
@@ -21,6 +18,9 @@ function App() {
           </Route>
           <Route path="/Quiz">
             <Quiz />
+          </Route>
+          <Route path="/Registration">
+            <Registration />
           </Route>
         </Switch>
       </Router>

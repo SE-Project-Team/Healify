@@ -24,7 +24,6 @@
 .top-container {
   background-color: #cef1ec;
   position: relative;
-  height: 2000px;
 }
 .navv {
   margin-top: 50px;
@@ -43,12 +42,13 @@
   background-color: white;
   color: #272727;
   padding: 20px;
-  align-self: center;
+  align-self: stretch;
   border-radius: 10px;
   border: 0px;
   border-color: rgb(206, 184, 180);
   border-style: solid;
   transition: 200ms;
+  min-height: 100%;
 }
 
 .img {
@@ -138,16 +138,23 @@
   margin-top: 20px;
   justify-content: space-between;
 }
-
+#l1 {
+}
 .like-text {
   font-size: small;
   margin-left: 10px;
 }
-
 .booklist {
   grid-template-columns: repeat(2, 1fr);
   /* align-items: start; */
 }
 .footer-link {
   padding: 5px;
+}
+
+.mdbCustom {
+  margin: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
 }
