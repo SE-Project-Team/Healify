@@ -1,8 +1,13 @@
 .header {
+  margin-bottom: 5px;
+  padding-bottom: 5px;
   min-height: 100%;
   display: flex;
   align-items: flex-end;
   background: linear-gradient(168deg, #ea4555 1%, #fa705c 89%);
+  position: sticky;
+  top: 0px;
+  z-index: 1;
 }
 .threeLineBtn {
   display: none;
@@ -101,14 +106,19 @@
   border: 0px;
   border-color: rgb(206, 184, 180);
   border-style: solid;
+  box-shadow: 2px 2px 4px 0px black;
   transition: 200ms;
   min-height: 100%;
 }
 
-.img {
+.homecard:hover {
+  position: relative;
+  top: 10px;
+  right: 10px;
+}
+.img img {
   width: 100%;
-  opacity: 0.7;
-  max-height: 600px;
+  opacity: 1;
 }
 .card {
   background-color: white;
@@ -206,7 +216,7 @@
 
 .mdbCustom {
   margin: auto;
-  padding: 10px;
+  padding: 20px;
   display: flex;
   justify-content: center;
 }
@@ -222,5 +232,11 @@
 
   .logo {
     margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    position: static;
   }
 }

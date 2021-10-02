@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../Assets/lady.jpg";
+import image from "../Assets/homePage.webp";
 import brainImg from "../Assets/brain.jpg";
 import styles from "./Quiz.module.css";
 import styles2 from "./Home.module.css";

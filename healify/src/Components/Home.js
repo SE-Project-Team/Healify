@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../Assets/lady.jpg";
+import image from "../Assets/homePage.webp";
 import logo from "../Assets/mentalhealth_icon_round.png";
 import quizimg from "../Assets/quiz.jpg";
 import newsimg from "../Assets/news.jpg";
@@ -23,10 +23,6 @@ export const Home = () => {
     <>
       <header className={styles.header}>
         <div className={styles.threeLineBtn}>
-          {/* <img
-            src="https://img-premium.flaticon.com/png/512/2099/premium/2099125.png?token=exp=1633186522~hmac=ea8a5b113f6d5be25177aa00ddfb8ba1"
-            alt=""
-          /> */}
           <ul className={styles.menuBtnCustom}>
             <li></li>
             <li></li>
@@ -51,7 +47,9 @@ export const Home = () => {
       </header>
 
       <div className={styles["top-container"]}>
-        <img className={styles.img} src={image} alt="image not found" />
+        <div className={styles.img}>
+          <img src={image} alt="image not found" />
+        </div>
         <MDBRow
           className={
             "row-cols-1 row-cols-md-4 row-cols-sm-2 g-4 " + styles.mdbCustom
