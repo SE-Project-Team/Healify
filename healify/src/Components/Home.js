@@ -1,6 +1,5 @@
 import React from "react";
 import image from "../Assets/lady.jpg";
-import brainImg from "../Assets/brain.jpg";
 import logo from "../Assets/mentalhealth_icon_round.png";
 import quizimg from "../Assets/quiz.jpg";
 import newsimg from "../Assets/news.jpg";
@@ -24,13 +23,15 @@ export const Home = () => {
     <>
       <header className={styles.header}>
         <img className={styles.logo} src={logo} />
-        <h1 className={styles.heading}>Healify</h1>
-        <a className={styles.login} href="">
-          Log In
-        </a>
+        <div>
+          <h1 className={styles.heading}>Healify</h1>
+        </div>
+        <ul className={"nav " + styles.settingsList}>
+          <li>Settings</li>
+          <li>Profile</li>
+        </ul>
       </header>
 
-      <br />
       <div className={styles["top-container"]}>
         <img className={styles.img} src={image} alt="image not found" />
         <MDBRow className="row-cols-1 row-cols-md-4 g-4">
