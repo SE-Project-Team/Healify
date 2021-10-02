@@ -2,6 +2,7 @@
   min-height: 100%;
   display: flex;
   align-items: flex-end;
+  background: linear-gradient(168deg, #ea4555 1%, #fa705c 89%);
 }
 .threeLineBtn {
   display: none;
@@ -18,17 +19,17 @@
   list-style: none;
   background: rgb(255, 255, 255);
   border-radius: 20%;
-  border: 2px solid #16a085;
+  border: 4px solid #db2929;
 }
 .menuBtnCustom li {
-  border-radius: 20%;
+  border-radius: 24px;
   margin: 2px;
-  width: 40px;
-  height: 10px;
-  background-image: linear-gradient(132deg, #eed77a 0%, #16a085 100%);
+  width: 30px;
+  height: 8px;
+  background-image: linear-gradient(168deg, #ea4555 1%, #fa705c 89%);
 }
 .menuBtnCustom li:hover {
-  background-image: linear-gradient(132deg, #f0ebd7 0%, #069c7e 100%);
+  background-image: linear-gradient(168deg, #e6505f 1%, #b85748 89%);
 }
 
 .menuBtnCustom:hover {
@@ -48,13 +49,32 @@
   margin: auto 0px;
   column-gap: 10px;
   margin-left: auto;
+  align-items: center;
 }
 .settingsList li {
   padding: 5px;
   margin: 1px;
-  box-shadow: 2px 2px 5px black;
+  color: white;
+  /* box-shadow: 2px 2px 5px black; */
 }
-
+.navLoginBtn {
+  margin: 2px;
+  border: 2px solid white;
+  border-radius: 20px;
+}
+.navLoginBtn:hover {
+  box-shadow: 2px 2px 7px 2px rgb(95, 18, 18);
+  font-size: 20px;
+}
+#navSignUp {
+  border: none;
+  background: white;
+  color: black;
+  padding: 10px;
+}
+#idLoginBtn {
+  padding: 10px;
+}
 .top-container {
   background-color: #cef1ec;
   position: relative;
@@ -191,7 +211,7 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 770px) {
   .settingsList {
     display: none;
   }
