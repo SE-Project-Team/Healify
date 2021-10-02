@@ -38,6 +38,17 @@
   font-size: 0.75rem;
   padding: 20px 0;
 }
+.homecard {
+  background-color: white;
+  color: #272727;
+  padding: 20px;
+  align-self: center;
+  border-radius: 10px;
+  border: 0px;
+  border-color: rgb(206, 184, 180);
+  border-style: solid;
+  transition: 200ms;
+}
 
 .img {
   width: 100%;
@@ -106,6 +117,8 @@
 .card-image {
   border-radius: 10px;
   margin-bottom: 10px;
+  height: 20px;
+
   margin-top: 10px;
 }
 .card-like-icon {
@@ -132,4 +145,7 @@
 .booklist {
   grid-template-columns: repeat(2, 1fr);
   /* align-items: start; */
+}
+.footer-link {
+  padding: 5px;
 }
