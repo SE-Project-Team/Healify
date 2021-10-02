@@ -2,12 +2,13 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Home } from "./Components/Home";
 import {Signup} from "./Components/Signup";
+import {Registration} from "./Components/Registration";
 function App() {
   return (
     <div className="App">
-      <Signup/>
+      <Registration/>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" /> 
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
