@@ -1,0 +1,103 @@
+.card {
+  border-radius: 0;
+  border: none;
+}
+
+.card1 {
+  width: 50%;
+  padding: 40px 30px 10px 30px;
+  background: #fff;
+}
+
+.card2 {
+  width: 50%;
+  background-image: linear-gradient(to right, #ffd54f, #d500f9);
+}
+
+#logo {
+  width: 70px;
+  height: 60px;
+}
+
+.heading {
+  margin-bottom: 60px !important;
+}
+
+.formControlLabel {
+  font-size: 12px;
+  margin-left: 15px;
+}
+
+.msg-info {
+  padding-left: 15px;
+  margin-bottom: 30px;
+}
+
+.btnColor {
+  border-radius: 50px;
+  color: #fff;
+  background-image: linear-gradient(to right, #ffd54f, #d500f9);
+  padding: 15px;
+  cursor: pointer;
+  border: none !important;
+  margin-top: 40px;
+}
+
+.btnColor:hover {
+  color: #fff;
+  background-image: linear-gradient(to right, #d500f9, #ffd54f);
+}
+
+.btnWhite {
+  border-radius: 50px;
+  color: #d500f9;
+  background-color: #fff;
+  padding: 8px 40px;
+  cursor: pointer;
+  border: 2px solid #d500f9 !important;
+}
+
+.btnWhite:hover {
+  color: #fff;
+  background-image: linear-gradient(to right, #ffd54f, #d500f9);
+}
+
+.bottom {
+  width: 100%;
+  margin-top: 50px !important;
+}
+
+.smText {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 992px) {
+  .card1 {
+    width: 100%;
+    padding: 40px 30px 10px 30px;
+  }
+
+  .card2 {
+    width: 100%;
+  }
+
+  .right {
+    margin-top: 100px !important;
+    margin-bottom: 100px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px !important;
+  }
+
+  .card2 {
+    padding: 50px;
+  }
+
+  .right {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+  }
+}
