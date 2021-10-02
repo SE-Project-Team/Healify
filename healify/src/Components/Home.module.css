@@ -3,8 +3,40 @@
   display: flex;
   align-items: flex-end;
 }
+.threeLineBtn {
+  display: none;
+  margin: auto 2px;
+}
+.threeLineBtn img {
+  height: 40px;
+  width: 40px;
+}
+.menuBtnCustom {
+  margin: 1px;
+  margin-left: 5px;
+  padding: 5px;
+  list-style: none;
+  background: rgb(255, 255, 255);
+  border-radius: 20%;
+  border: 2px solid #16a085;
+}
+.menuBtnCustom li {
+  border-radius: 20%;
+  margin: 2px;
+  width: 40px;
+  height: 10px;
+  background-image: linear-gradient(132deg, #eed77a 0%, #16a085 100%);
+}
+.menuBtnCustom li:hover {
+  background-image: linear-gradient(132deg, #f0ebd7 0%, #069c7e 100%);
+}
+
+.menuBtnCustom:hover {
+  background: rgb(255, 255, 255);
+}
 .heading {
   text-align: center;
+  margin: 10px;
 }
 .logo {
   margin-left: 25px;
@@ -18,7 +50,9 @@
   margin-left: auto;
 }
 .settingsList li {
-  border: black solid 1px;
+  padding: 5px;
+  margin: 1px;
+  box-shadow: 2px 2px 5px black;
 }
 
 .top-container {
@@ -138,8 +172,6 @@
   margin-top: 20px;
   justify-content: space-between;
 }
-#l1 {
-}
 .like-text {
   font-size: small;
   margin-left: 10px;
@@ -157,4 +189,18 @@
   padding: 10px;
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 570px) {
+  .settingsList {
+    display: none;
+  }
+
+  .threeLineBtn {
+    display: inline;
+  }
+
+  .logo {
+    margin-left: 15px;
+  }
 }

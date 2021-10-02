@@ -22,12 +22,24 @@ export const Home = () => {
   return (
     <>
       <header className={styles.header}>
+        <div className={styles.threeLineBtn}>
+          {/* <img
+            src="https://img-premium.flaticon.com/png/512/2099/premium/2099125.png?token=exp=1633186522~hmac=ea8a5b113f6d5be25177aa00ddfb8ba1"
+            alt=""
+          /> */}
+          <ul className={styles.menuBtnCustom}>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
         <img className={styles.logo} src={logo} />
         <div>
           <h1 className={styles.heading}>Healify</h1>
         </div>
         <ul className={"nav " + styles.settingsList}>
-          <li>Settings</li>
+          <li>About</li>
+          <li>Contact Us</li>
           <li>Profile</li>
         </ul>
       </header>
