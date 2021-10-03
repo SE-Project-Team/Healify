@@ -4,6 +4,7 @@ import { Home } from "./Components/Home";
 import { Signup } from "./Components/Signup";
 import { Registration } from "./Components/Registration";
 import { Quiz } from "./Components/Quiz";
+import { Memes } from "./Components/Memes";
 import "./App.css";
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/Registration">
             <Registration />
+          </Route>
+          <Route path="/Memes">
+            <Memes />
           </Route>
         </Switch>
       </Router>
