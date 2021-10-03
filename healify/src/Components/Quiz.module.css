@@ -1,6 +1,6 @@
 .quizcontainer {
   /* position: absolute; */
-  width: 800px;
+  max-width: 800px;
   height: 500px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
@@ -13,6 +13,9 @@
   right: 0px;
   margin: auto;
   text-align: initial;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 
 .quiztitle {
@@ -38,7 +41,15 @@
   box-sizing: border-box;
   background-color: rgb(250, 250, 250);
 }
-
+.quizForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+.quizForm label {
+  margin-left: 5px;
+}
 .quizanswerBtn {
   position: relative;
   padding: 10px;
@@ -68,7 +79,9 @@
 }
 
 .playBtn {
-  position: absolute;
+  /* position: absolute; */
+  display: flex;
+  justify-content: center;
   font-size: 1.4em;
   padding: 10px;
   top: 350px;
@@ -77,7 +90,10 @@
   width: 150px;
   left: 0px;
   right: 0px;
-  margin: auto;
+  /* margin: 0px auto; */
+  margin-top: auto;
+  margin: auto 20px 20px 0px;
   outline: none;
   cursor: pointer;
+  align-self: flex-end;
 }
