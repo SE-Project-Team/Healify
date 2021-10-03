@@ -48,7 +48,7 @@ export const Home = () => {
 
       <div className={styles["top-container"]}>
         <div className={styles.img}>
-          <img src={image} alt="image not found" />
+          <img src={image} alt="home-image" />
         </div>
         <MDBRow
           className={
