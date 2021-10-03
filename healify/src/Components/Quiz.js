@@ -1,5 +1,4 @@
-import React from "react";
-import image from "../Assets/homePage.webp";
+import React, { Component } from "react";
 import brainImg from "../Assets/brain.jpg";
 import styles from "./Quiz.module.css";
 import styles2 from "./Home.module.css";
@@ -8,10 +7,21 @@ import SpecificQuestion from "./Quiz/Question";
 import { useState } from "react";
 
 export const Quiz = () => {
-  let i = 0;
-  const [arr, setArr] = useState(Questions);
-  const [que, setQue] = useState(Questions[0]);
+  const [option, setOption] = useState(-1);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setOption(value);
+    console.log(option);
+  };
+  const [counter, setCounter] = useState(0);
+  const [que, setQue] = useState(Questions[counter]);
   console.log(Questions);
+  const newQue = () => {
+    setCounter(counter + 1);
+    if (counter < 12) {
+      setQue(Questions[counter]);
+    }
+  };
   return (
     <>
       <header>
@@ -22,11 +32,45 @@ export const Quiz = () => {
         </a>
       </header>
       <div className={styles.quizcontainer}>
-        <SpecificQuestion key={que.id} {...que}></SpecificQuestion>
-        <button
-          className={styles.playBtn}
-          onClick={() => setQue(Questions[++i])}
-        >
+        <div>
+          <h1 className={styles.quizquestionBox}>{que.que}</h1>
+          <input
+            type="radio"
+            value={que.op1}
+            name={que}
+            onChange={handleChange}
+          />{" "}
+          {que.op1}
+          <input
+            type="radio"
+            value={que.op2}
+            name={que}
+            onChange={handleChange}
+          />{" "}
+          {que.op2}
+          <input
+            type="radio"
+            value={que.op3}
+            name={que}
+            onChange={handleChange}
+          />{" "}
+          {que.op3}
+          <input
+            type="radio"
+            value={que.op4}
+            name={que}
+            onChange={handleChange}
+          />{" "}
+          {que.op4}
+          <input
+            type="radio"
+            value={que.op4}
+            name={que}
+            onChange={handleChange}
+          />{" "}
+          {que.op5}
+        </div>
+        <button className={styles.playBtn} onClick={newQue}>
           Next
         </button>
       </div>
