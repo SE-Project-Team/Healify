@@ -13,7 +13,6 @@ export const Quiz = () => {
     setOption(value);
     console.log(option);
   };
-  let i = 0;
   const [counter, setCounter] = useState(0);
   const [que, setQue] = useState(Questions[counter]);
   console.log(Questions);
