@@ -14,13 +14,21 @@ export const Quiz = () => {
     setOption(value);
     console.log(option);
   };
-  const [counter, setCounter] = useState(0);
-  const [que, setQue] = useState(Questions[counter]);
+  //Counter for Number of Questions
+  const [counter, setCounter] = useState(1);
+  const [questionSet, setQuestionSet] = useState(Questions);
+  const [que, setQue] = useState(Questions[0]);
 
   const newQue = () => {
     setCounter(counter + 1);
-    if (counter < 79) {
-      setQue(Questions[counter]);
+    const newQuestionSet = questionSet.filter((qn) => que.id !== qn.id);
+    setQuestionSet(newQuestionSet);
+    setQue(questionSet[Math.floor(Math.random() * questionSet.length) + 1]);
+    console.log(que.id);
+    if (counter == 10) {
+      //TODO Submit();
+      console.log("10 qns over");
+      setCounter(0);
     }
   };
   return (
@@ -51,69 +59,8 @@ export const Quiz = () => {
       </header>
       <div className={styles.quizcontainer}>
         <div>
-          <h1 className={styles.quizquestionBox}>{que.que}</h1>
           <form action="" className={styles.quizForm}>
-            <div>
-              <input
-                type="radio"
-                id={1}
-                value={que.op1}
-                name={que}
-                onChange={handleChange}
-              />{" "}
-              <label for={1} htmlFor={que.op1}>
-                {que.op1}
-              </label>
-            </div>
-
-            <div>
-              <input
-                id={2}
-                type="radio"
-                value={que.op2}
-                name={que}
-                onChange={handleChange}
-              />{" "}
-              <label for={2} htmlFor={que.op2}>
-                {que.op2}
-              </label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                id={3}
-                value={que.op3}
-                name={que}
-                onChange={handleChange}
-              />{" "}
-              <label for={3} htmlFor={que.op3}>
-                {que.op3}
-              </label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                id={4}
-                value={que.op4}
-                name={que}
-                onChange={handleChange}
-              />{" "}
-              <label for={4} htmlFor={que.op4}>
-                {que.op4}
-              </label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                value={que.op5}
-                id={5}
-                name={que}
-                onChange={handleChange}
-              />{" "}
-              <label for={5} htmlFor={que.op5}>
-                {que.op5}
-              </label>
-            </div>
+            <SpecificQuestion qnObject={que} onChangeHandle={handleChange} />
           </form>
         </div>
         <button className={styles.playBtn} onClick={newQue}>

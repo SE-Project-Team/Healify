@@ -1,7 +1,7 @@
 .quizcontainer {
   /* position: absolute; */
   max-width: 800px;
-  height: 500px;
+  flex-basis: 500px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
