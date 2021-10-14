@@ -16,22 +16,15 @@ export const Quiz = () => {
   };
   const [counter, setCounter] = useState(0);
   const [que, setQue] = useState(Questions[counter]);
-  console.log(Questions);
+
   const newQue = () => {
     setCounter(counter + 1);
-    if (counter < 12) {
+    if (counter < 79) {
       setQue(Questions[counter]);
     }
   };
   return (
     <>
-      {/* <header>
-        <img className={styles2.logo} src={brainImg} />
-        <h1 className={styles2.heading}>Healify</h1>
-        <a className={styles2.login} href="">
-          Log In
-        </a>
-      </header> */}
       <header className={styles2.header}>
         <div className={styles2.threeLineBtn}>
           <ul className={styles2.menuBtnCustom}>

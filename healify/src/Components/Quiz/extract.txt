@@ -1,4 +1,4 @@
-  ["How often do you experience headaches?","Never", "Once or twice a month","Once a week","2-3 times per week","Almost everyday"]
+      ["How often do you experience headaches?","Never", "Once or twice a month","Once a week","2-3 times per week","Almost everyday"]
       ["How often do you experience tense muscles, sore back and neck?", "Never", "Once or twice a month","Once a week","2-3 times per week","Almost everyday"]
       ["How often do you experience fatigue?", "Never", "Once or twice a month","Once a week","2-3 times per week","Almost everyday"]
       ["How often do you experience anxiety, worry or phobias?", "Never", "Once or twice a month","Once a week","2-3 times per week","Almost everyday"]
