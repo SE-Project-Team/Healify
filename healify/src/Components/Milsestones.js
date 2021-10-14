@@ -4,9 +4,11 @@ export const Milestones = () => {
   return (
       <div>
          <div className={styles["sidebar-container"]}>
-  <div className={styles["sidebar-logo"]}>
+             
+  <div className={styles["sidebar-logo"]}  >
     Milestones
   </div>
+  
   <ul className={styles["sidebar-navigation"]}>
     <li className={styles.header}>Navigation</li>
     <li>
@@ -18,6 +20,7 @@ export const Milestones = () => {
       <a href="#">
         <i className="fa fa-tachometer" aria-hidden="true"></i> Create New
       </a>
+      
     </li>
     <li>
       <a href="#">
@@ -26,7 +29,7 @@ export const Milestones = () => {
     </li>
     <li>
       <a href="#">
-        <i className="fa fa-tachometer" aria-hidden="true"></i> Route Map
+        <i className="fa fa-tachometer" aria-hidden="true" ></i> Route Map
       </a>
     </li>
     <li className={styles.header}>Another Menu</li>
@@ -46,8 +49,11 @@ export const Milestones = () => {
 <div className={styles["content-container"]}>
 
   <div className={styles["container-fluid"]}>
-    <div className={styles.jumbotron}>
-      <h1> Milestones</h1>
+    <div className={styles["top-right"]}>
+      <h3>Direction is more important than speed<br/>
+         we are busy looking at our speedometers<br/>
+         that we forget the milestone.
+      </h3>
     </div>
 
   </div>

@@ -27,6 +27,9 @@ function App() {
           <Route path="/Memes">
             <Memes />
           </Route>
+          <Route path="/Signup">
+            <Signup />
+          </Route>
           <Route path="/Milestones">
             <Milestones />
           </Route>
