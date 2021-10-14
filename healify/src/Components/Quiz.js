@@ -19,7 +19,7 @@ export const Quiz = () => {
 
   const newQue = () => {
     setCounter(counter + 1);
-    if (counter < 12) {
+    if (counter < 79) {
       setQue(Questions[counter]);
     }
   };
