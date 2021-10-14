@@ -646,13 +646,15 @@ var ques = [
     "Very Often",
   ],
 ];
+
 function toObject(arr, attr) {
   var rv = {};
   rv["id"] = id++;
   for (var i = 0; i < arr.length; ++i) rv[attr[i]] = arr[i];
   return rv;
 }
+
 for (var i = 0; i < ques.length; i++) {
   ques[i] = toObject(ques[i], attr);
-  console.log(ques[i]);
+  //console.log(ques[i]);
 }
