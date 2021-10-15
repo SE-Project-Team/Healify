@@ -9,6 +9,7 @@ import gameimg from "../Assets/games.jpg";
 import statsimg from "../Assets/stats.jpg";
 import styles from "./Home.module.css";
 import milestoneimg from "../Assets/milestone.jpg";
+import { useState, useEffect } from "react";
 import {
   MDBCard,
   MDBCardImage,
@@ -18,11 +19,24 @@ import {
   MDBRow,
   MDBCol,
 } from "mdb-react-ui-kit";
+
 const vector2 = "/src/Assets/TrialVector.png";
+
 export const Home = () => {
+  const scrollHandler = () => {
+    if (scrollClass === "" && window.scrollY > 100) {
+      setScrollClass(styles.whiteHeader);
+    } else if (window.scrollY <= 100) {
+      setScrollClass("");
+    }
+  };
+  const [scrollClass, setScrollClass] = useState("");
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler);
+  }, []);
   return (
     <>
-      <header className={styles.header}>
+      <header className={styles.header + " " + scrollClass}>
         <div className={styles.threeLineBtn}>
           <ul className={styles.menuBtnCustom}>
             <li></li>

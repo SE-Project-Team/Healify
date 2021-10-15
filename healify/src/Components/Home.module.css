@@ -6,9 +6,20 @@
   align-items: flex-end;
   /* background: linear-gradient(168deg, #ea4555 1%, #fa705c 89%); */
   background-image: url("/src/Assets/TrialVector.png");
-  position: sticky;
+  position: relative;
   top: 0px;
   z-index: 1;
+}
+
+.whiteHeader {
+  position: sticky;
+  top: 0px;
+  background: white;
+  transition: background-color 0.5s;
+}
+
+.whiteHeader ul li {
+  color: black;
 }
 .banner {
   background-image: url("/src/Assets/Trial2.png");
