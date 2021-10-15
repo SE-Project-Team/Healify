@@ -1,5 +1,4 @@
 .quizcontainer {
-  /* position: absolute; */
   max-width: 800px;
   flex-basis: 500px;
   border: 1px solid rgba(0, 0, 0, 0.2);
