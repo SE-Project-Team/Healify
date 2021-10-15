@@ -4,7 +4,7 @@ import logo from "../Assets/mentalhealth_icon_round.png";
 import styles from "./Quiz.module.css";
 import styles2 from "./Home.module.css";
 import SpecificQuestion from "./Quiz/Question";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Quiz = (props) => {
   const Questions = props.questions;
@@ -20,18 +20,27 @@ export const Quiz = (props) => {
   const [que, setQue] = useState(Questions[0]);
 
   const newQue = () => {
-    console.log(questionSet);
-    setCounter(counter + 1);
+    setCounter(() => counter + 1);
+    // counter will be updated
     const newQuestionSet = questionSet.filter((qn) => que.id !== qn.id);
     setQuestionSet(newQuestionSet);
-    setQue(questionSet[Math.floor(Math.random() * questionSet.length) - 1]);
-    console.log(que.id);
+    // state -> we expect it to be updated but its not
+    let rand1 = Math.floor(Math.random() * newQuestionSet.length);
+
+    console.log(rand1);
+    setQue(newQuestionSet[rand1] || Questions[0]);
     if (counter == 5) {
       //TODO Submit();
       console.log("5 qns over");
-      setCounter(0);
+      setCounter(() => 0);
     }
   };
+  useEffect(() => {
+    // runs after return/render
+    console.log(questionSet);
+    console.log(que.id);
+    console.log(que);
+  });
   return (
     <>
       <header className={styles2.header}>
