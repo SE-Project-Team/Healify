@@ -1,6 +1,7 @@
 import React from "react";
 import image from "../Assets/homePage.webp";
 import logo from "../Assets/mentalhealth_icon_round.png";
+import vector from "../Assets/Trial2.png";
 import quizimg from "../Assets/quiz.jpg";
 import newsimg from "../Assets/news.jpg";
 import memeimg from "../Assets/meme.jpg";
@@ -17,7 +18,7 @@ import {
   MDBRow,
   MDBCol,
 } from "mdb-react-ui-kit";
-
+const vector2 = "/src/Assets/TrialVector.png";
 export const Home = () => {
   return (
     <>
@@ -49,6 +50,7 @@ export const Home = () => {
       <div className={styles["top-container"]}>
         <div className={styles.img}>
           <img src={image} alt="home-image" />
+          <h1 className={styles.banner}>"Life is Beautiful"</h1>
         </div>
         <MDBRow
           className={

@@ -4,10 +4,19 @@
   min-height: 100%;
   display: flex;
   align-items: flex-end;
-  background: linear-gradient(168deg, #ea4555 1%, #fa705c 89%);
+  /* background: linear-gradient(168deg, #ea4555 1%, #fa705c 89%); */
+  background-image: url("/src/Assets/TrialVector.png");
   position: sticky;
   top: 0px;
   z-index: 1;
+}
+.banner {
+  background-image: url("/src/Assets/Trial2.png");
+  background-size: 100%;
+  height: 200px;
+  padding-top: 20px;
+  text-align: center;
+  background-repeat: no-repeat;
 }
 .threeLineBtn {
   display: none;
