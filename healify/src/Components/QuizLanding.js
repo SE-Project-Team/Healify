@@ -40,7 +40,7 @@ export const QuizLanding = () => {
           </li>
         </ul>
       </header>
-      <body className={styles3.quizBody}>
+      <div className={styles3.quizBody}>
         <div className={styles3.topDiv}>
           <img src={img} alt="" />
           <p>
@@ -85,7 +85,7 @@ export const QuizLanding = () => {
             <p>Stress and Anxiety</p>
           </div>
         </div>
-      </body>
+      </div>
     </>
   );
 };

@@ -3,11 +3,11 @@ import brainImg from "../Assets/brain.jpg";
 import logo from "../Assets/mentalhealth_icon_round.png";
 import styles from "./Quiz.module.css";
 import styles2 from "./Home.module.css";
-import { Questions } from "./Quiz/Questions";
 import SpecificQuestion from "./Quiz/Question";
 import { useState } from "react";
 
-export const Quiz = () => {
+export const Quiz = (props) => {
+  const Questions = props.questions;
   const [option, setOption] = useState(-1);
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,14 +20,15 @@ export const Quiz = () => {
   const [que, setQue] = useState(Questions[0]);
 
   const newQue = () => {
+    console.log(questionSet);
     setCounter(counter + 1);
     const newQuestionSet = questionSet.filter((qn) => que.id !== qn.id);
     setQuestionSet(newQuestionSet);
-    setQue(questionSet[Math.floor(Math.random() * questionSet.length) + 1]);
+    setQue(questionSet[Math.floor(Math.random() * questionSet.length) - 1]);
     console.log(que.id);
-    if (counter == 10) {
+    if (counter == 5) {
       //TODO Submit();
-      console.log("10 qns over");
+      console.log("5 qns over");
       setCounter(0);
     }
   };
@@ -57,7 +58,7 @@ export const Quiz = () => {
           </li>
         </ul>
       </header>
-      <body className={styles.quizBody}>
+      <div className={styles.quizBody}>
         <div className={styles.quizcontainer}>
           <div>
             <form action="" className={styles.quizForm}>
@@ -68,7 +69,7 @@ export const Quiz = () => {
             Next
           </button>
         </div>
-      </body>
+      </div>
     </>
   );
 };
