@@ -42,7 +42,7 @@ export const QuizLanding = () => {
       </header>
       <div className={styles3.quizBody}>
         <div className={styles3.topDiv}>
-          <img src={img} alt="" />
+          <img src={img} alt="" className={styles3.topDivImg} />
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
             neque dolor, praesentium quasi repellat dolore molestiae error
