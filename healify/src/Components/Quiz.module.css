@@ -16,6 +16,11 @@
   display: flex;
   flex-direction: column;
   justify-content: start;
+  background-color: white;
+}
+.quizBody {
+  height: 1000px;
+  background-color: rgb(243, 243, 247);
 }
 
 .quiztitle {

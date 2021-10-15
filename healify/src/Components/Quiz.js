@@ -57,16 +57,18 @@ export const Quiz = () => {
           </li>
         </ul>
       </header>
-      <div className={styles.quizcontainer}>
-        <div>
-          <form action="" className={styles.quizForm}>
-            <SpecificQuestion qnObject={que} onChangeHandle={handleChange} />
-          </form>
+      <body className={styles.quizBody}>
+        <div className={styles.quizcontainer}>
+          <div>
+            <form action="" className={styles.quizForm}>
+              <SpecificQuestion qnObject={que} onChangeHandle={handleChange} />
+            </form>
+          </div>
+          <button className={styles.playBtn} onClick={newQue}>
+            Next
+          </button>
         </div>
-        <button className={styles.playBtn} onClick={newQue}>
-          Next
-        </button>
-      </div>
+      </body>
     </>
   );
 };

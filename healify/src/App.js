@@ -6,6 +6,7 @@ import { Registration } from "./Components/Registration";
 import { Quiz } from "./Components/Quiz";
 import { Memes } from "./Components/Memes";
 import { Milestones } from "./Components/Milsestones";
+import { QuizLanding } from "./Components/QuizLanding";
 import "./App.css";
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route path="/Milestones">
             <Milestones />
+          </Route>
+          <Route path="/QuizLanding">
+            <QuizLanding />
           </Route>
         </Switch>
       </Router>
