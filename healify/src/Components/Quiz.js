@@ -23,8 +23,6 @@ export const Quiz = (props) => {
 
   const newQue = () => {
     setCounter(() => counter + 1);
-
-    // counter will be updated
     const newQuestionSet = questionSet.filter((qn) => que.id !== qn.id);
     setQuestionSet(newQuestionSet);
     // state -> we expect it to be updated but its not
