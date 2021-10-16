@@ -4,7 +4,7 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  padding: 10px;
+  padding: 25px;
   box-sizing: border-box;
   top: 0px;
   bottom: 0px;
@@ -104,8 +104,32 @@
   right: 0px;
   /* margin: 0px auto; */
   margin-top: auto;
-  margin: auto 20px 20px 0px;
   outline: none;
   cursor: pointer;
   align-self: flex-end;
+}
+
+.warning {
+  visibility: hidden;
+  align-self: center;
+  margin: auto;
+  margin-right: 10px;
+  font-size: 1em;
+  font-family: cursive;
+  color: white;
+  background-color: tomato;
+  padding: 10px;
+  border-radius: 1em;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.warningShow {
+  visibility: visible;
+  opacity: 1;
+}
+
+.btnWarningPair {
+  display: flex;
+  margin-left: auto;
 }

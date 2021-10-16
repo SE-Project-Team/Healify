@@ -49,9 +49,9 @@ export const Score = (props) => {
         </ul>
       </header>
       <div className={styles.quizcontainer}>
-        <h1 class={styles.counter}>Overall Score: {str}</h1>
+        <h1 className={styles.counter}>Overall Score: {str}</h1>
         <div>
-          <h3 class={styles.counter}> Your score is {score}/25</h3>
+          <h3 className={styles.counter}> Your score is {score}/25</h3>
         </div>
       </div>
     </>

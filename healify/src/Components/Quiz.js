@@ -3,11 +3,12 @@ import logo from "../Assets/mentalhealth_icon_round.png";
 import styles from "./Quiz.module.css";
 import styles2 from "./Home.module.css";
 import SpecificQuestion from "./Quiz/Question";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Score } from "./Score";
 
 export const Quiz = (props) => {
   const Questions = props.questions;
+  const [warning, setWarning] = useState(-1);
   const [option, setOption] = useState(0);
   const [score, setScore] = useState(0);
   const handleChange = (e) => {
@@ -15,6 +16,7 @@ export const Quiz = (props) => {
     setOption(value);
     console.log(option);
     setScore(() => score + parseInt(value));
+    setWarning(0);
   };
   //Counter for Number of Questions
   const [counter, setCounter] = useState(1);
@@ -22,13 +24,27 @@ export const Quiz = (props) => {
   const [que, setQue] = useState(Questions[0]);
 
   const newQue = () => {
-    setCounter(() => counter + 1);
-    const newQuestionSet = questionSet.filter((qn) => que.id !== qn.id);
-    setQuestionSet(newQuestionSet);
-    // state -> we expect it to be updated but its not
-    let rand1 = Math.floor(Math.random() * newQuestionSet.length);
-    setQue(newQuestionSet[rand1] || Questions[0]);
-    setOption(0);
+    if (warning === -1 || warning === 1) {
+      setWarning(1);
+      setTimeout(() => {
+        setWarning((warning) => {
+          if (warning === 0) {
+            return;
+          } else {
+            setWarning(-1);
+          }
+        });
+      }, 2000);
+    } else {
+      setCounter(() => counter + 1);
+      const newQuestionSet = questionSet.filter((qn) => que.id !== qn.id);
+      setQuestionSet(newQuestionSet);
+      // state -> we expect it to be updated but its not
+      let rand1 = Math.floor(Math.random() * newQuestionSet.length);
+      setQue(newQuestionSet[rand1] || Questions[0]);
+      setOption(0);
+      setWarning(-1);
+    }
   };
 
   return (
@@ -72,9 +88,21 @@ export const Quiz = (props) => {
                   />
                 </form>
               </div>
-              <button className={styles.playBtn} onClick={newQue}>
-                Next
-              </button>
+              <div className={styles.btnWarningPair}>
+                <h5
+                  className={
+                    styles.warning +
+                    " " +
+                    (warning === 1 ? styles.warningShow : "")
+                  }
+                >
+                  Select an option
+                </h5>
+
+                <button className={styles.playBtn} onClick={newQue}>
+                  Next
+                </button>
+              </div>
             </div>
           </div>
         </>
