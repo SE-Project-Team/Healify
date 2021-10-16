@@ -2,12 +2,12 @@
 // import { NewsContextProvider } from "./NewsContext";
 // import News from "./News";
 
-// function Newsfinal() {
+function Newsfinal() {
 //   return (
 //     <NewsContextProvider>
 //       <News />
 //     </NewsContextProvider>
 //   );
-// }
+}
 
-// export default Newsfinal;
+export default Newsfinal;
