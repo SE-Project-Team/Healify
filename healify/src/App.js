@@ -13,8 +13,9 @@ import { Questions2 } from "./Components/Quiz/QueCategory2";
 import { Questions3 } from "./Components/Quiz/QueCategory3";
 import { Questions4 } from "./Components/Quiz/QueCategory4";
 import { Score } from "./Components/Score";
+import Newsfinal from "./Components/News/NewsFinal";
 import "./App.css";
-import { useState } from "react";
+
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Signup />
+          </Route>
+          <Route exact path="/News">
+            <Newsfinal />
           </Route>
           <Route path="/Home">
             <Home />
