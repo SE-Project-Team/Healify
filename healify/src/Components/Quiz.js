@@ -4,7 +4,7 @@ import styles from "./Quiz.module.css";
 import styles2 from "./Home.module.css";
 import SpecificQuestion from "./Quiz/Question";
 import { useState, useEffect } from "react";
-import { Score } from "./Quiz/Score";
+import { Score } from "./Score";
 
 export const Quiz = (props) => {
   const Questions = props.questions;

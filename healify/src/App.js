@@ -11,7 +11,7 @@ import { Questions1 } from "./Components/Quiz/QueCategory1";
 import { Questions2 } from "./Components/Quiz/QueCategory2";
 import { Questions3 } from "./Components/Quiz/QueCategory3";
 import { Questions4 } from "./Components/Quiz/QueCategory4";
-import { Score } from "./Components/Quiz/Score";
+import { Score } from "./Components/Score";
 import "./App.css";
 import { useState } from "react";
 
