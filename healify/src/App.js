@@ -8,6 +8,7 @@ import { Memes } from "./Components/Memes";
 import { Milestones } from "./Components/Milsestones";
 import { QuizLanding } from "./Components/QuizLanding";
 import { Questions } from "./Components/Quiz/Questions";
+import {Create } from "./Components/Create";
 import "./App.css";
 import { useState } from "react";
 
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route path="/Milestones">
             <Milestones />
+          </Route>
+          <Route path="/Create">
+            <Create />
           </Route>
           <Route path="/QuizLanding">
             <QuizLanding />
