@@ -1,7 +1,4 @@
-import React, { useContext } from "react";
-import { NewsContext } from "./NewsContext";
-import NewsArticle from "./NewsArticle";
-import newsstyles from "./News.module.css";
+
 
 function News(props) {
   const { data } = useContext(NewsContext);
