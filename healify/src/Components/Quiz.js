@@ -59,7 +59,9 @@ export const Quiz = (props) => {
             </ul>
           </header>
           <div className={styles.quizBody}>
+            <h2 className={styles.heading}>{props.category}</h2>
             <div className={styles.quizcontainer}>
+              <h4 class={styles.counter}>{counter}/5</h4>
               <div>
                 <form action="" className={styles.quizForm}>
                   <SpecificQuestion

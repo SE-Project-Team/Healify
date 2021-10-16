@@ -42,16 +42,22 @@ function App() {
             <QuizLanding />
           </Route>
           <Route path="/Quiz1">
-            <Quiz questions={Questions1} />
+            <Quiz
+              category={"Ill Being and Well Being"}
+              questions={Questions1}
+            />
           </Route>
           <Route path="/Quiz2">
-            <Quiz questions={Questions2} />
+            <Quiz category={"Control and Coping"} questions={Questions2} />
           </Route>
           <Route path="/Quiz3">
-            <Quiz questions={Questions3} />
+            <Quiz
+              category={"Relationships and Belonging"}
+              questions={Questions3}
+            />
           </Route>
           <Route path="/Quiz4">
-            <Quiz questions={Questions4} />
+            <Quiz category={"Self Perception"} questions={Questions4} />
           </Route>
           <Route path="/Score">
             <Score />
