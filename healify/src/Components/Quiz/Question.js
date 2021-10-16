@@ -18,7 +18,7 @@ const Question = ({ qnObject, onChangeHandle }) => {
           <input
             type="radio"
             id={1}
-            value={qnObject.op1}
+            value={1}
             name={qnObject}
             onChange={onChangeHandle}
           />{" "}
@@ -29,7 +29,7 @@ const Question = ({ qnObject, onChangeHandle }) => {
           <input
             id={2}
             type="radio"
-            value={qnObject.op2}
+            value={2}
             name={qnObject}
             onChange={onChangeHandle}
           />{" "}
@@ -39,7 +39,7 @@ const Question = ({ qnObject, onChangeHandle }) => {
           <input
             type="radio"
             id={3}
-            value={qnObject.op3}
+            value={3}
             name={qnObject}
             onChange={onChangeHandle}
           />{" "}
@@ -49,7 +49,7 @@ const Question = ({ qnObject, onChangeHandle }) => {
           <input
             type="radio"
             id={4}
-            value={qnObject.op4}
+            value={4}
             name={qnObject}
             onChange={onChangeHandle}
           />{" "}
@@ -58,7 +58,7 @@ const Question = ({ qnObject, onChangeHandle }) => {
         <div>
           <input
             type="radio"
-            value={qnObject.op5}
+            value={5}
             id={5}
             name={qnObject}
             onChange={onChangeHandle}

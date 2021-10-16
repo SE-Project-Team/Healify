@@ -9,6 +9,11 @@ import { Milestones } from "./Components/Milsestones";
 import { QuizLanding } from "./Components/QuizLanding";
 import { Questions } from "./Components/Quiz/Questions";
 import {Create } from "./Components/Create";
+import { Questions1 } from "./Components/Quiz/QueCategory1";
+import { Questions2 } from "./Components/Quiz/QueCategory2";
+import { Questions3 } from "./Components/Quiz/QueCategory3";
+import { Questions4 } from "./Components/Quiz/QueCategory4";
+import { Score } from "./Components/Score";
 import "./App.css";
 import { useState } from "react";
 
@@ -22,9 +27,6 @@ function App() {
           </Route>
           <Route path="/Home">
             <Home />
-          </Route>
-          <Route path="/Quiz">
-            <Quiz questions={Questions.slice(0, 79)} />
           </Route>
           <Route path="/Registration">
             <Registration />
@@ -45,28 +47,25 @@ function App() {
             <QuizLanding />
           </Route>
           <Route path="/Quiz1">
-            <Quiz questions={Questions.slice(0, 12)} />
+            <Quiz
+              category={"Ill Being and Well Being"}
+              questions={Questions1}
+            />
           </Route>
           <Route path="/Quiz2">
-            <Quiz questions={Questions.slice(12, 19)} />
+            <Quiz category={"Control and Coping"} questions={Questions2} />
           </Route>
           <Route path="/Quiz3">
-            <Quiz questions={Questions.slice(19, 27)} />
+            <Quiz
+              category={"Relationships and Belonging"}
+              questions={Questions3}
+            />
           </Route>
           <Route path="/Quiz4">
-            <Quiz questions={Questions.slice(27, 34)} />
+            <Quiz category={"Self Perception"} questions={Questions4} />
           </Route>
-          <Route path="/Quiz5">
-            <Quiz questions={Questions.slice(34, 43)} />
-          </Route>
-          <Route path="/Quiz6">
-            <Quiz questions={Questions.slice(43, 48)} />
-          </Route>
-          <Route path="/Quiz7">
-            <Quiz questions={Questions.slice(48, 69)} />
-          </Route>
-          <Route path="/Quiz8">
-            <Quiz questions={Questions.slice(69, 79)} />
+          <Route path="/Score">
+            <Score />
           </Route>
         </Switch>
       </Router>

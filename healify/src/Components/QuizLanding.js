@@ -58,31 +58,34 @@ export const QuizLanding = () => {
           </div>
           <div className={styles3.category}>
             <img className={styles3.logo} src={phyImg} alt="" />
-            <p>Physical Health</p>
+            <p>Control and Coping</p>
           </div>
           <div className={styles3.category}>
             <img className={styles3.logo} src={controlImg} alt="" />
-            <p>Control</p>
-          </div>
-          <div className={styles3.category}>
-            <img className={styles3.logo} src={copingImg} alt="" />
-            <p>Active Coping</p>
-          </div>
-          <div className={styles3.category}>
-            <img className={styles3.logo} src={relationshipsImg} alt="" />
             <p>Relationships and Belonging</p>
           </div>
           <div className={styles3.category}>
-            <img className={styles3.logo} src={hopeImg} alt="" />
-            <p>Hope and Hopelessness</p>
-          </div>
-          <div className={styles3.category}>
-            <img className={styles3.logo} src={percepImg} alt="" />
+            <img className={styles3.logo} src={copingImg} alt="" />
             <p>Self Perception</p>
           </div>
+        </div>
+        <h1 className={styles3.heading}>View statistics by category</h1>
+        <div className={styles3.container}>
           <div className={styles3.category}>
-            <img className={styles3.logo} src={stressImg} alt="" />
-            <p>Stress and Anxiety</p>
+            <img className={styles3.logo} src={illImg} alt="" />
+            <p>Ill being and Well being</p>
+          </div>
+          <div className={styles3.category}>
+            <img className={styles3.logo} src={phyImg} alt="" />
+            <p>Control and Coping</p>
+          </div>
+          <div className={styles3.category}>
+            <img className={styles3.logo} src={controlImg} alt="" />
+            <p>Relationships and Belonging</p>
+          </div>
+          <div className={styles3.category}>
+            <img className={styles3.logo} src={copingImg} alt="" />
+            <p>Self Perception</p>
           </div>
         </div>
       </div>
