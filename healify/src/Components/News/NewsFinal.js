@@ -5,7 +5,7 @@
 function Newsfinal() {
    return (
      <NewsContextProvider>
-//       <News />
+       <News />
 //     </NewsContextProvider>
    );
 }
