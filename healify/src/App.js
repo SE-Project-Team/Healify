@@ -7,7 +7,7 @@ import { Quiz } from "./Components/Quiz";
 import { Memes } from "./Components/Memes";
 import { Milestones } from "./Components/Milsestones";
 import { QuizLanding } from "./Components/QuizLanding";
-import { Questions } from "./Components/Quiz/Questions";
+import { Questions } from "./Components/Quiz/QueCategory1";
 import "./App.css";
 import { useState } from "react";
 
