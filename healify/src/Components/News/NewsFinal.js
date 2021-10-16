@@ -3,11 +3,11 @@
  import News from "./News";
 
 function Newsfinal() {
-//   return (
+   return (
 //     <NewsContextProvider>
 //       <News />
 //     </NewsContextProvider>
-//   );
+   );
 }
 
 export default Newsfinal;
