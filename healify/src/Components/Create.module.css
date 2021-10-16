@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-body {
+.wrapperBody {
   line-height: 1.5;
   font-weight: 300;
   background-image: linear-gradient(#22c1c3, #fdbb2d);
@@ -7,9 +7,7 @@ body {
 }
 
 .note {
-  max-width: 1000px;
-  margin: 3rem auto;
-  padding: 0 1.5rem;
+  padding: 20px;
 }
 
 .note h2 {
