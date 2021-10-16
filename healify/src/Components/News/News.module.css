@@ -1,4 +1,4 @@
-/* .bodyy,.news
+.bodyy,.news
 {
   margin: 0;
   padding: 0;
@@ -52,7 +52,7 @@
   width: fit-content;
 }
 
-.news__author {
+/* .news__author {
   margin-right: 10px;
   color: purple;
 }
