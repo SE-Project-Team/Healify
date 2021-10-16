@@ -14,4 +14,4 @@ function NewsArticle({ data }) {
   );
 }
 
-// export default NewsArticle;
+export default NewsArticle;
