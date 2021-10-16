@@ -7,25 +7,32 @@
   overflow-y: auto;
   background:whitesmoke;
   color:black;
+   color:rgb(43, 30, 25);
+font-family: cursive, sans-serif;
  
-
 }
 
 .content-container {
   padding-top: 800px;
   height:100%;
    color:rgb(43, 30, 25);
-   background-image: url('https://1technation.com/wp-content/uploads/2016/02/career-cover.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+
+   
 }
 
 .sidebar-logo {
   padding: 10px 15px 10px 30px;
   font-size: 20px;
   background-color:gray;
-  color:white;
+   
+    color:whitesmoke;
+font-family: cursive, sans-serif;
+ 
+   background-image: url('https://1technation.com/wp-content/uploads/2016/02/career-cover.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
 .sidebar-navigation {
@@ -89,15 +96,10 @@
 }
 
 .content-container {
-  padding-left: 220px;
   text-align: center;
-
-}
-.top-right {
-    position: absolute;
-  top: 50px;
-  right: 50px;
-    color:rgb(43, 30, 25);
+  color:rgb(43, 30, 25);
 font-family: cursive, sans-serif;
  
+
 }
+

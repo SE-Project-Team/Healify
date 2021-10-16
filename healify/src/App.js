@@ -7,6 +7,8 @@ import { Quiz } from "./Components/Quiz";
 import { Memes } from "./Components/Memes";
 import { Milestones } from "./Components/Milsestones";
 import { QuizLanding } from "./Components/QuizLanding";
+import { Questions } from "./Components/Quiz/Questions";
+import {Create } from "./Components/Create";
 import { Questions1 } from "./Components/Quiz/QueCategory1";
 import { Questions2 } from "./Components/Quiz/QueCategory2";
 import { Questions3 } from "./Components/Quiz/QueCategory3";
@@ -37,6 +39,9 @@ function App() {
           </Route>
           <Route path="/Milestones">
             <Milestones />
+          </Route>
+          <Route path="/Create">
+            <Create />
           </Route>
           <Route path="/QuizLanding">
             <QuizLanding />
