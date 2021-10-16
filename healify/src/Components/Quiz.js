@@ -15,7 +15,6 @@ export const Quiz = (props) => {
     const { name, value } = e.target;
     setOption(value);
     console.log(option);
-    setScore(() => score + parseInt(value));
     setWarning(0);
   };
   //Counter for Number of Questions
@@ -36,6 +35,8 @@ export const Quiz = (props) => {
         });
       }, 2000);
     } else {
+      setScore(() => score + parseInt(option));
+
       setCounter(() => counter + 1);
       const newQuestionSet = questionSet.filter((qn) => que.id !== qn.id);
       setQuestionSet(newQuestionSet);
