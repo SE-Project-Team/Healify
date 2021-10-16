@@ -1,6 +1,5 @@
 import React from "react";
 import newsstyles from "./News.module.css";
-
 function NewsArticle({ data }) {
   return (
     <div className={newsstyles.news}>
