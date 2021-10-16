@@ -1,5 +1,5 @@
  import React, { createContext, useEffect, useState } from "react";
-// import { NewsContextProvider } from "./NewsContext";
+ import { NewsContextProvider } from "./NewsContext";
 // import News from "./News";
 
 function Newsfinal() {
