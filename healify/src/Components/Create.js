@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Create.module.css";
 export const Create = () => {
   return (
+    <div className={styles.apply}>
      <div className={styles.note}>
   <h2>Milestones </h2>
   <div className={styles["note-input"]}>
@@ -33,6 +34,7 @@ export const Create = () => {
     <span><i className={styles["fas fa-trash"]}></i></span>
     Delete All
   </button>
+</div>
 </div>
     
       );
