@@ -19,6 +19,7 @@ import {
   MDBRow,
   MDBCol,
 } from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
 
 const vector2 = "/src/Assets/TrialVector.png";
 
@@ -49,15 +50,25 @@ export const Home = () => {
           <h1 className={styles.heading}>Healify</h1>
         </div>
         <ul className={"nav " + styles.settingsList}>
-          <li className={"nav-link"}>About</li>
-          <li className={"nav-link"}>Contact Us</li>
-          <li className={"nav-link"}>Profile</li>
-          <li className={styles.navLoginBtn} id={styles.idLoginBtn}>
-            Login
-          </li>
-          <li className={styles.navLoginBtn} id={styles.navSignUp}>
-            Sign Up
-          </li>
+          <Link to="/About">
+            <li className={"nav-link"}>About</li>
+          </Link>
+          <Link to="/Contact Us">
+            <li className={"nav-link"}>Contact Us</li>
+          </Link>
+          <Link to="/Profile">
+            <li className={"nav-link"}>Profile</li>
+          </Link>
+          <Link to="/">
+            <li className={styles.navLoginBtn} id={styles.idLoginBtn}>
+              Login
+            </li>
+          </Link>
+          <Link to="/Registration">
+            <li className={styles.navLoginBtn} id={styles.navSignUp}>
+              Sign Up
+            </li>
+          </Link>
         </ul>
       </header>
 

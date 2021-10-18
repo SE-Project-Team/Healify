@@ -39,9 +39,6 @@ function App() {
           <Route path="/Milestoneshome">
             <Milestoneshome />
           </Route>
-          <Route path="/Timeline">
-            <Timeline />
-          </Route>
           <Route path="/QuizLanding">
             <QuizLanding />
           </Route>
