@@ -5,9 +5,9 @@ import { Signup } from "./Components/Signup";
 import { Registration } from "./Components/Registration";
 import { Quiz } from "./Components/Quiz";
 import { Memes } from "./Components/Memes";
-import { Milestones } from "./Components/Milsestones";
+import { Milestoneshome } from "./Components/Milestones/Milestoneshome";
+import {Timeline } from "./Components/Milestones/Timeline";
 import { QuizLanding } from "./Components/QuizLanding";
-import { Create } from "./Components/Create";
 import { Questions1 } from "./Components/Quiz/QueCategory1";
 import { Questions2 } from "./Components/Quiz/QueCategory2";
 import { Questions3 } from "./Components/Quiz/QueCategory3";
@@ -37,18 +37,16 @@ function App() {
           <Route path="/Memes">
             <Memes />
           </Route>
-          <Route path="/Signup">
-            <Signup />
+          <Route path="/Milestoneshome">
+            <Milestoneshome />
           </Route>
-          <Route path="/Milestones">
-            <Milestones />
-          </Route>
-          <Route path="/Create">
-            <Create />
+          <Route path="/Timeline">
+            <Timeline />
           </Route>
           <Route path="/QuizLanding">
             <QuizLanding />
           </Route>
+          
           <Route path="/Quiz1">
             <Quiz
               category={"Ill Being and Well Being"}
