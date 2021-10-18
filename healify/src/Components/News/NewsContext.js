@@ -1,8 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
-
- export const NewsContext = createContext();
-
+export const NewsContext = createContext();
 export const NewsContextProvider = (props) => {
   const [data, setData] = useState();
   const apiKey = "41dd8c7e43b8464296e19c0e8e647b72";
