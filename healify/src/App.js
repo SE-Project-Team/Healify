@@ -6,7 +6,7 @@ import { Registration } from "./Components/Registration";
 import { Quiz } from "./Components/Quiz";
 import { Memes } from "./Components/Memes";
 import { Milestoneshome } from "./Components/Milestones/Milestoneshome";
-import {Timeline } from "./Components/Milestones/Timeline";
+import { Timeline } from "./Components/Milestones/Timeline";
 import { QuizLanding } from "./Components/QuizLanding";
 import { Questions1 } from "./Components/Quiz/QueCategory1";
 import { Questions2 } from "./Components/Quiz/QueCategory2";
@@ -15,7 +15,6 @@ import { Questions4 } from "./Components/Quiz/QueCategory4";
 import { Score } from "./Components/Score";
 import Newsfinal from "./Components/News/NewsFinal";
 import "./App.css";
-
 
 function App() {
   return (
@@ -46,7 +45,7 @@ function App() {
           <Route path="/QuizLanding">
             <QuizLanding />
           </Route>
-          
+
           <Route path="/Quiz1">
             <Quiz
               category={"Ill Being and Well Being"}
