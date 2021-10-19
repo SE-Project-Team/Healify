@@ -12,6 +12,7 @@ import styles from "./Statistics.module.css";
 import styles2 from "./Home.module.css";
 
 export const Statistics = () => {
+  var x = 1;
   return (
     <>
       <header className={styles2.header}>
@@ -65,7 +66,7 @@ export const Statistics = () => {
             right: 200, // Adjusted to accommodate legend
             top: 50,
           }}
-          width={600}
+          width={600 * x}
         >
           <ChartAxis />
           <ChartAxis dependentAxis showGrid />
