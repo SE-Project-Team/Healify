@@ -15,6 +15,7 @@ import { Questions2 } from "./Components/Quiz/QueCategory2";
 import { Questions3 } from "./Components/Quiz/QueCategory3";
 import { Questions4 } from "./Components/Quiz/QueCategory4";
 import { Score } from "./Components/Score";
+import { Statistics } from "./Components/Statistics";
 import Newsfinal from "./Components/News/NewsFinal";
 import "./App.css";
 
@@ -68,6 +69,9 @@ function App() {
           </Route>
           <Route path="/Score">
             <Score />
+          </Route>
+          <Route path="/Statistics">
+            <Statistics />
           </Route>
         </Switch>
       </Router>
