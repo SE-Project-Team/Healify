@@ -5,7 +5,7 @@ import { Signup } from "./Components/Signup";
 import { Registration } from "./Components/Registration";
 import { Quiz } from "./Components/Quiz";
 import { Memes } from "./Components/Memes";
-import { Milestoneshome } from "./Components/Milestones/Milestoneshome";
+import { MilestonesHome } from "./Components/Milestones/MilestonesHome";
 import {Timeline } from "./Components/Milestones/Timeline";
 import "./Components/Milestones/MilestonesHome.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -38,8 +38,8 @@ function App() {
           <Route path="/Memes">
             <Memes />
           </Route>
-          <Route path="/Milestoneshome">
-            <Milestoneshome />
+          <Route path="/MilestonesHome">
+            <MilestonesHome />
           </Route>
           <Route path="/Timeline">
             <Timeline />
