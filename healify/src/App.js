@@ -6,7 +6,7 @@ import { Registration } from "./Components/Registration";
 import { Quiz } from "./Components/Quiz";
 import { Memes } from "./Components/Memes";
 import { MilestonesHome } from "./Components/Milestones/MilestonesHome";
-import {Timeline } from "./Components/Milestones/Timeline";
+import { Timeline } from "./Components/Milestones/Timeline";
 import "./Components/Milestones/MilestonesHome.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { QuizLanding } from "./Components/QuizLanding";
