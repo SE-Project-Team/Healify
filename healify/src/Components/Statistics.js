@@ -8,7 +8,7 @@ import {
 } from "@patternfly/react-charts";
 
 import logo from "../Assets/mentalhealth_icon_round.png";
-import styles from "./Quiz.module.css";
+import styles from "./Statistics.module.css";
 import styles2 from "./Home.module.css";
 
 export const Statistics = () => {
@@ -38,10 +38,10 @@ export const Statistics = () => {
           </li>
         </ul>
       </header>
-      <div style={{ height: "400px", width: "1000px" }}>
+      <div className={styles.mainDiv}>
         <Chart
-          ariaDesc="Average number of pets"
-          ariaTitle="Bar chart example"
+          ariaDesc="Quiz scores"
+          ariaTitle="Quiz Statistics"
           containerComponent={
             <ChartVoronoiContainer
               labels={({ datum }) => `${datum.name}: ${datum.y}`}
