@@ -1,0 +1,35 @@
+
+Page 1:	login
+	url: /login	-> /api/v1/login
+	methods: post		[auth]
+page 2: registration
+	url: /registration	-> /api/v1/registration
+	methods: post		[auth and confirmation]
+page 3: home
+	url: /		-> /api/v1/
+	methods: get (for profile details)	[jst send details]
+page 4:	milestones
+	url: /milestoneshome	->
+	methods: get	(current milestones)	[jst send details filter based on active]
+page 5: timeline
+	url: /milestoneshome/timeline
+	methods: get
+page 6: acheivements(optional)
+	url: /milestoneshome/acheivements
+	methods: get
+page 7: edit_milestone
+	url: /milestones/edit/:id		(id is param)
+	methods: get(maybe to get full details) and patch
+page 8: new_milestone
+	url: /milestones/create
+	methods: post
+page 9: quiz_landing
+	url: /quiz_landing
+page 10: statistics
+	 url: /quiz_landing/statistics/:category
+	 methods: get
+page 11: score
+	 url: /quiz_landing/quiz/:category/score
+	 methods: post
+page 12: articles
+page 13: memes
