@@ -17,7 +17,7 @@ export const Quiz = (props) => {
     console.log(option);
     setWarning(0);
   };
-  //Counter for Number of Questions
+
   const [counter, setCounter] = useState(1);
   const [questionSet, setQuestionSet] = useState(Questions);
   const [que, setQue] = useState(Questions[0]);

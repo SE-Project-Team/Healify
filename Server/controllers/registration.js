@@ -1,0 +1,47 @@
+const { BadRequestError, CustomErrorAPI } = require("../errors");
+const { StatusCodes } = require("http-status-codes");
+const bcrypt = require("bcryptjs");
+const User = require("../models/user");
+const registerUser = async (req, res) => {
+  const { username, password, email } = req.body;
+
+  if (!username || !password || !email) {
+    throw new BadRequestError("Please Enter UserName, email and Password ");
+  }
+
+  const isExistingUserName = await User.findOne({ username: username });
+  if (isExistingUserName) {
+    const err = new CustomErrorAPI("UserName already exists");
+    err.StatusCode = 401;
+    throw err;
+  }
+
+  const isExistingEmail = await User.findOne({ email: email });
+  if (isExistingEmail) {
+    const err = new CustomErrorAPI("Email Already exists");
+    err.StatusCode = 401;
+    throw err;
+  }
+  const securePass = await bcrypt.hash(password, 12);
+  const newUser = {
+    username: username,
+    password: securePass,
+    email: email,
+  };
+  const created = await User.create(newUser);
+  if (!created) {
+    const err = new CustomErrorAPI("User Not Created");
+    err.StatusCode = 401;
+    throw err;
+  }
+
+  // No idea what is happening from here
+  const userId = await User.findOne({ username: username })._id.toString();
+  console.log("here");
+
+  res.status(StatusCodes.OK).send({
+    _id: userId,
+    username: username,
+  });
+};
+module.exports = { registerUser };
