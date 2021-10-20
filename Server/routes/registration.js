@@ -1,8 +1,9 @@
 const express = require("express");
+const { registerUser } = require("../controllers/registration");
 
 // router middleware
 const router = express.Router();
 
-router.route("/").post(() => {});
+router.route("/").post(registerUser);
 
 module.exports = router;

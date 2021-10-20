@@ -1,11 +1,11 @@
 const jwt = require("jsonwebtoken");
+const { UnauthenticatedError } = require("../errors");
 
 const authenticationMiddleware = async (req, res, next) => {
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startswith("Bearer ")) {
-    //throw error to be taken care of by express-async
-    // unauthorized error
+    throw new UnauthenticatedError("No Token in Request");
   }
 
   // auth header = 'Bearer <Token>'
@@ -18,7 +18,7 @@ const authenticationMiddleware = async (req, res, next) => {
     req.user = { id, username, password };
     next();
   } catch (err) {
-    //   unauthorized error
+    throw new UnauthenticatedError("Invalid Token");
   }
 };
 

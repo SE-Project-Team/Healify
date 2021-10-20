@@ -1,25 +1,26 @@
-const asyncWrapper = require("../middleware/async_wrapper");
 const { StatusCodes } = require("http-status-codes");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
-const { UnauthenticatedError } = require("../errors");
+const { UnauthenticatedError, BadRequestError } = require("../errors");
 require("dotenv").config();
 
 // post controller for login -> req contains token!!?
 const postLogin = async (req, res) => {
-  const { userName, password } = req.body;
+  const { username, password } = req.body;
 
-  const user = await User.findOne({ username: userName });
-  if (!user) {
-    //   throw custom error
-    new UnauthenticatedError("Invalid username");
+  if (!username || !password) {
+    throw new BadRequestError("Please Enter UserName and Password");
   }
 
-  const passwordCompare = bcrypt.compare(password, user.password);
+  const user = await User.findOne({ username: username });
+  if (!user) {
+    throw new UnauthenticatedError("Invalid username");
+  }
+
+  const passwordCompare = await bcrypt.compare(password, user.password);
   if (!passwordCompare) {
-    //   throw custom error
-    new UnauthenticatedError("Invalid password");
+    throw new UnauthenticatedError("Invalid password");
   }
 
   //   create token sign with payload,secret,expiration time
