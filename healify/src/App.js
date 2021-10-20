@@ -15,6 +15,10 @@ import { Questions2 } from "./Components/Quiz/QueCategory2";
 import { Questions3 } from "./Components/Quiz/QueCategory3";
 import { Questions4 } from "./Components/Quiz/QueCategory4";
 import { Score } from "./Components/Score";
+import { Q1Statistics } from "./Components/Q1Statistics";
+import { Q2Statistics } from "./Components/Q2Statistics";
+import { Q3Statistics } from "./Components/Q3Statistics";
+import { Q4Statistics } from "./Components/Q4Statistics";
 import Newsfinal from "./Components/News/NewsFinal";
 import "./App.css";
 
@@ -68,6 +72,18 @@ function App() {
           </Route>
           <Route path="/Score">
             <Score />
+          </Route>
+          <Route path="/Q1Statistics">
+            <Q1Statistics />
+          </Route>
+          <Route path="/Q2Statistics">
+            <Q2Statistics />
+          </Route>
+          <Route path="/Q3Statistics">
+            <Q3Statistics />
+          </Route>
+          <Route path="/Q4Statistics">
+            <Q4Statistics />
           </Route>
         </Switch>
       </Router>
