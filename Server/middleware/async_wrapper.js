@@ -1,3 +1,5 @@
+// Not required async errors to be taken care of by express-async-erro
+
 const asyncWrapper = (fn) => {
   // assumption is that fn has these parameters
   return async (req, res, next) => {
