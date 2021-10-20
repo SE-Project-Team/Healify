@@ -5,24 +5,22 @@ const User = require("./models/user");
 
 const users = require("./users.json");
 
-const newUsers = async () => {
-  await users.map(async (each) => {
-    const newPassword = await bcrypt.hash(each.password, 12);
-    console.log(newPassword);
-    return { ...each, password: newPassword };
+const newUsers = users.map(async (each) => {
+  await bcrypt.hash(each.password, 12).then((value) => {
+    each.password = value;
   });
-};
-
-console.log(newUsers);
+  console.log(each);
+  return each;
+});
 const start = async () => {
   try {
     await connectDb(process.env.MONGO_URI);
     await User.deleteMany();
-    await User.create(newUsers);
+    await User.create(users);
     console.log("populate success");
     process.exit(0);
   } catch (error) {
-    console.log("populate error");
+    console.log(error);
     process.exit(1);
   }
 };

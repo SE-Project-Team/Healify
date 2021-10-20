@@ -9,7 +9,7 @@ const user = new mongoose.Schema({
   password: {
     type: String,
     required: [true, "Password is required"],
-    minlength: [8, "password length should be atleast 8"],
+    minlength: [5, "password length should be atleast 8"],
   },
   email: {
     type: String,
