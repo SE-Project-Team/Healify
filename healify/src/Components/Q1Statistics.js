@@ -5,7 +5,7 @@ import logo from "../Assets/mentalhealth_icon_round.png";
 import styles from "./Statistics.module.css";
 import styles2 from "./Home.module.css";
 
-export const Statistics = () => {
+export const Q1Statistics = () => {
   return (
     <>
       <header className={styles2.header}>
