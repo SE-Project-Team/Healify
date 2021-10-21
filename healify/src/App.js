@@ -22,18 +22,24 @@ import { Q4Statistics } from "./Components/Q4Statistics";
 import Newsfinal from "./Components/News/NewsFinal";
 import "./App.css";
 
+import { useToken } from "./CustomHooks/useToken";
 function App() {
+  const { token, setToken } = useToken();
+
+  if (!token) {
+    return <Signup setToken={setToken} />;
+  }
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <Signup />
-          </Route>
+          </Route> */}
           <Route exact path="/News">
             <Newsfinal />
           </Route>
-          <Route path="/Home">
+          <Route exact path="/">
             <Home />
           </Route>
           <Route path="/Registration">

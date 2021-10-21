@@ -1,8 +1,35 @@
 import React from "react";
+import { useState } from "react";
 import image1 from "../Assets/image1.png";
 import logo1 from "../Assets/mentalhealth_icon_round.png";
 import styles from "./Signup.module.css";
-export const Signup = () => {
+import axios from "axios";
+export const Signup = ({ setToken }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await axios
+      .post("http://localhost:5000/api/v1/login/", { username, password })
+      .then(
+        (res) => {
+          const { token } = res.data;
+          console.log(token);
+          console.log("Request Success");
+          setToken(token);
+        },
+        (err) => console.log("HAHAHHA")
+      );
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "username") {
+      setUsername(value);
+    } else if (name === "password") {
+      setPassword(value);
+    }
+  };
   return (
     <div className={"px-4 py-5 mx-auto container " + styles.container}>
       <div className={styles.card + " " + styles.card0}>
@@ -26,6 +53,8 @@ export const Signup = () => {
                     name="username"
                     placeholder="Username"
                     className="form-control"
+                    value={username}
+                    onChange={handleChange}
                   />{" "}
                 </div>
                 <div className="form-group">
@@ -36,14 +65,19 @@ export const Signup = () => {
                   <input
                     type="password"
                     id="psw"
-                    name="psw"
+                    name="password"
                     placeholder="Password"
                     className="form-control"
+                    value={password}
+                    onChange={handleChange}
                   />{" "}
                 </div>
                 <div className="row justify-content-center my-3 px-3">
                   {" "}
-                  <button className={"btn-block " + styles.btnColor}>
+                  <button
+                    className={"btn-block " + styles.btnColor}
+                    onClick={handleSubmit}
+                  >
                     Login to Healify
                   </button>{" "}
                 </div>
