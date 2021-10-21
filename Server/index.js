@@ -11,14 +11,21 @@ const cors = require("cors");
 
 const loginRouter = require("./routes/login");
 const registrationRouter = require("./routes/registration");
+const quizRouter = require("./routes/quiz");
+const milestonesRouter = require("./routes/milestones");
 
 // Middleware
 app.use(express.json());
 app.use(cors());
+
 // get all routes ->routes Middleware
 app.use("/api/v1/login", loginRouter);
 
 app.use("/api/v1/registration", registrationRouter);
+
+app.use("/api/v1/milestones", milestonesRouter);
+
+app.use("/api/v1/quiz", quizRouter);
 
 // error paths
 app.use(not_found);

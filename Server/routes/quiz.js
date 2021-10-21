@@ -1,8 +1,11 @@
 const express = require("express");
 
-// router middleware
+const { postScore, getScore } = require("../controllers/quiz");
+
 const router = express.Router();
 
-router.route("/").get(() => {});
+router.route("/score").post(postScore);
+
+router.route("/statistics").get(getScore);
 
 module.exports = router;

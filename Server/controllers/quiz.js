@@ -1,4 +1,4 @@
-const asyncWrapper = require("../middleware/async_wrapper");
-const submitScore = asyncWrapper(async (req, res) => {});
+const postScore = async (req, res) => {};
 
-module.exports = { submitScore };
+const getScore = async (req, res) => {};
+module.exports = { postScore, getScore };

@@ -5,6 +5,7 @@ const user = new mongoose.Schema({
     type: String,
     required: [true, "Name is required"],
     maxlength: 24,
+    immutable: true,
   },
   password: {
     type: String,
@@ -14,6 +15,89 @@ const user = new mongoose.Schema({
   email: {
     type: String,
     required: [true, "email is required"],
+  },
+  quizCat1: {
+    type: [
+      {
+        date: {
+          type: Date,
+          default: Date.now(),
+        },
+        score: {
+          type: Number,
+          required: [true, "Score is Required"],
+        },
+      },
+    ],
+    default: [],
+  },
+  quizCat2: {
+    type: [
+      {
+        date: {
+          type: Date,
+          default: Date.now(),
+        },
+        score: {
+          type: Number,
+          required: [true, "Score is Required"],
+        },
+      },
+    ],
+    default: [],
+  },
+  quizCat3: {
+    type: [
+      {
+        date: {
+          type: Date,
+          default: Date.now(),
+        },
+        score: {
+          type: Number,
+          required: [true, "Score is Required"],
+        },
+      },
+    ],
+    default: [],
+  },
+  quizCat4: {
+    type: [
+      {
+        date: {
+          type: Date,
+          default: Date.now(),
+        },
+        score: {
+          type: Number,
+          required: [true, "Score is Required"],
+        },
+      },
+    ],
+    default: [],
+  },
+  milestones: {
+    type: [
+      {
+        title: {
+          type: String,
+          required: [true, "Title is Required"],
+        },
+        description: {
+          type: String,
+          required: [true, "Description is Required"],
+        },
+        completed: {
+          type: Boolean,
+          default: false,
+        },
+        targetDate: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
+    default: [],
   },
 });
 

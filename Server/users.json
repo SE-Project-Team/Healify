@@ -2,21 +2,29 @@
   {
     "username": "Githin George",
     "email": "githin.george2001@gmail.com",
-    "password": "player1"
+    "password": "player1",
+    "quizCat1": [{ "score": 1 }, { "score": 2 }],
+    "quizCat2": [{ "score": 1 }, { "score": 2 }]
   },
   {
     "username": "Sahithi rani",
     "email": "balhbalhaba",
-    "password": "player2"
+    "password": "player2",
+    "quizCat1": [{ "score": 1 }, { "score": 2 }],
+    "quizCat2": [{ "score": 1 }, { "score": 2 }]
   },
   {
     "username": "Gowtami",
     "email": "safasfqrwqdfdfgjryfnb",
-    "password": "player3"
+    "password": "player3",
+    "quizCat1": [{ "score": 1 }, { "score": 2 }],
+    "quizCat2": [{ "score": 1 }, { "score": 2 }]
   },
   {
     "username": "Roopa",
     "email": "asfasfafasfasfa",
-    "password": "player4"
+    "password": "player4",
+    "quizCat1": [{ "score": 1 }, { "score": 2 }],
+    "quizCat2": [{ "score": 1 }, { "score": 2 }]
   }
 ]
