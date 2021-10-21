@@ -1,17 +1,14 @@
 import React, { Component } from "react";
-import logo from "../Assets/mentalhealth_icon_round.png";
+import logo from "../../Assets/mentalhealth_icon_round.png";
 import styles from "./Quiz.module.css";
-import styles2 from "./Home.module.css";
+import styles2 from "../Home.module.css";
 import styles3 from "./QuizLanding.module.css";
-import img from "../Assets/test.png";
-import illImg from "../Assets/ill.jpg";
-import phyImg from "../Assets/physical.jpg";
-import controlImg from "../Assets/control.jpg";
-import copingImg from "../Assets/coping.jpg";
-import relationshipsImg from "../Assets/relationships.jpg";
-import hopeImg from "../Assets/hope.jpg";
-import percepImg from "../Assets/perception.jpg";
-import stressImg from "../Assets/stress.jpg";
+import img from "../../Assets/test.png";
+import illImg from "../../Assets/ill.jpg";
+import phyImg from "../../Assets/physical.jpg";
+import controlImg from "../../Assets/control.jpg";
+import copingImg from "../../Assets/coping.jpg";
+
 import { Link } from "react-router-dom";
 export const QuizLanding = () => {
   return (
@@ -54,26 +51,26 @@ export const QuizLanding = () => {
         <div className={styles3.container}>
           <div className={styles3.category}>
             <Link to="/Quiz1">
-            <img className={styles3.logo} src={illImg} alt="" />
-            <p>Ill being and Well being</p>
+              <img className={styles3.logo} src={illImg} alt="" />
+              <p>Ill being and Well being</p>
             </Link>
           </div>
           <div className={styles3.category}>
             <Link to="/Quiz2">
-            <img className={styles3.logo} src={phyImg} alt="" />
-            <p>Control and Coping</p>
+              <img className={styles3.logo} src={phyImg} alt="" />
+              <p>Control and Coping</p>
             </Link>
           </div>
           <div className={styles3.category}>
             <Link to="/Quiz3">
-            <img className={styles3.logo} src={controlImg} alt="" />
-            <p>Relationships and Belonging</p>
+              <img className={styles3.logo} src={controlImg} alt="" />
+              <p>Relationships and Belonging</p>
             </Link>
           </div>
           <div className={styles3.category}>
             <Link to="/Quiz4">
-            <img className={styles3.logo} src={copingImg} alt="" />
-            <p>Self Perception</p>
+              <img className={styles3.logo} src={copingImg} alt="" />
+              <p>Self Perception</p>
             </Link>
           </div>
         </div>
@@ -81,26 +78,26 @@ export const QuizLanding = () => {
         <div className={styles3.container}>
           <div className={styles3.category}>
             <Link to="/Q1Statistics">
-            <img className={styles3.logo} src={illImg} alt="" />
-            <p>Ill being and Well being</p>
+              <img className={styles3.logo} src={illImg} alt="" />
+              <p>Ill being and Well being</p>
             </Link>
           </div>
           <div className={styles3.category}>
             <Link to="/Q2Statistics">
-            <img className={styles3.logo} src={phyImg} alt="" />
-            <p>Control and Coping</p>
+              <img className={styles3.logo} src={phyImg} alt="" />
+              <p>Control and Coping</p>
             </Link>
           </div>
           <div className={styles3.category}>
             <Link to="/Q3Statistics">
-            <img className={styles3.logo} src={controlImg} alt="" />
-            <p>Relationships and Belonging</p>
+              <img className={styles3.logo} src={controlImg} alt="" />
+              <p>Relationships and Belonging</p>
             </Link>
           </div>
           <div className={styles3.category}>
             <Link to="/Q4Statistics">
-            <img className={styles3.logo} src={copingImg} alt="" />
-            <p>Self Perception</p>
+              <img className={styles3.logo} src={copingImg} alt="" />
+              <p>Self Perception</p>
             </Link>
           </div>
         </div>
