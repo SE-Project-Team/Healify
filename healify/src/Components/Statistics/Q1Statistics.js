@@ -1,27 +1,19 @@
 import React, { Component } from "react";
-import logo from "../Assets/mentalhealth_icon_round.png";
-import styles from "./Quiz.module.css";
-import styles2 from "./Home.module.css";
+import styles from "./Statistics.module.css";
+import styles2 from "../Home.module.css";
+import logo from "../../Assets/mentalhealth_icon_round.png";
+import { Table } from "./Table";
+import { TableHeader } from "./TableHeader";
+import { useState } from "react";
 
-export const Score = (props) => {
-  const score = props.score;
-  var str = "";
-  switch (true) {
-    case score < 10:
-      str = "Low";
-      break;
-    case score <= 15:
-      str = "Moderate";
-      break;
-    case score <= 20:
-      str = "High";
-      break;
-    case score <= 25:
-      str = "Very High";
-      break;
-    default:
-      break;
-  }
+export const Q1Statistics = () => {
+  const [data, setData] = useState([
+    { id: 1, date: "10-10-2021", score: 21, severity: "Very High" },
+    { id: 2, date: "11-10-2021", score: 14, severity: "Moderate" },
+    { id: 3, date: "15-10-2021", score: 19, severity: "High" },
+    { id: 4, date: "18-10-2021", score: 16, severity: "High" },
+  ]);
+
   return (
     <>
       <header className={styles2.header}>
@@ -48,11 +40,16 @@ export const Score = (props) => {
           </li>
         </ul>
       </header>
-      <div className={styles.quizcontainer}>
-        <h1 className={styles.counter}>Overall Score: {str}</h1>
-        <div>
-          <h3 className={styles.counter}> Your score is {score}/25</h3>
-        </div>
+      <div>
+        <h1 id={styles.title}>Ill being and Well being Statistics</h1>
+        <table id={styles.students}>
+          <tbody>
+            <tr>
+              <TableHeader />
+            </tr>
+            <Table data={data} />
+          </tbody>
+        </table>
       </div>
     </>
   );
