@@ -3,7 +3,8 @@ import timelineData from "./Data";
 import TimelineItem from "./Timelineitem";
 import * as ReactBootStrap from "react-bootstrap";
 import  styles from "./Timeline.module.css";
-export const Timeline = () =>
+import { Link } from "react-router-dom";
+ export const Timeline = () =>
  <div>
       <ReactBootStrap.Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
   <ReactBootStrap.Container>
@@ -16,11 +17,16 @@ export const Timeline = () =>
       
     </ReactBootStrap.Nav>
     <ReactBootStrap.Nav>
-         <ReactBootStrap.Nav.Link href="#deets">Home</ReactBootStrap.Nav.Link>
-      <ReactBootStrap.Nav.Link href="#deets">Achievements</ReactBootStrap.Nav.Link>
-      <ReactBootStrap.Nav.Link eventKey={2} href="#memes">
-        Route Map
-      </ReactBootStrap.Nav.Link>
+           <Link to="/MilestonesHome">
+            <li className={styles.navLoginBtn} id={styles.navSignUp}>
+              Home
+            </li>
+          </Link>
+          <Link to="/Timeline">
+            <li className={styles.navLoginBtn} id={styles.navSignUp}>
+              Achievements
+            </li>
+          </Link>
     </ReactBootStrap.Nav>
   </ReactBootStrap.Navbar.Collapse>
   </ReactBootStrap.Container>
@@ -49,4 +55,4 @@ export const Timeline = () =>
         </div>
         </div>
     );
-            
+  export default Timeline;
