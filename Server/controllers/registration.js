@@ -28,6 +28,8 @@ const registerUser = async (req, res) => {
     password: securePass,
     email: email,
   };
+
+  // returns new user!!
   const created = await User.create(newUser);
   if (!created) {
     const err = new CustomErrorAPI("User Not Created");
@@ -35,11 +37,9 @@ const registerUser = async (req, res) => {
     throw err;
   }
 
-  // No idea what is happening from here
-  const userId = await User.findOne({ username: username })._id.toString();
-  console.log("here");
+  const userId = created._id;
 
-  res.status(StatusCodes.OK).send({
+  return res.status(StatusCodes.OK).json({
     _id: userId,
     username: username,
   });

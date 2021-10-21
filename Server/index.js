@@ -7,16 +7,17 @@ const not_found = require("./middleware/not-found");
 const error_handler = require("./middleware/error-handler");
 const port = process.env.PORT || 5000;
 
+const cors = require("cors");
+
 const loginRouter = require("./routes/login");
 const registrationRouter = require("./routes/registration");
 
 // Middleware
 app.use(express.json());
-
+app.use(cors());
 // get all routes ->routes Middleware
 app.use("/api/v1/login", loginRouter);
 
-app.use(express.json());
 app.use("/api/v1/registration", registrationRouter);
 
 // error paths
