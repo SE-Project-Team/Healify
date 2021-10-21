@@ -207,4 +207,14 @@ footer a {
     color: #3c97bf;
     text-decoration: none;
 }
+.navLoginBtn:hover {
+  box-shadow: 2px 2px 7px 2px whitesmoke;
+  font-size: 1.2em;
+}
+#navSignUp {
+  border: none;
+  background: black;
+  color:white;
+  padding: 5px;
+}
 

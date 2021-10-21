@@ -1,6 +1,8 @@
 import React , {useState} from "react";
+import EditTask from "../modals/EditTask";
+
 import styles from "./MilestonesHome.module.css";
- const Card = ({taskObj , index ,deleteTask}) => {
+ const Card = ({taskObj , index ,deleteTask,updateListArray}) => {
      const [modal, setModal] = useState(false);
 
     const colors = [
@@ -29,6 +31,10 @@ import styles from "./MilestonesHome.module.css";
     const toggle = () => {
         setModal(!modal);
     }
+     const updateTask = (obj) => {
+        updateListArray(obj, index)
+    }
+
      const handleDelete = () => {
         deleteTask(index)
     }
@@ -41,16 +47,15 @@ import styles from "./MilestonesHome.module.css";
                 <p className = "mt-2">{taskObj.Description}</p>
                 <br />
                 < div style={{"position": "absolute", "right" : "20px", "bottom" : "20px"}}>
+                      <i class = "far fa-edit  " style={{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {() => setModal(true)}></i>
                     
-                
-                    <button type="button" className="btn btn-sm mr-3" style = {{"color" : colors[index%5].primaryColor}}>Done</button>      
-        
-                    
-                    <i class="fas fa-trash-alt md=4" style = {{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}}  onClick = {handleDelete} ></i>
                 </div>
-               
+                < div style={{"position": "absolute", "right" : "50px", "bottom" : "20px"}}>
+                <i class="fas fa-trash-alt" style = {{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}}  onClick = {handleDelete} ></i>
                 </div>
-
+                 <EditTask modal = {modal} toggle = {toggle} updateTask = {updateTask} taskObj = {taskObj}/>
+                </div>
+                   
 
          </div>
 
