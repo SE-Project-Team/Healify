@@ -18,4 +18,7 @@ router.route("/create").post(createNewMilestone);
 
 router.route("/edit").patch(editMilestone);
 
+// Probably Not Gonna Use in this Release
+router.route("/milestone").get(getMilestone);
+
 module.exports = router;

@@ -13,7 +13,7 @@ const createNewMilestone = async (req, res) => {
   //   push adds new item to arrayProp milestones
   await User.findByIdAndUpdate(_id, { $push: { milestones: newMilestone } });
 
-  res.status(StatusCodes.OK).send("New Milestone Created");
+  return res.status(StatusCodes.OK).send("New Milestone Created");
 };
 
 // Patch Methods
@@ -37,36 +37,35 @@ const editMilestone = async (req, res) => {
     }
   ).catch((err) => {
     throw err;
-    console.log("error is:\n", err);
   });
 
-  res.status(StatusCodes.OK).send("Milestone Edited");
+  return res.status(StatusCodes.OK).send("Milestone Edited");
 };
 
 // get Methods
 const getActiveMilestones = async (req, res) => {
-  const { id } = req.query;
-  const { milestones } = await User.findOne({ _id: id });
+  const { _id } = req.query;
+  const { milestones } = await User.findOne({ _id });
   const activeMilestones = await milestones.filter((each) => {
-    return each.completed === "false";
+    return each.completed === false;
   });
-  console.log(activeMilestones);
-  res.status(StatusCodes.OK).json(activeMilestones);
+  return res.status(StatusCodes.OK).json(activeMilestones);
 };
 
 const getAllMilestones = async (req, res) => {
-  const { id } = req.query;
-  const { milestones } = await User.findOne({ _id: id });
-  res.status(StatusCodes.OK).json(milestones);
+  const { _id } = req.query;
+  const { milestones } = await User.findOne({ _id });
+  return res.status(StatusCodes.OK).json(milestones);
 };
 
 const getMilestone = async (req, res) => {
-  const { id } = req.query;
-  const { milestones } = await User.findOne({ _id: id });
+  const { _id, milestoneID } = req.query;
+  const { milestones } = await User.findOne({ _id });
   const activeMilestones = await milestones.filter((each) => {
-    return each._id === id;
+    // Loose Check -> one is mongoose id other is string
+    return each._id == milestoneID;
   });
-  res.status(StatusCodes.OK).json(activeMilestones[0]);
+  return res.status(StatusCodes.OK).json(activeMilestones[0]);
 };
 
 module.exports = {
