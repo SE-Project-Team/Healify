@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import logo from "../../Assets/mentalhealth_icon_round.png";
-import styles from "./Quiz.module.css";
 import styles2 from "../Home.module.css";
 import styles3 from "./QuizLanding.module.css";
 import img from "../../Assets/test.png";
