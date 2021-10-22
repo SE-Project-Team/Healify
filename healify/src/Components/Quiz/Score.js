@@ -2,9 +2,28 @@ import React, { Component } from "react";
 import logo from "../../Assets/mentalhealth_icon_round.png";
 import styles from "./Quiz.module.css";
 import styles2 from "../Home.module.css";
+import { useEffect } from "react";
+import axios from "axios";
 
-export const Score = (props) => {
-  const score = props.score;
+const map = (category) => {
+  let res;
+  switch (true) {
+    case category === "Ill Being and Well Being":
+      res = 1;
+      break;
+    case category === "Control and Coping":
+      res = 2;
+      break;
+    case category === "Relationships and Belonging":
+      res = 3;
+      break;
+    case category === "Self Perception":
+      res = 4;
+      break;
+  }
+  return res;
+};
+export const Score = ({ score, category }) => {
   var str = "";
   switch (true) {
     case score < 10:
@@ -22,6 +41,22 @@ export const Score = (props) => {
     default:
       break;
   }
+  useEffect(async () => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    await axios
+      .post(
+        "http://localhost:5000/api/v1/quiz/score",
+        { quizId: map(category), score },
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
   return (
     <>
       <header className={styles2.header}>

@@ -4,9 +4,28 @@ import styles2 from "../Home.module.css";
 import logo from "../../Assets/mentalhealth_icon_round.png";
 import { Table } from "./Table";
 import { TableHeader } from "./TableHeader";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-export const Q1Statistics = () => {
+export const Q1Statistics = ({ quizId }) => {
+  const token = JSON.parse(localStorage.getItem("token"));
+  // const queryString = "quizId=" + quizId;
+  useEffect(async () => {
+    await axios
+      .get(`http://localhost:5000/api/v1/quiz/statistics?quizId=1`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        // score array is the response
+        const { scoreArr } = res.data.data;
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  }, []);
   const [data, setData] = useState([
     { id: 1, date: "10-10-2021", score: 21, severity: "Very High" },
     { id: 2, date: "11-10-2021", score: 14, severity: "Moderate" },

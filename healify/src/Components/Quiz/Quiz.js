@@ -6,8 +6,7 @@ import SpecificQuestion from "../Quiz/Questions/Question";
 import { useState } from "react";
 import { Score } from "./Score";
 
-export const Quiz = (props) => {
-  const Questions = props.questions;
+export const Quiz = ({ questions, category }) => {
   const [warning, setWarning] = useState(-1);
   const [option, setOption] = useState(0);
   const [score, setScore] = useState(0);
@@ -19,8 +18,8 @@ export const Quiz = (props) => {
   };
 
   const [counter, setCounter] = useState(1);
-  const [questionSet, setQuestionSet] = useState(Questions);
-  const [que, setQue] = useState(Questions[0]);
+  const [questionSet, setQuestionSet] = useState(questions);
+  const [que, setQue] = useState(questions[0]);
 
   const newQue = () => {
     if (warning === -1 || warning === 1) {
@@ -42,7 +41,7 @@ export const Quiz = (props) => {
       setQuestionSet(newQuestionSet);
       // state -> we expect it to be updated but its not
       let rand1 = Math.floor(Math.random() * newQuestionSet.length);
-      setQue(newQuestionSet[rand1] || Questions[0]);
+      setQue(newQuestionSet[rand1] || questions[0]);
       setOption(0);
       setWarning(-1);
     }
@@ -77,7 +76,7 @@ export const Quiz = (props) => {
             </ul>
           </header>
           <div className={styles.quizBody}>
-            <h2 className={styles.heading}>{props.category}</h2>
+            <h2 className={styles.heading}>{category}</h2>
             <div className={styles.quizcontainer}>
               <h4 className={styles.counter}>{counter}/5</h4>
               <div>
@@ -108,7 +107,7 @@ export const Quiz = (props) => {
           </div>
         </>
       ) : (
-        <Score score={score} />
+        <Score score={score} category={category} />
       )}
     </>
   );

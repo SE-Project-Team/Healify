@@ -26,6 +26,6 @@ const getScore = async (req, res) => {
   const user = await User.findOne({ _id });
   return res
     .status(StatusCodes.OK)
-    .json({ status: "success", data: { score: user[quizProperty] } });
+    .json({ status: "success", data: { scoreArr: user[quizProperty] } });
 };
 module.exports = { postScore, getScore };
