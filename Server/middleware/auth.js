@@ -12,10 +12,11 @@ const authenticationMiddleware = async (req, res, next) => {
   const token = authHeader.split(" ")[1];
 
   try {
-    const decoded = jwt.verify(token.process.env.JWT_SECRET);
-    const { id, username, password } = decoded;
-    // add user in request
-    req.user = { id, username, password };
+    const decoded = await jwt.verify(token.process.env.JWT_SECRET);
+    const { _id, username } = decoded;
+
+    // add user to request object
+    req.user = { _id, username };
     next();
   } catch (err) {
     throw new UnauthenticatedError("Invalid Token");

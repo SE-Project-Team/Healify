@@ -1,7 +1,8 @@
 const { StatusCodes } = require("http-status-codes");
 const User = require("../models/user");
 const postScore = async (req, res) => {
-  const { _id, quizId, score } = req.body;
+  const { quizId, score } = req.body;
+  const { _id } = req.user;
 
   const quizProperty = "quizCat" + quizId.toString();
   //   [] stands for dynamic property name
@@ -10,7 +11,8 @@ const postScore = async (req, res) => {
 };
 
 const getScore = async (req, res) => {
-  const { _id, quizId } = req.query;
+  const { quizId } = req.query;
+  const { _id } = req.user;
 
   const quizProperty = "quizCat" + quizId.toString();
   const user = await User.findOne({ _id });

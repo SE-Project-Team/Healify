@@ -4,7 +4,11 @@ const { BadRequestError, UnauthenticatedError } = require("../errors");
 
 // Post Methods
 const createNewMilestone = async (req, res) => {
-  const { _id, title, description, targetDate } = req.body;
+  const { title, description, targetDate } = req.body;
+
+  // added by auth middleware
+  const { _id } = req.user;
+
   if (!title || !description) {
     throw new BadRequestError("Milestone must have title and description");
   }
@@ -18,8 +22,9 @@ const createNewMilestone = async (req, res) => {
 
 // Patch Methods
 const editMilestone = async (req, res) => {
-  const { _id, milestoneId, title, description, targetDate, completed } =
-    req.body;
+  const { milestoneId, title, description, targetDate, completed } = req.body;
+  const { _id } = req.user;
+
   if (!title || !description) {
     throw new BadRequestError("Milestone must have title and description");
   }
@@ -44,28 +49,36 @@ const editMilestone = async (req, res) => {
 
 // get Methods
 const getActiveMilestones = async (req, res) => {
-  const { _id } = req.query;
+  const { _id } = req.user;
+
   const { milestones } = await User.findOne({ _id });
   const activeMilestones = await milestones.filter((each) => {
     return each.completed === false;
   });
-  return res.status(StatusCodes.OK).json(activeMilestones);
+  return res
+    .status(StatusCodes.OK)
+    .json({ success: true, data: activeMilestones });
 };
 
 const getAllMilestones = async (req, res) => {
-  const { _id } = req.query;
+  const { _id } = req.user;
+
   const { milestones } = await User.findOne({ _id });
-  return res.status(StatusCodes.OK).json(milestones);
+  return res.status(StatusCodes.OK).json({ success: true, data: milestones });
 };
 
 const getMilestone = async (req, res) => {
-  const { _id, milestoneID } = req.query;
+  const { milestoneID } = req.query;
+  const { _id } = req.user;
+
   const { milestones } = await User.findOne({ _id });
-  const activeMilestones = await milestones.filter((each) => {
+  const activeMilestone = await milestones.find((each) => {
     // Loose Check -> one is mongoose id other is string
     return each._id == milestoneID;
   });
-  return res.status(StatusCodes.OK).json(activeMilestones[0]);
+  return res
+    .status(StatusCodes.OK)
+    .json({ success: true, data: activeMilestone });
 };
 
 module.exports = {

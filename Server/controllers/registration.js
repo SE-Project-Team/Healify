@@ -2,6 +2,7 @@ const { BadRequestError, CustomErrorAPI } = require("../errors");
 const { StatusCodes } = require("http-status-codes");
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
+
 const registerUser = async (req, res) => {
   const { username, password, email } = req.body;
 
@@ -40,8 +41,12 @@ const registerUser = async (req, res) => {
   const userId = created._id;
 
   return res.status(StatusCodes.OK).json({
-    _id: userId,
-    username: username,
+    success: true,
+    data: {
+      _id: userId,
+      username: username,
+      password: password,
+    },
   });
 };
 module.exports = { registerUser };

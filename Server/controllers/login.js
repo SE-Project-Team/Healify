@@ -32,7 +32,7 @@ const postLogin = async (req, res) => {
     process.env.JWT_SECRET,
     { expiresIn: "2d" }
   );
-  res.status(StatusCodes.OK).json({ token: token, _id: user._id.toString() });
+  res.status(StatusCodes.OK).json({ success: true, data: { token: token } });
 };
 
 module.exports = { postLogin };
