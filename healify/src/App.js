@@ -26,24 +26,24 @@ import { useToken } from "./CustomHooks/useToken";
 function App() {
   const { token, setToken } = useToken();
 
-  if (!token) {
-    return <Signup setToken={setToken} />;
-  }
+  // if (!token) {
+  //   return <Signup setToken={setToken} />;
+  // }
   return (
     <div className="App">
       <Router>
         <Switch>
-          {/* <Route exact path="/">
-            <Signup />
-          </Route> */}
-          <Route exact path="/News">
-            <Newsfinal />
-          </Route>
           <Route exact path="/">
             <Home />
           </Route>
+          <Route exact path="/login">
+            <Signup setToken={setToken} />
+          </Route>
+          <Route exact path="/News">
+            <Newsfinal />
+          </Route>
           <Route path="/Registration">
-            <Registration />
+            <Registration setToken={setToken} />
           </Route>
           <Route path="/Memes">
             <Memes />

@@ -59,7 +59,7 @@ export const Home = () => {
           <Link to="/Profile">
             <li className={"nav-link"}>Profile</li>
           </Link>
-          <Link to="/">
+          <Link to="/login">
             <li className={styles.navLoginBtn} id={styles.idLoginBtn}>
               Login
             </li>
@@ -86,14 +86,14 @@ export const Home = () => {
             <MDBCard className={styles.homecard}>
               <MDBCardImage src={quizimg} alt="..." position="top" />
               <Link to="/QuizLanding">
-              <MDBCardBody>
-                <MDBCardTitle>Quiz</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
+                <MDBCardBody>
+                  <MDBCardTitle>Quiz</MDBCardTitle>
+                  <MDBCardText>
+                    This is a longer card with supporting text below as a
+                    natural lead-in to additional content. This content is a
+                    little bit longer.
+                  </MDBCardText>
+                </MDBCardBody>
               </Link>
             </MDBCard>
           </MDBCol>
@@ -101,14 +101,14 @@ export const Home = () => {
             <MDBCard className={styles.homecard}>
               <MDBCardImage src={newsimg} alt="..." position="top" />
               <Link to="/News">
-              <MDBCardBody>
-                <MDBCardTitle>Articles</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
+                <MDBCardBody>
+                  <MDBCardTitle>Articles</MDBCardTitle>
+                  <MDBCardText>
+                    This is a longer card with supporting text below as a
+                    natural lead-in to additional content. This content is a
+                    little bit longer.
+                  </MDBCardText>
+                </MDBCardBody>
               </Link>
             </MDBCard>
           </MDBCol>
@@ -116,14 +116,14 @@ export const Home = () => {
             <MDBCard className={styles.homecard}>
               <MDBCardImage src={memeimg} alt="..." position="top" />
               <Link to="/Memes">
-              <MDBCardBody>
-                <MDBCardTitle>Memes</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
+                <MDBCardBody>
+                  <MDBCardTitle>Memes</MDBCardTitle>
+                  <MDBCardText>
+                    This is a longer card with supporting text below as a
+                    natural lead-in to additional content. This content is a
+                    little bit longer.
+                  </MDBCardText>
+                </MDBCardBody>
               </Link>
             </MDBCard>
           </MDBCol>
@@ -131,14 +131,14 @@ export const Home = () => {
             <MDBCard className={styles.homecard}>
               <MDBCardImage src={gameimg} alt="..." position="top" />
               <Link to="/Games">
-              <MDBCardBody>
-                <MDBCardTitle>Games</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
+                <MDBCardBody>
+                  <MDBCardTitle>Games</MDBCardTitle>
+                  <MDBCardText>
+                    This is a longer card with supporting text below as a
+                    natural lead-in to additional content. This content is a
+                    little bit longer.
+                  </MDBCardText>
+                </MDBCardBody>
               </Link>
             </MDBCard>
           </MDBCol>
@@ -146,14 +146,14 @@ export const Home = () => {
             <MDBCard className={styles.homecard}>
               <MDBCardImage src={statsimg} alt="..." position="top" />
               <Link to="/Q1Statistics">
-              <MDBCardBody>
-                <MDBCardTitle>Statistics</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
+                <MDBCardBody>
+                  <MDBCardTitle>Statistics</MDBCardTitle>
+                  <MDBCardText>
+                    This is a longer card with supporting text below as a
+                    natural lead-in to additional content. This content is a
+                    little bit longer.
+                  </MDBCardText>
+                </MDBCardBody>
               </Link>
             </MDBCard>
           </MDBCol>
@@ -161,14 +161,14 @@ export const Home = () => {
             <MDBCard className={styles.homecard}>
               <MDBCardImage src={milestoneimg} alt="..." position="top" />
               <Link to="/MilestonesHome">
-              <MDBCardBody>
-                <MDBCardTitle>Milestones</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
+                <MDBCardBody>
+                  <MDBCardTitle>Milestones</MDBCardTitle>
+                  <MDBCardText>
+                    This is a longer card with supporting text below as a
+                    natural lead-in to additional content. This content is a
+                    little bit longer.
+                  </MDBCardText>
+                </MDBCardBody>
               </Link>
             </MDBCard>
           </MDBCol>

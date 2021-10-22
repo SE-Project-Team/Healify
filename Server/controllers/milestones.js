@@ -30,7 +30,7 @@ const editMilestone = async (req, res) => {
   }
 
   //   find a user based on first parameter, then set the below properties
-  await User.findOneAndUpdate(
+  const updated = await User.findOneAndUpdate(
     { _id: _id, milestones: { $elemMatch: { _id: milestoneId } } },
     {
       $set: {
@@ -43,6 +43,10 @@ const editMilestone = async (req, res) => {
   ).catch((err) => {
     throw err;
   });
+
+  if (!updated) {
+    throw new BadRequestError("There is no such task to edit");
+  }
 
   return res.status(StatusCodes.OK).send("Milestone Edited");
 };
@@ -76,6 +80,10 @@ const getMilestone = async (req, res) => {
     // Loose Check -> one is mongoose id other is string
     return each._id == milestoneID;
   });
+  if (!activeMilestone) {
+    // potential security lapse??
+    throw new BadRequestError("There is no such Milestone");
+  }
   return res
     .status(StatusCodes.OK)
     .json({ success: true, data: activeMilestone });

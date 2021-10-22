@@ -3,23 +3,23 @@ import { useState } from "react";
 import image1 from "../Assets/image1.png";
 import logo1 from "../Assets/mentalhealth_icon_round.png";
 import styles from "./Signup.module.css";
-import axios from "axios";
+import { postLogin } from "./SignUpUtilityFn";
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
+
 export const Signup = ({ setToken }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const [warning, setWarning] = useState("");
+  const history = useHistory();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios
-      .post("http://localhost:5000/api/v1/login/", { username, password })
-      .then(
-        (res) => {
-          const { token } = res.data;
-          console.log(token);
-          console.log("Request Success");
-          setToken(token);
-        },
-        (err) => console.log("HAHAHHA")
-      );
+
+    // parameters for postLogin Function
+    const loginParams = { username, password, setToken, setWarning, history };
+    postLogin(loginParams);
   };
 
   const handleChange = (e) => {
@@ -80,6 +80,7 @@ export const Signup = ({ setToken }) => {
                   >
                     Login to Healify
                   </button>{" "}
+                  <h5>{warning}</h5>
                 </div>
                 <div className="row justify-content-center my-2">
                   {" "}
@@ -93,7 +94,7 @@ export const Signup = ({ setToken }) => {
               <p href="#" className={"mx-auto mb-3 " + styles.smText}>
                 Don't have an account?
                 <button className={"btn ml-2 " + styles.btnWhite}>
-                  Create new
+                  <Link to="/registration">Create new</Link>
                 </button>
               </p>
             </div>
