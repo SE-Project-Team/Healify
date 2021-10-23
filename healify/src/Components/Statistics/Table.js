@@ -2,12 +2,12 @@ import React, { Component } from "react";
 
 export const Table = (props) => {
   return props.data.map((datum, index) => {
-    const { id, date, score, severity } = datum; //destructuring
+    const { _id, date, score, remarks } = datum; //destructuring
     return (
-      <tr key={id}>
+      <tr key={_id}>
         <td>{date}</td>
         <td>{score}</td>
-        <td>{severity}</td>
+        <td>{remarks}</td>
       </tr>
     );
   });
