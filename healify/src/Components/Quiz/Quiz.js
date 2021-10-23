@@ -5,6 +5,7 @@ import styles2 from "../Home.module.css";
 import SpecificQuestion from "../Quiz/Questions/Question";
 import { useState } from "react";
 import { Score } from "./Score";
+import { Header } from "../Header";
 
 export const Quiz = ({ questions, category }) => {
   const [warning, setWarning] = useState(-1);
@@ -51,30 +52,7 @@ export const Quiz = ({ questions, category }) => {
     <>
       {counter <= 5 ? (
         <>
-          <header className={styles2.header}>
-            <div className={styles2.threeLineBtn}>
-              <ul className={styles2.menuBtnCustom}>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
-            </div>
-            <img className={styles2.logo} src={logo} />
-            <div>
-              <h1 className={styles2.heading}>Healify</h1>
-            </div>
-            <ul className={"nav " + styles2.settingsList}>
-              <li className={"nav-link"}>About</li>
-              <li className={"nav-link"}>Contact Us</li>
-              <li className={"nav-link"}>Profile</li>
-              <li className={styles2.navLoginBtn} id={styles2.idLoginBtn}>
-                Login
-              </li>
-              <li className={styles2.navLoginBtn} id={styles2.navSignUp}>
-                Sign Up
-              </li>
-            </ul>
-          </header>
+          <Header />
           <div className={styles.quizBody}>
             <h2 className={styles.heading}>{category}</h2>
             <div className={styles.quizcontainer}>

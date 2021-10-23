@@ -6,6 +6,7 @@ import { Table } from "./Table";
 import { TableHeader } from "./TableHeader";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Header } from "../Header";
 export const Q2Statistics = ({ quizId }) => {
   const token = JSON.parse(localStorage.getItem("token"));
   // const queryString = "quizId=" + quizId;
@@ -17,7 +18,9 @@ export const Q2Statistics = ({ quizId }) => {
         },
       })
       .then((res) => {
-        console.log(res);
+        const { scoreArr } = res.data.data;
+        console.log(scoreArr);
+        // date,id,score,remark
       })
       .catch((err) => {
         console.log(err.response.data);
@@ -32,30 +35,7 @@ export const Q2Statistics = ({ quizId }) => {
 
   return (
     <>
-      <header className={styles2.header}>
-        <div className={styles2.threeLineBtn}>
-          <ul className={styles2.menuBtnCustom}>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
-        <img className={styles2.logo} src={logo} />
-        <div>
-          <h1 className={styles2.heading}>Healify</h1>
-        </div>
-        <ul className={"nav " + styles2.settingsList}>
-          <li className={"nav-link"}>About</li>
-          <li className={"nav-link"}>Contact Us</li>
-          <li className={"nav-link"}>Profile</li>
-          <li className={styles2.navLoginBtn} id={styles2.idLoginBtn}>
-            Login
-          </li>
-          <li className={styles2.navLoginBtn} id={styles2.navSignUp}>
-            Sign Up
-          </li>
-        </ul>
-      </header>
+      <Header />
       <div>
         <h1 id={styles.title}>Control and Coping Statistics</h1>
         <table id={styles.students}>
