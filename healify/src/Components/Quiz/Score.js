@@ -4,6 +4,7 @@ import styles from "./Quiz.module.css";
 import styles2 from "../Home.module.css";
 import { useEffect } from "react";
 import axios from "axios";
+import { Header } from "../Header";
 
 const map = (category) => {
   let res;
@@ -46,7 +47,7 @@ export const Score = ({ score, category }) => {
     await axios
       .post(
         "http://localhost:5000/api/v1/quiz/score",
-        { quizId: map(category), score, remark: str },
+        { quizId: map(category), score, remarks: str },
         {
           headers: {
             authorization: `Bearer ${token}`,
@@ -62,6 +63,7 @@ export const Score = ({ score, category }) => {
   }, []);
   return (
     <>
+      <Header />
       <div className={styles.quizcontainer}>
         <h1 className={styles.counter}>Overall Score: {str}</h1>
         <div>

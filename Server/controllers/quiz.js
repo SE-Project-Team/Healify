@@ -2,7 +2,7 @@ const { StatusCodes } = require("http-status-codes");
 const { BadRequestError } = require("../errors");
 const User = require("../models/user");
 const postScore = async (req, res) => {
-  const { quizId, score, remark } = req.body;
+  const { quizId, score, remarks } = req.body;
   const { _id } = req.user;
 
   if (quizId < 1 || quizId > 4) {
@@ -11,11 +11,11 @@ const postScore = async (req, res) => {
   const quizProperty = "quizCat" + quizId.toString();
   //   [] stands for dynamic property name
   await User.findByIdAndUpdate(_id, {
-    $push: { [quizProperty]: { score, remark } },
+    $push: { [quizProperty]: { score, remarks } },
   });
   res
     .status(StatusCodes.OK)
-    .json({ status: "success", data: { score, remark } });
+    .json({ status: "success", data: { score, remarks } });
 };
 
 const getScore = async (req, res) => {
