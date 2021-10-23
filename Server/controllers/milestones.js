@@ -53,6 +53,7 @@ const editMilestone = async (req, res) => {
 
 // get Methods
 const getActiveMilestones = async (req, res) => {
+  // Auth middleware basically adds user prop to request object
   const { _id } = req.user;
 
   const { milestones } = await User.findOne({ _id });

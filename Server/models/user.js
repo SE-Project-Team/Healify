@@ -27,6 +27,10 @@ const user = new mongoose.Schema({
           type: Number,
           required: [true, "Score is Required"],
         },
+        remarks: {
+          type: String,
+          required: [true, "Remarks Not Mentioned"],
+        },
       },
     ],
     default: [],
@@ -41,6 +45,10 @@ const user = new mongoose.Schema({
         score: {
           type: Number,
           required: [true, "Score is Required"],
+        },
+        remarks: {
+          type: String,
+          required: [true, "Remarks Not Mentioned"],
         },
       },
     ],
@@ -57,6 +65,10 @@ const user = new mongoose.Schema({
           type: Number,
           required: [true, "Score is Required"],
         },
+        remarks: {
+          type: String,
+          required: [true, "Remarks Not Mentioned"],
+        },
       },
     ],
     default: [],
@@ -71,6 +83,14 @@ const user = new mongoose.Schema({
         score: {
           type: Number,
           required: [true, "Score is Required"],
+        },
+        remarks: {
+          type: String,
+          required: [true, "Remarks Not Mentioned"],
+          enum: {
+            values: ["Good", "Poor", "Average", "Very Good"],
+            message: "${VALUE} is wrong",
+          },
         },
       },
     ],

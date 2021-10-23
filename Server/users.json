@@ -3,28 +3,52 @@
     "username": "Githin George",
     "email": "githin.george2001@gmail.com",
     "password": "player1",
-    "quizCat1": [{ "score": 1 }, { "score": 2 }],
-    "quizCat2": [{ "score": 1 }, { "score": 2 }]
+    "quizCat1": [
+      { "score": 1, "remarks": "Poor" },
+      { "score": 2, "remarks": "Poor", "date": "2021-08-23T13:45:59.565Z" }
+    ],
+    "quizCat2": [
+      { "score": 1, "remarks": "Poor" },
+      { "score": 2, "remarks": "Poor" }
+    ]
   },
   {
     "username": "Sahithi rani",
     "email": "balhbalhaba",
     "password": "player2",
-    "quizCat1": [{ "score": 1 }, { "score": 2 }],
-    "quizCat2": [{ "score": 1 }, { "score": 2 }]
+    "quizCat1": [
+      { "score": 1, "remarks": "Poor" },
+      { "score": 2, "remarks": "Poor" }
+    ],
+    "quizCat2": [
+      { "score": 1, "remarks": "Poor" },
+      { "score": 2, "remarks": "Poor" }
+    ]
   },
   {
     "username": "Gowtami",
     "email": "safasfqrwqdfdfgjryfnb",
     "password": "player3",
-    "quizCat1": [{ "score": 1 }, { "score": 2 }],
-    "quizCat2": [{ "score": 1 }, { "score": 2 }]
+    "quizCat1": [
+      { "score": 1, "remarks": "Poor" },
+      { "score": 2, "remarks": "Poor" }
+    ],
+    "quizCat2": [
+      { "score": 1, "remarks": "Poor" },
+      { "score": 2, "remarks": "Poor" }
+    ]
   },
   {
     "username": "Roopa",
     "email": "asfasfafasfasfa",
     "password": "player4",
-    "quizCat1": [{ "score": 1 }, { "score": 2 }],
-    "quizCat2": [{ "score": 1 }, { "score": 2 }]
+    "quizCat1": [
+      { "score": 1, "remarks": "Poor" },
+      { "score": 2, "remarks": "Poor" }
+    ],
+    "quizCat2": [
+      { "score": 1, "remarks": "Poor" },
+      { "score": 2, "remarks": "Poor" }
+    ]
   }
 ]
