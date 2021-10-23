@@ -79,17 +79,17 @@ function App() {
           <Route path="/Score">
             <Score />
           </Route>
-          <Route path="/Q1Statistics">
-            <Q1Statistics />
+          <Route path="/QuizStatistics/1">
+            <Q1Statistics category="Ill Being and Well Being" />
           </Route>
-          <Route path="/Q2Statistics">
-            <Q2Statistics />
+          <Route path="/QuizStatistics/2">
+            <Q2Statistics category="Control and Coping" />
           </Route>
-          <Route path="/Q3Statistics">
-            <Q3Statistics />
+          <Route path="/QuizStatistics/3">
+            <Q3Statistics category="Relationships and Belonging" />
           </Route>
-          <Route path="/Q4Statistics">
-            <Q4Statistics />
+          <Route path="/QuizStatistics/4">
+            <Q4Statistics category="Self Perception" />
           </Route>
         </Switch>
       </Router>

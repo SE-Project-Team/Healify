@@ -7,45 +7,78 @@ import { TableHeader } from "./TableHeader";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Header } from "../Header";
-export const Q2Statistics = ({ quizId }) => {
+const map = (category) => {
+  let res;
+  switch (true) {
+    case category === "Ill Being and Well Being":
+      res = 1;
+      break;
+    case category === "Control and Coping":
+      res = 2;
+      break;
+    case category === "Relationships and Belonging":
+      res = 3;
+      break;
+    case category === "Self Perception":
+      res = 4;
+      break;
+  }
+  return res;
+};
+export const Q2Statistics = ({ quizId, category }) => {
   const token = JSON.parse(localStorage.getItem("token"));
   // const queryString = "quizId=" + quizId;
   useEffect(async () => {
+    const id = map(category);
     await axios
-      .get(`http://localhost:5000/api/v1/quiz/statistics?quizId=2`, {
+      .get(`http://localhost:5000/api/v1/quiz/statistics?quizId=${id}`, {
         headers: {
           authorization: `Bearer ${token}`,
         },
       })
       .then((res) => {
         const { scoreArr } = res.data.data;
-        console.log(scoreArr);
+        console.log(scoreArr, "Something");
         // date,id,score,remark
+        if (!scoreArr) {
+          setData(-1);
+        } else {
+          const newScoreArray = scoreArr.map((each) => {
+            let newDate = each.date.split("T")[0];
+            newDate = newDate.split("-").reverse().join("-");
+            return {
+              ...each,
+              date: newDate,
+            };
+          });
+          setData(newScoreArray);
+        }
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err);
       });
   }, []);
   const [data, setData] = useState([
-    { id: 1, date: "10-10-2021", score: 21, severity: "Very High" },
-    { id: 2, date: "11-10-2021", score: 14, severity: "Moderate" },
-    { id: 3, date: "15-10-2021", score: 19, severity: "High" },
-    { id: 4, date: "18-10-2021", score: 16, severity: "High" },
+    { _id: "", date: "", score: "", remarks: "" },
   ]);
 
   return (
     <>
       <Header />
       <div>
-        <h1 id={styles.title}>Control and Coping Statistics</h1>
-        <table id={styles.students}>
-          <tbody>
-            <tr>
-              <TableHeader />
-            </tr>
-            <Table data={data} />
-          </tbody>
-        </table>
+        <h1 id={styles.title}>{category}</h1>
+        {data === -1 ? (
+          <h2>"Data not available"</h2>
+        ) : (
+          <table id={styles.students}>
+            <tbody>
+              <tr>
+                <TableHeader />
+              </tr>
+              <Table data={data} />
+            </tbody>
+          </table>
+        )}
       </div>
     </>
   );
