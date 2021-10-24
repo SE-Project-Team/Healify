@@ -82,21 +82,21 @@ export const Signup = ({ setToken }) => {
                   </button>{" "}
                   <h5>{warning}</h5>
                 </div>
-                <div className="row justify-content-center my-2">
+                {/* <div className="row justify-content-center my-2">
                   {" "}
                   <a href="#">
                     <small className="text-muted">Forgot Password?</small>
                   </a>{" "}
-                </div>
+                </div> */}
               </div>
             </div>
             <div className={"text-center mb-5 " + styles.bottom}>
               <p href="#" className={"mx-auto mb-3 " + styles.smText}>
                 Don't have an account?
-                <button className={"btn ml-2 " + styles.btnWhite}>
-                  <Link to="/registration">Create new</Link>
-                </button>
               </p>
+              <button className={"btn ml-2 " + styles.btnWhite}>
+                <Link to="/registration">Create new</Link>
+              </button>
             </div>
           </div>
           <div className={styles.card + " " + styles.card2}>

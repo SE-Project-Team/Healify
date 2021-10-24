@@ -8,6 +8,7 @@ import logo1 from "../../Assets/mentalhealth_icon_round.png";
 
 import axios from "axios";
 import { postLogin } from "./SignUpUtilityFn";
+import { Link } from "react-router-dom";
 
 export const Registration = ({ setToken }) => {
   const [username, setUsername] = useState("");
@@ -22,6 +23,11 @@ export const Registration = ({ setToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let value = 1;
+    if (password != rePassword) {
+      setWarning("Re-entered password is not matching");
+      setTimeout(() => setWarning(""), 2000);
+      return;
+    }
     await axios
       .post("http://localhost:5000/api/v1/registration/", {
         username,
@@ -132,8 +138,8 @@ export const Registration = ({ setToken }) => {
                 </div>
 
                 <br />
-                <input type="checkbox" className="checkbox" required="" />
-                <span> I Agree To The Terms & Conditions</span>
+                {/* <input type="checkbox" className="checkbox" required="" /> */}
+                {/* <span> I Agree To The Terms & Conditions</span> */}
 
                 <div className="row justify-content-center my-3 px-3">
                   <button
@@ -146,11 +152,11 @@ export const Registration = ({ setToken }) => {
                 </div>
                 <div className="row justify-content-center my-2">
                   {" "}
-                  <a href="/login">
+                  <Link to="/login">
                     <small className="text-muted">
                       Redirect back to Login Page
                     </small>
-                  </a>{" "}
+                  </Link>{" "}
                 </div>
               </div>
             </div>

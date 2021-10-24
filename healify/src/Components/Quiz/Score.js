@@ -43,24 +43,27 @@ export const Score = ({ score, category }) => {
     default:
       break;
   }
-  useEffect(async () => {
-    const token = JSON.parse(localStorage.getItem("token"));
-    await axios
-      .post(
-        "http://localhost:5000/api/v1/quiz/score",
-        { quizId: map(category), score, remarks: str },
-        {
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
+  useEffect(() => {
+    const postData = async () => {
+      const token = JSON.parse(localStorage.getItem("token"));
+      await axios
+        .post(
+          "http://localhost:5000/api/v1/quiz/score",
+          { quizId: map(category), score, remarks: str },
+          {
+            headers: {
+              authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err.response.data);
+        });
+    };
+    postData();
   }, []);
   return (
     <>

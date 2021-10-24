@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import axios from "axios";
 const CreateTask = ({ modal, toggle, save }) => {
   const [titleName, setTitleName] = useState("");
-  const [Date, setDate] = useState("");
+  const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
+
+  const [warning, setWarning] = useState("");
+
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -16,13 +20,52 @@ const CreateTask = ({ modal, toggle, save }) => {
       setDate(value);
     }
   };
-  const handleSave = (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
-    let taskObj = {};
-    taskObj["titleName"] = titleName;
-    taskObj["Date"] = Date;
-    taskObj["Description"] = description;
-    save(taskObj);
+    if (!titleName || !date || !description) {
+      setWarning("All fields are required");
+      setTimeout(() => {
+        setWarning("");
+      }, 2000);
+      return;
+    }
+
+    const targetDate = new Date(date);
+    if (targetDate == "Invalid Date") {
+      setWarning("Date is Invalid");
+      setTimeout(() => {
+        setWarning("");
+      }, 2000);
+      return;
+    }
+    const token = JSON.parse(localStorage.getItem("token"));
+
+    await axios
+      .post(
+        "http://localhost:5000/api/v1/milestones/create",
+        {
+          title: titleName,
+          targetDate,
+          description,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        save();
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+    // let taskObj = {};
+    // taskObj["titleName"] = titleName;
+    // taskObj["Date"] = Date;
+    // taskObj["Description"] = description;
+    // save(taskObj);
   };
 
   return (
@@ -45,7 +88,7 @@ const CreateTask = ({ modal, toggle, save }) => {
             <input
               type="text"
               className="form-control"
-              value={Date}
+              value={date}
               onChange={handleChange}
               name="Date"
             />

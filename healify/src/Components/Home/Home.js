@@ -80,7 +80,7 @@ export const Home = () => {
               </Link>
             </MDBCard>
           </MDBCol>
-          <MDBCol>
+          {/* <MDBCol>
             <MDBCard className={styles.homecard}>
               <MDBCardImage src={gameimg} alt="..." position="top" />
               <Link to="/Games">
@@ -94,22 +94,8 @@ export const Home = () => {
                 </MDBCardBody>
               </Link>
             </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className={styles.homecard}>
-              <MDBCardImage src={statsimg} alt="..." position="top" />
-              <Link to="/Q1Statistics">
-                <MDBCardBody>
-                  <MDBCardTitle>Statistics</MDBCardTitle>
-                  <MDBCardText>
-                    This is a longer card with supporting text below as a
-                    natural lead-in to additional content. This content is a
-                    little bit longer.
-                  </MDBCardText>
-                </MDBCardBody>
-              </Link>
-            </MDBCard>
-          </MDBCol>
+          </MDBCol> */}
+
           <MDBCol>
             <MDBCard className={styles.homecard}>
               <MDBCardImage src={milestoneimg} alt="..." position="top" />

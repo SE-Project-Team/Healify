@@ -20,41 +20,47 @@ const map = (category) => {
     case category === "Self Perception":
       res = 4;
       break;
+    default:
+      res = -1;
+      break;
   }
   return res;
 };
-export const QuizStatistics = ({ quizId, category }) => {
+export const QuizStatistics = ({ category }) => {
   const token = JSON.parse(localStorage.getItem("token"));
   // const queryString = "quizId=" + quizId;
-  useEffect(async () => {
-    const id = map(category);
-    await axios
-      .get(`http://localhost:5000/api/v1/quiz/statistics?quizId=${id}`, {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        const { scoreArr } = res.data.data;
-        console.log(scoreArr, "Something");
-        // date,id,score,remark
-        if (!scoreArr) {
-          setData(-1);
-        } else {
-          const newScoreArray = scoreArr.map((each) => {
-            let newDate = each.date.split("T")[0];
-            newDate = newDate.split("-").reverse().join("-");
-            return {
-              ...each,
-              date: newDate,
-            };
-          });
-          setData(newScoreArray);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  useEffect(() => {
+    const fetchData = async () => {
+      const id = map(category);
+      await axios
+        .get(`http://localhost:5000/api/v1/quiz/statistics?quizId=${id}`, {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          const { scoreArr } = res.data.data;
+          console.log(scoreArr, "Something");
+          // date,id,score,remark
+          if (!scoreArr) {
+            setData(-1);
+          } else {
+            const newScoreArray = scoreArr.map((each) => {
+              let newDate = each.date.split("T")[0];
+              newDate = newDate.split("-").reverse().join("-");
+              return {
+                ...each,
+                date: newDate,
+              };
+            });
+            setData(newScoreArray);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    fetchData();
   }, []);
   const [data, setData] = useState([
     { _id: "", date: "", score: "", remarks: "" },

@@ -14,6 +14,9 @@ const registrationRouter = require("./routes/registration");
 const quizRouter = require("./routes/quiz");
 const milestonesRouter = require("./routes/milestones");
 
+const { checkUser } = require("./controllers/home");
+const auth = require("./middleware/auth");
+
 // Middleware
 app.use(express.json());
 app.use(cors());
@@ -26,6 +29,8 @@ app.use("/api/v1/registration", registrationRouter);
 app.use("/api/v1/milestones", milestonesRouter);
 
 app.use("/api/v1/quiz", quizRouter);
+
+app.get("/api/v1", auth, checkUser);
 
 // error paths
 app.use(not_found);

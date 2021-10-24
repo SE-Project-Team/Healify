@@ -65,10 +65,12 @@
 .bottom {
   width: 100%;
   margin-top: 50px !important;
+  display: flex;
 }
 
 .smText {
   font-size: 15px;
+  align-self: center;
 }
 
 @media screen and (max-width: 992px) {
