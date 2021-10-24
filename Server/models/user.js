@@ -88,7 +88,7 @@ const user = new mongoose.Schema({
           type: String,
           required: [true, "Remarks Not Mentioned"],
           enum: {
-            values: ["Good", "Poor", "Average", "Very Good"],
+            values: ["Very Bad", "Bad", "Average", "Good", "Very Good"],
             message: "${VALUE} is wrong",
           },
         },

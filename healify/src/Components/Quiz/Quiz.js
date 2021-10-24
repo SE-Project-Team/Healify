@@ -70,7 +70,7 @@ export const Quiz = ({ questions, category }) => {
 
   return (
     <>
-      {counter <= 5 ? (
+      {counter <= 10 ? (
         <>
           <Header />
           <div className={styles.quizBody}>

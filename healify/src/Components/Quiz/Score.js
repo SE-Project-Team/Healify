@@ -25,16 +25,19 @@ const map = (category) => {
 export const Score = ({ score, category }) => {
   let str = "";
   switch (true) {
-    case score < 10:
-      str = "Poor";
-      break;
-    case score <= 15:
-      str = "Average";
+    case score <= 10:
+      str = "Very Bad";
       break;
     case score <= 20:
+      str = "Bad";
+      break;
+    case score <= 30:
+      str = "Average";
+      break;
+    case score <= 40:
       str = "Good";
       break;
-    case score <= 25:
+    case score <= 50:
       str = "Very Good";
       break;
     default:
@@ -65,7 +68,7 @@ export const Score = ({ score, category }) => {
       <div className={styles.quizcontainer}>
         <h1 className={styles.counter}>Overall Score: {str}</h1>
         <div>
-          <h3 className={styles.counter}> Your score is {score}/25</h3>
+          <h3 className={styles.counter}> Your score is {score}/50</h3>
         </div>
       </div>
     </>

@@ -4,12 +4,12 @@
     "email": "githin.george2001@gmail.com",
     "password": "player1",
     "quizCat1": [
-      { "score": 1, "remarks": "Poor" },
-      { "score": 2, "remarks": "Poor", "date": "2021-08-23T13:45:59.565Z" }
+      { "score": 9, "remarks": "Very Bad" },
+      { "score": 36, "remarks": "Good", "date": "2021-08-23T13:45:59.565Z" }
     ],
     "quizCat2": [
-      { "score": 1, "remarks": "Poor" },
-      { "score": 2, "remarks": "Poor" }
+      { "score": 45, "remarks": "Very Good" },
+      { "score": 28, "remarks": "Average" }
     ]
   },
   {
@@ -17,12 +17,12 @@
     "email": "balhbalhaba",
     "password": "player2",
     "quizCat1": [
-      { "score": 1, "remarks": "Poor" },
-      { "score": 2, "remarks": "Poor" }
+      { "score": 34, "remarks": "Good" },
+      { "score": 27, "remarks": "Average" }
     ],
     "quizCat2": [
-      { "score": 1, "remarks": "Poor" },
-      { "score": 2, "remarks": "Poor" }
+      { "score": 43, "remarks": "Very Good" },
+      { "score": 18, "remarks": "Bad" }
     ]
   },
   {
