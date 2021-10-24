@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const { StatusCodes } = require("http-status-codes");
 const { BadRequestError, UnauthenticatedError } = require("../errors");
+const { compareSync } = require("bcryptjs");
 
 // Post Methods
 const createNewMilestone = async (req, res) => {
@@ -24,7 +25,7 @@ const createNewMilestone = async (req, res) => {
 const editMilestone = async (req, res) => {
   const { milestoneId, title, description, targetDate, completed } = req.body;
   const { _id } = req.user;
-
+  console.log(req.body, _id);
   if (!title || !description) {
     throw new BadRequestError("Milestone must have title and description");
   }
@@ -90,10 +91,36 @@ const getMilestone = async (req, res) => {
     .json({ success: true, data: activeMilestone });
 };
 
+const deleteMilestone = async (req, res) => {
+  const { milestoneID } = req.body;
+  const { _id } = req.user;
+
+  const { milestones } = await User.findOne({ _id });
+  const newMilestones = milestones.filter((each) => {
+    return each._id != milestoneID;
+  });
+
+  const updated = await User.findByIdAndUpdate(
+    { _id },
+    {
+      $set: { milestones: newMilestones },
+    }
+  ).catch((err) => {
+    console.log("Error in Deleting");
+    console.log(err);
+  });
+  if (!updated) {
+    throw new BadRequestError("There is no such task to delete");
+  }
+
+  return res.status(StatusCodes.OK).send("Milestones Updated by deleting One");
+};
+
 module.exports = {
   createNewMilestone,
   editMilestone,
   getAllMilestones,
   getActiveMilestones,
   getMilestone,
+  deleteMilestone,
 };

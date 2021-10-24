@@ -7,6 +7,7 @@ const {
   getAllMilestones,
   getActiveMilestones,
   getMilestone,
+  deleteMilestone,
 } = require("../controllers/milestones");
 
 const router = express.Router();
@@ -19,6 +20,7 @@ router.route("/create").post(auth, createNewMilestone);
 
 router.route("/edit").patch(auth, editMilestone);
 
+router.route("/delete").post(auth, deleteMilestone);
 // Probably Not Gonna Use in this Release
 router.route("/milestone").get(auth, getMilestone);
 
