@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styles from "./Statistics.module.css";
 import { Table } from "./Table";
 import { TableHeader } from "./TableHeader";
