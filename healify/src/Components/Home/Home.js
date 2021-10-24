@@ -38,7 +38,7 @@ export const Home = () => {
           <MDBCol>
             <MDBCard className={styles.homecard}>
               <MDBCardImage src={quizimg} alt="..." position="top" />
-              <Link to="/QuizLanding">
+              <Link to="/QuizLanding" className={styles.remove_underline}>
                 <MDBCardBody>
                   <MDBCardTitle>Quiz</MDBCardTitle>
                   <MDBCardText>
@@ -53,7 +53,7 @@ export const Home = () => {
           <MDBCol>
             <MDBCard className={styles.homecard}>
               <MDBCardImage src={newsimg} alt="..." position="top" />
-              <Link to="/News">
+              <Link to="/News" className={styles.remove_underline}>
                 <MDBCardBody>
                   <MDBCardTitle>Articles</MDBCardTitle>
                   <MDBCardText>
@@ -68,7 +68,7 @@ export const Home = () => {
           <MDBCol>
             <MDBCard className={styles.homecard}>
               <MDBCardImage src={memeimg} alt="..." position="top" />
-              <Link to="/Memes">
+              <Link to="/Memes" className={styles.remove_underline}>
                 <MDBCardBody>
                   <MDBCardTitle>Memes</MDBCardTitle>
                   <MDBCardText>
@@ -99,7 +99,7 @@ export const Home = () => {
           <MDBCol>
             <MDBCard className={styles.homecard}>
               <MDBCardImage src={milestoneimg} alt="..." position="top" />
-              <Link to="/MilestonesHome">
+              <Link to="/MilestonesHome" className={styles.remove_underline}>
                 <MDBCardBody>
                   <MDBCardTitle>Milestones</MDBCardTitle>
                   <MDBCardText>
