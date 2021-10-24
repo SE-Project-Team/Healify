@@ -32,6 +32,9 @@ app.use("/api/v1/quiz", quizRouter);
 
 app.get("/api/v1", auth, checkUser);
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("../healify/build"));
+}
 // error paths
 app.use(not_found);
 app.use(error_handler);
