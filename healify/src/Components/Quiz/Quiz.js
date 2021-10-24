@@ -76,7 +76,7 @@ export const Quiz = ({ questions, category }) => {
           <div className={styles.quizBody}>
             <h2 className={styles.heading}>{category}</h2>
             <div className={styles.quizcontainer}>
-              <h4 className={styles.counter}>{counter}/5</h4>
+              <h4 className={styles.counter}>{counter}/10</h4>
               <div>
                 <form action="" className={styles.quizForm}>
                   <SpecificQuestion
