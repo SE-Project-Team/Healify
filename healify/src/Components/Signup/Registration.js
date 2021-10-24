@@ -3,8 +3,8 @@ import { useState } from "react";
 import { useHistory } from "react-router";
 
 import styles from "./Signup.module.css";
-import image1 from "../Assets/image1.png";
-import logo1 from "../Assets/mentalhealth_icon_round.png";
+import image1 from "../../Assets/image1.png";
+import logo1 from "../../Assets/mentalhealth_icon_round.png";
 
 import axios from "axios";
 import { postLogin } from "./SignUpUtilityFn";

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Header } from "./Header";
+import { Header } from "../Home/Header";
 import memestyles from "./Memes.module.css";
 const url = "https://meme-api.herokuapp.com/gimme/wholesomememes";
 

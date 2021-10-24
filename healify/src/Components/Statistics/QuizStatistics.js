@@ -1,12 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import styles from "./Statistics.module.css";
-import styles2 from "../Home.module.css";
-import logo from "../../Assets/mentalhealth_icon_round.png";
 import { Table } from "./Table";
 import { TableHeader } from "./TableHeader";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Header } from "../Header";
+import { Header } from "../Home/Header";
 const map = (category) => {
   let res;
   switch (true) {
@@ -25,7 +23,7 @@ const map = (category) => {
   }
   return res;
 };
-export const Q2Statistics = ({ quizId, category }) => {
+export const QuizStatistics = ({ quizId, category }) => {
   const token = JSON.parse(localStorage.getItem("token"));
   // const queryString = "quizId=" + quizId;
   useEffect(async () => {

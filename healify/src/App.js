@@ -1,10 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Home } from "./Components/Home";
-import { Signup } from "./Components/Signup";
-import { Registration } from "./Components/Registration";
+import { Home } from "./Components/Home/Home";
+import { Signup } from "./Components/Signup/Signup";
+import { Registration } from "./Components/Signup/Registration";
 import { Quiz } from "./Components/Quiz/Quiz";
-import { Memes } from "./Components/Memes";
+import { Memes } from "./Components/Memes/Memes";
 import { MilestonesHome } from "./Components/Milestones/MilestonesHome";
 import { Timeline } from "./Components/Milestones/Timeline";
 import "./Components/Milestones/MilestonesHome.module.css";
@@ -15,10 +15,7 @@ import { Questions2 } from "./Components/Quiz/Questions/QueCategory2";
 import { Questions3 } from "./Components/Quiz/Questions/QueCategory3";
 import { Questions4 } from "./Components/Quiz/Questions/QueCategory4";
 import { Score } from "./Components/Quiz/Score";
-import { Q1Statistics } from "./Components/Statistics/Q1Statistics";
-import { Q2Statistics } from "./Components/Statistics/Q2Statistics";
-import { Q3Statistics } from "./Components/Statistics/Q3Statistics";
-import { Q4Statistics } from "./Components/Statistics/Q4Statistics";
+import { QuizStatistics } from "./Components/Statistics/QuizStatistics";
 import Newsfinal from "./Components/News/NewsFinal";
 import "./App.css";
 
@@ -80,16 +77,16 @@ function App() {
             <Score />
           </Route>
           <Route path="/QuizStatistics/1">
-            <Q1Statistics category="Ill Being and Well Being" />
+            <QuizStatistics category="Ill Being and Well Being" />
           </Route>
           <Route path="/QuizStatistics/2">
-            <Q2Statistics category="Control and Coping" />
+            <QuizStatistics category="Control and Coping" />
           </Route>
           <Route path="/QuizStatistics/3">
-            <Q3Statistics category="Relationships and Belonging" />
+            <QuizStatistics category="Relationships and Belonging" />
           </Route>
           <Route path="/QuizStatistics/4">
-            <Q4Statistics category="Self Perception" />
+            <QuizStatistics category="Self Perception" />
           </Route>
         </Switch>
       </Router>

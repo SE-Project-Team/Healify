@@ -1,12 +1,12 @@
 import React from "react";
-import image from "../Assets/homePage.webp";
-import quizimg from "../Assets/quiz.jpg";
-import newsimg from "../Assets/news.jpg";
-import memeimg from "../Assets/meme.jpg";
-import gameimg from "../Assets/games.jpg";
-import statsimg from "../Assets/stats.jpg";
+import image from "../../Assets/homePage.webp";
+import quizimg from "../../Assets/quiz.jpg";
+import newsimg from "../../Assets/news.jpg";
+import memeimg from "../../Assets/meme.jpg";
+import gameimg from "../../Assets/games.jpg";
+import statsimg from "../../Assets/stats.jpg";
 import styles from "./Home.module.css";
-import milestoneimg from "../Assets/milestone.jpg";
+import milestoneimg from "../../Assets/milestone.jpg";
 import {
   MDBCard,
   MDBCardImage,
