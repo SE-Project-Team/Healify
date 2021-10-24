@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import logo from "../../Assets/mentalhealth_icon_round.png";
 import styles from "./Quiz.module.css";
-import styles2 from "../Home.module.css";
 import SpecificQuestion from "../Quiz/Questions/Question";
 import { useState } from "react";
 import { Score } from "./Score";
-import { Header } from "../Header";
+import { Header } from "../Home/Header";
 
 export const Quiz = ({ questions, category }) => {
   const [warning, setWarning] = useState(-1);
@@ -35,7 +33,29 @@ export const Quiz = ({ questions, category }) => {
         });
       }, 2000);
     } else {
-      setScore(() => score + parseInt(option));
+      let val = 0;
+      let sc = parseInt(option);
+      switch (sc) {
+        case 1:
+          val = 5;
+          break;
+        case 2:
+          val = 4;
+          break;
+        case 3:
+          val = 3;
+          break;
+        case 4:
+          val = 2;
+          break;
+        case 5:
+          val = 1;
+          break;
+        default:
+          val = 0;
+          break;
+      }
+      setScore(() => score + val);
 
       setCounter(() => counter + 1);
       const newQuestionSet = questionSet.filter((qn) => que.id !== qn.id);

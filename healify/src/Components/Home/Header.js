@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Home.module.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import logo from "../Assets/mentalhealth_icon_round.png";
+import logo from "../../Assets/mentalhealth_icon_round.png";
 
 export const Header = () => {
   const scrollHandler = () => {

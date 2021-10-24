@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import image1 from "../Assets/image1.png";
-import logo1 from "../Assets/mentalhealth_icon_round.png";
+import image1 from "../../Assets/image1.png";
+import logo1 from "../../Assets/mentalhealth_icon_round.png";
 import styles from "./Signup.module.css";
 import { postLogin } from "./SignUpUtilityFn";
 import { useHistory } from "react-router";
