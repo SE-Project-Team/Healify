@@ -76,25 +76,25 @@ export const QuizLanding = () => {
         <h1 className={styles3.heading}>View statistics by category</h1>
         <div className={styles3.container}>
           <div className={styles3.category}>
-            <Link to="/QuizStatistics/1">
+            <Link to="/QuizStatistics/1" className={styles2.remove_underline}>
               <img className={styles3.logo} src={illImg} alt="" />
               <p>Ill being and Well being</p>
             </Link>
           </div>
           <div className={styles3.category}>
-            <Link to="/QuizStatistics/2">
+            <Link to="/QuizStatistics/2" className={styles2.remove_underline}>
               <img className={styles3.logo} src={phyImg} alt="" />
               <p>Control and Coping</p>
             </Link>
           </div>
           <div className={styles3.category}>
-            <Link to="/QuizStatistics/3">
+            <Link to="/QuizStatistics/3" className={styles2.remove_underline}>
               <img className={styles3.logo} src={controlImg} alt="" />
               <p>Relationships and Belonging</p>
             </Link>
           </div>
           <div className={styles3.category}>
-            <Link to="/QuizStatistics/4">
+            <Link to="/QuizStatistics/4" className={styles2.remove_underline}>
               <img className={styles3.logo} src={copingImg} alt="" />
               <p>Self Perception</p>
             </Link>
