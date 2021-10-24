@@ -55,22 +55,22 @@ export const Header = () => {
           <li></li>
         </ul>
       </div>
-      <Link to="/">
+      <Link to="/" className={styles.remove_underline}>
         <img className={styles.logo} src={logo} />
       </Link>
-      <Link to="/">
+      <Link to="/" className={styles.remove_underline}>
         <div>
           <h1 className={styles.heading}>Healify</h1>
         </div>
       </Link>
       <ul className={"nav " + styles.settingsList}>
-        <Link to="/About">
+        <Link to="/About" className={styles.remove_underline}>
           <li className={"nav-link"}>About</li>
         </Link>
 
         {user && (
           <>
-            <Link to="/Profile">
+            <Link to="/Profile" className={styles.remove_underline}>
               <li className={"nav-link"}>{user}</li>
             </Link>
             <li
@@ -84,12 +84,12 @@ export const Header = () => {
         )}
         {!user && (
           <>
-            <Link to="/login">
+            <Link to="/login" className={styles.remove_underline}>
               <li className={styles.navLoginBtn} id={styles.idLoginBtn}>
                 Login
               </li>
             </Link>
-            <Link to="/Registration">
+            <Link to="/Registration" className={styles.remove_underline}>
               <li className={styles.navLoginBtn} id={styles.navSignUp}>
                 Sign Up
               </li>
