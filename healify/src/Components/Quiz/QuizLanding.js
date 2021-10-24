@@ -9,33 +9,11 @@ import controlImg from "../../Assets/control.jpg";
 import copingImg from "../../Assets/coping.jpg";
 
 import { Link } from "react-router-dom";
+import { Header } from "../Home/Header";
 export const QuizLanding = () => {
   return (
     <>
-      <header className={styles2.header}>
-        <div className={styles2.threeLineBtn}>
-          <ul className={styles2.menuBtnCustom}>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
-        <img className={styles2.logo} src={logo} />
-        <div>
-          <h1 className={styles2.heading}>Healify</h1>
-        </div>
-        <ul className={"nav " + styles2.settingsList}>
-          <li className={"nav-link"}>About</li>
-          <li className={"nav-link"}>Contact Us</li>
-          <li className={"nav-link"}>Profile</li>
-          <li className={styles2.navLoginBtn} id={styles2.idLoginBtn}>
-            Login
-          </li>
-          <li className={styles2.navLoginBtn} id={styles2.navSignUp}>
-            Sign Up
-          </li>
-        </ul>
-      </header>
+      <Header />
       <div className={styles3.quizBody}>
         <div className={styles3.topDiv}>
           <img src={img} alt="" className={styles3.topDivImg} />

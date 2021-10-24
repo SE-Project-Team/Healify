@@ -56,6 +56,9 @@ const CreateTask = ({ modal, toggle, save }) => {
       )
       .then((res) => {
         console.log(res.data);
+        setTitleName("");
+        setDate("");
+        setDescription("");
         save();
       })
       .catch((err) => {
@@ -66,6 +69,14 @@ const CreateTask = ({ modal, toggle, save }) => {
     // taskObj["Date"] = Date;
     // taskObj["Description"] = description;
     // save(taskObj);
+  };
+
+  const resetForm = (e) => {
+    e.preventDefault();
+    setTitleName("");
+    setDate("");
+    setDescription("");
+    toggle();
   };
 
   return (
@@ -84,7 +95,7 @@ const CreateTask = ({ modal, toggle, save }) => {
             />
           </div>
           <div className="form-group">
-            <label>DD/MM/YYYY</label>
+            <label>MM/DD/YYYY</label>
             <input
               type="text"
               className="form-control"
@@ -104,12 +115,13 @@ const CreateTask = ({ modal, toggle, save }) => {
             ></textarea>
           </div>
         </form>
+        <h5>{warning}</h5>
       </ModalBody>
       <ModalFooter>
         <Button color="primary" onClick={handleSave}>
           Save
         </Button>{" "}
-        <Button color="secondary" onClick={toggle}>
+        <Button color="secondary" onClick={resetForm}>
           Cancel
         </Button>
       </ModalFooter>
