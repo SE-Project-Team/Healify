@@ -47,6 +47,7 @@ export const Timeline = () => {
       console.log("calling");
       await updatePage();
     };
+    asyncWrapper();
   }, []);
 
   return (
