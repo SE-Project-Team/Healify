@@ -55,10 +55,14 @@ export const Header = () => {
           <li></li>
         </ul>
       </div>
-      <img className={styles.logo} src={logo} />
-      <div>
-        <h1 className={styles.heading}>Healify</h1>
-      </div>
+      <Link to="/">
+        <img className={styles.logo} src={logo} />
+      </Link>
+      <Link to="/">
+        <div>
+          <h1 className={styles.heading}>Healify</h1>
+        </div>
+      </Link>
       <ul className={"nav " + styles.settingsList}>
         <Link to="/About">
           <li className={"nav-link"}>About</li>

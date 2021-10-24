@@ -8,6 +8,7 @@ import styles from "./MilestonesHome.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import axios from "axios";
+import { Header } from "../Home/Header";
 
 export const MilestonesHome = () => {
   const [modal, setModal] = useState(false);
@@ -86,6 +87,7 @@ export const MilestonesHome = () => {
 
   return (
     <div>
+      <Header />
       <ReactBootStrap.Navbar
         collapseOnSelect
         expand="lg"
