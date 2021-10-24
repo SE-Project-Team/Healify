@@ -10,7 +10,10 @@
   top: 0px;
   z-index: 1;
 }
-
+.remove_underline
+{
+  text-decoration: none;
+}
 .whiteHeader {
   position: sticky;
   top: 0px;
