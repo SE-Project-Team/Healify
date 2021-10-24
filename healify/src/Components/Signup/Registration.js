@@ -8,6 +8,7 @@ import logo1 from "../../Assets/mentalhealth_icon_round.png";
 
 import axios from "axios";
 import { postLogin } from "./SignUpUtilityFn";
+import { Link } from "react-router-dom";
 
 export const Registration = ({ setToken }) => {
   const [username, setUsername] = useState("");
@@ -151,11 +152,11 @@ export const Registration = ({ setToken }) => {
                 </div>
                 <div className="row justify-content-center my-2">
                   {" "}
-                  <a href="/login">
+                  <Link to="/login">
                     <small className="text-muted">
                       Redirect back to Login Page
                     </small>
-                  </a>{" "}
+                  </Link>{" "}
                 </div>
               </div>
             </div>
