@@ -117,7 +117,7 @@ export const MilestonesHome = () => {
           </ReactBootStrap.Navbar.Collapse>
         </ReactBootStrap.Container>
       </ReactBootStrap.Navbar>
-      <div className={styles.header}>
+      <div className={styles.heading}>
         <div className="text-center">
           <h3 className="mt-">Milestones</h3>
           <button
