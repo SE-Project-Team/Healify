@@ -22,6 +22,11 @@ export const Registration = ({ setToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let value = 1;
+    if (password != rePassword) {
+      setWarning("Re-entered password is not matching");
+      setTimeout(() => setWarning(""), 2000);
+      return;
+    }
     await axios
       .post("http://localhost:5000/api/v1/registration/", {
         username,
@@ -132,8 +137,8 @@ export const Registration = ({ setToken }) => {
                 </div>
 
                 <br />
-                <input type="checkbox" className="checkbox" required="" />
-                <span> I Agree To The Terms & Conditions</span>
+                {/* <input type="checkbox" className="checkbox" required="" /> */}
+                {/* <span> I Agree To The Terms & Conditions</span> */}
 
                 <div className="row justify-content-center my-3 px-3">
                   <button

@@ -38,7 +38,7 @@ const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
 
   useEffect(() => {
     const arr = taskObj.targetDate.split(" ");
-    const dateStr = `${month_map[arr[1]]}\/${arr[2]}\/${arr[3]}`;
+    const dateStr = `${month_map[arr[1]]}/${arr[2]}/${arr[3]}`;
 
     setTitleName(taskObj.title);
     setDate(dateStr);

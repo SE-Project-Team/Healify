@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import logo from "../../Assets/mentalhealth_icon_round.png";
 
 export const Header = () => {
+  const [user, setUser] = useState("");
+
   const scrollHandler = () => {
     if (scrollClass === "" && window.scrollY > 100) {
       setScrollClass(styles.whiteHeader);
@@ -15,7 +17,9 @@ export const Header = () => {
   const [scrollClass, setScrollClass] = useState("");
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler);
-    return () => {};
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
   }, []);
   return (
     <header className={styles.header + " " + scrollClass}>

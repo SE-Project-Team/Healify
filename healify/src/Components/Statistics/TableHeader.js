@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 export const TableHeader = () => {
   let header = ["date", "score", "remarks"];

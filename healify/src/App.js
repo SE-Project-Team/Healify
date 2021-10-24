@@ -23,9 +23,6 @@ import { useToken } from "./CustomHooks/useToken";
 function App() {
   const { token, setToken } = useToken();
 
-  // if (!token) {
-  //   return <Signup setToken={setToken} />;
-  // }
   return (
     <div className="App">
       <Router>

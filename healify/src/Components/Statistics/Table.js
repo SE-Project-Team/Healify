@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 export const Table = (props) => {
   return props.data.map((datum, index) => {

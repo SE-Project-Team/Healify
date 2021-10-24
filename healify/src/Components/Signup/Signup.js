@@ -82,12 +82,12 @@ export const Signup = ({ setToken }) => {
                   </button>{" "}
                   <h5>{warning}</h5>
                 </div>
-                <div className="row justify-content-center my-2">
+                {/* <div className="row justify-content-center my-2">
                   {" "}
                   <a href="#">
                     <small className="text-muted">Forgot Password?</small>
                   </a>{" "}
-                </div>
+                </div> */}
               </div>
             </div>
             <div className={"text-center mb-5 " + styles.bottom}>

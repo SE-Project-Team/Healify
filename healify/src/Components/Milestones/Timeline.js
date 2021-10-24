@@ -42,9 +42,11 @@ export const Timeline = () => {
         console.log(err.response.data);
       });
   };
-  useEffect(async () => {
-    console.log("calling");
-    await updatePage();
+  useEffect(() => {
+    const asyncWrapper = async () => {
+      console.log("calling");
+      await updatePage();
+    };
   }, []);
 
   return (
