@@ -17,10 +17,10 @@ export const QuizLanding = () => {
         <div className={styles3.topDiv}>
           <img src={img} alt="" className={styles3.topDivImg} />
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            neque dolor, praesentium quasi repellat dolore molestiae error
-            molestias nesciunt placeat deleniti laudantium nulla alias sed
-            pariatur vero obcaecati at inventore.
+            Online screening is one of the quickest and easiest ways to
+            determine whether you are experiencing symptoms of a mental health
+            condition. Mental health conditions, such as depression or anxiety,
+            are real, common and treatable. And recovery is possible.
           </p>
         </div>
         <h1 className={styles3.heading}>Take quiz by category</h1>
