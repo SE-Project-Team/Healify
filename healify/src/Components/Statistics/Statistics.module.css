@@ -34,3 +34,8 @@
   background-color: #4caf50;
   color: white;
 }
+
+.btn {
+  margin: auto;
+  margin-top: 20px;
+}

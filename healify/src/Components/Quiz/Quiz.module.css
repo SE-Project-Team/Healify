@@ -20,6 +20,9 @@
 .remove_underline {
   text-decoration: none;
 }
+.remove {
+  text-decoration: none;
+}
 .heading {
   text-align: center;
   margin-bottom: 30px;
