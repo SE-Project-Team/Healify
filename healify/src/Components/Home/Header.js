@@ -11,6 +11,15 @@ export const Header = () => {
   const [user, setUser] = useState("");
   const history = useHistory();
 
+  const [toggle, setToggle] = useState("");
+
+  const toggleFunction = () => {
+    if (toggle === "") {
+      setToggle(styles.toggleActive);
+    } else {
+      setToggle("");
+    }
+  };
   const signOut = () => {
     localStorage.clear();
     // history.push("/");
@@ -25,7 +34,9 @@ export const Header = () => {
   };
   const [scrollClass, setScrollClass] = useState("");
   useEffect(() => {
+    // setToggle(toggleFunction());
     window.addEventListener("scroll", scrollHandler);
+    // window.addEventListener("resize", toggleFunction);
     const asyncWrapper = async () => {
       const token = JSON.parse(localStorage.getItem("token"));
       await axios
@@ -45,26 +56,29 @@ export const Header = () => {
     asyncWrapper();
     return () => {
       window.removeEventListener("scroll", scrollHandler);
+      // window.removeEventListener("resize", toggleFunction);
     };
   }, []);
   return (
     <header className={styles.header + " " + scrollClass}>
-      <div className={styles.threeLineBtn}>
-        <ul className={styles.menuBtnCustom}>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-      <Link to="/" className={styles.remove_underline}>
-        <img className={styles.logo} src={logo} alt="logo" />
-      </Link>
-      <Link to="/" className={styles.remove_underline}>
-        <div>
-          <h1 className={styles.heading}>Healify</h1>
+      <div className={`${styles.titleWrapper}`}>
+        <div className={styles.threeLineBtn}>
+          <ul className={styles.menuBtnCustom} onClick={toggleFunction}>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
         </div>
-      </Link>
-      <ul className={"nav " + styles.settingsList}>
+        <Link to="/" className={styles.remove_underline}>
+          <img className={styles.logo} src={logo} alt="logo" />
+        </Link>
+        <Link to="/" className={styles.remove_underline}>
+          <div>
+            <h1 className={styles.heading}>Healify</h1>
+          </div>
+        </Link>
+      </div>
+      <ul className={"nav " + styles.settingsList + " " + toggle}>
         <Link to="/About" className={styles.remove_underline}>
           <li className={"nav-link"}>About</li>
         </Link>

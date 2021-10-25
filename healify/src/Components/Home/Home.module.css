@@ -56,21 +56,18 @@
 .menuBtnCustom {
   margin: 1px;
   margin-left: 5px;
-  padding: 5px;
+  padding: 3px;
   list-style: none;
   background: rgb(255, 255, 255);
-  border-radius: 20%;
-  border: 4px solid #db2929;
+  border-radius: 15%;
+  border: 4px solid #9c6614;
 }
 .menuBtnCustom li {
-  border-radius: 24px;
+  border-radius: 5px;
   margin: 2px;
-  width: 30px;
-  height: 8px;
-  background-image: linear-gradient(168deg, #ea4555 1%, #fa705c 89%);
-}
-.menuBtnCustom li:hover {
-  background-image: linear-gradient(168deg, #e6505f 1%, #b85748 89%);
+  width: 24px;
+  height: 4px;
+  background-image: linear-gradient(168deg, #916e0e 1%, #7e6e13 89%);
 }
 
 .menuBtnCustom:hover {
@@ -258,12 +255,27 @@
   display: flex;
   justify-content: center;
 }
+.titleWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
 @media screen and (max-width: 770px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .settingsList {
     display: none;
   }
-
+  .toggleActive {
+    margin: 0px;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .threeLineBtn {
     display: inline;
   }
