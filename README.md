@@ -15,6 +15,15 @@ Our app serves as a user feedback system for self-management and maintaining goo
 - [News Articles](#news-articles)
 - [Memes](#memes)
 
+### Brief problem statement :
+>The Web Application “Healify” is a mental health monitoring app that focuses on personalizing user needs when it comes to the mental health front. The primary premise of the app is in-depth monitoring of mental health of the user through detailed quizzes and positive reinforcement of the mind through achievements timeline, memes, games and personalized blogs etc. The possibility of an AR-based friend/companion in this aspect is also going to be experimented. 
+
+### Motivation for choosing the idea: 
+>Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it. Even if we are open about it, there is a global shortage of psychiatrists and lack of mental health care access in rural regions. In this context, we feel that a website can serve as a viable tool to bridge the mental health treatment gap. Our web-app serves as a user feedback system for self-management and maintaining the good mental health of every individual.
+
+### Uniqueness of our app: 
+>Our Web Application serves as a mental health monitoring app that focuses on personalizing user needs when it comes to the mental health front. The primary premise of the app is in-depth monitoring of mental health of the user through detailed quizzes and positive reinforcement of the mind through achievements timeline, memes, games and personalized blogs etc. The possibility of an AR-based friend/companion in this aspect is also going to be experimented.
+
 ## User Guide
 
 ### Mental Health Self Assessment test
