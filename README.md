@@ -28,3 +28,16 @@ Our app serves as a user feedback system for self-management and maintaining goo
 
 ### Memes
 > Humour is a well-known, effective coping strategy, and it enables to raise awareness of the society about issues that many would rather not speak about, including mental illness. Memes provide a safe space to deal with depression and anxiety. Our app provides a feature to watch some wholesome memes.
+
+# Instruction to Deploy using localhost
+>clone the repository
+>go to root folder. Open vscode integrated terminated and go to the root directory.
+>execute the following commands:
+>1. npm install
+>2. npm run start2
+>now open a new terminal and navigate to /healify folder.
+>Now execute the following commands:
+>1. npm install
+>2. npm start
+>Now in your browser you can access the app in localhost:3000.
+>NOTE: You can change environment variables like PORT for server using your own .env file
