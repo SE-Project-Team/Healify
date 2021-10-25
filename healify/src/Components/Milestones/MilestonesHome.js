@@ -11,9 +11,7 @@ import axios from "axios";
 import { Header } from "../Home/Header";
 
 export const MilestonesHome = () => {
-  const [modal, setModal] = useState(false);
   const [taskList, setTaskList] = useState([]);
-  const toggle = () => setModal(!modal);
   const updatePage = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
 
@@ -51,7 +49,7 @@ export const MilestonesHome = () => {
       await updatePage();
     };
     asyncwrapper();
-  }, [modal]);
+  }, []);
 
   const deleteTask = async (_id) => {
     const token = JSON.parse(localStorage.getItem("token"));

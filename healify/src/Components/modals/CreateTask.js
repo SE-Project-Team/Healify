@@ -40,6 +40,18 @@ const CreateTask = ({ modal, toggle, save }) => {
       return;
     }
     const token = JSON.parse(localStorage.getItem("token"));
+    if (!token) {
+      setWarning("Please Log in First");
+      setTimeout(() => {
+        setTitleName("");
+        setDate("");
+        setDescription("");
+        setWarning("");
+        save();
+      }, 2000);
+
+      return;
+    }
     await axios
       .post(
         "http://localhost:5000/api/v1/milestones/create",
