@@ -7,7 +7,7 @@ export const postLogin = async ({
   history,
 }) => {
   await axios
-    .post("http://localhost:5000/api/v1/login/", { username, password })
+    .post("/api/v1/login/", { username, password })
     .then((res) => {
       const { token } = res.data.data;
       setToken(token);

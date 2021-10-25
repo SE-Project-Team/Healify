@@ -40,7 +40,7 @@ export const Header = () => {
     const asyncWrapper = async () => {
       const token = JSON.parse(localStorage.getItem("token"));
       await axios
-        .get("http://localhost:5000/api/v1/", {
+        .get("/api/v1/", {
           headers: {
             authorization: `Bearer ${token}`,
           },

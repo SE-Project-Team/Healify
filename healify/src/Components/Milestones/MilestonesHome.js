@@ -16,7 +16,7 @@ export const MilestonesHome = () => {
     const token = JSON.parse(localStorage.getItem("token"));
 
     await axios
-      .get("http://localhost:5000/api/v1/milestones", {
+      .get("/api/v1/milestones", {
         headers: {
           authorization: `Bearer ${token}`,
         },
@@ -56,7 +56,7 @@ export const MilestonesHome = () => {
 
     await axios
       .post(
-        "http://localhost:5000/api/v1/milestones/delete",
+        "/api/v1/milestones/delete",
         {
           milestoneID: _id,
         },

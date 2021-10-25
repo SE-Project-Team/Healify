@@ -29,7 +29,7 @@ export const Registration = ({ setToken }) => {
       return;
     }
     await axios
-      .post("http://localhost:5000/api/v1/registration/", {
+      .post("/api/v1/registration/", {
         username,
         email,
         password,

@@ -36,7 +36,7 @@ export const QuizStatistics = ({ category }) => {
     const fetchData = async () => {
       const id = map(category);
       await axios
-        .get(`http://localhost:5000/api/v1/quiz/statistics?quizId=${id}`, {
+        .get(`/api/v1/quiz/statistics?quizId=${id}`, {
           headers: {
             authorization: `Bearer ${token}`,
           },

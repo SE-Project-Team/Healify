@@ -54,7 +54,7 @@ const CreateTask = ({ modal, toggle, save }) => {
     }
     await axios
       .post(
-        "http://localhost:5000/api/v1/milestones/create",
+        "/api/v1/milestones/create",
         {
           title: titleName,
           targetDate,
