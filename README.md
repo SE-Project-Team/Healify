@@ -39,5 +39,7 @@ now open a new terminal and navigate to /healify folder.
 Now execute the following commands:
 >1. npm install
 >2. npm start
+</br>
 Now in your browser you can access the app in localhost:3000.
+</br>
 >NOTE: You can change environment variables like PORT for server using your own .env file
