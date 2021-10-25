@@ -27,7 +27,9 @@ const CreateTask = ({ modal, toggle, save }) => {
       setTimeout(() => {
         setWarning("");
       }, 2000);
+        window.location.reoad();
       return;
+  
     }
 
     const targetDate = new Date(date);

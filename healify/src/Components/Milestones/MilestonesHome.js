@@ -44,6 +44,7 @@ export const MilestonesHome = () => {
       .catch((err) => {
         console.log(err.response.data);
       });
+     
   };
 
   useEffect(() => {
@@ -55,6 +56,7 @@ export const MilestonesHome = () => {
 
   const deleteTask = async (_id) => {
     const token = JSON.parse(localStorage.getItem("token"));
+
 
     await axios
       .post(
@@ -75,35 +77,20 @@ export const MilestonesHome = () => {
       .catch((err) => {
         console.log(err.response.data);
       });
+    
   };
-  const toggle = () => setModal(!modal);
+ 
 
-  const saveTask = () => {
-    setTaskList(taskList);
-    setModal(false);
-  };
-
+  
   const updateTask = () => {
     updatePage();
+      window.location.reoad();
   };
 
   return (
     <div>
       <Header />
      <Togglemenu />
-      
-      <div className={styles.heading}>
-        <div className="text-center">
-          <button
-            className="btn btn-primary mt-2"
-            onClick={() => setModal(true) } >
-             <i class="fa fa-plus" aria-hidden="true"></i>
-              Create Task
-            
-             
-          </button>
-        </div>
-      </div>
       <div className={styles["task-container"]}>
         {taskList &&
           taskList.map((obj, index) => (
@@ -117,7 +104,7 @@ export const MilestonesHome = () => {
             />
           ))}
       </div>
-      <CreateTask toggle={toggle} modal={modal} save={saveTask} />
+    
     </div>
   );
 };
