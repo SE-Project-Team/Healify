@@ -3,7 +3,8 @@ import TimelineItem from "./Timelineitem";
 import * as ReactBootStrap from "react-bootstrap";
 import styles from "./Timeline.module.css";
 import { Link } from "react-router-dom";
-
+import { Header } from "../Home/Header";
+import { Togglemenu } from "./Togglemenu";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -51,37 +52,8 @@ export const Timeline = () => {
 
   return (
     <div>
-      <ReactBootStrap.Navbar
-        collapseOnSelect
-        expand="lg"
-        bg="dark"
-        variant="dark"
-      >
-        <ReactBootStrap.Container>
-          <ReactBootStrap.Navbar.Brand href="#home">
-            Milestones
-          </ReactBootStrap.Navbar.Brand>
-          <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
-            <ReactBootStrap.Nav className="me-auto">
-              <ReactBootStrap.Nav.Link href="#features"></ReactBootStrap.Nav.Link>
-              <ReactBootStrap.Nav.Link href="#pricing"></ReactBootStrap.Nav.Link>
-            </ReactBootStrap.Nav>
-            <ReactBootStrap.Nav>
-              <Link to="/MilestonesHome">
-                <li className={styles.navLoginBtn} id={styles.navSignUp}>
-                  Home
-                </li>
-              </Link>
-              <Link to="/Timeline">
-                <li className={styles.navLoginBtn} id={styles.navSignUp}>
-                  Achievements
-                </li>
-              </Link>
-            </ReactBootStrap.Nav>
-          </ReactBootStrap.Navbar.Collapse>
-        </ReactBootStrap.Container>
-      </ReactBootStrap.Navbar>
+      <Header />
+      <Togglemenu />
       {taskList && (
         <div className={styles.over}>
           <div className={styles["timeline-container"]}>
