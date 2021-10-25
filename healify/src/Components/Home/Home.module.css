@@ -30,6 +30,9 @@
   background: white;
   transition: background-color 0.5s;
 }
+.container {
+  background: rgb(247, 241, 241);
+}
 
 .whiteHeader ul li {
   color: black;
@@ -76,6 +79,7 @@
 .heading {
   text-align: center;
   margin: 10px;
+  font-family: "Josefin Sans", sans-serif;
 }
 .logo {
   margin-left: 25px;
@@ -125,6 +129,7 @@
   background-color: #32bbd3;
   padding: 50px 0 20px;
   text-align: center;
+  margin-top: 250px;
 }
 .copyright {
   color: #eaf6f6;
