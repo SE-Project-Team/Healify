@@ -39,9 +39,8 @@ export const Home = () => {
                   <MDBCardBody>
                     <MDBCardTitle>Quiz</MDBCardTitle>
                     <MDBCardText>
-                      This is a longer card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
+                      Take our Mental Health Self Assessment Test to know about
+                      your mental health. Answer all the questions honestly.
                     </MDBCardText>
                   </MDBCardBody>
                 </Link>
@@ -54,9 +53,9 @@ export const Home = () => {
                   <MDBCardBody>
                     <MDBCardTitle>Articles</MDBCardTitle>
                     <MDBCardText>
-                      This is a longer card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
+                      A good article is like a wholesome healthy meal for your
+                      brain and mental well-being. So check out some latest news
+                      and feed your brain.
                     </MDBCardText>
                   </MDBCardBody>
                 </Link>
@@ -69,9 +68,8 @@ export const Home = () => {
                   <MDBCardBody>
                     <MDBCardTitle>Memes</MDBCardTitle>
                     <MDBCardText>
-                      This is a longer card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
+                      Watch some wholesome memes and share them with your family
+                      and friends.
                     </MDBCardText>
                   </MDBCardBody>
                 </Link>
@@ -100,9 +98,9 @@ export const Home = () => {
                   <MDBCardBody>
                     <MDBCardTitle>Milestones</MDBCardTitle>
                     <MDBCardText>
-                      This is a longer card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
+                      Create tasks and mark them as completed upon successful
+                      completion. You can see your achievements in the form of a
+                      timeline and keep yourselves motivated.
                     </MDBCardText>
                   </MDBCardBody>
                 </Link>
