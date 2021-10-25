@@ -93,8 +93,8 @@ export const Score = ({ score, category }) => {
 
         <h2 className={styles.counter}>{str1}</h2>
         <h3 className={styles.counter}>{str2}</h3>
-        <Link to="/QuizLanding" className={styles.remove}>
-          <button className={styles.playBtn}>Back</button>
+        <Link to="/QuizLanding" className={`${styles.remove}`}>
+          <button className={`${styles.playBtn}`}>Back</button>
         </Link>
       </div>
     </>

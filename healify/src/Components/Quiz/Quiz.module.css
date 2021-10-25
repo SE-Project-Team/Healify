@@ -22,6 +22,7 @@
 }
 .remove {
   text-decoration: none;
+  margin-right: auto;
 }
 .heading {
   text-align: center;
