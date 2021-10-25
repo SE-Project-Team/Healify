@@ -35,9 +35,9 @@ Our app serves as a user feedback system for self-management and maintaining goo
 >execute the following commands:
 >1. npm install
 >2. npm run start2
->now open a new terminal and navigate to /healify folder.
->Now execute the following commands:
+now open a new terminal and navigate to /healify folder.
+Now execute the following commands:
 >1. npm install
 >2. npm start
->Now in your browser you can access the app in localhost:3000.
+Now in your browser you can access the app in localhost:3000.
 >NOTE: You can change environment variables like PORT for server using your own .env file
