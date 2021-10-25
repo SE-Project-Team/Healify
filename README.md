@@ -38,7 +38,7 @@ Our app serves as a user feedback system for self-management and maintaining goo
 ### Memes
 > Humour is a well-known, effective coping strategy, and it enables to raise awareness of the society about issues that many would rather not speak about, including mental illness. Memes provide a safe space to deal with depression and anxiety. Our app provides a feature to watch some wholesome memes.
 
-# Instruction to Deploy using localhost
+# Instruction to Run Application in localhost
 >clone the repository
 >go to root folder. Open vscode integrated terminal and go to the root directory.
 >execute the following commands:
