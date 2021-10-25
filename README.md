@@ -31,7 +31,7 @@ Our app serves as a user feedback system for self-management and maintaining goo
 
 # Instruction to Deploy using localhost
 >clone the repository
->go to root folder. Open vscode integrated terminated and go to the root directory.
+>go to root folder. Open vscode integrated terminal and go to the root directory.
 >execute the following commands:
 >1. npm install
 >2. npm run start2</br>
