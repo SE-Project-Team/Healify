@@ -1,5 +1,5 @@
-.bodyy,.news
-{
+.bodyy,
+.news {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,30 +7,33 @@
 
 .bodyy {
   font-family: inter;
-  width: 80%;
-  margin: 0 auto;
+  width: 85%;
+  margin: auto;
   background: rgb(251, 254, 255);
 }
 .all__news {
-  margin: 50px auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* align-items: center; */
+  margin: auto;
 }
 
 .news {
-  max-width: 500px;
+  max-width: 400px;
   padding: 30px;
   border: 1px solid lightgray;
   border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
-.readmore
-{
+.readmore {
   color: blue;
 }
-.news__image
-{
-  width: 450px;
+.news__image {
+  width: 350px;
   height: 400px;
   padding: 15px;
 }
@@ -52,7 +55,7 @@
   width: fit-content;
 }
 
- .news__author {
+.news__author {
   margin-right: 10px;
   color: purple;
 }
@@ -66,4 +69,4 @@
   display: inline-block;
   margin-top: 10px;
   color: rgb(122, 122, 122);
-} 
+}
