@@ -31,7 +31,7 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/login">
+            <Route path="/login">
               <Signup setToken={setToken} />
             </Route>
             <Route path="/Registration">
@@ -54,7 +54,9 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-
+          <Route path="/login">
+            <Signup setToken={setToken} />
+          </Route>
           <Route exact path="/News">
             <Newsfinal />
           </Route>

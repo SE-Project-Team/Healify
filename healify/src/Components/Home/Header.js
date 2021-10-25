@@ -13,7 +13,8 @@ export const Header = () => {
 
   const signOut = () => {
     localStorage.clear();
-    history.push("/login");
+    // history.push("/");
+    setUser("");
   };
   const scrollHandler = () => {
     if (scrollClass === "" && window.scrollY > 100) {
