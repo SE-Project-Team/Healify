@@ -59,6 +59,9 @@ function App() {
           <Route path="/login">
             <Signup setToken={setToken} />
           </Route>
+          <Route path="/Registration">
+            <Registration setToken={setToken} />
+          </Route>
           <Route exact path="/News">
             <Newsfinal />
           </Route>
@@ -72,9 +75,9 @@ function App() {
           <Route path="/Timeline">
             <Timeline />
           </Route>
-          
-            <Route path="/Togglemenu">
-            <Togglemenu/>
+
+          <Route path="/Togglemenu">
+            <Togglemenu />
           </Route>
           <Route path="/QuizLanding">
             <QuizLanding />
