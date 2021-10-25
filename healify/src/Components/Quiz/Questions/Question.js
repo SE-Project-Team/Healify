@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import styles from "./Question.module.css";
 
 const Question = ({ qnObject, onChangeHandle, selectedOption }) => {

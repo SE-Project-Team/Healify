@@ -46,9 +46,11 @@ export const MilestonesHome = () => {
       });
   };
 
-  useEffect(async () => {
-    console.log("calling");
-    await updatePage();
+  useEffect(() => {
+    const asyncwrapper = async () => {
+      await updatePage();
+    };
+    asyncwrapper();
   }, [modal]);
 
   const deleteTask = async (_id) => {

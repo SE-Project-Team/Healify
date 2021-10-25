@@ -56,7 +56,7 @@ export const Header = () => {
         </ul>
       </div>
       <Link to="/" className={styles.remove_underline}>
-        <img className={styles.logo} src={logo} />
+        <img className={styles.logo} src={logo} alt="logo" />
       </Link>
       <Link to="/" className={styles.remove_underline}>
         <div>

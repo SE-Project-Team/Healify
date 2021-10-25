@@ -40,7 +40,7 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
     updateTask();
   };
   return (
-    <div className={styles["card-wrapper"] + " " + "mr-5"}>
+    <div className={styles["card-wrapper"] + " mr-5"}>
       <div
         className={styles["card-top"]}
         style={{ "background-color": colors[index % 5].primaryColor }}

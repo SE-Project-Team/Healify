@@ -5,13 +5,23 @@
   display: flex;
   align-items: flex-end;
   /* background: linear-gradient(168deg, #ea4555 1%, #fa705c 89%); */
-  background-image: url("/src/Assets/TrialVector.png");
+  background: #fdc830; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #e6b65c,
+    #fdc830
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #e6b65c,
+    #fdc830
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   position: relative;
   top: 0px;
   z-index: 1;
 }
-.remove_underline
-{
+.remove_underline {
   text-decoration: none;
 }
 .whiteHeader {

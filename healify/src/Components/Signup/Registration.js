@@ -23,7 +23,7 @@ export const Registration = ({ setToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let value = 1;
-    if (password != rePassword) {
+    if (password !== rePassword) {
       setWarning("Re-entered password is not matching");
       setTimeout(() => setWarning(""), 2000);
       return;
@@ -126,7 +126,6 @@ export const Registration = ({ setToken }) => {
                     Re-enter Password
                   </label>
                   <input
-                    type="text"
                     id="Re-enter Password"
                     name="rePassword"
                     placeholder="Re-enter Password"

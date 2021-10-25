@@ -3,8 +3,6 @@ import image from "../../Assets/homePage.webp";
 import quizimg from "../../Assets/quiz.jpg";
 import newsimg from "../../Assets/news.jpg";
 import memeimg from "../../Assets/meme.jpg";
-import gameimg from "../../Assets/games.jpg";
-import statsimg from "../../Assets/stats.jpg";
 import styles from "./Home.module.css";
 import milestoneimg from "../../Assets/milestone.jpg";
 import {
@@ -19,15 +17,13 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "./Header";
 
-const vector2 = "/src/Assets/TrialVector.png";
-
 export const Home = () => {
   return (
     <>
       <Header />
       <div className={styles["top-container"]}>
         <div className={styles.img}>
-          <img src={image} alt="home-image" />
+          <img src={image} alt="home" />
           <h1 className={styles.banner}>"Life is Beautiful"</h1>
         </div>
         <MDBRow

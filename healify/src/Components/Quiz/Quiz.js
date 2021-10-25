@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styles from "./Quiz.module.css";
 import SpecificQuestion from "../Quiz/Questions/Question";
 import { useState } from "react";
@@ -10,7 +10,7 @@ export const Quiz = ({ questions, category }) => {
   const [option, setOption] = useState(0);
   const [score, setScore] = useState(0);
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { value } = e.target;
     setOption(value);
     console.log(option);
     setWarning(0);

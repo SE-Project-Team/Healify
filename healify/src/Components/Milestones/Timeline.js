@@ -1,5 +1,4 @@
 import React from "react";
-import timelineData from "./Data";
 import TimelineItem from "./Timelineitem";
 import * as ReactBootStrap from "react-bootstrap";
 import styles from "./Timeline.module.css";

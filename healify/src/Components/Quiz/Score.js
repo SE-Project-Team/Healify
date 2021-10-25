@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styles from "./Quiz.module.css";
 import { useEffect } from "react";
 import axios from "axios";
@@ -19,6 +19,9 @@ const map = (category) => {
       break;
     case category === "Self Perception":
       res = 4;
+      break;
+    default:
+      res = -1;
       break;
   }
   return res;
