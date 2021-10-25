@@ -34,7 +34,7 @@ Our app serves as a user feedback system for self-management and maintaining goo
 >go to root folder. Open vscode integrated terminated and go to the root directory.
 >execute the following commands:
 >1. npm install
->2. npm run start2
+>2. npm run start2\n
 now open a new terminal and navigate to /healify folder.
 Now execute the following commands:
 >1. npm install
