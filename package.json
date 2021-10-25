@@ -25,5 +25,8 @@
   "devDependencies": {
     "concurrently": "^6.3.0",
     "nodemon": "^2.0.14"
+  },
+  "engines": {
+    "node": "14.18.1"
   }
 }

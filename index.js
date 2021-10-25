@@ -22,7 +22,7 @@ const auth = require("./middleware/auth");
 app.use(express.json());
 app.use(cors());
 
-const buildPath = path.join(__dirname, "../healify", "build");
+const buildPath = path.join(__dirname, "healify", "build");
 app.use(express.static(buildPath));
 
 // get all routes ->routes Middleware
@@ -37,7 +37,7 @@ app.use("/api/v1/quiz", quizRouter);
 app.get("/api/v1", auth, checkUser);
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/healify/build/index.html"));
+  res.sendFile(path.join(__dirname, "healify/build/index.html"));
 });
 
 // error paths
