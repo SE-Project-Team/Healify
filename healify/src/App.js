@@ -15,8 +15,10 @@ import { Questions2 } from "./Components/Quiz/Questions/QueCategory2";
 import { Questions3 } from "./Components/Quiz/Questions/QueCategory3";
 import { Questions4 } from "./Components/Quiz/Questions/QueCategory4";
 import { Score } from "./Components/Quiz/Score";
+import { Togglemenu } from "./Components/Milestones/Togglemenu";
 import { QuizStatistics } from "./Components/Statistics/QuizStatistics";
 import Newsfinal from "./Components/News/NewsFinal";
+
 import "./App.css";
 
 import { useToken } from "./CustomHooks/useToken";
@@ -47,6 +49,10 @@ function App() {
           </Route>
           <Route path="/Timeline">
             <Timeline />
+          </Route>
+          
+            <Route path="/Togglemenu">
+            <Togglemenu/>
           </Route>
           <Route path="/QuizLanding">
             <QuizLanding />

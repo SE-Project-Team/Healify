@@ -3,7 +3,7 @@ import * as ReactBootStrap from "react-bootstrap";
 import CreateTask from "../modals/CreateTask";
 import Card from "./Card";
 import { Link } from "react-router-dom";
-
+import {Togglemenu } from "./Togglemenu";
 import styles from "./MilestonesHome.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -88,37 +88,8 @@ export const MilestonesHome = () => {
   return (
     <div>
       <Header />
-      <ReactBootStrap.Navbar
-        collapseOnSelect
-        expand="lg"
-        bg="dark"
-        variant="dark"
-      >
-        <ReactBootStrap.Container>
-          <ReactBootStrap.Navbar.Brand href="#home">
-            Milestones
-          </ReactBootStrap.Navbar.Brand>
-          <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
-            <ReactBootStrap.Nav className="me-auto">
-              <ReactBootStrap.Nav.Link href="#features"></ReactBootStrap.Nav.Link>
-              <ReactBootStrap.Nav.Link href="#pricing"></ReactBootStrap.Nav.Link>
-            </ReactBootStrap.Nav>
-            <ReactBootStrap.Nav>
-              <Link to="/MilestonesHome">
-                <li className={styles.navLoginBtn} id={styles.navSignUp}>
-                  Home
-                </li>
-              </Link>
-              <Link to="/Timeline">
-                <li className={styles.navLoginBtn} id={styles.navSignUp}>
-                  Achievements
-                </li>
-              </Link>
-            </ReactBootStrap.Nav>
-          </ReactBootStrap.Navbar.Collapse>
-        </ReactBootStrap.Container>
-      </ReactBootStrap.Navbar>
+     <Togglemenu />
+      
       <div className={styles.heading}>
         <div className="text-center">
           <h3 className="mt-">Milestones</h3>

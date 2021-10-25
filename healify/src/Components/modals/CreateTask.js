@@ -39,8 +39,7 @@ const CreateTask = ({ modal, toggle, save }) => {
       return;
     }
     const token = JSON.parse(localStorage.getItem("token"));
-
-    await axios
+     await axios
       .post(
         "http://localhost:5000/api/v1/milestones/create",
         {
@@ -64,11 +63,6 @@ const CreateTask = ({ modal, toggle, save }) => {
       .catch((err) => {
         console.log(err.response.data);
       });
-    // let taskObj = {};
-    // taskObj["titleName"] = titleName;
-    // taskObj["Date"] = Date;
-    // taskObj["Description"] = description;
-    // save(taskObj);
   };
 
   const resetForm = (e) => {
