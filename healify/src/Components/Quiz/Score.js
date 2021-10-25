@@ -79,7 +79,7 @@ export const Score = ({ score, category }) => {
           console.log(res.data);
         })
         .catch((err) => {
-          console.log(err.response.data);
+          console.log(err);
         });
     };
     postData();

@@ -88,7 +88,7 @@ const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
         save();
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err);
       });
   };
   return (

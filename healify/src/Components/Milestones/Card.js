@@ -34,12 +34,10 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
 
   const handleDelete = () => {
     deleteTask(index);
-      window.location.reoad();
   };
   const saveTask = () => {
     setModal(false);
     updateTask();
-      window.location.reoad();
   };
   return (
     <div className={styles["card-wrapper"] + " mr-2"}>

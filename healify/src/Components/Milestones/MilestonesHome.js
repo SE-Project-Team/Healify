@@ -3,7 +3,7 @@ import * as ReactBootStrap from "react-bootstrap";
 import CreateTask from "../modals/CreateTask";
 import Card from "./Card";
 import { Link } from "react-router-dom";
-import {Togglemenu } from "./Togglemenu";
+import { Togglemenu } from "./Togglemenu";
 import styles from "./MilestonesHome.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -13,7 +13,7 @@ import { Header } from "../Home/Header";
 export const MilestonesHome = () => {
   const [modal, setModal] = useState(false);
   const [taskList, setTaskList] = useState([]);
-
+  const toggle = () => setModal(!modal);
   const updatePage = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
 
@@ -42,9 +42,8 @@ export const MilestonesHome = () => {
         setTaskList(newActiveMilestones);
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err);
       });
-     
   };
 
   useEffect(() => {
@@ -56,7 +55,6 @@ export const MilestonesHome = () => {
 
   const deleteTask = async (_id) => {
     const token = JSON.parse(localStorage.getItem("token"));
-
 
     await axios
       .post(
@@ -75,22 +73,18 @@ export const MilestonesHome = () => {
         await updatePage();
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err);
       });
-    
   };
- 
 
-  
   const updateTask = () => {
     updatePage();
-      window.location.reoad();
   };
 
   return (
     <div>
       <Header />
-     <Togglemenu />
+      <Togglemenu createTask={updateTask} />
       <div className={styles["task-container"]}>
         {taskList &&
           taskList.map((obj, index) => (
@@ -104,7 +98,6 @@ export const MilestonesHome = () => {
             />
           ))}
       </div>
-    
     </div>
   );
 };

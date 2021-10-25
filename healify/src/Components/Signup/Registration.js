@@ -36,7 +36,7 @@ export const Registration = ({ setToken }) => {
       })
       .catch((err) => {
         // Rejected or error response
-        const { msg } = err.response.data;
+        const { msg } = err;
         value = 0;
         // Example for warning
         setWarning(msg);

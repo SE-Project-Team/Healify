@@ -39,7 +39,7 @@ export const Header = () => {
           setUser(username);
         })
         .catch((err) => {
-          console.log(err.response.data);
+          console.log(err);
         });
     };
     asyncWrapper();

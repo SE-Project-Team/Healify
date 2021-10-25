@@ -27,9 +27,8 @@ const CreateTask = ({ modal, toggle, save }) => {
       setTimeout(() => {
         setWarning("");
       }, 2000);
-        window.location.reoad();
+      window.location.reoad();
       return;
-  
     }
 
     const targetDate = new Date(date);
@@ -41,7 +40,7 @@ const CreateTask = ({ modal, toggle, save }) => {
       return;
     }
     const token = JSON.parse(localStorage.getItem("token"));
-     await axios
+    await axios
       .post(
         "http://localhost:5000/api/v1/milestones/create",
         {
@@ -63,7 +62,7 @@ const CreateTask = ({ modal, toggle, save }) => {
         save();
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err);
       });
   };
 
@@ -110,11 +109,8 @@ const CreateTask = ({ modal, toggle, save }) => {
               name="description"
             ></textarea>
           </div>
-         <div className="form-group">
-          
-            <input
-              type="checkbox"
-            />
+          <div className="form-group">
+            <input type="checkbox" />
             <span> I have completed the task</span>
           </div>
         </form>
