@@ -17,8 +17,7 @@
   justify-content: start;
   background-color: white;
 }
-.remove_underline
-{
+.remove_underline {
   text-decoration: none;
 }
 .heading {
@@ -28,6 +27,7 @@
 }
 .counter {
   text-align: center;
+  margin-top: 20px;
 }
 .quizBody {
   height: 1000px;

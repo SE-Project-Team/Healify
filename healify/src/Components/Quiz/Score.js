@@ -3,6 +3,7 @@ import styles from "./Quiz.module.css";
 import { useEffect } from "react";
 import axios from "axios";
 import { Header } from "../Home/Header";
+import { ProgressBar } from "./ProgressBar";
 
 const map = (category) => {
   let res;
@@ -23,22 +24,35 @@ const map = (category) => {
   return res;
 };
 export const Score = ({ score, category }) => {
-  let str = "";
+  const percentage = (score * 100) / 50;
+  let color = "";
+  let str1 = "",
+    str2 = "";
   switch (true) {
     case score <= 10:
-      str = "Very Bad";
+      str1 = "Very Less Score";
+      str2 = "Try to work more on your " + category;
+      color = "red";
       break;
     case score <= 20:
-      str = "Bad";
+      str1 = "Less Score";
+      str2 = "Try to work on your" + category;
+      color = "orange";
       break;
     case score <= 30:
-      str = "Average";
+      str1 = "Average Score";
+      str2 = "Try to improve your score in " + category;
+      color = "#99ccff";
       break;
     case score <= 40:
-      str = "Good";
+      str1 = "Good Score\n";
+      str2 = "Your mental health is good in " + category;
+      color = "#99ff66";
       break;
     case score <= 50:
-      str = "Very Good";
+      str1 = "Very Good Score\n";
+      str2 = "Your mental health is great in " + category;
+      color = "green";
       break;
     default:
       break;
@@ -49,7 +63,7 @@ export const Score = ({ score, category }) => {
       await axios
         .post(
           "http://localhost:5000/api/v1/quiz/score",
-          { quizId: map(category), score, remarks: str },
+          { quizId: map(category), score, remarks: str1 },
           {
             headers: {
               authorization: `Bearer ${token}`,
@@ -69,10 +83,11 @@ export const Score = ({ score, category }) => {
     <>
       <Header />
       <div className={styles.quizcontainer}>
-        <h1 className={styles.counter}>Overall Score: {str}</h1>
-        <div>
-          <h3 className={styles.counter}> Your score is {score}/50</h3>
-        </div>
+        <h3 className={styles.counter}> Your score is {score}/50</h3>
+        <ProgressBar bgcolor={color} progress={percentage} height={30} />
+
+        <h2 className={styles.counter}>{str1}</h2>
+        <h3 className={styles.counter}>{str2}</h3>
       </div>
     </>
   );
