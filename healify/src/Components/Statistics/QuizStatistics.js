@@ -5,6 +5,9 @@ import { TableHeader } from "./TableHeader";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Header } from "../Home/Header";
+import { Link } from "react-router-dom";
+import styles2 from "../Quiz/Quiz.module.css";
+
 const map = (category) => {
   let res;
   switch (true) {
@@ -83,6 +86,9 @@ export const QuizStatistics = ({ category }) => {
             </tbody>
           </table>
         )}
+        <Link to="/QuizLanding" className={styles2.remove}>
+          <button className={styles2.playBtn + " " + styles.btn}>Back</button>
+        </Link>
       </div>
     </>
   );

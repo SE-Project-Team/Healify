@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./Quiz.module.css";
 import { useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { Header } from "../Home/Header";
 import { ProgressBar } from "./ProgressBar";
+import { styles2 } from "../Home/Home.module.css";
 
 const map = (category) => {
   let res;
@@ -91,6 +93,9 @@ export const Score = ({ score, category }) => {
 
         <h2 className={styles.counter}>{str1}</h2>
         <h3 className={styles.counter}>{str2}</h3>
+        <Link to="/QuizLanding" className={styles.remove}>
+          <button className={styles.playBtn}>Back</button>
+        </Link>
       </div>
     </>
   );
