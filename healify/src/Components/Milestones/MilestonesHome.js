@@ -92,12 +92,13 @@ export const MilestonesHome = () => {
       
       <div className={styles.heading}>
         <div className="text-center">
-          <h3 className="mt-">Milestones</h3>
           <button
             className="btn btn-primary mt-2"
-            onClick={() => setModal(true)}
-          >
-            Create Task
+            onClick={() => setModal(true) } >
+             <i class="fa fa-plus" aria-hidden="true"></i>
+              Create Task
+            
+             
           </button>
         </div>
       </div>
