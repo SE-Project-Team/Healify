@@ -13,10 +13,6 @@ export const Memes = () => {
   }, []);
 
   const getData = async () => {
-    // const response = await fetch(url);
-    // const jsonData = await response.json();
-    // console.log(jsonData);
-    // setUserData(jsonData);
     await axios
       .get(url)
       .then((res) => {

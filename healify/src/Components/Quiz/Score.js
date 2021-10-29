@@ -67,7 +67,7 @@ export const Score = ({ score, category }) => {
       const token = JSON.parse(localStorage.getItem("token"));
       await axios
         .post(
-          "http://localhost:5000/api/v1/quiz/score",
+          "/api/v1/quiz/score",
           { quizId: map(category), score, remarks: str1 },
           {
             headers: {

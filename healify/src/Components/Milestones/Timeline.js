@@ -15,7 +15,7 @@ export const Timeline = () => {
     const token = JSON.parse(localStorage.getItem("token"));
 
     await axios
-      .get("http://localhost:5000/api/v1/milestones/timeline", {
+      .get("/api/v1/milestones/timeline", {
         headers: {
           authorization: `Bearer ${token}`,
         },

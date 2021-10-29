@@ -69,7 +69,7 @@ const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
 
     await axios
       .patch(
-        "http://localhost:5000/api/v1/milestones/edit",
+        "/api/v1/milestones/edit",
         {
           milestoneId: _id,
           title: titleName,

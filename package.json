@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "start2": "nodemon index.js",
-    "heroku-postbuild": "cd healify && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "cd healify && npm install && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +23,6 @@
     "cors": "^2.8.5"
   },
   "devDependencies": {
-    "concurrently": "^6.3.0",
     "nodemon": "^2.0.14"
   },
   "engines": {

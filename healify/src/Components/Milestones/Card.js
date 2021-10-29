@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import EditTask from "../modals/EditTask";
-
+import ConfirmDialog from "./ConfirmDialog";
 import styles from "./MilestonesHome.module.css";
 const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
   const { title, description, targetDate } = taskObj;
   const [modal, setModal] = useState(false);
+   const [confirmDialog, setConfirmDialog] = useState({ isOpen: false, title: '', subTitle: '' })
+
   const colors = [
     {
       primaryColor: "#7FFFD4",
@@ -33,7 +35,12 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
   };
 
   const handleDelete = () => {
+     setConfirmDialog({
+            ...confirmDialog,
+            isOpen: false
+        })
     deleteTask(index);
+    
   };
   const saveTask = () => {
     setModal(false);
@@ -69,7 +76,17 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
           <i
             class="fas fa-trash-alt"
             style={{ color: colors[index % 5].primaryColor, cursor: "pointer" }}
-            onClick={handleDelete}
+            /*{onClick={handleDelete}}*/
+             onClick={() => {
+                                                setConfirmDialog({
+                                                    isOpen: true,
+                                                    title: 'Are you sure to delete this task?',
+                                                    subTitle: "You can't undo this operation",
+                                                    onConfirm: ()=> {
+                                                      handleDelete()
+                                                    }
+                                                })
+                                            }}
           ></i>
         </div>
         <EditTask
@@ -80,6 +97,10 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
           save={saveTask}
         />
       </div>
+      <ConfirmDialog
+      confirmDialog={confirmDialog}
+                setConfirmDialog={setConfirmDialog}
+      />
     </div>
   );
 };
