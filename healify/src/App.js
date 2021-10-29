@@ -19,6 +19,7 @@ import { Togglemenu } from "./Components/Milestones/Togglemenu";
 import { QuizStatistics } from "./Components/Statistics/QuizStatistics";
 import Newsfinal from "./Components/News/NewsFinal";
 import { Events } from "./Components/Events/Events";
+import { Home2 } from "./Components/Home/Home2";
 
 import "./App.css";
 
@@ -119,6 +120,9 @@ function App() {
           </Route>
           <Route path="/Events">
             <Events />
+          </Route>
+          <Route path="/Home2">
+            <Home2 />
           </Route>
         </Switch>
       </Router>
