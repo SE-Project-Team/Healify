@@ -13,10 +13,12 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { data } from "./data";
+import { Header } from "../Home/Header";
 
 export const Events = () => {
   return (
     <div className="App">
+      <Header />
       <h1>Mental Health Virtual Events</h1>
       <Container>
         <Row xs={3}>
