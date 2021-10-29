@@ -14,12 +14,13 @@ import {
 import { Link } from "react-router-dom";
 import { data } from "./data";
 import { Header } from "../Home/Header";
+import styles from "./Events.module.css";
 
 export const Events = () => {
   return (
     <div className="App">
       <Header />
-      <h1>Mental Health Virtual Events</h1>
+      <h1 className={styles.heading}>Mental Health Virtual Events</h1>
       <Container>
         <Row xs={3}>
           {data.map((datum) => {
