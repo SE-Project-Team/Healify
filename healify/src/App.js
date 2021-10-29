@@ -17,10 +17,10 @@ import { Questions4 } from "./Components/Quiz/Questions/QueCategory4";
 import { Score } from "./Components/Quiz/Score";
 import { Togglemenu } from "./Components/Milestones/Togglemenu";
 import { QuizStatistics } from "./Components/Statistics/QuizStatistics";
-
-import News from "./Components/News/News";
 import { Events } from "./Components/Events/Events";
-
+import News from "./Components/News/News";
+import { Recorder } from "./Components/DrumKit/Recorder";
+import { Drumkit } from "./Components/DrumKit/Drumkit";
 
 
 import "./App.css";
@@ -122,6 +122,12 @@ function App() {
           </Route>
           <Route path="/Events">
             <Events />
+          </Route>
+          <Route path="/Recorder">
+            <Recorder />
+          </Route>
+          <Route path="/Drumkit">
+            <Drumkit />
           </Route>
         </Switch>
       </Router>
