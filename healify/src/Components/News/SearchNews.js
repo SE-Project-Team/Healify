@@ -1,11 +1,6 @@
 import React,{useState} from "react"
 import newsstyles from "./News.module.css";
-const Search=({searchtext})=>{
-    const [text,settext]=useState('')
-    const handleSubmit =(e)=>{
-        e.preventDefault()
-        searchtext(text);
-    }
+
    return(
        <>
        <form onSubmit={handleSubmit}>
