@@ -18,6 +18,7 @@ import { Score } from "./Components/Quiz/Score";
 import { Togglemenu } from "./Components/Milestones/Togglemenu";
 import { QuizStatistics } from "./Components/Statistics/QuizStatistics";
 import Newsfinal from "./Components/News/NewsFinal";
+import { Events } from "./Components/Events/Events";
 
 import "./App.css";
 
@@ -115,6 +116,9 @@ function App() {
           </Route>
           <Route path="/QuizStatistics/4">
             <QuizStatistics category="Self Perception" />
+          </Route>
+          <Route path="/Events">
+            <Events />
           </Route>
         </Switch>
       </Router>
