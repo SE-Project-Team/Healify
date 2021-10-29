@@ -17,9 +17,13 @@ import { Questions4 } from "./Components/Quiz/Questions/QueCategory4";
 import { Score } from "./Components/Quiz/Score";
 import { Togglemenu } from "./Components/Milestones/Togglemenu";
 import { QuizStatistics } from "./Components/Statistics/QuizStatistics";
+
 import Newsfinal from "./Components/News/NewsFinal";
 import { Events } from "./Components/Events/Events";
 import { Home2 } from "./Components/Home/Home2";
+
+import News from "./Components/News/News";
+
 
 import "./App.css";
 
@@ -65,7 +69,7 @@ function App() {
             <Registration setToken={setToken} />
           </Route>
           <Route exact path="/News">
-            <Newsfinal />
+            <News />
           </Route>
 
           <Route path="/Memes">
