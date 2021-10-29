@@ -1,18 +1,7 @@
 import React from "react";
 import image from "../../Assets/homePage.webp";
 import styles from "./Home.module.css";
-import {
-  MDBCard,
-  MDBCardImage,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-  MDBRow,
-  MDBCol,
-} from "mdb-react-ui-kit";
-import { Link } from "react-router-dom";
 import { Header } from "./Header";
-import { Togglemenu } from "../Milestones/Togglemenu";
 
 export const Home2 = () => {
   return (
