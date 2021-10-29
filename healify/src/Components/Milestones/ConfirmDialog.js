@@ -27,8 +27,7 @@ export default function ConfirmDialog(props) {
 
     return (
         <Dialog open={confirmDialog.isOpen} classes={{ paper: classes.dialog }}>
-            <DialogTitle className={classes.dialogTitle}>
-                
+            <DialogTitle className={classes.dialogTitle}>      
             </DialogTitle>
             <DialogContent className={classes.dialogContent}>
                 <Typography variant="h6">
