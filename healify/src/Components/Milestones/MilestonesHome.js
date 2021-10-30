@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as ReactBootStrap from "react-bootstrap";
 import CreateTask from "../modals/CreateTask";
+import EditTask from "../modals/EditTask";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 import { Togglemenu } from "./Togglemenu";
@@ -10,8 +11,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { Header } from "../Home/Header";
 
-export const MilestonesHome = () => {
+export const MilestonesHome = ({createTask}) => {
   const [taskList, setTaskList] = useState([]);
+   const [modal, setModal] = useState(false);
+  
+
+  // const [taskList, setTaskList] = useState([]);
+  const toggle = () => setModal(!modal);
+  const saveTask = () => {
+    createTask();
+    setModal(false);
+  };
   const updatePage = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
 
@@ -84,6 +94,7 @@ export const MilestonesHome = () => {
       <Header />
       <Togglemenu createTask={updateTask} />
       <div className={styles["task-container"]}>
+        
         {taskList &&
           taskList.map((obj, index) => (
             <Card
@@ -93,6 +104,7 @@ export const MilestonesHome = () => {
               index={index}
               deleteTask={() => deleteTask(obj._id)}
               updateTask={updateTask}
+               
             />
           ))}
       </div>
