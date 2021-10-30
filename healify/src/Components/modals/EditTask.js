@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import axios from "axios";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 const month_map = {
   Jan: 1,
   Feb: 2,
@@ -17,12 +18,16 @@ const month_map = {
   Dec: 12,
 };
 
-const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
+export const EditTask = ({ _id, modal, toggle, taskObj, save, selected ,setSelected }) => {
+  
+  
+  const [temp, setTemp]=useState(0);
   const [titleName, setTitleName] = useState(taskObj.title);
   const [date, setDate] = useState(taskObj.targetDate);
   const [description, setDescription] = useState(taskObj.description);
-
-  const [warning, setWarning] = useState("");
+  
+ 
+     const [warning, setWarning] = useState("");
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -35,7 +40,26 @@ const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
       setDate(value);
     }
   };
-
+  function Assign(str){
+    if(str==="Not Completed")
+    {
+     setTemp(0);
+     console.log("temp in edit task " +temp);
+    }
+     else if(str==="Task Completed")
+     {
+     setTemp(1);
+      console.log("temp in edit task " +temp);
+    
+     }
+     else
+     {
+     setTemp(2);
+      console.log("temp in edit task " +temp);
+      
+     }
+  }
+ 
   useEffect(() => {
     const arr = taskObj.targetDate.split(" ");
     const dateStr = `${month_map[arr[1]]}/${arr[2]}/${arr[3]}`;
@@ -126,9 +150,17 @@ const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
               name="description"
             ></textarea>
           </div>
+          
         </form>
 
         <h5>{warning}</h5>
+
+         <select value={selected} onChange={e=>setSelected(e.target.value)}>
+  <option selected value={1}  >Task Completed</option>
+    <option value={0}  >Not completed</option>
+  <option value={2}  >Partially completed</option>
+
+</select>
       </ModalBody>
       <ModalFooter>
         <Button color="primary" onClick={handleUpdate}>
@@ -138,6 +170,7 @@ const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
           Cancel
         </Button>
       </ModalFooter>
+    
     </Modal>
   );
 };

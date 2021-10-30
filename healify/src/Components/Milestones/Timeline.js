@@ -7,7 +7,6 @@ import { Header } from "../Home/Header";
 import { Togglemenu } from "./Togglemenu";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 export const Timeline = () => {
   const [taskList, setTaskList] = useState([]);
 

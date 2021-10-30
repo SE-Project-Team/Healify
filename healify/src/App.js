@@ -21,7 +21,7 @@ import { Events } from "./Components/Events/Events";
 import News from "./Components/News/News";
 import { Recorder } from "./Components/DrumKit/Recorder";
 import { Drumkit } from "./Components/DrumKit/Drumkit";
-
+import {Progressbar } from "./Components/Milestones/Progressbar";
 
 import "./App.css";
 
@@ -128,6 +128,9 @@ function App() {
           </Route>
           <Route path="/Drumkit">
             <Drumkit />
+          </Route>
+          <Route path="/Progressbar">
+            <Progressbar/>
           </Route>
         </Switch>
       </Router>

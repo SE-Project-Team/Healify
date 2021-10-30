@@ -121,10 +121,7 @@ const CreateTask = ({ modal, toggle, save }) => {
               name="description"
             ></textarea>
           </div>
-          <div className="form-group">
-            <input type="checkbox" />
-            <span> I have completed the task</span>
-          </div>
+          
         </form>
         <h5>{warning}</h5>
       </ModalBody>
