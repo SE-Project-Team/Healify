@@ -18,7 +18,7 @@
   height: 550px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  
   justify-content: center;
 }
 .height {
@@ -26,11 +26,12 @@
 }
 
 .search {
-    position: relative;
+    position: absolute;
     box-shadow: 0 0 40px rgba(51, 51, 51, .1)
 }
 
 .searchinput {
+   width: 500px;
     height: 60px;
     text-indent: 25px;
     border: 2px solid #d6d4d4
@@ -38,7 +39,7 @@
 
 .searchinput:focus {
     box-shadow: none;
-    border: 2px solid blue
+    border: 2px solid rgb(15, 15, 190)
 }
 
 .search .fasearch {
