@@ -29,7 +29,7 @@ export const Timeline = () => {
           // But this method is returning value to proper date
           let newDate = new Date(each.targetDate);
           newDate = newDate.toString().slice(0, 15);
-
+          
           return {
             ...each,
             targetDate: newDate,

@@ -4,10 +4,11 @@ import ConfirmDialog from "./ConfirmDialog";
 import CreateTask from "../modals/CreateTask";
 import styles from "./MilestonesHome.module.css";
 import {Progressbar } from "./Progressbar";
+import {ReadMore } from "./ReadMore";
 const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
 
     const [selected,setSelected] =useState(0);
-
+ 
   const { title, description, targetDate } = taskObj;
   const [modal, setModal] = useState(false);
    const [confirmDialog, setConfirmDialog] = useState({ isOpen: false, title: '', subTitle: '' })
@@ -44,12 +45,14 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
     updateTask();
   };
   return (
+  
     <div className={styles["card-wrapper"] + " mr-2"}>
       <div
         className={styles["card-top"]}
         style={{ "background-color": colors[selected].primaryColor }}
       ></div>
       < div className={styles["task-holder"]}>
+        
         <span
           className={styles["card-header"]}
           style={{
@@ -58,12 +61,25 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
             color:"white"
           }}
         >
+          
           {title}
         
           
         </span>
+        
+          
         <h6 className="mt-1">{targetDate}</h6>
-        <p className="mt-2">{description}</p>
+         
+       <p className="mt-2">
+          
+           <ReadMore>
+           {description}
+           </ReadMore>
+        
+          </p>
+        
+        
+       
         <br />
         <div style={{ position: "absolute", right: "20px", bottom: "10px" }}>
           <i
@@ -110,6 +126,7 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
       />
 
     </div>
+   
     
   );
 };
