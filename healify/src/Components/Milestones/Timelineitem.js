@@ -1,4 +1,5 @@
 import styles from "./Timeline.module.css";
+import {ReadMore} from  "./ReadMore";
 const Timelineitem = ({ Data }) => {
   return (
     <div className={styles["timeline-item"]}>
@@ -7,7 +8,10 @@ const Timelineitem = ({ Data }) => {
           {Data.title}
         </span>
         <time>{Data.targetDate}</time>
-        <p>{Data.description}</p>
+        <p>
+          <ReadMore>
+          {Data.description}
+          </ReadMore></p>
         {Data.link && (
           <a href={Data.link.url} target="_blank" rel="noopener noreferrer">
             {Data.link.text}

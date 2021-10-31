@@ -4,7 +4,7 @@ import ConfirmDialog from "./ConfirmDialog";
 import CreateTask from "../modals/CreateTask";
 import styles from "./MilestonesHome.module.css";
 import {Progressbar } from "./Progressbar";
-import {ReadMore } from "./ReadMore";
+import {NewReadMore } from "./NewReadMore";
 const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
 
     const [selected,setSelected] =useState(0);
@@ -46,7 +46,7 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
   };
   return (
   
-    <div className={styles["card-wrapper"] + " mr-2"}>
+    <div className={styles["card-wrapper"]}>
       <div
         className={styles["card-top"]}
         style={{ "background-color": colors[selected].primaryColor }}
@@ -70,11 +70,11 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
           
         <h6 className="mt-1">{targetDate}</h6>
          
-       <p className="mt-2">
+       <p >
           
-           <ReadMore>
+           <NewReadMore>
            {description}
-           </ReadMore>
+           </NewReadMore>
         
           </p>
         

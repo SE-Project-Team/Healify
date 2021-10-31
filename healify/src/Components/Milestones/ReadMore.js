@@ -1,4 +1,5 @@
 import React ,{useState} from "react";
+import styles from "./MilestonesHome.module.css";
 export const ReadMore = ({ children }) => {
   const text = children;
   const [isReadMore, setIsReadMore] = useState(true);
@@ -8,10 +9,9 @@ export const ReadMore = ({ children }) => {
   return (
     <p className="text">
       {isReadMore ? text.slice(0, 100) : text}
-        . . . 
-     {/* <span onClick={toggleReadMore} className="read-or-hide">
+     <span onClick={toggleReadMore} className={styles["read-or-hide"]} >
         {isReadMore ? "...read more" : " show less"}
-  </span>*/}
+  </span>
     </p>
   );
 };
