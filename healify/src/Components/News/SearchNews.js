@@ -3,8 +3,8 @@ import newsstyles from "./News.module.css";
 const Search=({searchtext})=>{
     const [text,settext]=useState('')
     const handleSubmit =(e)=>{
-        e.preventDefault()
-        searchtext(text);
+        e.preventDefault();
+        searchtext(text)
     }
    return(
        <>

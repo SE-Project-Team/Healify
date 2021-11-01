@@ -43,11 +43,11 @@ import Search  from "./SearchNews";
             <div className="text-4xl font-bold text-white mb-4 text-center" >
             <h1>News Articles</h1>
             </div>
+           <Search  searchtext={(text)=>{setterm(text)}} className="px-5 pt-10 pb-20 "/>
           </div>
         </div>
         <div className={newsstyles.bodyy}>
-        <Search  searchtext={(text)=>{setterm(text)}} className="px-5 pt-10 pb-20"/>
-        <h4 className="px-5 pt-10 pb-20">Suggested articles:</h4>
+        <h4 className="px-5 pt-10 pb-20 ">Suggested articles:</h4>
         <div className={newsstyles.all__news}>
           {data
             ? data.articles.map((news) => (
