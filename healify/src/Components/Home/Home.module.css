@@ -31,7 +31,7 @@
   transition: background-color 0.5s;
 }
 .container {
-  background: rgb(247, 241, 241);
+  background: rgb(255, 255, 255);
 }
 
 .whiteHeader ul li {
@@ -116,7 +116,7 @@
 }
 .top-container {
   /* background-color: #a4ccb5; */
-  background: rgb(247, 241, 241);
+  background: rgb(238, 232, 232);
   position: relative;
 }
 .navv {
@@ -143,6 +143,7 @@
   border-style: solid;
   transition: 200ms;
   min-height: 100%;
+  background: rgb(255, 255, 255);
 }
 .homecard:hover {
   box-shadow: 0 2px 20px 0 #ccd2d8;
@@ -150,8 +151,14 @@
   top: 5px;
   right: 5px; */
 }
+.img {
+  background: rgb(115, 189, 128);
+  display: flex;
+  justify-content: center;
+}
 .img img {
-  width: 100%;
+  position: relative;
+  width: 75%;
   opacity: 1;
 }
 .card {
@@ -253,7 +260,12 @@
   margin-bottom: 0px;
   padding: 20px;
   display: flex;
-  justify-content: center;
+  gap: 10px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.mdbCustom a {
+  flex-basis: 275px;
 }
 .titleWrapper {
   display: flex;

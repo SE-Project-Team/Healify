@@ -1,0 +1,40 @@
+.imgSection {
+  border-bottom: black solid 3px;
+}
+
+.imgSection img {
+  height: 200px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.imgSection:hover {
+  animation: imgBorder 2s 1 forwards;
+}
+
+@keyframes imgBorder {
+  0% {
+    box-shadow: none;
+  }
+
+  100% {
+    box-shadow: 2px 2px 7px 2px rgb(104, 97, 97);
+  }
+}
+
+.textSection h2 {
+  margin-top: 2rem;
+  font-family: cursive;
+}
+
+.textSection p {
+  text-align: justify;
+}
+
+.textSection h2:hover {
+  text-shadow: 1px 1px 1px black;
+}
+
+.textSection p:hover {
+  text-shadow: 0.5px 0.5px 0.5px rgb(105, 99, 99);
+}
