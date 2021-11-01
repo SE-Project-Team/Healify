@@ -7,8 +7,16 @@ import styles from "./Home.module.css";
 import milestoneimg from "../../Assets/milestone.jpg";
 import { Card } from "./Card";
 import { Header } from "./Header";
+import { useState, useEffect } from "react";
 
 export const Home = () => {
+  const [quote1, setQuote1] = useState("This is a Quote");
+  useEffect(() => {
+    setInterval(() => {
+      setQuote1("aasf");
+    }, 10);
+    return () => {};
+  }, []);
   return (
     <>
       <Header />
@@ -17,6 +25,7 @@ export const Home = () => {
           <div className={styles.img}>
             <img src={image} alt="home" />
             {/* <h1 className={styles.banner}>"Life is Beautiful"</h1> */}
+            <h4>{quote1}</h4>
           </div>
           <section className={`${styles.mdbCustom}`}>
             <Card

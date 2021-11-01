@@ -152,6 +152,7 @@
   right: 5px; */
 }
 .img {
+  position: relative;
   background: rgb(115, 189, 128);
   display: flex;
   justify-content: center;
@@ -160,6 +161,30 @@
   position: relative;
   width: 75%;
   opacity: 1;
+}
+
+.img h4 {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  animation: move 5s 5s infinite;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 1px rgb(92, 5, 5);
+}
+
+@keyframes move {
+  0%,
+  25% {
+    transform: translateX(0%);
+    right: 0%;
+    opacity: 0;
+  }
+  75%,
+  100% {
+    transform: translateX(5%);
+    right: 10%;
+    opacity: 1;
+  }
 }
 .card {
   background-color: white;
