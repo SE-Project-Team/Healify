@@ -25,11 +25,11 @@ export const Registration = ({ setToken }) => {
     let value = 1;
     if (password !== rePassword) {
       setWarning("Re-entered password is not matching");
-      setTimeout(() => setWarning(""), 2000);
+      setTimeout(() => setWarning(""), 3000);
       return;
     } else if (password.length < 6) {
       setWarning("Password Length Must be more than 5");
-      setTimeout(() => setWarning(""), 2000);
+      setTimeout(() => setWarning(""), 3000);
       return;
     }
     await axios
@@ -44,7 +44,7 @@ export const Registration = ({ setToken }) => {
         if (err.response) {
           const { data } = err.response;
           setWarning(data.msg);
-          setTimeout(() => setWarning(""), 2000);
+          setTimeout(() => setWarning(""), 3000);
           return;
         } else {
           console.log(err);

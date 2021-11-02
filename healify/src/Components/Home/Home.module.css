@@ -12,7 +12,8 @@
   position: relative;
 }
 .bottom-container {
-  background-color: #32bbd3;
+  /* background-color: #32bbd3;*/
+  background: linear-gradient(to left, #e6b65c, #fdc830);
   padding: 50px 0 20px;
   text-align: center;
   margin-top: 250px;
@@ -56,26 +57,21 @@
   position: absolute;
   left: 10px;
   top: 10px;
-  animation: move 10s infinite;
+  animation: move 10s 1;
   color: rgb(255, 255, 255);
-  text-shadow: 1px 1px 1px rgb(92, 5, 5);
+  text-shadow: 2px 2px 1px rgb(92, 5, 5);
 }
 .quote2 {
   position: absolute;
   right: 10px;
   bottom: 10px;
-  animation: move 10s infinite;
+  animation: move 10s 1;
   color: rgb(255, 255, 255);
-  text-shadow: 1px 1px 1px rgb(92, 5, 5);
+  text-shadow: 2px 2px 1px rgb(92, 5, 5);
 }
-/* .img h4 {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  animation: move 5s infinite;
-  color: rgb(255, 255, 255);
-  text-shadow: 1px 1px 1px rgb(92, 5, 5);
-} */
+.img h4 {
+  max-width: 20%;
+}
 
 @keyframes move {
   0% {
@@ -106,4 +102,14 @@
 }
 .mdbCustom a {
   flex-basis: 275px;
+}
+
+@media screen and (max-width: 600px) {
+  .img h4 {
+    font-size: 20px;
+  }
+
+  .img img {
+    width: 100%;
+  }
 }

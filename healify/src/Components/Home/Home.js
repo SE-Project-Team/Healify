@@ -18,8 +18,19 @@ export const Home = () => {
     const asyncWrapper = async () => {
       id = setInterval(() => {
         const index = Math.floor(Math.random() * 6);
-        setQuote1(QuotesArray[index]);
-        setQuote2(QuotesArray[Math.floor(Math.random() * 6)]);
+        setQuote1(() => {
+          return "";
+        });
+        setQuote1(() => {
+          return QuotesArray[index];
+        });
+        const index2 = Math.floor(Math.random() * 6);
+        setQuote2(() => {
+          return "";
+        });
+        setQuote2(() => {
+          return QuotesArray[index2];
+        });
       }, 10000);
     };
     asyncWrapper();
@@ -35,8 +46,8 @@ export const Home = () => {
           <div className={styles.img}>
             <img src={image} alt="home" />
             {/* <h1 className={styles.banner}>"Life is Beautiful"</h1> */}
-            <h4 className={styles.quote1}>{quote1}</h4>
-            <h4 className={styles.quote2}>{quote2}</h4>
+            {quote1 && <h4 className={styles.quote1}>{quote1}</h4>}
+            {quote2 && <h4 className={styles.quote2}>{quote2}</h4>}
           </div>
           <section className={`${styles.mdbCustom}`}>
             <Card

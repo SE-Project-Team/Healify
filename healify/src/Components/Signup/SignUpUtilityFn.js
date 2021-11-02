@@ -17,7 +17,7 @@ export const postLogin = async ({
       if (err.response) {
         const { data } = err.response;
         setWarning(data.msg);
-        setTimeout(() => setWarning(""), 2000);
+        setTimeout(() => setWarning(""), 3000);
       } else {
         console.log(err);
       }

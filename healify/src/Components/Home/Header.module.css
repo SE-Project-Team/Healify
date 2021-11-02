@@ -193,4 +193,8 @@
   .logo {
     margin-left: 15px;
   }
+  .settingsList li {
+    margin-bottom: 5px;
+    margin-left: 10px;
+  }
 }
