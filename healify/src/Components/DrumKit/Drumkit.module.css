@@ -1,7 +1,6 @@
 .bdy {
   text-align: center;
   background-color: #283149;
-  height: 100vh;
   padding-top: 5%;
 }
 
@@ -66,7 +65,7 @@
   color: red;
 }
 
-.drum {
+.drum button {
   outline: none;
   border: 10px solid #404b69;
   font-size: 5rem;

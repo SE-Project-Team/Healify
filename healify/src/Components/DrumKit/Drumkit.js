@@ -1,88 +1,169 @@
 import React from "react";
 import styles from "./Drumkit.module.css";
-
+import wSound from "../../Assets/sounds/tom-1.mp3";
+import aSound from "../../Assets/sounds/tom-2.mp3";
+import sSound from "../../Assets/sounds/tom-3.mp3";
+import dSound from "../../Assets/sounds/tom-4.mp3";
+import jSound from "../../Assets/sounds/snare.mp3";
+import kSound from "../../Assets/sounds/crash.mp3";
+import lSound from "../../Assets/sounds/kick-bass.mp3";
+import { useEffect, useState } from "react";
 export const Drumkit = () => {
-  var numberOfDrumButtons = document.querySelectorAll(".drum").length;
+  const [w, setW] = useState(false);
+  const [a, setA] = useState(false);
+  const [s, setS] = useState(false);
+  const [d, setD] = useState(false);
+  const [j, setJ] = useState(false);
+  const [k, setK] = useState(false);
+  const [l, setL] = useState(false);
 
-  for (var i = 0; i < numberOfDrumButtons; i++) {
-    //we are adding event listeners to the array of elements with the class drum using the loop
-    //so that whenever any of those are clicked we can perform an action
-    document
-      .querySelectorAll(".drum")
-      [i].addEventListener("click", function () {
-        var buttonInnerHTML = this.innerHTML;
-        makesound(buttonInnerHTML);
-        buttonAnimation(buttonInnerHTML);
-      });
-  }
-
-  document.addEventListener("keypress", function (event) {
-    var key = event.key;
+  const handleClick = (key) => {
     makesound(key);
-    buttonAnimation(key);
-  });
+  };
 
-  function makesound(key) {
+  const keyHandle = (e) => {
+    const key = e.key;
+    makesound(key);
+  };
+
+  useEffect(() => {
+    window.addEventListener("keypress", keyHandle);
+    return () => {
+      window.removeEventListener("keypress", keyHandle);
+    };
+  }, []);
+
+  const makesound = (key) => {
+    let audio;
     switch (key) {
       case "w":
-        var audio = new Audio("../../Assets/sounds/tom-1.mp3");
+        audio = new Audio(wSound);
         audio.play();
+        setW(true);
+        setTimeout(() => {
+          setW(false);
+        }, 100);
         break;
 
       case "a":
-        var audio = new Audio("../../Assets/sounds/tom-2.mp3");
+        audio = new Audio(aSound);
         audio.play();
+        setA(true);
+        setTimeout(() => {
+          setA(false);
+        }, 100);
         break;
 
       case "s":
-        var audio = new Audio("../../Assets/sounds/tom-3.mp3");
+        audio = new Audio(sSound);
         audio.play();
+        setS(true);
+        setTimeout(() => {
+          setS(false);
+        }, 100);
         break;
 
       case "d":
-        var audio = new Audio("../../Assets/sounds/tom-4.mp3");
+        audio = new Audio(dSound);
         audio.play();
+        setD(true);
+        setTimeout(() => {
+          setD(false);
+        }, 100);
         break;
 
       case "j":
-        var audio = new Audio("../../Assets/sounds/snare.mp3");
+        audio = new Audio(jSound);
         audio.play();
+        setJ(true);
+        setTimeout(() => {
+          setJ(false);
+        }, 100);
         break;
 
       case "k":
-        var audio = new Audio("../../Assets/sounds/crash.mp3");
+        audio = new Audio(kSound);
         audio.play();
+        setK(true);
+        setTimeout(() => {
+          setK(false);
+        }, 100);
         break;
 
       case "l":
-        var audio = new Audio("../../Assets/sounds/kick-bass.mp3");
+        audio = new Audio(lSound);
         audio.play();
+        setL(true);
+        setTimeout(() => {
+          setL(false);
+        }, 100);
         break;
       default:
     }
-  }
-
-  function buttonAnimation(currentKey) {
-    var activeButton = document.querySelector("." + currentKey);
-    activeButton.classList.add("pressed");
-    setTimeout(function () {
-      activeButton.classList.remove("pressed");
-    }, 100);
-  }
+  };
 
   return (
     <>
       <div className={styles.bdy}>
         <div>
           <h1 className={styles.drumkith1}>Drum 🥁 Kit</h1>
-          <div className={styles.set}>
-            <button className={styles.w + " " + styles.drum}>w</button>
-            <button className={styles.a + " " + styles.drum}>a</button>
-            <button className={styles.s + " " + styles.drum}>s</button>
-            <button className={styles.d + " " + styles.drum}>d</button>
-            <button className={styles.j + " " + styles.drum}>j</button>
-            <button className={styles.k + " " + styles.drum}>k</button>
-            <button className={styles.l + " " + styles.drum}>l</button>
+          <div className={`${styles.set} ${styles.drum}`}>
+            <button
+              className={`${styles.w} ${w && styles.pressed}`}
+              onClick={() => {
+                handleClick("w");
+              }}
+            >
+              w
+            </button>
+            <button
+              className={`${styles.a} ${a && styles.pressed}`}
+              onClick={() => {
+                handleClick("a");
+              }}
+            >
+              a
+            </button>
+            <button
+              className={`${styles.s} ${s && styles.pressed}`}
+              onClick={() => {
+                handleClick("s");
+              }}
+            >
+              s
+            </button>
+            <button
+              className={`${styles.d} ${d && styles.pressed}`}
+              onClick={() => {
+                handleClick("d");
+              }}
+            >
+              d
+            </button>
+            <button
+              className={`${styles.j} ${j && styles.pressed}`}
+              onClick={() => {
+                handleClick("j");
+              }}
+            >
+              j
+            </button>
+            <button
+              className={`${styles.k} ${k && styles.pressed}`}
+              onClick={() => {
+                handleClick("k");
+              }}
+            >
+              k
+            </button>
+            <button
+              className={`${styles.l} ${l && styles.pressed}`}
+              onClick={() => {
+                handleClick("l");
+              }}
+            >
+              l
+            </button>
           </div>
         </div>
 
