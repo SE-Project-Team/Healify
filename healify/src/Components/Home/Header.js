@@ -29,9 +29,9 @@ export const Header = () => {
     history.replace("/");
   };
   const scrollHandler = () => {
-    if (scrollClass === "" && window.scrollY > 100) {
+    if (scrollClass === "" && window.scrollY > 80) {
       setScrollClass(styles.whiteHeader);
-    } else if (window.scrollY <= 100) {
+    } else if (window.scrollY <= 80) {
       setScrollClass("");
     }
   };
