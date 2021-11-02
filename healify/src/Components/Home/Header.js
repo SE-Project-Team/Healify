@@ -31,10 +31,8 @@ export const Header = () => {
   const scrollHandler = () => {
     if (scrollClass === "" && window.scrollY > 100) {
       setScrollClass(styles.whiteHeader);
-      console.log("set");
     } else if (window.scrollY <= 100) {
       setScrollClass("");
-      console.log("unset");
     }
   };
   const [scrollClass, setScrollClass] = useState("");

@@ -8,14 +8,24 @@ import milestoneimg from "../../Assets/milestone.jpg";
 import { Card } from "./Card";
 import { Header } from "./Header";
 import { useState, useEffect } from "react";
-
+import { QuotesArray } from "./Quotes";
+// const QuotesArray = ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6"];
 export const Home = () => {
   const [quote1, setQuote1] = useState("This is a Quote");
+  const [quote2, setQuote2] = useState("This is a Quote2");
   useEffect(() => {
-    setInterval(() => {
-      setQuote1("aasf");
-    }, 10);
-    return () => {};
+    let id;
+    const asyncWrapper = async () => {
+      id = setInterval(() => {
+        const index = Math.floor(Math.random() * 6);
+        setQuote1(QuotesArray[index]);
+        setQuote2(QuotesArray[Math.floor(Math.random() * 6)]);
+      }, 10000);
+    };
+    asyncWrapper();
+    return () => {
+      clearInterval(id);
+    };
   }, []);
   return (
     <>
@@ -25,7 +35,8 @@ export const Home = () => {
           <div className={styles.img}>
             <img src={image} alt="home" />
             {/* <h1 className={styles.banner}>"Life is Beautiful"</h1> */}
-            <h4>{quote1}</h4>
+            <h4 className={styles.quote1}>{quote1}</h4>
+            <h4 className={styles.quote2}>{quote2}</h4>
           </div>
           <section className={`${styles.mdbCustom}`}>
             <Card
