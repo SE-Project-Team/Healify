@@ -9,7 +9,7 @@
 }
 
 .imgSection:hover {
-  animation: imgBorder 2s 1 forwards;
+  animation: imgBorder 1s 1 forwards;
 }
 
 @keyframes imgBorder {
@@ -37,4 +37,19 @@
 
 .textSection p:hover {
   text-shadow: 0.5px 0.5px 0.5px rgb(105, 99, 99);
+}
+
+.remove_underline {
+  text-decoration: none;
+}
+
+.homecard {
+  color: #272727;
+  padding: 20px;
+  align-self: stretch;
+  /* border-radius: 10px; */
+  background: rgb(255, 255, 255);
+}
+.homecard:hover {
+  box-shadow: 2px 2px 6px #000000;
 }
