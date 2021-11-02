@@ -11,7 +11,7 @@ export const Signup = ({ setToken }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const [warning, setWarning] = useState("");
+  const [warning, setWarning] = useState("This is a warning ");
   const history = useHistory();
 
   const handleSubmit = async (e) => {
@@ -74,13 +74,13 @@ export const Signup = ({ setToken }) => {
                 </div>
                 <div className="row justify-content-center my-3 px-3">
                   {" "}
+                  <h4 className={styles.warning}>{warning}</h4>
                   <button
                     className={"btn-block " + styles.btnColor}
                     onClick={handleSubmit}
                   >
                     Login to Healify
                   </button>{" "}
-                  <h5>{warning}</h5>
                 </div>
                 {/* <div className="row justify-content-center my-2">
                   {" "}

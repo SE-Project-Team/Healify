@@ -14,8 +14,12 @@ export const postLogin = async ({
       history.push("/");
     })
     .catch((err) => {
-      const { msg } = err;
-      setWarning(msg);
-      setTimeout(() => setWarning(""), 2000);
+      if (err.response) {
+        const { data } = err.response;
+        setWarning(data.msg);
+        setTimeout(() => setWarning(""), 2000);
+      } else {
+        console.log(err);
+      }
     });
 };

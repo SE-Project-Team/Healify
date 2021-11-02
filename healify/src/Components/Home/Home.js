@@ -9,7 +9,7 @@ import { Card } from "./Card";
 import { Header } from "./Header";
 import { useState, useEffect } from "react";
 import { QuotesArray } from "./Quotes";
-// const QuotesArray = ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6"];
+
 export const Home = () => {
   const [quote1, setQuote1] = useState("This is a Quote");
   const [quote2, setQuote2] = useState("This is a Quote2");

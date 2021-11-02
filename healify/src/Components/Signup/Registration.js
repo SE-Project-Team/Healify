@@ -27,6 +27,10 @@ export const Registration = ({ setToken }) => {
       setWarning("Re-entered password is not matching");
       setTimeout(() => setWarning(""), 2000);
       return;
+    } else if (password.length < 6) {
+      setWarning("Password Length Must be more than 5");
+      setTimeout(() => setWarning(""), 2000);
+      return;
     }
     await axios
       .post("/api/v1/registration/", {
@@ -36,12 +40,16 @@ export const Registration = ({ setToken }) => {
       })
       .catch((err) => {
         // Rejected or error response
-        const { msg } = err;
         value = 0;
-        // Example for warning
-        setWarning(msg);
-        setTimeout(() => setWarning(""), 2000);
-        return;
+        if (err.response) {
+          const { data } = err.response;
+          setWarning(data.msg);
+          setTimeout(() => setWarning(""), 2000);
+          return;
+        } else {
+          console.log(err);
+          return;
+        }
         // depending on msg we should handle warning message to user (like showing Dom elements)
       });
     if (value) {
@@ -141,13 +149,13 @@ export const Registration = ({ setToken }) => {
                 {/* <span> I Agree To The Terms & Conditions</span> */}
 
                 <div className="row justify-content-center my-3 px-3">
+                  <h4 className={styles.warning}>{warning}</h4>
                   <button
                     className={"btn-block " + styles.btnColor}
                     onClick={handleSubmit}
                   >
                     Sign up
                   </button>
-                  <h4>{warning}</h4>
                 </div>
                 <div className="row justify-content-center my-2">
                   {" "}

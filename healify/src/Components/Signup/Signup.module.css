@@ -1,3 +1,10 @@
+.warning {
+  font: bold 1.2em sans-serif;
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px 1px rgb(172, 55, 146);
+  text-align: center;
+  text-decoration: rgb(172, 55, 146) underline solid;
+}
 .card {
   border-radius: 0;
   border: none;
