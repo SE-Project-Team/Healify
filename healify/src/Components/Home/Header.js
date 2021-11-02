@@ -12,12 +12,15 @@ export const Header = () => {
   const history = useHistory();
 
   const [toggle, setToggle] = useState("");
+  const [rotateClass, setRotateClass] = useState("");
 
   const toggleFunction = () => {
     if (toggle === "") {
       setToggle(styles.toggleActive);
+      setRotateClass(styles.rotate);
     } else {
       setToggle("");
+      setRotateClass(styles.rotateReset);
     }
   };
   const signOut = () => {
@@ -28,8 +31,10 @@ export const Header = () => {
   const scrollHandler = () => {
     if (scrollClass === "" && window.scrollY > 100) {
       setScrollClass(styles.whiteHeader);
+      console.log("set");
     } else if (window.scrollY <= 100) {
       setScrollClass("");
+      console.log("unset");
     }
   };
   const [scrollClass, setScrollClass] = useState("");
@@ -63,7 +68,10 @@ export const Header = () => {
     <header className={styles.header + " " + scrollClass}>
       <div className={`${styles.titleWrapper}`}>
         <div className={styles.threeLineBtn}>
-          <ul className={styles.menuBtnCustom} onClick={toggleFunction}>
+          <ul
+            className={`${styles.menuBtnCustom} ${rotateClass}`}
+            onClick={toggleFunction}
+          >
             <li></li>
             <li></li>
             <li></li>
