@@ -1,4 +1,5 @@
 // import React from "react";
+// import eventsstyle from "./Eventsstyle.module.css";
 // import {
 //   Card,
 //   CardImg,
@@ -12,15 +13,15 @@
 //   Col,
 // } from "reactstrap";
 // import { Link } from "react-router-dom";
-// import { data } from "./data";
+// import { data } from "../Events/data";
 // import { Header } from "../Home/Header";
-// import styles from "./Events.module.css";
+// import styles from "../Events/Events.module.css";
 
-// export const Events = () => {
+// export const UpcomingEvents = () => {
 //   return (
-//     <div className="App">
+//     <div classNameName="App">
 //       <Header />
-//       <h1 className={styles.heading}>Mental Health Virtual Events</h1>
+//       <h1 classNameName={styles.heading}>Mental Health Virtual Events</h1>
 //       <Container>
 //         <Row xs={3}>
 //           {data.map((datum) => {
@@ -35,21 +36,22 @@
 //                   />
 //                   <CardBody>
 //                     <CardTitle tag="h5">{datum.eventname}</CardTitle>
-//                     <CardSubtitle tag="h6" className="mb-2 text-muted">
+//                     <CardSubtitle tag="h6" classNameName="mb-2 text-muted">
 //                       Date : {datum.date}
 //                     </CardSubtitle>
-//                     <CardText>{datum.description}</CardText>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//                     <CardText>{datum.description}</CardText>&nbsp;&nbsp;
+//                     <div className={eventsstyle.ribbon+" " +eventsstyle.red}><span>Registered</span></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 //                     <Link
 //                       to={{
 //                         pathname: `${datum.websrc}`,
 //                       }}
 //                       target="_blank"
 //                     >
-                      
-//                       <Button>Register</Button>
-//                     </Link>
-//                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-//                       <Button><i class="fas fa-comment"></i></Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         
+//                          <button type="button" className="btn btn-primary">&nbsp;&nbsp;&nbsp;View&nbsp;&nbsp;&nbsp;</button>
+//                     </Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   
+//                      <Button><i className="fas fa-comment"></i></Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 //                   </CardBody>
 //                 </Card>
 //               </Col>

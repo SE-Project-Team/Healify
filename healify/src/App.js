@@ -18,10 +18,12 @@ import { Score } from "./Components/Quiz/Score";
 import { Togglemenu } from "./Components/Milestones/Togglemenu";
 import { QuizStatistics } from "./Components/Statistics/QuizStatistics";
 import { Events } from "./Components/Events/Events";
+import { MyEvents } from "./Components/OrganizersHome/MyEvents";
+import  {UpcomingEvents} from "./Components/OrganizersHome/UpcomingEvents"
 import News from "./Components/News/News";
 import { Recorder } from "./Components/DrumKit/Recorder";
 import { Drumkit } from "./Components/DrumKit/Drumkit";
-
+import Organizers from "./Components/OrganizersHome/Organizers";
 import { Progressbar } from "./Components/Milestones/Progressbar";
 
 
@@ -71,7 +73,9 @@ function App() {
           <Route exact path="/News">
             <News />
           </Route>
-
+          <Route exact path="/Organizers">
+            <Organizers />
+          </Route>
           <Route path="/Memes">
             <Memes />
           </Route>
@@ -125,6 +129,12 @@ function App() {
           </Route>
           <Route path="/Events">
             <Events />
+          </Route>
+           <Route path="/MyEvents">
+            <MyEvents />
+          </Route>
+          <Route path="/UpcomingEvents">
+            <UpcomingEvents />
           </Route>
           <Route path="/Recorder">
             <Recorder />

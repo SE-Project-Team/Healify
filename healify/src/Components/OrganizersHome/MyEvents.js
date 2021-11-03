@@ -12,11 +12,11 @@
 //   Col,
 // } from "reactstrap";
 // import { Link } from "react-router-dom";
-// import { data } from "./data";
+// import { data } from "../Events/data";
 // import { Header } from "../Home/Header";
-// import styles from "./Events.module.css";
+// import styles from "../Events/Events.module.css";
 
-// export const Events = () => {
+// export const MyEvents = () => {
 //   return (
 //     <div className="App">
 //       <Header />
@@ -45,11 +45,9 @@
 //                       }}
 //                       target="_blank"
 //                     >
-                      
-//                       <Button>Register</Button>
-//                     </Link>
-//                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-//                       <Button><i class="fas fa-comment"></i></Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//                          <button type="button" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;View&nbsp;&nbsp;&nbsp;&nbsp;</button>
+//                     </Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//                        <button type="button" class="btn btn-outline-danger">Cancel Event</button>
 //                   </CardBody>
 //                 </Card>
 //               </Col>
