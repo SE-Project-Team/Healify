@@ -6,6 +6,64 @@ import { Score } from "./Score";
 import { Header } from "../Home/Header";
 
 export const Quiz = ({ questions, category }) => {
+  const Q11Keywords = [
+    "stress",
+    "anxiety",
+    "depression",
+    "anger",
+    "irritability",
+    "muscle pains",
+    "phobia",
+    "insomania",
+    "exercise",
+    "fitness",
+    "physical health",
+    "healthy diet",
+    "nutrition",
+    "de-addiction",
+    "rehab",
+  ];
+  const Q12Keywords = [
+    "self control",
+    "self management",
+    "stress",
+    "confidence",
+    "anxiety",
+    "coping",
+    "irritability",
+    "anger",
+  ];
+  const [Q11Score, setQ11Score] = useState([
+    {
+      stress: 0,
+      anxiety: 0,
+      depression: 0,
+      anger: 0,
+      irritability: 0,
+      "muscle pains": 0,
+      phobia: 0,
+      insomania: 0,
+      exercise: 0,
+      fitness: 0,
+      "physical health": 0,
+      "healthy diet": 0,
+      nutrition: 0,
+      "de-addiction": 0,
+      rehab: 0,
+    },
+  ]);
+  const [Q12Score, setQ12Score] = useState([
+    {
+      "self control": 0,
+      "self management": 0,
+      stress: 0,
+      confidence: 0,
+      anxiety: 0,
+      coping: 0,
+      irritability: 0,
+      anger: 0,
+    },
+  ]);
   const [warning, setWarning] = useState(-1);
   const [option, setOption] = useState(0);
   const [score, setScore] = useState(0);
@@ -35,36 +93,54 @@ export const Quiz = ({ questions, category }) => {
     } else {
       let val = 0;
       let sc = parseInt(option);
+      let keywordScore = 0;
+      let newQ11Score = [...Q11Score];
+      let newQ12Score = [...Q12Score];
       switch (sc) {
         case 1:
           val = 5;
+          keywordScore = 1;
           break;
         case 2:
           val = 4;
+          keywordScore = 2;
           break;
         case 3:
           val = 3;
-          break;
+          keywordScore = 3;
         case 4:
           val = 2;
+          keywordScore = 4;
           break;
         case 5:
           val = 1;
+          keywordScore = 5;
           break;
         default:
           val = 0;
           break;
       }
       setScore(() => score + val);
-
+      if (que.id >= 1 && que.id <= 19) {
+        for (let i = 0; i < que.keywords.length; i++) {
+          newQ11Score[0][que.keywords[i]] += keywordScore;
+        }
+        setQ11Score(newQ11Score);
+      } else {
+        for (let i = 0; i < que.keywords.length; i++) {
+          newQ12Score[0][que.keywords[i]] += keywordScore;
+        }
+        setQ12Score(newQ12Score);
+      }
       setCounter(() => counter + 1);
       const newQuestionSet = questionSet.filter((qn) => que.id !== qn.id);
       setQuestionSet(newQuestionSet);
-      // state -> we expect it to be updated but its not
       let rand1 = Math.floor(Math.random() * newQuestionSet.length);
       setQue(newQuestionSet[rand1] || questions[0]);
       setOption(0);
       setWarning(-1);
+      console.log(Q11Score);
+      console.log(Q12Score);
     }
   };
 
@@ -105,7 +181,12 @@ export const Quiz = ({ questions, category }) => {
           </div>
         </>
       ) : (
-        <Score score={score} category={category} />
+        <Score
+          score={score}
+          Q11Score={Q11Score}
+          Q12Score={Q12Score}
+          category={category}
+        />
       )}
     </>
   );
