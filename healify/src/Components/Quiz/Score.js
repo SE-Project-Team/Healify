@@ -5,7 +5,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Header } from "../Home/Header";
 import { ProgressBar } from "./ProgressBar";
-import { styles2 } from "../Home/Home.module.css";
 
 const map = (category) => {
   let res;
@@ -28,7 +27,15 @@ const map = (category) => {
   }
   return res;
 };
-export const Score = ({ score, category }) => {
+export const Score = ({ score, category, Q11Score, Q12Score }) => {
+  const getMax = (object) => {
+    let max = Math.max(...Object.values(object));
+    return Object.keys(object).filter((key) => object[key] == max);
+  };
+  var max1 = getMax(Q11Score[0]);
+  var max2 = getMax(Q12Score[0]);
+  console.log(max1);
+  console.log(max2);
   const percentage = (score * 100) / 50;
   let color = "";
   let str1 = "",
@@ -93,6 +100,8 @@ export const Score = ({ score, category }) => {
 
         <h2 className={styles.counter}>{str1}</h2>
         <h3 className={styles.counter}>{str2}</h3>
+        <h3>Physical Health keywords: {max1}</h3>
+        <h3>Control and Coping keywords: {max2}</h3>
         <Link to="/QuizLanding" className={`${styles.remove}`}>
           <button className={`${styles.playBtn}`}>Back</button>
         </Link>

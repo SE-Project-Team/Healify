@@ -168,7 +168,7 @@ export const Drumkit = () => {
         </div>
 
         <footer className={styles.drumkitfooter}>
-          Made with ❤️ by Sahithi Rani.
+          Made with ❤️ by IIT Tirupati.
         </footer>
       </div>
     </>

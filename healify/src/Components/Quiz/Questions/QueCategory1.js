@@ -7,6 +7,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
+    keywords: ["stress", "depression", "anxiety"],
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
+    keywords: ["muscle pains", "stress", "depression", "anxiety"],
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
+    keywords: ["exercise", "fitness", "physical health"],
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
+    keywords: ["anxiety", "stress", "phobia"],
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
+    keywords: ["insomania", "stress", "depression"],
   },
   {
     id: 6,
@@ -52,6 +57,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
+    keywords: ["irritability", "anxiety", "anger"],
   },
   {
     id: 7,
@@ -61,6 +67,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
+    keywords: ["insomania", "stress", "depression"],
   },
   {
     id: 8,
@@ -70,6 +77,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
+    keywords: ["anger", "stress", "anxiety"],
   },
   {
     id: 9,
@@ -79,6 +87,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
+    keywords: ["depression"],
   },
   {
     id: 10,
@@ -88,6 +97,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
+    keywords: ["physical health", "healthy diet", "nutrition"],
   },
   {
     id: 11,
@@ -97,6 +107,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
+    keywords: ["physical health", "healthy diet", "nutrition"],
   },
   {
     id: 12,
@@ -106,6 +117,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
+    keywords: ["stress", "anger", "irritability"],
   },
   {
     id: 13,
@@ -115,6 +127,7 @@ export const Questions1 = [
     op3: "Once or twice a week",
     op4: "Once or twice a month",
     op5: "Seldom",
+    keywords: ["exercise", "fitness", "physical health"],
   },
   {
     id: 14,
@@ -124,6 +137,7 @@ export const Questions1 = [
     op3: "Once or twice a week",
     op4: "Once or twice a month",
     op5: "Seldom",
+    keywords: ["insomania", "stress", "fitness"],
   },
   {
     id: 15,
@@ -133,6 +147,7 @@ export const Questions1 = [
     op3: "To some extent",
     op4: "To a little extent",
     op5: "To a very little extent",
+    keywords: ["exercise", "fitness", "physical health"],
   },
   {
     id: 16,
@@ -142,6 +157,7 @@ export const Questions1 = [
     op3: "My weight is close to the ideal level",
     op4: "My weight is not close to the ideal level",
     op5: "I am dangerously overweight/ underweight",
+    keywords: ["exercise", "fitness", "physical health"],
   },
   {
     id: 17,
@@ -151,6 +167,7 @@ export const Questions1 = [
     op3: "To some extent",
     op4: "To a little extent",
     op5: "To a very little extent",
+    keywords: ["physical health", "healthy diet", "nutrition"],
   },
   {
     id: 18,
@@ -160,6 +177,7 @@ export const Questions1 = [
     op3: "I stopped smoking or chewing tobacco over the past two years",
     op4: "I smoke or chew tobacco fairly often",
     op5: "I smoke or chew tobacco almost everyday",
+    keywords: ["healthy diet", "de-addiction", "rehab"],
   },
   {
     id: 19,
@@ -169,6 +187,7 @@ export const Questions1 = [
     op3: "I have a history of abusing alcohol, but am not presently abusing it",
     op4: "I abuse alcohol whenever I feel sad or depressed",
     op5: "I abuse alcohol almost daily",
+    keywords: ["healthy diet", "de-addiction", "rehab"],
   },
   {
     id: 70,
@@ -178,6 +197,7 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Fairly Often",
     op5: "Very Often",
+    keywords: ["self control", "self management", "stress", "coping"],
   },
   {
     id: 71,
@@ -187,6 +207,7 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Fairly Often",
     op5: "Very Often",
+    keywords: ["self control", "self management", "coping"],
   },
   {
     id: 72,
@@ -196,6 +217,7 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Fairly Often",
     op5: "Very Often",
+    keywords: ["stress", "confidence", "self control", "coping"],
   },
   {
     id: 73,
@@ -205,6 +227,7 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Almost Never",
     op5: "Never",
+    keywords: ["confidence", "self control", "self management", "coping"],
   },
   {
     id: 74,
@@ -214,6 +237,7 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Almost Never",
     op5: "Never",
+    keywords: ["confidence", "self management"],
   },
   {
     id: 75,
@@ -223,6 +247,7 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Fairly Often",
     op5: "Very Often",
+    keywords: ["self control", "coping", "confidence"],
   },
   {
     id: 76,
@@ -232,6 +257,7 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Almost Never",
     op5: "Never",
+    keywords: ["self control", "irritability"],
   },
   {
     id: 77,
@@ -241,6 +267,7 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Almost Never",
     op5: "Never",
+    keywords: ["self management", "self control", "confidence", "stress"],
   },
   {
     id: 78,
@@ -250,6 +277,13 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Fairly Often",
     op5: "Very Often",
+    keywords: [
+      "anger",
+      "self control",
+      "self management",
+      "irritatability",
+      "coping",
+    ],
   },
   {
     id: 79,
@@ -259,5 +293,6 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Fairly Often",
     op5: "Very Often",
+    keywords: ["coping", "stress", "confidence"],
   },
 ];
