@@ -5,7 +5,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Header } from "../Home/Header";
 import { ProgressBar } from "./ProgressBar";
-import { styles2 } from "../Home/Home.module.css";
 
 const map = (category) => {
   let res;
