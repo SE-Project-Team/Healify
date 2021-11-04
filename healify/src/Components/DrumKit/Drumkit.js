@@ -9,6 +9,8 @@ import kSound from "../../Assets/sounds/crash.mp3";
 import lSound from "../../Assets/sounds/kick-bass.mp3";
 import { useEffect, useState } from "react";
 export const Drumkit = () => {
+  // Alternate way -> set State to the letter and evaluate class based on state=== letter && class
+
   const [w, setW] = useState(false);
   const [a, setA] = useState(false);
   const [s, setS] = useState(false);
