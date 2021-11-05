@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+const keywordSchema = require("./keywordSchema");
 const scoreSchema = new mongoose.Schema({
   date: {
     type: Date,
@@ -15,7 +16,7 @@ const scoreSchema = new mongoose.Schema({
   },
 });
 
-const milestone = new mongoose.Schema({
+const milestoneSchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, "Title is Required"],
@@ -25,8 +26,9 @@ const milestone = new mongoose.Schema({
     required: [true, "Description is Required"],
   },
   completed: {
-    type: Boolean,
-    default: false,
+    type: String,
+    default: "false",
+    enum: ["false", "true", "partial"],
   },
   targetDate: {
     type: Date,
@@ -45,7 +47,6 @@ const user = new mongoose.Schema(
     password: {
       type: String,
       required: [true, "Password is required"],
-      minlength: [5, "password length should be atleast 8"],
     },
     email: {
       type: String,
@@ -68,9 +69,10 @@ const user = new mongoose.Schema(
       default: [],
     },
     milestones: {
-      type: [milestone],
+      type: [milestoneSchema],
       default: [],
     },
+    keywords: keywordSchema,
   },
   {
     writeConcern: {
