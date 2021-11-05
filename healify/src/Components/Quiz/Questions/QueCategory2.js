@@ -7,6 +7,7 @@ export const Questions2 = [
     op3: "To some extent",
     op4: "To a little extent",
     op5: "To a very little extent",
+    keywords: ["self control", "stress", "coping"],
   },
   {
     id: 21,
@@ -16,6 +17,7 @@ export const Questions2 = [
     op3: "I sometimes let my emotions run away me",
     op4: "I often let my emotions run away me",
     op5: "I cannot control my emotions at all in stressful situations",
+    keywords: ["confidence", "stress", "coping"],
   },
   {
     id: 22,
@@ -25,6 +27,7 @@ export const Questions2 = [
     op3: "Likely",
     op4: "Unlikely",
     op5: "Very unlikely",
+    keywords: ["coping", "resilience"],
   },
   {
     id: 23,
@@ -34,6 +37,7 @@ export const Questions2 = [
     op3: "Likely",
     op4: "Very likely",
     op5: "Most likely",
+    keywords: ["self control", "coping"],
   },
   {
     id: 24,
@@ -43,6 +47,7 @@ export const Questions2 = [
     op3: "Likely",
     op4: "Unlikely",
     op5: "Very unlikely",
+    keywords: ["self control", "self management"],
   },
   {
     id: 25,
@@ -52,6 +57,7 @@ export const Questions2 = [
     op3: "Capable",
     op4: "Incapable",
     op5: "Very incapable",
+    keywords: ["self control", "coping"],
   },
   {
     id: 26,
@@ -61,6 +67,7 @@ export const Questions2 = [
     op3: "To some extent",
     op4: "To a little extent",
     op5: "To a very little extent",
+    keywords: ["yoga", "meditation"],
   },
   {
     id: 27,
@@ -70,6 +77,7 @@ export const Questions2 = [
     op3: "Once or twice a week",
     op4: "Once or twice a month",
     op5: "Seldom",
+    keywords: ["yoga", "meditation"],
   },
   {
     id: 28,
@@ -79,6 +87,7 @@ export const Questions2 = [
     op3: "Likely",
     op4: "Very likely",
     op5: "Most likely",
+    keywords: ["coping", "resilience"],
   },
   {
     id: 29,
@@ -88,6 +97,7 @@ export const Questions2 = [
     op3: "Withdraw and feel sorry for yourself",
     op4: "Vent your aggression on someone weaker than you",
     op5: "Shout, threaten and bombard someone with hostile s",
+    keywords: ["coping", "resilience", "anger", "frustration"],
   },
   {
     id: 30,
@@ -97,6 +107,7 @@ export const Questions2 = [
     op3: "Likely",
     op4: "Unlikely",
     op5: "Very unlikely",
+    keywords: ["brave", "social anxiety"],
   },
   {
     id: 31,
@@ -106,6 +117,7 @@ export const Questions2 = [
     op3: "Likely",
     op4: "Unlikely",
     op5: "Very unlikely",
+    keywords: ["coping", "resilience"],
   },
   {
     id: 32,
@@ -115,6 +127,7 @@ export const Questions2 = [
     op3: "Less power than some members of my family",
     op4: "Less power than most members of my family",
     op5: "Less power than any members of my family",
+    keywords: ["decision making", "leadership"],
   },
   {
     id: 33,
@@ -124,6 +137,7 @@ export const Questions2 = [
     op3: "Less power than some members of my work team",
     op4: "Less power than most members of my work team",
     op5: "Less power than any members of my work team",
+    keywords: ["decision making", "leadership"],
   },
   {
     id: 34,
@@ -133,5 +147,6 @@ export const Questions2 = [
     op3: "To some extent",
     op4: "To a good extent",
     op5: "To a very great extent",
+    keywords: ["confidence"],
   },
 ];
