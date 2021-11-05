@@ -1,17 +1,13 @@
-
-
 .card-container {
   height: 200px;
-  width: 200px;
+  width: 180px;
   box-shadow: 0px 3px 50px #a5a5a5;
   padding: 40px 100px;
 }
-.remove_underline {
-  text-decoration: none;
-}
+
 .card-wrapper {
-  width: 270px;
-  height: 220px;
+  width: 280px;
+  height: 200px;
   margin-left: 150px;
   margin-bottom: 50px;
   border-bottom: 1px solid gray;
