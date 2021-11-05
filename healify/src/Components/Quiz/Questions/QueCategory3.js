@@ -87,6 +87,7 @@ export const Questions3 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["thankfulness", "peace"],
   },
   {
     id: 44,

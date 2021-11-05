@@ -107,7 +107,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
-    keywords: ["self love", "confidence", "thanksgiving"],
+    keywords: ["self love", "faith", "thanksgiving"],
   },
   {
     id: 60,
@@ -157,7 +157,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
-    keywords: ["confidence", "social anxiety"],
+    keywords: ["faith", "social anxiety"],
   },
   {
     id: 65,

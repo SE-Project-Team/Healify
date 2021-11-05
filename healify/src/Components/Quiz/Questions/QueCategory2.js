@@ -17,7 +17,7 @@ export const Questions2 = [
     op3: "I sometimes let my emotions run away me",
     op4: "I often let my emotions run away me",
     op5: "I cannot control my emotions at all in stressful situations",
-    keywords: ["confidence", "stress", "coping"],
+    keywords: ["faith", "stress", "coping"],
   },
   {
     id: 22,
@@ -97,7 +97,7 @@ export const Questions2 = [
     op3: "Withdraw and feel sorry for yourself",
     op4: "Vent your aggression on someone weaker than you",
     op5: "Shout, threaten and bombard someone with hostile s",
-    keywords: ["coping", "resilience", "anger", "frustration"],
+    keywords: ["coping", "resilience", "anger"],
   },
   {
     id: 30,
@@ -107,7 +107,7 @@ export const Questions2 = [
     op3: "Likely",
     op4: "Unlikely",
     op5: "Very unlikely",
-    keywords: ["brave", "social anxiety"],
+    keywords: ["faith", "social anxiety"],
   },
   {
     id: 31,
@@ -147,6 +147,6 @@ export const Questions2 = [
     op3: "To some extent",
     op4: "To a good extent",
     op5: "To a very great extent",
-    keywords: ["confidence"],
+    keywords: ["faith"],
   },
 ];
