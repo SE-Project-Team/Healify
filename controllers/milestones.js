@@ -60,7 +60,7 @@ const getActiveMilestones = async (req, res) => {
 
   const { milestones } = await User.findOne({ _id });
   const activeMilestones = await milestones.filter((each) => {
-    return each.completed === false;
+    return each.completed === "false";
   });
 
   return res

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
 
 const keywordSchema = require("./keywordSchema");
 const scoreSchema = new mongoose.Schema({
@@ -51,6 +52,10 @@ const user = new mongoose.Schema(
     email: {
       type: String,
       required: [true, "email is required"],
+      validate: {
+        validator: validator.isEmail,
+        message: "Please provide valid email",
+      },
     },
     quizCat1: {
       type: [scoreSchema],

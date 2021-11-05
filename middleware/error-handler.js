@@ -6,6 +6,11 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     return res
       .status(err.StatusCode)
       .json({ success: false, msg: err.message });
+  } else if (err.name === "ValidationError") {
+    const msg = Object.values(err.errors)
+      .map((item) => item.message)
+      .join(",");
+    return res.status(StatusCodes.BAD_REQUEST).json({ success: false, msg });
   }
   return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
     success: false,
