@@ -17,7 +17,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
-    keywords: ["muscle pains", "stress", "depression", "anxiety"],
+    keywords: ["physical health", "stress", "depression", "anxiety"],
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
-    keywords: ["irritability", "anxiety", "anger"],
+    keywords: ["irritability", "anxiety", "anger management"],
   },
   {
     id: 7,
@@ -77,7 +77,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
-    keywords: ["anger", "stress", "anxiety"],
+    keywords: ["anger management", "stress", "anxiety"],
   },
   {
     id: 9,
@@ -117,7 +117,7 @@ export const Questions1 = [
     op3: "Once a week",
     op4: "2-3 times per week",
     op5: "Almost everyday",
-    keywords: ["stress", "anger", "irritability"],
+    keywords: ["stress", "anger management", "irritability"],
   },
   {
     id: 13,
@@ -217,7 +217,7 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Fairly Often",
     op5: "Very Often",
-    keywords: ["stress", "confidence", "self control", "coping"],
+    keywords: ["stress", "faith", "self control", "coping"],
   },
   {
     id: 73,
@@ -227,7 +227,7 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Almost Never",
     op5: "Never",
-    keywords: ["confidence", "self control", "self management", "coping"],
+    keywords: ["faith", "self control", "self management", "coping"],
   },
   {
     id: 74,
@@ -237,7 +237,7 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Almost Never",
     op5: "Never",
-    keywords: ["confidence", "self management"],
+    keywords: ["faith", "self management"],
   },
   {
     id: 75,
@@ -247,7 +247,7 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Fairly Often",
     op5: "Very Often",
-    keywords: ["self control", "coping", "confidence"],
+    keywords: ["self control", "coping", "faith"],
   },
   {
     id: 76,
@@ -267,7 +267,7 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Almost Never",
     op5: "Never",
-    keywords: ["self management", "self control", "confidence", "stress"],
+    keywords: ["self management", "self control", "faith", "stress"],
   },
   {
     id: 78,
@@ -278,7 +278,7 @@ export const Questions1 = [
     op4: "Fairly Often",
     op5: "Very Often",
     keywords: [
-      "anger",
+      "anger management",
       "self control",
       "self management",
       "irritatability",
@@ -293,6 +293,6 @@ export const Questions1 = [
     op3: "Sometimes",
     op4: "Fairly Often",
     op5: "Very Often",
-    keywords: ["coping", "stress", "confidence"],
+    keywords: ["coping", "stress", "faith"],
   },
 ];

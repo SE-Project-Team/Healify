@@ -8,64 +8,6 @@ import { Header } from "../Home/Header";
 const KEYWORDS = {};
 
 export const Quiz = ({ questions, category }) => {
-  const Q11Keywords = [
-    "stress",
-    "anxiety",
-    "depression",
-    "anger",
-    "irritability",
-    "muscle pains",
-    "phobia",
-    "insomania",
-    "exercise",
-    "fitness",
-    "physical health",
-    "healthy diet",
-    "nutrition",
-    "de-addiction",
-    "rehab",
-  ];
-  const Q12Keywords = [
-    "self control",
-    "self management",
-    "stress",
-    "confidence",
-    "anxiety",
-    "coping",
-    "irritability",
-    "anger",
-  ];
-  const [Q11Score, setQ11Score] = useState([
-    {
-      stress: 0,
-      anxiety: 0,
-      depression: 0,
-      anger: 0,
-      irritability: 0,
-      "muscle pains": 0,
-      phobia: 0,
-      insomania: 0,
-      exercise: 0,
-      fitness: 0,
-      "physical health": 0,
-      "healthy diet": 0,
-      nutrition: 0,
-      "de-addiction": 0,
-      rehab: 0,
-    },
-  ]);
-  const [Q12Score, setQ12Score] = useState([
-    {
-      "self control": 0,
-      "self management": 0,
-      stress: 0,
-      confidence: 0,
-      anxiety: 0,
-      coping: 0,
-      irritability: 0,
-      anger: 0,
-    },
-  ]);
   const [warning, setWarning] = useState(-1);
   const [option, setOption] = useState(0);
   const [score, setScore] = useState(0);
@@ -96,8 +38,6 @@ export const Quiz = ({ questions, category }) => {
       let val = 0;
       let sc = parseInt(option);
       let keywordScore = 0;
-      let newQ11Score = [...Q11Score];
-      let newQ12Score = [...Q12Score];
       switch (sc) {
         case 1:
           val = 5;
@@ -123,17 +63,6 @@ export const Quiz = ({ questions, category }) => {
           break;
       }
       setScore(() => score + val);
-      // if (que.id >= 1 && que.id <= 19) {
-      //   for (let i = 0; i < que.keywords.length; i++) {
-      //     newQ11Score[0][que.keywords[i]] += keywordScore;
-      //   }
-      //   setQ11Score(newQ11Score);
-      // } else {
-      //   for (let i = 0; i < que.keywords.length; i++) {
-      //     newQ12Score[0][que.keywords[i]] += keywordScore;
-      //   }
-      //   setQ12Score(newQ12Score);
-      // }
       for (let i = 0; i < que.keywords.length; i++) {
         if (!KEYWORDS[que.keywords[i]]) {
           KEYWORDS[que.keywords[i]] = keywordScore;
