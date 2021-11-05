@@ -5,6 +5,8 @@ import { useState } from "react";
 import { Score } from "./Score";
 import { Header } from "../Home/Header";
 
+const KEYWORDS = {};
+
 export const Quiz = ({ questions, category }) => {
   const Q11Keywords = [
     "stress",
@@ -121,16 +123,23 @@ export const Quiz = ({ questions, category }) => {
           break;
       }
       setScore(() => score + val);
-      if (que.id >= 1 && que.id <= 19) {
-        for (let i = 0; i < que.keywords.length; i++) {
-          newQ11Score[0][que.keywords[i]] += keywordScore;
+      // if (que.id >= 1 && que.id <= 19) {
+      //   for (let i = 0; i < que.keywords.length; i++) {
+      //     newQ11Score[0][que.keywords[i]] += keywordScore;
+      //   }
+      //   setQ11Score(newQ11Score);
+      // } else {
+      //   for (let i = 0; i < que.keywords.length; i++) {
+      //     newQ12Score[0][que.keywords[i]] += keywordScore;
+      //   }
+      //   setQ12Score(newQ12Score);
+      // }
+      for (let i = 0; i < que.keywords.length; i++) {
+        if (!KEYWORDS[que.keywords[i]]) {
+          KEYWORDS[que.keywords[i]] = keywordScore;
+        } else {
+          KEYWORDS[que.keywords[i]] += keywordScore;
         }
-        setQ11Score(newQ11Score);
-      } else {
-        for (let i = 0; i < que.keywords.length; i++) {
-          newQ12Score[0][que.keywords[i]] += keywordScore;
-        }
-        setQ12Score(newQ12Score);
       }
       setCounter(() => counter + 1);
       const newQuestionSet = questionSet.filter((qn) => que.id !== qn.id);
@@ -139,8 +148,6 @@ export const Quiz = ({ questions, category }) => {
       setQue(newQuestionSet[rand1] || questions[0]);
       setOption(0);
       setWarning(-1);
-      console.log(Q11Score);
-      console.log(Q12Score);
     }
   };
 
@@ -181,12 +188,7 @@ export const Quiz = ({ questions, category }) => {
           </div>
         </>
       ) : (
-        <Score
-          score={score}
-          Q11Score={Q11Score}
-          Q12Score={Q12Score}
-          category={category}
-        />
+        <Score score={score} KEYWORDS={KEYWORDS} category={category} />
       )}
     </>
   );
