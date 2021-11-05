@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { Togglemenu } from "./Togglemenu";
 import styles from "./MilestonesHome.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { Responsivesidemenu1 } from "./Responsivesidemenu1";
 import axios from "axios";
 import { Header } from "../Home/Header";
 
@@ -92,7 +92,7 @@ export const MilestonesHome = ({createTask}) => {
   return (
     <div>
       <Header />
-      <Togglemenu createTask={updateTask} />
+      <Responsivesidemenu1 createTask={updateTask} />
       <div className={styles["task-container"]}>
         
         {taskList &&

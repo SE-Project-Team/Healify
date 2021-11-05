@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Header } from "../Home/Header";
 import { Togglemenu } from "./Togglemenu";
 import { useState, useEffect } from "react";
+import {Responsivesidemenu } from "./Responsivesidemenu";
 import axios from "axios";
 export const Timeline = () => {
   const [taskList, setTaskList] = useState([]);
@@ -52,7 +53,7 @@ export const Timeline = () => {
   return (
     <div>
       <Header />
-      <Togglemenu />
+      <Responsivesidemenu />
       {taskList && (
         <div className={styles.over}>
           <div className={styles["timeline-container"]}>

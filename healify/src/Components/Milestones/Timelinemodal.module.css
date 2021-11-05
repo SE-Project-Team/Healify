@@ -19,7 +19,7 @@
   border: none;
   outline: none;
   font-size: 20px;
-  cursor: pointer;
+  cursor: pointe;
 }
 .text.show-more .moreText {
   display: inline;
