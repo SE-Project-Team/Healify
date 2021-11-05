@@ -7,6 +7,7 @@ export const Questions3 = [
     op3: "Was given an average amount of contact by unhappy (perhaps angry) parent(s)",
     op4: "Was given a below average amount of contact by unhappy (perhaps angry) parent(s)",
     op5: "Was given the least amount of contact by unhappy (perhaps angry) parent(s)",
+    keywords: ["thankfulness", "thanksgiving", "kindness"],
   },
   {
     id: 36,
@@ -16,6 +17,7 @@ export const Questions3 = [
     op3: "To some extent",
     op4: "To a little extent",
     op5: "To a very little extent",
+    keywords: ["anger management", "anxiety", "kindness"],
   },
   {
     id: 37,
@@ -25,6 +27,7 @@ export const Questions3 = [
     op3: "Easily",
     op4: "Uneasily",
     op5: "Very uneasily",
+    keywords: ["social anxiety", "friendliness", "kindness"],
   },
   {
     id: 38,
@@ -34,6 +37,7 @@ export const Questions3 = [
     op3: "Likely",
     op4: "Unlikely",
     op5: "Very unlikely",
+    keywords: ["social anxiety", "friendliness"],
   },
   {
     id: 39,
@@ -43,6 +47,7 @@ export const Questions3 = [
     op3: "Unlikely",
     op4: "Very likely",
     op5: "Highly likely",
+    keywords: ["social anxiety", "friendliness"],
   },
   {
     id: 40,
@@ -52,6 +57,7 @@ export const Questions3 = [
     op3: "Frequently",
     op4: "Very frequently",
     op5: "Almost always",
+    keywords: ["overthinking", "social anxiety", "friendliness"],
   },
   {
     id: 41,
@@ -61,6 +67,7 @@ export const Questions3 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["social anxiety", "friendliness"],
   },
   {
     id: 42,
@@ -70,6 +77,7 @@ export const Questions3 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["loyalty"],
   },
   {
     id: 43,
@@ -88,6 +96,7 @@ export const Questions3 = [
     op3: "Once or twice a week",
     op4: "Once or twice a month",
     op5: "Seldom",
+    keywords: ["spirituality", "prayer", "meditation"],
   },
   {
     id: 45,
@@ -97,6 +106,7 @@ export const Questions3 = [
     op3: "To some extent",
     op4: "To a little extent",
     op5: "To a very little extent",
+    keywords: ["spirituality", "thankfulness", "meditation"],
   },
   {
     id: 46,
@@ -106,6 +116,7 @@ export const Questions3 = [
     op3: "To some extent",
     op4: "To a little extent",
     op5: "To a very little extent",
+    keywords: ["spirituality", "thanksgiving", "meditation"],
   },
   {
     id: 47,
@@ -115,6 +126,7 @@ export const Questions3 = [
     op3: "Not very much",
     op4: "Little",
     op5: "Very little",
+    keywords: ["spirituality", "thankfulness", "prayer"],
   },
   {
     id: 48,
@@ -124,5 +136,6 @@ export const Questions3 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["spirituality", "thankfulness", "meditation", "prayer"],
   },
 ];

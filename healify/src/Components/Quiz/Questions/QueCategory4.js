@@ -7,6 +7,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["thankfulness", "anger", "satisfaction"],
   },
   {
     id: 50,
@@ -16,6 +17,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["satisfaction", "thankfulness"],
   },
   {
     id: 51,
@@ -25,6 +27,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["exercise", "fitness", "physical health"],
   },
   {
     id: 52,
@@ -34,6 +37,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["thankfulness", "exercise", "fitness", "physical health"],
   },
   {
     id: 53,
@@ -43,6 +47,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["thankfulness", "thanksgiving"],
   },
   {
     id: 54,
@@ -52,6 +57,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["satisfaction", "thankfulness"],
   },
   {
     id: 55,
@@ -61,6 +67,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["self esteem"],
   },
   {
     id: 56,
@@ -70,6 +77,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["thanksgiving", "thankfulness"],
   },
   {
     id: 57,
@@ -79,6 +87,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["sex education"],
   },
   {
     id: 58,
@@ -88,6 +97,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["self love"],
   },
   {
     id: 59,
@@ -97,6 +107,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["self love", "confidence", "thanksgiving"],
   },
   {
     id: 60,
@@ -106,6 +117,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["life skills"],
   },
   {
     id: 61,
@@ -115,6 +127,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["stress", "anger management"],
   },
   {
     id: 62,
@@ -124,6 +137,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["physical health", "healthy diet", "nutrition"],
   },
   {
     id: 63,
@@ -133,6 +147,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["overthinking", "thankfulness"],
   },
   {
     id: 64,
@@ -142,6 +157,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["confidence", "social anxiety"],
   },
   {
     id: 65,
@@ -151,6 +167,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["peace", "kindness"],
   },
   {
     id: 66,
@@ -160,6 +177,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["thankfulness", "overthinking"],
   },
   {
     id: 67,
@@ -169,6 +187,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["kindness"],
   },
   {
     id: 68,
@@ -178,6 +197,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["parenting"],
   },
   {
     id: 69,
@@ -187,5 +207,6 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
+    keywords: ["therapy"],
   },
 ];
