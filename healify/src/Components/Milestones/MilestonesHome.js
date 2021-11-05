@@ -11,10 +11,9 @@ import { Responsivesidemenu1 } from "./Responsivesidemenu1";
 import axios from "axios";
 import { Header } from "../Home/Header";
 
-export const MilestonesHome = ({createTask}) => {
+export const MilestonesHome = ({ createTask }) => {
   const [taskList, setTaskList] = useState([]);
-   const [modal, setModal] = useState(false);
-  
+  const [modal, setModal] = useState(false);
 
   // const [taskList, setTaskList] = useState([]);
   const toggle = () => setModal(!modal);
@@ -92,22 +91,22 @@ export const MilestonesHome = ({createTask}) => {
   return (
     <div>
       <Header />
-      <Responsivesidemenu1 createTask={updateTask} />
-      <div className={styles["task-container"]}>
-        
-        {taskList &&
-          taskList.map((obj, index) => (
-            <Card
-              key={obj._id}
-              _id={obj._id}
-              taskObj={obj}
-              index={index}
-              deleteTask={() => deleteTask(obj._id)}
-              updateTask={updateTask}
-               
-            />
-          ))}
-      </div>
+      <article className={styles.flexWrapper}>
+        <Responsivesidemenu1 createTask={updateTask} />
+        <div className={styles["task-container"]}>
+          {taskList &&
+            taskList.map((obj, index) => (
+              <Card
+                key={obj._id}
+                _id={obj._id}
+                taskObj={obj}
+                index={index}
+                deleteTask={() => deleteTask(obj._id)}
+                updateTask={updateTask}
+              />
+            ))}
+        </div>
+      </article>
     </div>
   );
 };

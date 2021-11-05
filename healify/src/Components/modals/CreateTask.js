@@ -1,11 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import modalStyles from "./modal.module.css";
+
 import axios from "axios";
 const CreateTask = ({ modal, toggle, save }) => {
   const [titleName, setTitleName] = useState("");
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
 
+  // Trying to add Subtasks
+  const [subtasks, setSubtasks] = useState([]);
+
+  const subTaskHandle = (e) => {
+    // console.log("Entered Event");
+    // Check for enter Key and TargetName => apparently description state is not working here
+    if (e.keyCode === 13 && e.target.name === "description") {
+      if (!e.target.value) {
+        setWarning("Sub Task Cannot be empty");
+        setTimeout(() => {
+          setWarning("");
+        }, 2000);
+        return;
+      }
+      const newSubTask = { task: `+ ${e.target.value}`, completed: false };
+      // console.log(newSubTask);
+      setSubtasks((currentState) => {
+        return [...currentState, newSubTask];
+      });
+      setDescription("");
+    }
+  };
+
+  useEffect(() => {
+    setSubtasks([{ task: "Do something" }, { task: "Do something" }]);
+    window.addEventListener("keyup", subTaskHandle);
+    return () => {
+      window.removeEventListener("keyup", subTaskHandle);
+    };
+  }, []);
+
+  // End of Subtasks
   const [warning, setWarning] = useState("");
 
   const handleChange = (e) => {
@@ -27,7 +61,6 @@ const CreateTask = ({ modal, toggle, save }) => {
       setTimeout(() => {
         setWarning("");
       }, 2000);
-      window.location.reoad();
       return;
     }
 
@@ -111,8 +144,15 @@ const CreateTask = ({ modal, toggle, save }) => {
               name="Date"
             />
           </div>
+
           <div className="form-group">
             <label>Description</label>
+            {subtasks.length &&
+              subtasks.map((each) => {
+                return (
+                  <h5 className={`${modalStyles.subtask}`}>{each.task}</h5>
+                );
+              })}
             <textarea
               rows="5"
               className="form-control"
@@ -121,9 +161,9 @@ const CreateTask = ({ modal, toggle, save }) => {
               name="description"
             ></textarea>
           </div>
-          
         </form>
-        <h5>{warning}</h5>
+
+        {warning && <h5 className={modalStyles.warning}>{warning}</h5>}
       </ModalBody>
       <ModalFooter>
         <Button color="primary" onClick={handleSave}>

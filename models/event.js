@@ -49,8 +49,13 @@ const event = new mongoose.Schema(
 event.virtual("review", {
   ref: "review",
   localField: "_id",
-  foreignField: "review",
+  foreignField: "event",
   justOne: false,
 });
 
+event.virtual("faq", {
+  ref: "faq",
+  localField: "_id",
+  foreignField: "event",
+});
 module.exports = mongoose.model("event", event);
