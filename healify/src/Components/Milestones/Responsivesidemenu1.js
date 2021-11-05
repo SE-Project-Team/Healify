@@ -32,14 +32,10 @@ export const Responsivesidemenu1 =({createTask}) => {
                
                 </li>
                 </Link>
-                  <li className={styles["menu-item"]}>
+                 
+             <li className={styles["menu-item"]}  onClick={() => setModal(true)}>
               <a href="#">
-                <i class="fas fa-blog"></i>&nbsp; &nbsp;&nbsp;About
-              </a>
-            </li>
-             <li className={styles["menu-item"]}>
-              <a href="#">
-                 <i class="fas fa-plus-square" onClick={() => setModal(true)}></i>&nbsp; &nbsp;&nbsp;Create New
+                 <i class="fas fa-pencil"></i>&nbsp; &nbsp;&nbsp;Create New
               </a>
             </li>
               

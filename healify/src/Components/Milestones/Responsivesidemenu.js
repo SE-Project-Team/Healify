@@ -24,11 +24,7 @@ export const Responsivesidemenu =() => {
                
                 </li>
                 </Link>
-                  <li className={styles["menu-item"]}>
-              <a href="#">
-                <i class="fas fa-blog"></i>&nbsp; &nbsp;&nbsp;About
-              </a>
-            </li>
+                  
               
         </ul>
     </div>

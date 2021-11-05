@@ -50,7 +50,7 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
       <div
         className={styles["card-top"]}
         style={{ "background-color": colors[selected].primaryColor }}
-      ></div>
+      >
       < div className={styles["task-holder"]}>
         
         <span
@@ -67,7 +67,7 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
           
         </span>
         
-          
+        
         <h6 className="mt-1">{targetDate}</h6>
          
        <p >
@@ -81,7 +81,7 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
         
        
         <br />
-        <div style={{ position: "absolute", right: "20px", bottom: "10px" }}>
+        <div style={{ position: "absolute", right: "20px", top: "165px" }}>
           <i
             class="far fa-edit  "
             style={{ color: colors[selected].primaryColor, cursor: "pointer" }}
@@ -89,7 +89,7 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
           ></i>
         </div>
          
-        <div style={{ position: "absolute", right: "50px", bottom: "10px" }}>
+        <div style={{ position: "absolute", right: "50px", top: "165px" }}>
           <i
             class="fas fa-trash-alt"
             style={{ color: colors[selected].primaryColor, cursor: "pointer" }}
@@ -119,7 +119,7 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
         />
            
       </div>
-            
+              </div>
       <ConfirmDialog
       confirmDialog={confirmDialog}
                 setConfirmDialog={setConfirmDialog}
