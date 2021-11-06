@@ -5,7 +5,7 @@ export const NewReadMore = ({ subtasks }) => {
     setIsNewReadMore(!isNewReadMore);
   };
 
-  if (subtasks.length) {
+  if (subtasks && subtasks.length) {
     return (
       <p className="text">
         {isNewReadMore ? subtasks[0].content.slice(0, 87) : subtasks[0]}. . .

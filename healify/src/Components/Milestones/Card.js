@@ -65,9 +65,7 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
 
           <h6 className="mt-1">{targetDate}</h6>
 
-          <p>
-            <NewReadMore subtasks={subtasks} />
-          </p>
+          <NewReadMore subtasks={subtasks} />
 
           <br />
           <div style={{ position: "absolute", right: "20px", top: "165px" }}>
