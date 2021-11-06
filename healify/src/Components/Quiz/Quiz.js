@@ -41,22 +41,22 @@ export const Quiz = ({ questions, category }) => {
       switch (sc) {
         case 1:
           val = 5;
-          keywordScore = 1;
+          keywordScore = -2;
           break;
         case 2:
           val = 4;
-          keywordScore = 2;
+          keywordScore = -1;
           break;
         case 3:
           val = 3;
-          keywordScore = 3;
+          keywordScore = 0;
         case 4:
           val = 2;
-          keywordScore = 4;
+          keywordScore = 1;
           break;
         case 5:
           val = 1;
-          keywordScore = 5;
+          keywordScore = 2;
           break;
         default:
           val = 0;

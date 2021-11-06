@@ -28,12 +28,13 @@ const map = (category) => {
   return res;
 };
 export const Score = ({ score, category, KEYWORDS }) => {
-  const getMax = (object) => {
-    let max = Math.max(...Object.values(object));
-    return Object.keys(object).filter((key) => object[key] == max);
-  };
-  var max1 = getMax(KEYWORDS);
-  console.log(max1);
+  // const getMax = (object) => {
+  //   let max = Math.max(...Object.values(object));
+  //   return Object.keys(object).filter((key) => object[key] == max);
+  // };
+  // var max1 = getMax(KEYWORDS);
+  // console.log(max1);
+  console.log(KEYWORDS);
   const percentage = (score * 100) / 50;
   let color = "";
   let str1 = "",
