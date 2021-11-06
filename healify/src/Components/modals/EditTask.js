@@ -1,10 +1,4 @@
 import React, { useState, useEffect } from "react";
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from "reactstrap";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -24,16 +18,7 @@ const month_map = {
   Dec: 12,
 };
 
-export const EditTask = ({
-  _id,
-  modal,
-  toggle,
-  taskObj,
-  save,
-  selected,
-  setSelected,
-}) => {
-  const [temp, setTemp] = useState(0);
+export const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
   const [titleName, setTitleName] = useState(taskObj.title);
   const [date, setDate] = useState(taskObj.targetDate);
   const [description, setDescription] = useState();
@@ -41,9 +26,9 @@ export const EditTask = ({
   const [subtasks, setSubtasks] = useState(taskObj.subtasks);
 
   const subTaskHandle = (e) => {
-    // console.log("Entered Event");
-    // Check for enter Key and TargetName => apparently description state is not working here
-    if (e.keyCode === 13 && e.target.name === "newSubTask") {
+    // state value for description not working here for some reason
+
+    if (e.keyCode === 13 && e.target.name === `newSubTask${_id}`) {
       if (!e.target.value) {
         setWarning("Sub Task Cannot be empty");
         setTimeout(() => {
@@ -53,6 +38,8 @@ export const EditTask = ({
       }
       const newSubTask = { content: `+ ${e.target.value}`, completed: false };
       // console.log(newSubTask);
+      // This is updating for every single person
+      // Overcame by using specific name for form based on ID
       setSubtasks((currentState) => {
         return [...currentState, newSubTask];
       });
@@ -62,15 +49,12 @@ export const EditTask = ({
 
   const toggleSubTask = (e) => {
     e.preventDefault();
-    console.log(e.target.id);
     const newSubtasks = subtasks.map((each, index) => {
       if (index.toString() === e.target.id) {
-        console.log(each, index);
         return { ...each, completed: !each.completed };
       }
       return each;
     });
-    console.log(newSubtasks);
     setSubtasks(newSubtasks);
   };
 
@@ -88,7 +72,7 @@ export const EditTask = ({
 
     if (name === "titleName") {
       setTitleName(value);
-    } else if (name === "newSubTask") {
+    } else if (name === `newSubTask${_id}`) {
       setDescription(value);
     } else {
       setDate(value);
@@ -184,7 +168,7 @@ export const EditTask = ({
             />
           </div>
           <div className="form-group">
-            <label>Description</label>
+            <label>TaskList</label>
             {subtasks &&
               subtasks.map((each, index) => {
                 return (
@@ -204,7 +188,7 @@ export const EditTask = ({
               className="form-control"
               value={description}
               onChange={handleChange}
-              name="newSubTask"
+              name={`newSubTask${_id}`}
               placeholder={"add a new Subtask"}
             ></input>
           </div>

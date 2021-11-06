@@ -23,7 +23,6 @@ export const MilestonesHome = ({ createTask }) => {
   };
   const updatePage = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
-    console.log("Trying to update");
     await axios
       .get("/api/v1/milestones", {
         headers: {
@@ -49,7 +48,6 @@ export const MilestonesHome = ({ createTask }) => {
         setTaskList(newActiveMilestones);
       })
       .catch((err) => {
-        console.log("here");
         console.log(err.response);
       });
   };

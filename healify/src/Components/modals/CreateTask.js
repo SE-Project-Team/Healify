@@ -12,8 +12,6 @@ const CreateTask = ({ modal, toggle, save }) => {
   const [subtasks, setSubtasks] = useState([]);
 
   const subTaskHandle = (e) => {
-    // console.log("Entered Event");
-    // Check for enter Key and TargetName => apparently description state is not working here
     if (e.keyCode === 13 && e.target.name === "description") {
       if (!e.target.value) {
         setWarning("Sub Task Cannot be empty");
@@ -156,7 +154,7 @@ const CreateTask = ({ modal, toggle, save }) => {
           </div>
 
           <div className="form-group">
-            <label>Description</label>
+            <label>TaskList</label>
             {subtasks &&
               subtasks.map((each, index) => {
                 return (
@@ -170,8 +168,8 @@ const CreateTask = ({ modal, toggle, save }) => {
                 );
               })}
             <input
-              rows="5"
               className="form-control"
+              placeholder={"Press Enter to add new Subtask"}
               value={description}
               onChange={handleChange}
               name="description"
