@@ -67,7 +67,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
-    keywords: ["self esteem"],
+    keywords: ["self love"],
   },
   {
     id: 56,
@@ -87,7 +87,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
-    keywords: ["sex education"],
+    keywords: ["thankfulness", "confidence", "self love"],
   },
   {
     id: 58,
@@ -117,7 +117,7 @@ export const Questions4 = [
     op3: "Mildly disappointed",
     op4: "Very disappointed",
     op5: "Completely disappointed",
-    keywords: ["life skills"],
+    keywords: ["confidence", "peace", "stress"],
   },
   {
     id: 61,
