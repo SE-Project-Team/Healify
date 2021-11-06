@@ -14,11 +14,19 @@ export const Signup = ({ setToken }) => {
   const [warning, setWarning] = useState("");
   const history = useHistory();
 
+  const[role,setrole]=useState("user");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     // parameters for postLogin Function
-    const loginParams = { username, password, setToken, setWarning, history };
+    const loginParams = { username, password, setToken, setWarning, history,role };
+    postLogin(loginParams);
+  };
+  const organzerhandleSubmit = async (e) => {
+    setrole("organizers")
+    e.preventDefault();
+    // parameters for postLogin Function
+    const loginParams = { username, password, setToken, setWarning, history ,role};
     postLogin(loginParams);
   };
 
@@ -30,6 +38,8 @@ export const Signup = ({ setToken }) => {
       setPassword(value);
     }
   };
+
+
   return (
     <div className={"px-4 py-5 mx-auto container " + styles.container}>
       <div className={styles.card + " " + styles.card0}>
@@ -80,6 +90,16 @@ export const Signup = ({ setToken }) => {
                     onClick={handleSubmit}
                   >
                     Login to Healify
+                  </button>{" "}
+                </div>
+                <div className="row justify-content-center my-3 px-3">
+                  {" "}
+                  {warning && <h4 className={styles.warning}>{warning}</h4>}
+                  <button
+                    className={"btn-block " + styles.btnColor}
+                    onClick={organzerhandleSubmit}
+                  >
+                    Login as Organizer
                   </button>{" "}
                 </div>
                 {/* <div className="row justify-content-center my-2">

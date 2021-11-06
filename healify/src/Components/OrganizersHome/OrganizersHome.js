@@ -51,7 +51,7 @@ export const OrganizersHome = () => {
               cardDesc={`Total Comments:`}
             />
             <Card
-              path="/RegisteredEvents"
+              path="/UpcomingEvents"
               imgSrc="https://www.nicepng.com/png/detail/831-8319932_event-management-event-icon-purple.png"
               
               alt={"..."}
