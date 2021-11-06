@@ -168,7 +168,7 @@ export const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
             />
           </div>
           <div className="form-group">
-            <label>Description</label>
+            <label>TaskList</label>
             {subtasks &&
               subtasks.map((each, index) => {
                 return (
