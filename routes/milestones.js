@@ -12,7 +12,7 @@ const {
 
 const router = express.Router();
 
-router.route("/").get(auth, getActiveMilestones);
+router.route("/").get(auth, getAllMilestones);
 
 router.route("/timeline").get(auth, getAllMilestones);
 

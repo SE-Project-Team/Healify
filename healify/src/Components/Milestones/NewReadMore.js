@@ -1,18 +1,17 @@
-import React ,{useState} from "react";
-export const NewReadMore = ({ children }) => {
-  const text = children;
+import React, { useState } from "react";
+export const NewReadMore = ({ subtasks }) => {
   const [isNewReadMore, setIsNewReadMore] = useState(true);
   const toggleNewReadMore = () => {
     setIsNewReadMore(!isNewReadMore);
   };
-  return (
-    <p className="text">
-      {isNewReadMore ? text.slice(0, 87) : text}
-      . . .
-     {/*<span onClick={toggleNewReadMore} className="read-or-hide">
-        {isNewReadMore ? "...read more" : " show less"}
-  </span>*/}
-    </p>
-  );
+
+  if (subtasks.length) {
+    return (
+      <p className="text">
+        {isNewReadMore ? subtasks[0].content.slice(0, 87) : subtasks[0]}. . .
+      </p>
+    );
+  }
+  return <></>;
 };
-export default  NewReadMore;
+export default NewReadMore;

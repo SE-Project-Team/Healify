@@ -4,16 +4,16 @@ const { BadRequestError, UnauthenticatedError } = require("../errors");
 
 // Post Methods
 const createNewMilestone = async (req, res) => {
-  const { title, description, targetDate } = req.body;
+  const { title, targetDate, subtasks } = req.body;
 
   // added by auth middleware
   const { _id } = req.user;
 
-  if (!title || !description) {
-    throw new BadRequestError("Milestone must have title and description");
+  if (!title) {
+    throw new BadRequestError("Milestone must have title");
   }
 
-  const newMilestone = { title, description, targetDate };
+  const newMilestone = { title, targetDate, subtasks };
   //   push adds new item to arrayProp milestones
   await User.findByIdAndUpdate(_id, { $push: { milestones: newMilestone } });
 
@@ -22,14 +22,14 @@ const createNewMilestone = async (req, res) => {
 
 // Patch Methods
 const editMilestone = async (req, res) => {
-  const { milestoneId, title, description } = req.body;
+  const { milestoneId, title } = req.body;
 
   const milestone = { ...req.body, _id: milestoneId };
   delete milestone.milestoneId;
 
   const { _id } = req.user;
-  if (!title || !description) {
-    throw new BadRequestError("Milestone must have title and description");
+  if (!title) {
+    throw new BadRequestError("Milestone must have title");
   }
 
   // $ corresponds to index of matched subDocument
@@ -54,13 +54,15 @@ const editMilestone = async (req, res) => {
 };
 
 // get Methods
+// Currently messed up
 const getActiveMilestones = async (req, res) => {
   // Auth middleware basically adds user prop to request object
   const { _id } = req.user;
 
   const { milestones } = await User.findOne({ _id });
   const activeMilestones = await milestones.filter((each) => {
-    return each.completed === "false";
+    const result = each.subtasks.find((st) => !st.completed);
+    return result ? true : false;
   });
 
   return res
@@ -85,7 +87,6 @@ const getMilestone = async (req, res) => {
     return each._id.toString() === milestoneID;
   });
   if (!activeMilestone) {
-    // potential security lapse??
     throw new BadRequestError("There is no such Milestone");
   }
   return res
@@ -103,7 +104,6 @@ const deleteMilestone = async (req, res) => {
       $pull: { milestones: { _id: milestoneID } },
     }
   ).catch((err) => {
-    console.log("Error in Deleting");
     console.log(err);
   });
   if (!updated) {

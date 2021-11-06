@@ -8,7 +8,7 @@ import { NewReadMore } from "./NewReadMore";
 const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
   const [selected, setSelected] = useState(0);
 
-  const { title, description, targetDate } = taskObj;
+  const { title, subtasks, targetDate } = taskObj;
   const [modal, setModal] = useState(false);
   const [confirmDialog, setConfirmDialog] = useState({
     isOpen: false,
@@ -66,7 +66,7 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
           <h6 className="mt-1">{targetDate}</h6>
 
           <p>
-            <NewReadMore>{description}</NewReadMore>
+            <NewReadMore subtasks={subtasks} />
           </p>
 
           <br />

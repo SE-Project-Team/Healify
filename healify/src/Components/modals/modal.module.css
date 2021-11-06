@@ -21,9 +21,9 @@
 }
 
 .subtask {
-  font: bold 0.8em arial;
-  color: rgb(54, 43, 43);
-  text-shadow: 1px 1px 1px rgb(0, 0, 0);
+  font: bold 0.9em arial;
+  color: rgb(0, 0, 0);
+  text-shadow: 2px 1px 1px rgb(179, 167, 167);
   background-color: rgba(231, 184, 82, 0.856);
   margin: 5px;
   padding: 5px;
@@ -31,4 +31,9 @@
 
 .subtask:hover {
   text-shadow: none;
+  box-shadow: 10px 0px 1px rgba(0, 0, 0, 0.856);
+}
+
+.completed {
+  text-decoration: line-through;
 }

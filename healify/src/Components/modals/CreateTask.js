@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import modalStyles from "./modal.module.css";
-
 import axios from "axios";
+
 const CreateTask = ({ modal, toggle, save }) => {
   const [titleName, setTitleName] = useState("");
   const [date, setDate] = useState("");
@@ -22,7 +22,7 @@ const CreateTask = ({ modal, toggle, save }) => {
         }, 2000);
         return;
       }
-      const newSubTask = { task: `+ ${e.target.value}`, completed: false };
+      const newSubTask = { content: `+ ${e.target.value}`, completed: false };
       // console.log(newSubTask);
       setSubtasks((currentState) => {
         return [...currentState, newSubTask];
@@ -32,7 +32,6 @@ const CreateTask = ({ modal, toggle, save }) => {
   };
 
   useEffect(() => {
-    setSubtasks([{ task: "Do something" }, { task: "Do something" }]);
     window.addEventListener("keyup", subTaskHandle);
     return () => {
       window.removeEventListener("keyup", subTaskHandle);
@@ -56,8 +55,16 @@ const CreateTask = ({ modal, toggle, save }) => {
   };
   const handleSave = async (e) => {
     e.preventDefault();
-    if (!titleName || !date || !description) {
-      setWarning("All fields are required");
+    if (!titleName || !date) {
+      setWarning("Title and Date are required");
+      setTimeout(() => {
+        setWarning("");
+      }, 2000);
+      return;
+    }
+
+    if (!subtasks.length) {
+      setWarning("Minimum One sub task is required");
       setTimeout(() => {
         setWarning("");
       }, 2000);
@@ -79,6 +86,7 @@ const CreateTask = ({ modal, toggle, save }) => {
         setTitleName("");
         setDate("");
         setDescription("");
+        setSubtasks([]);
         setWarning("");
         save();
       }, 2000);
@@ -91,7 +99,7 @@ const CreateTask = ({ modal, toggle, save }) => {
         {
           title: titleName,
           targetDate,
-          description,
+          subtasks,
         },
         {
           headers: {
@@ -104,10 +112,11 @@ const CreateTask = ({ modal, toggle, save }) => {
         setTitleName("");
         setDate("");
         setDescription("");
+        setSubtasks([]);
         save();
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response);
       });
   };
 
@@ -116,6 +125,7 @@ const CreateTask = ({ modal, toggle, save }) => {
     setTitleName("");
     setDate("");
     setDescription("");
+    setSubtasks([]);
     toggle();
   };
 
@@ -147,19 +157,25 @@ const CreateTask = ({ modal, toggle, save }) => {
 
           <div className="form-group">
             <label>Description</label>
-            {subtasks.length &&
-              subtasks.map((each) => {
+            {subtasks &&
+              subtasks.map((each, index) => {
                 return (
-                  <h5 className={`${modalStyles.subtask}`}>{each.task}</h5>
+                  <h5
+                    key={index}
+                    id={index}
+                    className={`${modalStyles.subtask}`}
+                  >
+                    {each.content}
+                  </h5>
                 );
               })}
-            <textarea
+            <input
               rows="5"
               className="form-control"
               value={description}
               onChange={handleChange}
               name="description"
-            ></textarea>
+            ></input>
           </div>
         </form>
 
