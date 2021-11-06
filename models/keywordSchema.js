@@ -129,6 +129,22 @@ const keywordSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  satisfaction: {
+    type: Number,
+    default: 0,
+  },
+  therapy: {
+    type: Number,
+    default: 0,
+  },
+  parenting: {
+    type: Number,
+    default: 0,
+  },
+  "self love": {
+    type: Number,
+    default: 0,
+  },
 });
 
 module.exports = keywordSchema;

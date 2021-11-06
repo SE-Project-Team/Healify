@@ -11,8 +11,10 @@ import { useState, useEffect } from "react";
 import { QuotesArray } from "./Quotes";
 
 export const Home = () => {
-  const [quote1, setQuote1] = useState("This is a Quote");
-  const [quote2, setQuote2] = useState("This is a Quote2");
+  const [quote1, setQuote1] = useState("Your mental health is a priority");
+  const [quote2, setQuote2] = useState(
+    "Self care is not a luxury. It's a necessity"
+  );
   useEffect(() => {
     let id;
     const asyncWrapper = async () => {
