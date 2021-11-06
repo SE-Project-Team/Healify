@@ -51,7 +51,6 @@ export const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
     e.preventDefault();
     const newSubtasks = subtasks.map((each, index) => {
       if (index.toString() === e.target.id) {
-        console.log(each, index);
         return { ...each, completed: !each.completed };
       }
       return each;

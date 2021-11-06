@@ -45,11 +45,9 @@ export const MilestonesHome = ({ createTask }) => {
             targetDate: newDate,
           };
         });
-        console.log(newActiveMilestones);
         setTaskList(newActiveMilestones);
       })
       .catch((err) => {
-        console.log("here");
         console.log(err.response);
       });
   };

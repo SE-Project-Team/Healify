@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EditTask from "../modals/EditTask";
 import ConfirmDialog from "./ConfirmDialog";
 import CreateTask from "../modals/CreateTask";
@@ -7,8 +7,22 @@ import { Progressbar } from "./Progressbar";
 import { NewReadMore } from "./NewReadMore";
 const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
   const [selected, setSelected] = useState(0);
-
   const { title, subtasks, targetDate } = taskObj;
+
+  useEffect(() => {
+    const condn1 = subtasks.find((st) => !st.completed);
+    const condn2 = subtasks.find((st) => st.completed);
+    if (condn1 && condn2) {
+      // partially complete
+      setSelected(2);
+    } else if (!condn1) {
+      // all complete
+      setSelected(1);
+    } else {
+      // all incomplete
+      setSelected(0);
+    }
+  });
   const [modal, setModal] = useState(false);
   const [confirmDialog, setConfirmDialog] = useState({
     isOpen: false,
