@@ -22,14 +22,14 @@ const milestoneSchema = new mongoose.Schema({
     type: String,
     required: [true, "Title is Required"],
   },
-  description: {
-    type: String,
-    required: [true, "Description is Required"],
-  },
-  completed: {
-    type: String,
-    default: "false",
-    enum: ["false", "true", "partial"],
+  subtasks: {
+    type: [
+      {
+        content: String,
+        completed: Boolean,
+      },
+    ],
+    default: [],
   },
   targetDate: {
     type: Date,

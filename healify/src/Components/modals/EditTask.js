@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+import modalStyles from "./modal.module.css";
 const month_map = {
   Jan: 1,
   Feb: 2,
@@ -18,62 +24,97 @@ const month_map = {
   Dec: 12,
 };
 
-export const EditTask = ({ _id, modal, toggle, taskObj, save, selected ,setSelected }) => {
-  
-  
-  const [temp, setTemp]=useState(0);
+export const EditTask = ({
+  _id,
+  modal,
+  toggle,
+  taskObj,
+  save,
+  selected,
+  setSelected,
+}) => {
+  const [temp, setTemp] = useState(0);
   const [titleName, setTitleName] = useState(taskObj.title);
   const [date, setDate] = useState(taskObj.targetDate);
-  const [description, setDescription] = useState(taskObj.description);
-  
- 
-     const [warning, setWarning] = useState("");
+  const [description, setDescription] = useState();
+
+  const [subtasks, setSubtasks] = useState(taskObj.subtasks);
+
+  const subTaskHandle = (e) => {
+    // console.log("Entered Event");
+    // Check for enter Key and TargetName => apparently description state is not working here
+    if (e.keyCode === 13 && e.target.name === "newSubTask") {
+      if (!e.target.value) {
+        setWarning("Sub Task Cannot be empty");
+        setTimeout(() => {
+          setWarning("");
+        }, 2000);
+        return;
+      }
+      const newSubTask = { content: `+ ${e.target.value}`, completed: false };
+      // console.log(newSubTask);
+      setSubtasks((currentState) => {
+        return [...currentState, newSubTask];
+      });
+      setDescription("");
+    }
+  };
+
+  const toggleSubTask = (e) => {
+    e.preventDefault();
+    console.log(e.target.id);
+    const newSubtasks = subtasks.map((each, index) => {
+      if (index.toString() === e.target.id) {
+        console.log(each, index);
+        return { ...each, completed: !each.completed };
+      }
+      return each;
+    });
+    console.log(newSubtasks);
+    setSubtasks(newSubtasks);
+  };
+
+  useEffect(() => {
+    window.addEventListener("keyup", subTaskHandle);
+    return () => {
+      window.removeEventListener("keyup", subTaskHandle);
+    };
+  }, []);
+
+  const [warning, setWarning] = useState("");
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
     if (name === "titleName") {
       setTitleName(value);
-    } else if (name === "description") {
+    } else if (name === "newSubTask") {
       setDescription(value);
     } else {
       setDate(value);
     }
   };
-  function Assign(str){
-    if(str==="Not Completed")
-    {
-     setTemp(0);
-     console.log("temp in edit task " +temp);
-    }
-     else if(str==="Task Completed")
-     {
-     setTemp(1);
-      console.log("temp in edit task " +temp);
-    
-     }
-     else
-     {
-     setTemp(2);
-      console.log("temp in edit task " +temp);
-      
-     }
-  }
- 
+
   useEffect(() => {
     const arr = taskObj.targetDate.split(" ");
     const dateStr = `${month_map[arr[1]]}/${arr[2]}/${arr[3]}`;
 
-    setTitleName(taskObj.title);
     setDate(dateStr);
-    setDescription(taskObj.description);
   }, []);
 
   const handleUpdate = async (e) => {
     e.preventDefault();
 
-    if (!titleName || !date || !description) {
-      setWarning("All fields are required");
+    if (!titleName || !date) {
+      setWarning("Title and Date are required");
+      setTimeout(() => {
+        setWarning("");
+      }, 2000);
+      return;
+    }
+
+    if (!subtasks.length) {
+      setWarning("Minimum One sub task is required");
       setTimeout(() => {
         setWarning("");
       }, 2000);
@@ -99,6 +140,7 @@ export const EditTask = ({ _id, modal, toggle, taskObj, save, selected ,setSelec
           title: titleName,
           targetDate,
           description,
+          subtasks,
           completed: false,
         },
         {
@@ -109,10 +151,11 @@ export const EditTask = ({ _id, modal, toggle, taskObj, save, selected ,setSelec
       )
       .then((res) => {
         console.log(res.data);
+
         save();
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response);
       });
   };
   return (
@@ -142,25 +185,32 @@ export const EditTask = ({ _id, modal, toggle, taskObj, save, selected ,setSelec
           </div>
           <div className="form-group">
             <label>Description</label>
-            <textarea
-              rows="5"
+            {subtasks &&
+              subtasks.map((each, index) => {
+                return (
+                  <h5
+                    key={index}
+                    id={index}
+                    className={`${modalStyles.subtask} ${
+                      each.completed && modalStyles.completed
+                    }`}
+                    onClick={toggleSubTask}
+                  >
+                    {each.content}
+                  </h5>
+                );
+              })}
+            <input
               className="form-control"
               value={description}
               onChange={handleChange}
-              name="description"
-            ></textarea>
+              name="newSubTask"
+              placeholder={"add a new Subtask"}
+            ></input>
           </div>
-          
         </form>
 
-        <h5>{warning}</h5>
-
-         <select value={selected} onChange={e=>setSelected(e.target.value)}>
-  <option selected value={1}  >Task Completed</option>
-    <option value={0}  >Not completed</option>
-  <option value={2}  >Partially completed</option>
-
-</select>
+        {warning && <h5 className={modalStyles.warning}>{warning}</h5>}
       </ModalBody>
       <ModalFooter>
         <Button color="primary" onClick={handleUpdate}>
@@ -170,7 +220,6 @@ export const EditTask = ({ _id, modal, toggle, taskObj, save, selected ,setSelec
           Cancel
         </Button>
       </ModalFooter>
-    
     </Modal>
   );
 };
