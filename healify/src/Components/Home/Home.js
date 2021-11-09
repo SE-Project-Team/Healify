@@ -5,6 +5,8 @@ import newsimg from "../../Assets/news.jpg";
 import memeimg from "../../Assets/meme.jpg";
 import styles from "./Home.module.css";
 import milestoneimg from "../../Assets/milestone.jpg";
+import eventsimg from "../../Assets/events.jpg";
+import drumkitimg from "../../Assets/drumkit.jpg";
 import { Card } from "./Card";
 import { Header } from "./Header";
 import { useState, useEffect } from "react";
@@ -86,6 +88,23 @@ export const Home = () => {
               cardDesc={`Create tasks and mark them as completed upon successful
             completion. You can see your achievements in the form of a
             timeline and keep yourselves motivated.`}
+            />
+            <Card
+              path="/Events"
+              imgSrc={eventsimg}
+              alt={"..."}
+              cardName={` Virtual Events`}
+              cardDesc={`Explore virtual events on mental health. Register to the
+              events and improve your well-being. Rate the events and ask your
+              questions in the FAQ section.`}
+            />
+            <Card
+              path="/Drumkit"
+              imgSrc={drumkitimg}
+              alt={"..."}
+              cardName={`Drumkit`}
+              cardDesc={`Play our drumkit by clicking on the drums or by clicking the 
+              keyboard keys. You can also record and download it.`}
             />
           </section>
         </div>
