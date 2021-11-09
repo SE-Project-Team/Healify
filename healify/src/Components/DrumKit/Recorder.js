@@ -1,43 +1,43 @@
 import React, { Component } from "react";
-
+import { useState } from "react";
 import AudioReactRecorder, { RecordState } from "audio-react-recorder";
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
-export class Recorder extends Component {
-  constructor(props) {
-    super(props);
+export const Recorder = () => {
+  let history = useHistory();
+  const [recordState, setRecordState] = useState(RecordState.STOP);
+  const [music, setMusic] = useState({});
 
-    this.state = {
-      recordState: null,
-    };
-  }
-
-  start = () => {
-    this.setState({
-      recordState: RecordState.START,
-    });
+  const start = () => {
+    setRecordState(RecordState.START);
   };
 
-  stop = () => {
-    this.setState({
-      recordState: RecordState.STOP,
-    });
+  const stop = () => {
+    setRecordState(RecordState.STOP);
   };
 
   //audioData contains blob and blobUrl
-  onStop = (audioData) => {
+  const onStop = (audioData) => {
+    setMusic(audioData);
     console.log("audioData", audioData);
+    // window.location.href = audioData.url;
   };
 
-  render() {
-    const { recordState } = this.state;
+  return (
+    <div>
+      <AudioReactRecorder state={recordState} onStop={onStop} />
 
-    return (
-      <div>
-        <AudioReactRecorder state={recordState} onStop={this.onStop} />
-
-        <button onClick={this.start}>Start</button>
-        <button onClick={this.stop}>Stop</button>
-      </div>
-    );
-  }
-}
+      <button onClick={start}>Start</button>
+      <button onClick={stop}>Stop</button>
+      <Link
+        to={{
+          pathname: `${music.url}`,
+        }}
+        target="_blank"
+      >
+        <button>Play</button>
+      </Link>
+    </div>
+  );
+};

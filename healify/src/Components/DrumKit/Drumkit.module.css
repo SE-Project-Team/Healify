@@ -12,6 +12,7 @@
 }
 
 .drumkitfooter {
+  margin-top: 50px;
   color: #dbedf3;
   font-family: sans-serif;
 }
@@ -48,7 +49,7 @@
 }
 
 .set {
-  margin: 10% auto;
+  margin: 5% auto;
 }
 
 .game-over {
