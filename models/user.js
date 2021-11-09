@@ -78,6 +78,7 @@ const user = new mongoose.Schema(
       default: [],
     },
     keywords: keywordSchema,
+    favouriteEvents: [{ type: mongoose.Schema.ObjectId, ref: "event" }],
   },
   {
     writeConcern: {
