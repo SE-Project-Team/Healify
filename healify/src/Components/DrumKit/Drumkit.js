@@ -7,6 +7,7 @@ import dSound from "../../Assets/sounds/tom-4.mp3";
 import jSound from "../../Assets/sounds/snare.mp3";
 import kSound from "../../Assets/sounds/crash.mp3";
 import lSound from "../../Assets/sounds/kick-bass.mp3";
+import { Recorder } from "./Recorder";
 import { useEffect, useState } from "react";
 export const Drumkit = () => {
   // Alternate way -> set State to the letter and evaluate class based on state=== letter && class
@@ -168,6 +169,7 @@ export const Drumkit = () => {
             </button>
           </div>
         </div>
+        <Recorder />
 
         <footer className={styles.drumkitfooter}>
           Made with ❤️ by IIT Tirupati.
