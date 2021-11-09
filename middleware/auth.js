@@ -12,9 +12,14 @@ const authenticationMiddleware = async (req, res, next) => {
   const token = authHeader.split(" ")[1];
   try {
     const decoded = await jwt.verify(token, process.env.JWT_SECRET);
-    const { _id, username } = decoded;
+    const { _id, username, role } = decoded;
     // add user to request object
-    req.user = { _id, username };
+    if (role === "user") {
+      req.user = { _id, username };
+    } else if (role === "organizer") {
+      req.organizer = { _id, username };
+    }
+
     next();
   } catch (err) {
     console.log(err);

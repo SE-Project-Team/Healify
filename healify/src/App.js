@@ -19,13 +19,12 @@ import { Togglemenu } from "./Components/Milestones/Togglemenu";
 import { QuizStatistics } from "./Components/Statistics/QuizStatistics";
 import { Events } from "./Components/Events/Events";
 import { MyEvents } from "./Components/OrganizersHome/MyEvents";
-import  {UpcomingEvents} from "./Components/OrganizersHome/UpcomingEvents"
+import { UpcomingEvents } from "./Components/OrganizersHome/UpcomingEvents";
 import News from "./Components/News/News";
 import { Recorder } from "./Components/DrumKit/Recorder";
 import { Drumkit } from "./Components/DrumKit/Drumkit";
 import Organizers from "./Components/OrganizersHome/Organizers";
 import { Progressbar } from "./Components/Milestones/Progressbar";
-
 
 import "./App.css";
 
@@ -48,7 +47,7 @@ function App() {
               <Registration setToken={setToken} />
             </Route>
             <Route path="*">
-              <h1>Please Login To continue</h1>
+              <h1 className={"warning"}>Please Login To continue</h1>
               <Signup setToken={setToken} />
             </Route>
           </Switch>
@@ -89,7 +88,7 @@ function App() {
           <Route path="/Togglemenu">
             <Togglemenu />
           </Route>
-           
+
           <Route path="/QuizLanding">
             <QuizLanding />
           </Route>
@@ -130,7 +129,7 @@ function App() {
           <Route path="/Events">
             <Events />
           </Route>
-           <Route path="/MyEvents">
+          <Route path="/MyEvents">
             <MyEvents />
           </Route>
           <Route path="/UpcomingEvents">
