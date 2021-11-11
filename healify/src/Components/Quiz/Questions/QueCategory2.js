@@ -97,7 +97,7 @@ export const Questions2 = [
     op3: "Withdraw and feel sorry for yourself",
     op4: "Vent your aggression on someone weaker than you",
     op5: "Shout, threaten and bombard someone with hostile s",
-    keywords: ["coping", "resilience", "anger"],
+    keywords: ["coping", "resilience", "anger management"],
   },
   {
     id: 30,
