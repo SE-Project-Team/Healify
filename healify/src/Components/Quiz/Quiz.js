@@ -6,6 +6,40 @@ import { Score } from "./Score";
 import { Header } from "../Home/Header";
 
 const KEYWORDS = {};
+const freq = {
+  stress: 16,
+  anxiety: 6,
+  depression: 5,
+  "anger management": 8,
+  irritability: 3,
+  phobia: 1,
+  insomania: 3,
+  exercise: 6,
+  fitness: 7,
+  "physical health": 11,
+  "healthy diet": 6,
+  nutrition: 4,
+  "de-addiction": 2,
+  rehab: 2,
+  "self control": 12,
+  "self management": 7,
+  faith: 11,
+  coping: 15,
+  resilience: 4,
+  yoga: 2,
+  meditation: 6,
+  "decision making": 2,
+  leadership: 2,
+  peace: 3,
+  thankfulness: 14,
+  thanksgiving: 5,
+  kindness: 5,
+  overthinking: 3,
+  "social anxiety": 7,
+  friendliness: 5,
+  spirituality: 5,
+  prayer: 3,
+};
 
 export const Quiz = ({ questions, category }) => {
   const [warning, setWarning] = useState(-1);
@@ -65,9 +99,9 @@ export const Quiz = ({ questions, category }) => {
       setScore(() => score + val);
       for (let i = 0; i < que.keywords.length; i++) {
         if (!KEYWORDS[que.keywords[i]]) {
-          KEYWORDS[que.keywords[i]] = keywordScore;
+          KEYWORDS[que.keywords[i]] = keywordScore / freq[que.keywords[i]];
         } else {
-          KEYWORDS[que.keywords[i]] += keywordScore;
+          KEYWORDS[que.keywords[i]] += keywordScore / freq[que.keywords[i]];
         }
       }
       setCounter(() => counter + 1);
