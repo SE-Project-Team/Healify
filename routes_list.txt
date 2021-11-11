@@ -33,3 +33,16 @@ page 11: score
 	 methods: post
 page 12: articles
 page 13: memes
+
+ADDITIONS TO BACKEND IN RELEASE 2
+
+page 14: Events
+	Get all Events
+		url: /events/all
+		method: get
+	Favourites
+		url: /events/Favourites
+		method: get, post (add and view all)
+	single
+		url/events?_id=..
+	

@@ -3,7 +3,12 @@ const { UnauthenticatedError } = require("../errors");
 require("dotenv").config();
 
 const checkUser = async (req, res) => {
-  const { username } = req.user;
+  let username;
+  if (req.user) {
+    username = req.user.username;
+  } else if (req.organizer) {
+    username = req.organizer.username;
+  }
   if (username) {
     return res
       .status(StatusCodes.OK)

@@ -2,14 +2,13 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 
 const organizer = new mongoose.Schema({
-  name: {
+  username: {
     type: String,
     required: [true, "Organizer Name is required"],
   },
   password: {
     type: String,
     required: [true, "Password is required"],
-    minlength: [5, "password length should be atleast 5"],
   },
   email: {
     type: String,
@@ -30,4 +29,4 @@ organizer.virtual("events", {
   justOne: false,
 });
 
-module.exports = mongoose.model("organization", organizer);
+module.exports = mongoose.model("organizer", organizer);
