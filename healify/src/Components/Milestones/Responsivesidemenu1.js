@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CreateTask from "../modals/CreateTask";
+import About from "./About";
 import styles from "./ResponsiveSidemenu1.module.css";
 import { Link } from "react-router-dom";
 export const Responsivesidemenu1 = ({ createTask }) => {
@@ -26,6 +27,14 @@ export const Responsivesidemenu1 = ({ createTask }) => {
               </a>
             </li>
           </Link>
+          <Link to="/About">
+            <li className={styles["menu-item"]}>
+              {" "}
+              <a href="#">
+                <i className="fa fa-question-circle"></i>&nbsp; &nbsp;&nbsp;&nbsp;About 
+              </a>
+            </li>
+          </Link>
           <Link to="/Timeline">
             <li className={styles["menu-item"]}>
               <a href="#">
@@ -33,12 +42,13 @@ export const Responsivesidemenu1 = ({ createTask }) => {
               </a>
             </li>
           </Link>
-
+     
           <li className={styles["menu-item"]} onClick={() => setModal(true)}>
             <a href="#">
               <i class="fas fa-pencil"></i>&nbsp; &nbsp;&nbsp;Create New
             </a>
           </li>
+          
         </ul>
       </div>
       <CreateTask toggle={toggle} modal={modal} save={saveTask} />

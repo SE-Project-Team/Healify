@@ -180,6 +180,13 @@ export const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
                     }`}
                     onClick={toggleSubTask}
                   >
+                     <div style={{ position: "absolute", right: "25px",cursor: "pointer" }} >
+                      <i className = "far fa-edit "/* onClick={handleDelete(each._id)}*/></i>
+                     
+                    </div>
+                    <div style={{ position: "absolute", right: "50px", cursor: "pointer" }} >
+                     <i className ="far fa-trash-alt" ></i>
+                     </div>
                     {each.content}
                   </h5>
                 );
