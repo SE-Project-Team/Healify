@@ -25,11 +25,12 @@ import { Recorder } from "./Components/DrumKit/Recorder";
 import { Drumkit } from "./Components/DrumKit/Drumkit";
 import Organizers from "./Components/OrganizersHome/Organizers";
 import { Progressbar } from "./Components/Milestones/Progressbar";
-import {Mailer } from "./Components/Mailer";
-import {About} from "./Components/Milestones/About";
+import { Mailer } from "./Components/Mailer";
+import { About } from "./Components/Milestones/About";
 import "./App.css";
 
 import { useToken } from "./CustomHooks/useToken";
+import { Createnewevent } from "./Components/OrganizersHome/Createnewevent";
 function App() {
   const { token, setToken } = useToken();
 
@@ -88,7 +89,7 @@ function App() {
           <Route path="/Timeline">
             <Timeline />
           </Route>
-        <Route path="/About">
+          <Route path="/About">
             <About />
           </Route>
           <Route path="/Togglemenu">
@@ -140,6 +141,10 @@ function App() {
           </Route>
           <Route path="/UpcomingEvents">
             <UpcomingEvents />
+          </Route>
+
+          <Route path="/Createnewevent">
+            <Createnewevent />
           </Route>
           <Route path="/Recorder">
             <Recorder />

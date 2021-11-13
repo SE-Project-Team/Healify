@@ -16,6 +16,14 @@ const event = new mongoose.Schema(
       type: String,
       required: [true, "Organizer Name is required"],
     },
+    subtitle: {
+      type: String,
+      required: [true, "subtitle is required"],
+    },
+    description: {
+      type: String,
+      required: [true, "Description is required"],
+    },
     date: {
       type: Date,
       required: [true, "Date of event is required"],
@@ -32,9 +40,16 @@ const event = new mongoose.Schema(
       ref: "organization",
       required: true,
     },
+    contactNo: {
+      type: Number,
+      required: [true, "Phone Number is required"],
+    },
     status: {
       type: String,
       enum: ["Completed", "Not Completed"],
+    },
+    link: {
+      type: String,
     },
   },
   {
