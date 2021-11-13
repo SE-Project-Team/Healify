@@ -14,19 +14,23 @@ export const Signup = ({ setToken }) => {
   const [warning, setWarning] = useState("");
   const history = useHistory();
 
-  const[role,setrole]=useState("user");
+  const changeRole = () => {
+    const newRole = role === "user" ? "organizer" : "user";
+    setRole(newRole);
+  };
+  const [role, setRole] = useState("user");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // parameters for postLogin Function
-    const loginParams = { username, password, setToken, setWarning, history,role };
-    postLogin(loginParams);
-  };
-  const organzerhandleSubmit = async (e) => {
-    setrole("organizers")
-    e.preventDefault();
-    // parameters for postLogin Function
-    const loginParams = { username, password, setToken, setWarning, history ,role};
+    const loginParams = {
+      username,
+      password,
+      setToken,
+      setWarning,
+      history,
+      role,
+    };
     postLogin(loginParams);
   };
 
@@ -38,7 +42,6 @@ export const Signup = ({ setToken }) => {
       setPassword(value);
     }
   };
-
 
   return (
     <div className={"px-4 py-5 mx-auto container " + styles.container}>
@@ -89,19 +92,17 @@ export const Signup = ({ setToken }) => {
                     className={"btn-block " + styles.btnColor}
                     onClick={handleSubmit}
                   >
-                    Login to Healify
+                    Login to Healify as {role === "user" ? "user" : "organizer"}
                   </button>{" "}
                 </div>
-                <div className="row justify-content-center my-3 px-3">
-                  {" "}
-                  {warning && <h4 className={styles.warning}>{warning}</h4>}
-                  <button
-                    className={"btn-block " + styles.btnColor}
-                    onClick={organzerhandleSubmit}
-                  >
-                    Login as Organizer
-                  </button>{" "}
-                </div>
+                <p
+                  href="#"
+                  className={"mx-auto mb-3 " + styles.loginRedirect}
+                  onClick={changeRole}
+                >
+                  click here to login as{" "}
+                  <span>{role === "user" ? "organizer" : "user"}</span>
+                </p>
                 {/* <div className="row justify-content-center my-2">
                   {" "}
                   <a href="#">

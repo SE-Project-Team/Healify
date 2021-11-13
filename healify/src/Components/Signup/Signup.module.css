@@ -19,6 +19,21 @@
     opacity: 0;
   }
 }
+
+.loginRedirect {
+  /* background-image: linear-gradient(to right, #ffd54f, #d500f9); */
+  padding: 5px;
+  font-size: 20px;
+  margin-left: 3px;
+  margin-top: 3px;
+  text-shadow: 1px 1px 1px rgb(172, 55, 146);
+  text-align: center;
+}
+
+.loginRedirect span {
+  font-weight: bold;
+}
+
 .card {
   border-radius: 0;
   border: none;

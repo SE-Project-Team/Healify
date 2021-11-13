@@ -16,6 +16,12 @@ export const Registration = ({ setToken }) => {
   const [email, setEmail] = useState("");
   const [rePassword, setRePassword] = useState("");
 
+  const changeRole = () => {
+    const newRole = role === "user" ? "organizer" : "user";
+    setRole(newRole);
+  };
+  const [role, setRole] = useState("user");
+
   const [warning, setWarning] = useState("");
 
   const history = useHistory();
@@ -23,6 +29,12 @@ export const Registration = ({ setToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let value = 1;
+    console.log(1);
+    if (!username || !password || !email || !rePassword) {
+      setWarning("Please Enter all form columns");
+      setTimeout(() => setWarning(""), 3000);
+      return;
+    }
     if (password !== rePassword) {
       setWarning("Re-entered password is not matching");
       setTimeout(() => setWarning(""), 3000);
@@ -32,8 +44,12 @@ export const Registration = ({ setToken }) => {
       setTimeout(() => setWarning(""), 3000);
       return;
     }
+    const url =
+      role === "user"
+        ? "/api/v1/registration/"
+        : "/api/v1/registration/organizer/";
     await axios
-      .post("/api/v1/registration/", {
+      .post(url, {
         username,
         email,
         password,
@@ -53,7 +69,14 @@ export const Registration = ({ setToken }) => {
         // depending on msg we should handle warning message to user (like showing Dom elements)
       });
     if (value) {
-      const loginParams = { username, password, setWarning, setToken, history };
+      const loginParams = {
+        username,
+        password,
+        setWarning,
+        setToken,
+        history,
+        role,
+      };
       postLogin(loginParams);
     }
   };
@@ -149,13 +172,21 @@ export const Registration = ({ setToken }) => {
                 {/* <span> I Agree To The Terms & Conditions</span> */}
 
                 <div className="row justify-content-center my-3 px-3">
-                  <h4 className={styles.warning}>{warning}</h4>
+                  {warning && <h4 className={styles.warning}>{warning}</h4>}
                   <button
                     className={"btn-block " + styles.btnColor}
                     onClick={handleSubmit}
                   >
-                    Sign up
+                    Sign up as {role === "user" ? "user" : "organizer"}
                   </button>
+                  <p
+                    href="#"
+                    className={"mx-auto mb-3 " + styles.loginRedirect}
+                    onClick={changeRole}
+                  >
+                    click here to sign up as{" "}
+                    <span>{role === "user" ? "organizer" : "user"}</span>
+                  </p>
                 </div>
                 <div className="row justify-content-center my-2">
                   {" "}

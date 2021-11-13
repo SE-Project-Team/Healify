@@ -7,14 +7,14 @@ export const postLogin = async ({
   history,
   role,
 }) => {
-  if(role=="user")
-  {
-    await axios
-    .post("/api/v1/login/", { username, password })
+  const url = role === "user" ? "/api/v1/login/" : "/api/v1/login/organizer/";
+  await axios
+    .post(url, { username, password })
     .then((res) => {
       const { token } = res.data.data;
       setToken(token);
-      history.push("/");
+      const newUrl = role === "user" ? "/" : "/organizers";
+      history.push(newUrl);
     })
     .catch((err) => {
       if (err.response) {
@@ -25,24 +25,4 @@ export const postLogin = async ({
         console.log(err);
       }
     });
-  }
-  else
-  {
-    await axios
-    .post("/api/v1/login/", { username, password })
-    .then((res) => {
-      const { token } = res.data.data;
-      setToken(token);
-      history.push("/Organizers");
-    })
-    .catch((err) => {
-      if (err.response) {
-        const { data } = err.response;
-        setWarning(data.msg);
-        setTimeout(() => setWarning(""), 3000);
-      } else {
-        console.log(err);
-      }
-    });
-  }
 };
