@@ -25,7 +25,8 @@ import { Recorder } from "./Components/DrumKit/Recorder";
 import { Drumkit } from "./Components/DrumKit/Drumkit";
 import Organizers from "./Components/OrganizersHome/Organizers";
 import { Progressbar } from "./Components/Milestones/Progressbar";
-
+import {Mailer } from "./Components/Mailer";
+import {About} from "./Components/Milestones/About";
 import "./App.css";
 
 import { useToken } from "./CustomHooks/useToken";
@@ -78,13 +79,18 @@ function App() {
           <Route path="/Memes">
             <Memes />
           </Route>
+          <Route path="/Mailer">
+            <Mailer />
+          </Route>
           <Route path="/MilestonesHome">
             <MilestonesHome />
           </Route>
           <Route path="/Timeline">
             <Timeline />
           </Route>
-
+        <Route path="/About">
+            <About />
+          </Route>
           <Route path="/Togglemenu">
             <Togglemenu />
           </Route>
