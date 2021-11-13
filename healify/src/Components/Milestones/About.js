@@ -47,7 +47,7 @@ export const About = ()=>{
                           </p>
                         <br/>
                         <h2>
-                            Head Up ! Creating your Milestone Now !
+                            Go Ahead ! Create your Milestone Now !
                         </h2>
 					
 				</div>

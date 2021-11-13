@@ -31,7 +31,7 @@ export const Responsivesidemenu1 = ({ createTask }) => {
             <li className={styles["menu-item"]}>
               {" "}
               <a href="#">
-                <i className="fa fa-location-arrow"></i>&nbsp; &nbsp;&nbsp;&nbsp;About 
+                <i className="fa fa-question-circle"></i>&nbsp; &nbsp;&nbsp;&nbsp;About 
               </a>
             </li>
           </Link>
