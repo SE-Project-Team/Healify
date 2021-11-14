@@ -56,6 +56,15 @@ export const Createnewevent = ({ _id }) => {
           <label htmlFor="platforms">Platform For Event</label>
           <input type="text" name={`platforms`} placeholder={`eg: zoom`} />
 
+          <label htmlFor="phone">Contact Number</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            required
+          />
+
           <button
             className={`${createStyles.buttonStyle2}`}
             onClick={handleSubmit}

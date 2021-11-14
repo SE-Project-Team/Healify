@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import EditTask from "../modals/EditTask";
 import ConfirmDialog from "./ConfirmDialog";
-import CreateTask from "../modals/CreateTask";
+import ViewModal from "../modals/ViewModal";
 import styles from "./MilestonesHome.module.css";
 import { Progressbar } from "./Progressbar";
 import { NewReadMore } from "./NewReadMore";
@@ -23,7 +23,10 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
       setSelected(0);
     }
   });
+
   const [modal, setModal] = useState(false);
+  const [viewModal, setViewModal] = useState(false);
+
   const [confirmDialog, setConfirmDialog] = useState({
     isOpen: false,
     title: "",
@@ -82,7 +85,7 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
           <NewReadMore subtasks={subtasks} />
 
           <br />
-          <div style={{ position: "absolute", right: "20px", top: "165px" }}>
+          <div style={{ position: "absolute", right: "20px", top: "175px" }}>
             <i
               class="far fa-edit  "
               style={{
@@ -93,7 +96,7 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
             ></i>
           </div>
 
-          <div style={{ position: "absolute", right: "50px", top: "165px" }}>
+          <div style={{ position: "absolute", right: "50px", top: "175px" }}>
             <i
               class="fas fa-trash-alt"
               style={{
@@ -113,16 +116,33 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
               }}
             ></i>
           </div>
+          <div
+            onClick={() => {
+              setViewModal(true);
+            }}
+          >
+            <h6 className={`${styles.viewBtn}`}>Click here to View Task</h6>
+          </div>
 
-          <EditTask
-            _id={_id}
-            modal={modal}
-            toggle={toggle}
-            taskObj={taskObj}
-            save={saveTask}
-            selected={selected}
-            setSelected={setSelected}
-          />
+          {modal && (
+            <EditTask
+              _id={_id}
+              modal={modal}
+              toggle={toggle}
+              taskObj={taskObj}
+              save={saveTask}
+              selected={selected}
+              setSelected={setSelected}
+            />
+          )}
+          {viewModal && (
+            <ViewModal
+              obj={taskObj}
+              toggle={() => {
+                setViewModal(!viewModal);
+              }}
+            />
+          )}
         </div>
       </div>
       <ConfirmDialog
