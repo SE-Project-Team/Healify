@@ -3,7 +3,6 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import modalStyles from "./modal.module.css";
 
 const CreateTask = ({ obj, toggle }) => {
-  console.log(obj);
   return (
     <Modal isOpen={true} toggle={toggle}>
       <ModalHeader toggle={toggle}>See Your Milestone Below</ModalHeader>
