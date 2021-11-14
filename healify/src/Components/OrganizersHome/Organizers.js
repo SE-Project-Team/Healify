@@ -1,15 +1,21 @@
 import React from "react";
 import { Header } from "../Home/Header";
-import Navbar from "./Navbar"
+import Navbar from "./Navbar";
 import styles from "../Home/Home.module.css";
-const Organizers=()=>
-{
-   return (
+import OrganizersHome from "./OrganizersHome";
+const Organizers = () => {
+  return (
     <>
       <Header />
-      <Navbar/>
-       <footer>
-        
+      <div className="container-fluid">
+        <div className="row flex-nowrap">
+          <Navbar />
+          <div className="col py-3">
+            <OrganizersHome />
+          </div>
+        </div>
+      </div>
+      <footer>
         <div className={styles["bottom-container"]}>
           <a
             className={styles["footer-link"]}
@@ -24,6 +30,6 @@ const Organizers=()=>
         </div>
       </footer>
     </>
-   );
-}
+  );
+};
 export default Organizers;

@@ -37,3 +37,24 @@
 .completed {
   text-decoration: line-through;
 }
+
+.heading {
+  text-align: center;
+  background-color: rgba(231, 184, 82, 0.856);
+  animation: appear 2s forwards;
+}
+
+@keyframes appear {
+  0% {
+    width: 0%;
+    color: white;
+  }
+  100% {
+    width: 100%;
+    color: black;
+  }
+}
+
+.font h3 {
+  font-size: 22px !important;
+}

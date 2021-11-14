@@ -27,10 +27,14 @@ import Organizers from "./Components/OrganizersHome/Organizers";
 import { Progressbar } from "./Components/Milestones/Progressbar";
 import { Mailer } from "./Components/Mailer";
 import { About } from "./Components/Milestones/About";
+<<<<<<< HEAD
 import { ColorGame } from "./Components/ColorGame/ColorGame";
+=======
+>>>>>>> 18c99f984ab0fda42b85365dff930fc81fdad6f7
 import "./App.css";
 
 import { useToken } from "./CustomHooks/useToken";
+import { Createnewevent } from "./Components/OrganizersHome/Createnewevent";
 function App() {
   const { token, setToken } = useToken();
 
@@ -141,6 +145,10 @@ function App() {
           </Route>
           <Route path="/UpcomingEvents">
             <UpcomingEvents />
+          </Route>
+
+          <Route path="/Createnewevent">
+            <Createnewevent />
           </Route>
           <Route path="/Recorder">
             <Recorder />

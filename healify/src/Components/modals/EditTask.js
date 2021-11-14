@@ -79,6 +79,12 @@ export const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
     }
   };
 
+  const handleDelete = async (id) => {
+    const newSubtasks = await subtasks.filter((each, index) => {
+      return index.toString() !== id.toString();
+    });
+    setSubtasks(newSubtasks);
+  };
   useEffect(() => {
     const arr = taskObj.targetDate.split(" ");
     const dateStr = `${month_map[arr[1]]}/${arr[2]}/${arr[3]}`;
@@ -180,13 +186,29 @@ export const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
                     }`}
                     onClick={toggleSubTask}
                   >
-                     <div style={{ position: "absolute", right: "25px",cursor: "pointer" }} >
-                      <i className = "far fa-edit "/* onClick={handleDelete(each._id)}*/></i>
-                     
+                    <div
+                      style={{
+                        position: "absolute",
+                        right: "25px",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <i className="far fa-edit "></i>
                     </div>
-                    <div style={{ position: "absolute", right: "50px", cursor: "pointer" }} >
-                     <i className ="far fa-trash-alt" ></i>
-                     </div>
+                    <div
+                      style={{
+                        position: "absolute",
+                        right: "50px",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <i
+                        className="far fa-trash-alt"
+                        onClick={() => {
+                          handleDelete(index);
+                        }}
+                      ></i>
+                    </div>
                     {each.content}
                   </h5>
                 );

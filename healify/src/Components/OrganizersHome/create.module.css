@@ -1,0 +1,43 @@
+.wrapper {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flexWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonStyle {
+  background: rgb(201, 103, 103);
+  margin: 10px;
+}
+
+.buttonStyle2 {
+  background: rgb(155, 204, 20);
+  margin: 10px;
+  width: 230px;
+  height: 75px;
+  align-self: center;
+  border-radius: 50%;
+  color: white;
+}
+
+.wrapper input {
+  background: white;
+  border: 2px solid brown !important;
+}
+
+.wrapper input:focus {
+  border-color: rgb(235, 141, 73) !important;
+}
+
+.wrapper textarea {
+  background: white;
+  border: 2px solid brown !important;
+}
+
+.wrapper textarea:focus {
+  border-color: rgb(235, 141, 73) !important;
+}
