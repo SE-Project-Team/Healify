@@ -49,3 +49,23 @@
   box-shadow: 0 0 20px white;
   background-color: grey;
 }
+
+.animateFade {
+  animation: fadeOnce 0.5s forwards;
+}
+
+@keyframes fadeOnce {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.pass {
+  color: white;
+}

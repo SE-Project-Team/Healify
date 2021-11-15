@@ -1,142 +1,195 @@
 import React from "react";
 import { Header } from "../Home/Header";
 import styles from "./ColorGame.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import blue from "../../Assets/sounds/blue.mp3";
 
 export const ColorGame = () => {
   let buttonColours = ["red", "blue", "green", "yellow"];
 
-  let gamePattern = [];
-  let userClickedPattern = [];
+  const [gamePattern, setGamePattern] = useState([]);
+  const [userClickedPattern, setUserClickedPattern] = useState([]);
 
-  let started = false;
+  const [started, setStarted] = useState(false);
 
   const [level, setLevel] = useState(0);
-  const [levelTitle, setLevelTitle] = useState("Press A Key Start");
   const [pressedColor, setPressedColor] = useState();
+
+  const [levelPassed, setLevelPassed] = useState("");
+  const [generated, setGenerated] = useState("");
+
+  useEffect(() => {}, [generated]);
 
   const start = () => {
     if (!started) {
-      let l = level + 1;
-      setLevel(() => l);
-      setLevelTitle(() => "Level " + l);
       nextSequence();
-      started = true;
+      setStarted(true);
     }
   };
 
   const handleClick = (userChosenColour) => {
-    userClickedPattern.push(userChosenColour);
+    if (generated) {
+      return;
+    }
+    const newUserClickedPattern = [...userClickedPattern, userChosenColour];
+    setUserClickedPattern(() => {
+      return newUserClickedPattern;
+    });
 
     playSound(userChosenColour);
+
     animatePress(userChosenColour);
 
     checkAnswer(userClickedPattern.length - 1);
   };
-  /*
 
-  function checkAnswer(currentLevel) {
+  const checkAnswer = (currentLevel) => {
     if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
-      if (userClickedPattern.length === gamePattern.length) {
-        setTimeout(function () {
+      if (userClickedPattern.length === gamePattern.length - 1) {
+        setLevelPassed("true");
+
+        setTimeout(() => {
+          setLevelPassed("");
           nextSequence();
-        }, 1000);
+        }, 2000);
       }
     } else {
       playSound("wrong");
-      $("body").addClass("game-over");
-      $("#level-title").text("Game Over, Press Any Key to Restart");
+      setLevelPassed("false");
 
-      setTimeout(function () {
-        $("body").removeClass("game-over");
-      }, 200);
+      setTimeout(() => {
+        setLevelPassed("");
+      }, 2000);
 
       startOver();
     }
-  }
-  */
-
-  const nextSequence = () => {
-    userClickedPattern = [];
-    let l = level + 1;
-    setLevel(() => l);
-    setLevelTitle(() => "Level " + l);
-    let randomNumber = Math.floor(Math.random() * 4);
-    let randomChosenColour = buttonColours[randomNumber];
-    gamePattern.push(randomChosenColour);
-
-    // $("#" + randomChosenColour)
-    //   .fadeIn(100)
-    //   .fadeOut(100)
-    //   .fadeIn(100);
-    playSound(randomChosenColour);
   };
 
-  function animatePress(currentColor) {
+  const nextSequence = () => {
+    setUserClickedPattern(() => {
+      return [];
+    });
+    setGamePattern(() => {
+      return [];
+    });
+    let l = level + 1;
+    setLevel(() => l);
+
+    let newGamePattern = [];
+    for (let i = 0; i < 4; i++) {
+      let randomNumber = Math.floor(Math.random() * 4);
+      let randomChosenColour = buttonColours[randomNumber];
+      newGamePattern.push(randomChosenColour);
+      setTimeout(() => {
+        setGenerated(() => {
+          return randomChosenColour;
+        });
+        playSound(randomChosenColour);
+        if (i != 3) {
+          setTimeout(() => {
+            setGenerated(() => "reset");
+          }, 500);
+        } else {
+          setTimeout(() => {
+            setGenerated(() => "");
+          }, 500);
+        }
+      }, 1000 * (i + 1));
+
+      setGenerated(() => "");
+      setGamePattern(() => {
+        return newGamePattern;
+      });
+    }
+
+    console.log("What is this", newGamePattern);
+  };
+
+  const animatePress = (currentColor) => {
     setPressedColor(currentColor);
 
-    setTimeout(function () {
+    setTimeout(() => {
       setPressedColor("");
     }, 500);
-  }
+  };
 
   const playSound = (name) => {
     let audio = new Audio(blue);
     audio.play();
   };
 
-  function startOver() {
-    level = 0;
-    gamePattern = [];
-    started = false;
-  }
+  const startOver = () => {
+    setLevel(0);
+    setGamePattern([]);
+    setStarted(false);
+  };
 
   return (
     <>
       <Header />
+
       <div className={styles.maindiv}>
-        <h1 className={styles.leveltitle}>{levelTitle}</h1>
-        <div className={styles.container}>
-          <div className={styles.row}>
-            <div
-              type="button"
-              id="green"
-              className={styles.btn + " " + styles.green}
-              onclick={() => {
-                handleClick(id);
-              }}
-            ></div>
+        {(levelPassed === "true" && (
+          <h1 className={`${styles.pass}`}>Level Passed</h1>
+        )) ||
+          (levelPassed === "false" && (
+            <h1 className={`${styles.pass}`}>Level Failed!! Game Over</h1>
+          )) || (
+            <section>
+              <h1 className={styles.leveltitle}>
+                {(!level && "Press Button To start") || `Level ${level}`}
+              </h1>
 
-            <div
-              type="button"
-              id="red"
-              className={styles.btn + " " + styles.red}
-              onclick={() => {
-                handleClick(id);
-              }}
-            ></div>
-          </div>
+              <div className={styles.container}>
+                <div className={styles.row}>
+                  <div
+                    type="button"
+                    id="green"
+                    className={`${styles.btn} ${styles.green} ${
+                      pressedColor === "green" && styles.pressed
+                    } ${generated === "green" && styles.animateFade}`}
+                    onClick={() => {
+                      handleClick("green");
+                    }}
+                  ></div>
 
-          <div classname={styles.row}>
-            <div
-              type="button"
-              id="yellow"
-              className={styles.btn + " " + styles.yellow}
-              onclick={() => {
-                handleClick(id);
-              }}
-            ></div>
-            <div
-              type="button"
-              id="blue"
-              className={styles.btn + " " + styles.blue}
-              onclick={() => {
-                handleClick(id);
-              }}
-            ></div>
-          </div>
-        </div>
+                  <div
+                    type="button"
+                    id="red"
+                    className={`${styles.btn} ${styles.red}  ${
+                      pressedColor === "red" && styles.pressed
+                    } ${generated === "red" && styles.animateFade}`}
+                    onClick={() => {
+                      handleClick("red");
+                    }}
+                  ></div>
+                </div>
+
+                <div classname={styles.row}>
+                  <div
+                    type="button"
+                    id="yellow"
+                    className={`${styles.btn} ${styles.yellow} ${
+                      pressedColor === "yellow" && styles.pressed
+                    } ${generated === "yellow" && styles.animateFade}`}
+                    onClick={() => {
+                      handleClick("yellow");
+                    }}
+                  ></div>
+                  <div
+                    type="button"
+                    id="blue"
+                    className={`${styles.btn} ${styles.blue} ${
+                      pressedColor === "blue" && styles.pressed
+                    } ${generated === "blue" && styles.animateFade}`}
+                    onClick={() => {
+                      handleClick("blue");
+                    }}
+                  ></div>
+                </div>
+              </div>
+            </section>
+          )}
         {level == 0 ? <button onClick={start}>Start</button> : null}
       </div>
     </>
