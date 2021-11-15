@@ -8,6 +8,8 @@ export const Questions1 = [
     op4: "2-3 times per week",
     op5: "Almost everyday",
     keywords: ["stress", "depression", "anxiety"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 2,
@@ -18,6 +20,8 @@ export const Questions1 = [
     op4: "2-3 times per week",
     op5: "Almost everyday",
     keywords: ["physical health", "stress", "depression", "anxiety"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 3,
@@ -28,6 +32,8 @@ export const Questions1 = [
     op4: "2-3 times per week",
     op5: "Almost everyday",
     keywords: ["exercise", "fitness", "physical health"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 4,
@@ -38,6 +44,8 @@ export const Questions1 = [
     op4: "2-3 times per week",
     op5: "Almost everyday",
     keywords: ["anxiety", "stress", "phobia"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 5,
@@ -48,6 +56,8 @@ export const Questions1 = [
     op4: "2-3 times per week",
     op5: "Almost everyday",
     keywords: ["insomania", "stress", "depression"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 6,
@@ -58,6 +68,8 @@ export const Questions1 = [
     op4: "2-3 times per week",
     op5: "Almost everyday",
     keywords: ["irritability", "anxiety", "anger management"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 7,
@@ -68,6 +80,8 @@ export const Questions1 = [
     op4: "2-3 times per week",
     op5: "Almost everyday",
     keywords: ["insomania", "stress", "depression"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 8,
@@ -78,6 +92,8 @@ export const Questions1 = [
     op4: "2-3 times per week",
     op5: "Almost everyday",
     keywords: ["anger management", "stress", "anxiety"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 9,
@@ -88,6 +104,8 @@ export const Questions1 = [
     op4: "2-3 times per week",
     op5: "Almost everyday",
     keywords: ["depression"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 10,
@@ -98,6 +116,8 @@ export const Questions1 = [
     op4: "2-3 times per week",
     op5: "Almost everyday",
     keywords: ["physical health", "healthy diet", "nutrition"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 11,
@@ -108,6 +128,8 @@ export const Questions1 = [
     op4: "2-3 times per week",
     op5: "Almost everyday",
     keywords: ["physical health", "healthy diet", "nutrition"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 12,
@@ -118,6 +140,8 @@ export const Questions1 = [
     op4: "2-3 times per week",
     op5: "Almost everyday",
     keywords: ["stress", "anger management", "irritability"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 13,
@@ -128,6 +152,8 @@ export const Questions1 = [
     op4: "Once or twice a month",
     op5: "Seldom",
     keywords: ["exercise", "fitness", "physical health"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 14,
@@ -138,6 +164,8 @@ export const Questions1 = [
     op4: "Once or twice a month",
     op5: "Seldom",
     keywords: ["insomania", "stress", "fitness"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 15,
@@ -148,6 +176,8 @@ export const Questions1 = [
     op4: "To a little extent",
     op5: "To a very little extent",
     keywords: ["exercise", "fitness", "physical health"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 16,
@@ -158,6 +188,8 @@ export const Questions1 = [
     op4: "My weight is not close to the ideal level",
     op5: "I am dangerously overweight/ underweight",
     keywords: ["exercise", "fitness", "physical health"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 17,
@@ -168,6 +200,8 @@ export const Questions1 = [
     op4: "To a little extent",
     op5: "To a very little extent",
     keywords: ["physical health", "healthy diet", "nutrition"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 18,
@@ -178,6 +212,8 @@ export const Questions1 = [
     op4: "I smoke or chew tobacco fairly often",
     op5: "I smoke or chew tobacco almost everyday",
     keywords: ["healthy diet", "de-addiction", "rehab"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 19,
@@ -188,6 +224,8 @@ export const Questions1 = [
     op4: "I abuse alcohol whenever I feel sad or depressed",
     op5: "I abuse alcohol almost daily",
     keywords: ["healthy diet", "de-addiction", "rehab"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 70,
@@ -198,6 +236,8 @@ export const Questions1 = [
     op4: "Fairly Often",
     op5: "Very Often",
     keywords: ["self control", "self management", "stress", "coping"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 71,
@@ -208,6 +248,8 @@ export const Questions1 = [
     op4: "Fairly Often",
     op5: "Very Often",
     keywords: ["self control", "self management", "coping"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 72,
@@ -218,6 +260,8 @@ export const Questions1 = [
     op4: "Fairly Often",
     op5: "Very Often",
     keywords: ["stress", "faith", "self control", "coping"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 73,
@@ -228,6 +272,8 @@ export const Questions1 = [
     op4: "Almost Never",
     op5: "Never",
     keywords: ["faith", "self control", "self management", "coping"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 74,
@@ -238,6 +284,8 @@ export const Questions1 = [
     op4: "Almost Never",
     op5: "Never",
     keywords: ["faith", "self management"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 75,
@@ -248,6 +296,8 @@ export const Questions1 = [
     op4: "Fairly Often",
     op5: "Very Often",
     keywords: ["self control", "coping", "faith"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 76,
@@ -258,6 +308,8 @@ export const Questions1 = [
     op4: "Almost Never",
     op5: "Never",
     keywords: ["self control", "irritability"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 77,
@@ -268,6 +320,8 @@ export const Questions1 = [
     op4: "Almost Never",
     op5: "Never",
     keywords: ["self management", "self control", "faith", "stress"],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 78,
@@ -284,6 +338,8 @@ export const Questions1 = [
       "irritatability",
       "coping",
     ],
+    gender: "neutral",
+    agegroup: " ",
   },
   {
     id: 79,
@@ -294,5 +350,7 @@ export const Questions1 = [
     op4: "Fairly Often",
     op5: "Very Often",
     keywords: ["coping", "stress", "faith"],
+    gender: "neutral",
+    agegroup: " ",
   },
 ];
