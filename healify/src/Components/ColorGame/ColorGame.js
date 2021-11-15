@@ -7,24 +7,29 @@ import blue from "../../Assets/sounds/blue.mp3";
 export const ColorGame = () => {
   let buttonColours = ["red", "blue", "green", "yellow"];
 
+  // Arrays of colors 1. Generated seq ------ 2.User Input
   const [gamePattern, setGamePattern] = useState([]);
   const [userClickedPattern, setUserClickedPattern] = useState([]);
 
-  const [started, setStarted] = useState(false);
+  //
+  // const [started, setStarted] = useState(false);
 
   const [level, setLevel] = useState(0);
   const [pressedColor, setPressedColor] = useState();
 
+  // state for condn rend of PASS/FAIL prompts
   const [levelPassed, setLevelPassed] = useState("");
+
+  // State that checks whethere animation is being generated ->Locks click fn
   const [generated, setGenerated] = useState("");
 
   useEffect(() => {}, [generated]);
 
   const start = () => {
-    if (!started) {
-      nextSequence();
-      setStarted(true);
-    }
+    // if (!started) {
+    nextSequence();
+    // setStarted(true);
+    // }
   };
 
   const handleClick = (userChosenColour) => {
@@ -40,18 +45,14 @@ export const ColorGame = () => {
 
     animatePress(userChosenColour);
 
-    checkAnswer(userClickedPattern.length - 1);
+    checkAnswer(userClickedPattern.length, userChosenColour);
   };
 
-  const checkAnswer = (currentLevel) => {
-    if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
+  const checkAnswer = (currentLevel, userChosenColour) => {
+    console.log(currentLevel);
+    if (gamePattern[currentLevel] === userChosenColour) {
       if (userClickedPattern.length === gamePattern.length - 1) {
         setLevelPassed("true");
-
-        setTimeout(() => {
-          setLevelPassed("");
-          nextSequence();
-        }, 2000);
       }
     } else {
       playSound("wrong");
@@ -66,6 +67,7 @@ export const ColorGame = () => {
   };
 
   const nextSequence = () => {
+    setGenerated(() => "reset");
     setUserClickedPattern(() => {
       return [];
     });
@@ -96,7 +98,6 @@ export const ColorGame = () => {
         }
       }, 1000 * (i + 1));
 
-      setGenerated(() => "");
       setGamePattern(() => {
         return newGamePattern;
       });
@@ -121,7 +122,7 @@ export const ColorGame = () => {
   const startOver = () => {
     setLevel(0);
     setGamePattern([]);
-    setStarted(false);
+    // setStarted(false);
   };
 
   return (
@@ -130,10 +131,30 @@ export const ColorGame = () => {
 
       <div className={styles.maindiv}>
         {(levelPassed === "true" && (
-          <h1 className={`${styles.pass}`}>Level Passed</h1>
+          <div>
+            <h1 className={`${styles.pass}`}>Level Passed</h1>
+            <button
+              onClick={() => {
+                setLevelPassed("");
+                nextSequence();
+              }}
+            >
+              Go To Next Level
+            </button>
+          </div>
         )) ||
           (levelPassed === "false" && (
-            <h1 className={`${styles.pass}`}>Level Failed!! Game Over</h1>
+            <div>
+              <h1 className={`${styles.pass}`}>Game Over</h1>
+              <button
+                onClick={() => {
+                  setLevelPassed("");
+                  startOver();
+                }}
+              >
+                Return To Start
+              </button>
+            </div>
           )) || (
             <section>
               <h1 className={styles.leveltitle}>
@@ -190,7 +211,11 @@ export const ColorGame = () => {
               </div>
             </section>
           )}
-        {level == 0 ? <button onClick={start}>Start</button> : null}
+        {level == 0 ? (
+          <button className={`${styles.button}`} onClick={start}>
+            Start
+          </button>
+        ) : null}
       </div>
     </>
   );

@@ -1,6 +1,7 @@
 .maindiv {
   text-align: center;
   background-color: #011f3f;
+  height: 100vh;
 }
 
 .leveltitle {
@@ -16,10 +17,10 @@
 }
 
 .btn {
-  margin: 25px;
+  margin: 20px;
   display: inline-block;
-  height: 200px;
-  width: 200px;
+  height: 175px;
+  width: 175px;
   border: 10px solid black;
   border-radius: 20%;
 }
@@ -68,4 +69,14 @@
 
 .pass {
   color: white;
+  align-self: center;
+}
+
+.button {
+  background: chocolate;
+  font: bold 25px;
+}
+
+.button:hover {
+  font-size: 30px;
 }
