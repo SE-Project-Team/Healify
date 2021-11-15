@@ -77,7 +77,10 @@ const user = new mongoose.Schema(
       type: [milestoneSchema],
       default: [],
     },
-    keywords: keywordSchema,
+    keywords: {
+      type: keywordSchema,
+      default: {},
+    },
     favouriteEvents: [{ type: mongoose.Schema.ObjectId, ref: "event" }],
   },
   {
