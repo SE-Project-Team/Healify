@@ -1,34 +1,40 @@
 import React from "react";
 import { Header } from "../Home/Header";
 import styles from "./ColorGame.module.css";
+import { useState } from "react";
+import blue from "../../Assets/sounds/blue.mp3";
 
 export const ColorGame = () => {
-  /*
-  var buttonColours = ["red", "blue", "green", "yellow"];
+  let buttonColours = ["red", "blue", "green", "yellow"];
 
-  var gamePattern = [];
-  var userClickedPattern = [];
+  let gamePattern = [];
+  let userClickedPattern = [];
 
-  var started = false;
-  var level = 0;
+  let started = false;
 
-  $(document).keypress(function () {
+  const [level, setLevel] = useState(0);
+  const [levelTitle, setLevelTitle] = useState("Press A Key Start");
+  const [pressedColor, setPressedColor] = useState();
+
+  const start = () => {
     if (!started) {
-      $("#level-title").text("Level " + level);
+      let l = level + 1;
+      setLevel(() => l);
+      setLevelTitle(() => "Level " + l);
       nextSequence();
       started = true;
     }
-  });
+  };
 
-  $(".btn").click(function () {
-    var userChosenColour = $(this).attr("id");
+  const handleClick = (userChosenColour) => {
     userClickedPattern.push(userChosenColour);
 
     playSound(userChosenColour);
     animatePress(userChosenColour);
 
     checkAnswer(userClickedPattern.length - 1);
-  });
+  };
+  /*
 
   function checkAnswer(currentLevel) {
     if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
@@ -49,58 +55,66 @@ export const ColorGame = () => {
       startOver();
     }
   }
+  */
 
-  function nextSequence() {
+  const nextSequence = () => {
     userClickedPattern = [];
-    level++;
-    $("#level-title").text("Level " + level);
-    var randomNumber = Math.floor(Math.random() * 4);
-    var randomChosenColour = buttonColours[randomNumber];
+    let l = level + 1;
+    setLevel(() => l);
+    setLevelTitle(() => "Level " + l);
+    let randomNumber = Math.floor(Math.random() * 4);
+    let randomChosenColour = buttonColours[randomNumber];
     gamePattern.push(randomChosenColour);
 
-    $("#" + randomChosenColour)
-      .fadeIn(100)
-      .fadeOut(100)
-      .fadeIn(100);
+    // $("#" + randomChosenColour)
+    //   .fadeIn(100)
+    //   .fadeOut(100)
+    //   .fadeIn(100);
     playSound(randomChosenColour);
-  }
+  };
 
   function animatePress(currentColor) {
-    $("#" + currentColor).addClass("pressed");
+    setPressedColor(currentColor);
+
     setTimeout(function () {
-      $("#" + currentColor).removeClass("pressed");
-    }, 100);
+      setPressedColor("");
+    }, 500);
   }
 
-  function playSound(name) {
-    var audio = new Audio("sounds/" + name + ".mp3");
+  const playSound = (name) => {
+    let audio = new Audio(blue);
     audio.play();
-  }
+  };
 
   function startOver() {
     level = 0;
     gamePattern = [];
     started = false;
   }
-  */
 
   return (
     <>
       <Header />
       <div className={styles.maindiv}>
-        <h1 className={styles.leveltitle}>Press A Key to Start</h1>
+        <h1 className={styles.leveltitle}>{levelTitle}</h1>
         <div className={styles.container}>
           <div className={styles.row}>
             <div
               type="button"
               id="green"
               className={styles.btn + " " + styles.green}
+              onclick={() => {
+                handleClick(id);
+              }}
             ></div>
 
             <div
               type="button"
               id="red"
               className={styles.btn + " " + styles.red}
+              onclick={() => {
+                handleClick(id);
+              }}
             ></div>
           </div>
 
@@ -109,14 +123,21 @@ export const ColorGame = () => {
               type="button"
               id="yellow"
               className={styles.btn + " " + styles.yellow}
+              onclick={() => {
+                handleClick(id);
+              }}
             ></div>
             <div
               type="button"
               id="blue"
               className={styles.btn + " " + styles.blue}
+              onclick={() => {
+                handleClick(id);
+              }}
             ></div>
           </div>
         </div>
+        {level == 0 ? <button onClick={start}>Start</button> : null}
       </div>
     </>
   );
