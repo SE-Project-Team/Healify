@@ -139,7 +139,25 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.Oblur {
+  margin: 10px;
+  flex-direction: row;
+  background-image: url("../../Assets/pic2.jpg"),
+    linear-gradient(rgb(219, 166, 166), rgb(0, 0, 172));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+.OblurImage {
+  margin: 10px;
+  flex-direction: row;
+  background-image: url("../../Assets/pic2.jpg"),
+    linear-gradient(rgb(219, 166, 166), rgb(0, 0, 172));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 @media screen and (max-width: 600px) {
   .img h4 {
     font-size: 20px;
