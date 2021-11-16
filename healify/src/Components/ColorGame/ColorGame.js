@@ -3,6 +3,9 @@ import { Header } from "../Home/Header";
 import styles from "./ColorGame.module.css";
 import { useState, useEffect } from "react";
 import blue from "../../Assets/sounds/blue.mp3";
+import red from "../../Assets/sounds/red.mp3";
+import green from "../../Assets/sounds/green.mp3";
+import yellow from "../../Assets/sounds/yellow.mp3";
 
 export const ColorGame = () => {
   let buttonColours = ["red", "blue", "green", "yellow"];
@@ -78,7 +81,40 @@ export const ColorGame = () => {
     setLevel(() => l);
 
     let newGamePattern = [];
-    for (let i = 0; i < 4; i++) {
+    let max;
+    switch (true) {
+      case l < 3:
+        max = 2;
+        break;
+      case l < 5:
+        max = 3;
+        break;
+      case l < 8:
+        max = 4;
+        break;
+      case l < 12:
+        max = 5;
+        break;
+      case l < 16:
+        max = 6;
+        break;
+      case l < 20:
+        max = 7;
+        break;
+      case l < 23:
+        max = 8;
+        break;
+      case l < 27:
+        max = 9;
+        break;
+      case l < 31:
+        max = 10;
+        break;
+      default:
+        max = 2;
+        break;
+    }
+    for (let i = 0; i < max; i++) {
       let randomNumber = Math.floor(Math.random() * 4);
       let randomChosenColour = buttonColours[randomNumber];
       newGamePattern.push(randomChosenColour);
@@ -87,7 +123,7 @@ export const ColorGame = () => {
           return randomChosenColour;
         });
         playSound(randomChosenColour);
-        if (i != 3) {
+        if (i != max - 1) {
           setTimeout(() => {
             setGenerated(() => "reset");
           }, 500);
@@ -115,8 +151,25 @@ export const ColorGame = () => {
   };
 
   const playSound = (name) => {
-    let audio = new Audio(blue);
-    audio.play();
+    let audio;
+    switch (name) {
+      case "blue":
+        audio = new Audio(blue);
+        audio.play();
+        break;
+      case "red":
+        audio = new Audio(red);
+        audio.play();
+        break;
+      case "yellow":
+        audio = new Audio(yellow);
+        audio.play();
+        break;
+      case "green":
+        audio = new Audio(green);
+        audio.play();
+        break;
+    }
   };
 
   const startOver = () => {
