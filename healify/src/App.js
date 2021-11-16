@@ -29,9 +29,11 @@ import { Progressbar } from "./Components/Milestones/Progressbar";
 import { Mailer } from "./Components/Mailer";
 import { About } from "./Components/Milestones/About";
 import { ColorGame } from "./Components/ColorGame/ColorGame";
+import { Profile } from "./Components/Profile/Profile";
 import { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
+
 import { useToken } from "./CustomHooks/useToken";
 import { Createnewevent } from "./Components/OrganizersHome/Createnewevent";
 let AgeGroup, Gender, Hobbies;
@@ -105,6 +107,9 @@ function App() {
           </Route>
           <Route path="/Mailer">
             <Mailer />
+          </Route>
+          <Route path="/Profile">
+            <Profile />
           </Route>
           <Route path="/MilestonesHome">
             <MilestonesHome />
