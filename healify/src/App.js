@@ -28,6 +28,7 @@ import { Progressbar } from "./Components/Milestones/Progressbar";
 import { Mailer } from "./Components/Mailer";
 import { About } from "./Components/Milestones/About";
 import { ColorGame } from "./Components/ColorGame/ColorGame";
+import { Profile } from "./Components/Profile/Profile";
 import "./App.css";
 
 import { useToken } from "./CustomHooks/useToken";
@@ -83,6 +84,9 @@ function App() {
           </Route>
           <Route path="/Mailer">
             <Mailer />
+          </Route>
+          <Route path="/Profile">
+            <Profile />
           </Route>
           <Route path="/MilestonesHome">
             <MilestonesHome />
