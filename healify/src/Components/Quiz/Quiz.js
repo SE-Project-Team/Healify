@@ -41,7 +41,7 @@ const freq = {
   prayer: 3,
 };
 
-export const Quiz = ({ questions, category, gender, agegroup }) => {
+export const Quiz = ({ questions, category }) => {
   const [warning, setWarning] = useState(-1);
   const [option, setOption] = useState(0);
   const [score, setScore] = useState(0);
@@ -61,6 +61,9 @@ export const Quiz = ({ questions, category, gender, agegroup }) => {
         (qn.gender === "neutral" || qn.gender === gender)
     )
   );
+
+  const [gender, setGender] = useState(null);
+  const [agegroup, setAgegroup] = useState(null);
 
   const newQue = () => {
     if (warning === -1 || warning === 1) {

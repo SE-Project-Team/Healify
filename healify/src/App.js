@@ -108,33 +108,19 @@ function App() {
             <Quiz
               category={"Ill Being and Well Being"}
               questions={Questions1}
-              gender={gender}
-              agegroup={agegroup}
             />
           </Route>
           <Route path="/Quiz2">
-            <Quiz
-              category={"Control and Coping"}
-              questions={Questions2}
-              gender={gender}
-              agegroup={agegroup}
-            />
+            <Quiz category={"Control and Coping"} questions={Questions2} />
           </Route>
           <Route path="/Quiz3">
             <Quiz
               category={"Relationships and Belonging"}
               questions={Questions3}
-              gender={gender}
-              agegroup={agegroup}
             />
           </Route>
           <Route path="/Quiz4">
-            <Quiz
-              category={"Self Perception"}
-              questions={Questions4}
-              gender={gender}
-              agegroup={agegroup}
-            />
+            <Quiz category={"Self Perception"} questions={Questions4} />
           </Route>
           <Route path="/Score">
             <Score />

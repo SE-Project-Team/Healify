@@ -26,6 +26,6 @@ const postProfile = async (req, res) => {
 
   res
     .status(StatusCodes.OK)
-    .json({ status: "success", data: { score, remarks, keys } });
+    .json({ status: "success", data: { AgeGroup, Gender, Hobbies } });
 };
 module.exports = { postProfile, getProfile };
