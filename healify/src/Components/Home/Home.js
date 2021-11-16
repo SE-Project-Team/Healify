@@ -51,7 +51,6 @@ export const Home = () => {
             <section className={`${styles.blurImage}`}>
               <div className={styles.img}>
                 <img src={image} alt="home" />
-                {/* <h1 className={styles.banner}>"Life is Beautiful"</h1> */}
                 {quote1 && <h4 className={styles.quote1}>{quote1}</h4>}
                 {quote2 && <h4 className={styles.quote2}>{quote2}</h4>}
               </div>
