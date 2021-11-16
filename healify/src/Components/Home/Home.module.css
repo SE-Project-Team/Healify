@@ -109,10 +109,10 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
 
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 5px;
   text-align: center;
-  -webkit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(10px);
   padding: 20px 40px;
 }
@@ -123,7 +123,7 @@
 .blur {
   margin: 10px;
   flex-direction: row;
-  background-image: url(https://img.freepik.com/free-photo/top-view-background-beautiful-white-grey-brown-cream-blue-background_140725-72219.jpg?size=626&ext=jpg),
+  background-image: url("../../Assets/abstractBg.jpeg"),
     linear-gradient(rgb(219, 166, 166), rgb(0, 0, 172));
   background-position: center center;
   background-repeat: no-repeat;
@@ -139,7 +139,25 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.Oblur {
+  margin: 10px;
+  flex-direction: row;
+  background-image: url("../../Assets/pic2.jpg"),
+    linear-gradient(rgb(219, 166, 166), rgb(0, 0, 172));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+.OblurImage {
+  margin: 10px;
+  flex-direction: row;
+  background-image: url("../../Assets/pic2.jpg"),
+    linear-gradient(rgb(219, 166, 166), rgb(0, 0, 172));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 @media screen and (max-width: 600px) {
   .img h4 {
     font-size: 20px;

@@ -34,7 +34,10 @@ export const Score = ({ score, category, KEYWORDS }) => {
   // };
   // var max1 = getMax(KEYWORDS);
   // console.log(max1);
-  console.log(KEYWORDS);
+
+  // console.log(KEYWORDS);
+
+  // Updated Keywords are posted along with the score
   const percentage = (score * 100) / 50;
   let color = "";
   let str1 = "",
@@ -74,7 +77,7 @@ export const Score = ({ score, category, KEYWORDS }) => {
       await axios
         .post(
           "/api/v1/quiz/score",
-          { quizId: map(category), score, remarks: str1 },
+          { quizId: map(category), score, remarks: str1, KEYWORDS },
           {
             headers: {
               authorization: `Bearer ${token}`,
@@ -82,7 +85,7 @@ export const Score = ({ score, category, KEYWORDS }) => {
           }
         )
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
         })
         .catch((err) => {
           console.log(err);

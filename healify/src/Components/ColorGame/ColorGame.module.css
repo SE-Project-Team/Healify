@@ -1,10 +1,11 @@
 .maindiv {
   text-align: center;
   background-color: #011f3f;
+  height: 100vh;
 }
 
 .leveltitle {
-  font-family: "Press Start 2P", cursive;
+  font-family: "Press Start 2P", Arial;
   font-size: 3rem;
   color: #fef2bf;
 }
@@ -16,10 +17,10 @@
 }
 
 .btn {
-  margin: 25px;
+  margin: 20px;
   display: inline-block;
-  height: 200px;
-  width: 200px;
+  height: 175px;
+  width: 175px;
   border: 10px solid black;
   border-radius: 20%;
 }
@@ -48,4 +49,34 @@
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
+}
+
+.animateFade {
+  animation: fadeOnce 0.5s forwards;
+}
+
+@keyframes fadeOnce {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.pass {
+  color: white;
+  align-self: center;
+}
+
+.button {
+  background: chocolate;
+  font: bold 25px;
+}
+
+.button:hover {
+  font-size: 30px;
 }

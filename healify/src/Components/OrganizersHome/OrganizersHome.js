@@ -37,11 +37,13 @@ export const OrganizersHome = () => {
     <>
       <div className={styles.container}>
         <div className={styles["top-container"]}>
+          <section className={`${styles.OblurImage}`}>
           <div className={styles.img}>
             <img src={image} alt="home" />
             {quote1 && <h4 className={styles.quote1}>{quote1}</h4>}
             {quote2 && <h4 className={styles.quote2}>{quote2}</h4>}
-          </div>
+          </div></section>
+          
           <section className={`${styles.mdbCustom}`}>
             <Card
               path="/Comments"
@@ -66,6 +68,7 @@ export const OrganizersHome = () => {
               cardDesc={`Your Events:.`}
             />
           </section>
+          
         </div>
       </div>
     </>

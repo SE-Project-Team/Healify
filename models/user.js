@@ -57,6 +57,18 @@ const user = new mongoose.Schema(
         message: "Please provide valid email",
       },
     },
+    agegroup: {
+      type: String,
+      default: "all",
+    },
+    gender: {
+      type: String,
+      default: "neutral",
+    },
+    hobbies: {
+      type: String,
+      default: "",
+    },
     quizCat1: {
       type: [scoreSchema],
       default: [],
@@ -77,7 +89,10 @@ const user = new mongoose.Schema(
       type: [milestoneSchema],
       default: [],
     },
-    keywords: keywordSchema,
+    keywords: {
+      type: keywordSchema,
+      default: {},
+    },
     favouriteEvents: [{ type: mongoose.Schema.ObjectId, ref: "event" }],
   },
   {

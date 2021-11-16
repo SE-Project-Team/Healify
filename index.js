@@ -19,6 +19,7 @@ const registrationRouter = require("./routes/registration");
 const quizRouter = require("./routes/quiz");
 const milestonesRouter = require("./routes/milestones");
 const eventsRouter = require("./routes/userEvents");
+const profileRouter = require("./routes/profile");
 
 // modules for authentication
 const { checkUser } = require("./controllers/home");
@@ -41,6 +42,8 @@ app.use("/api/v1/milestones", milestonesRouter);
 app.use("/api/v1/quiz", quizRouter);
 
 app.get("/api/v1/events", eventsRouter);
+
+app.get("/api/v1/profile", profileRouter);
 
 app.get("/api/v1", auth, checkUser);
 

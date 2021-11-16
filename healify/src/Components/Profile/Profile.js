@@ -60,7 +60,7 @@ const handlePasswordInputChange = (event) =>
       <div className={profilestyles.model}>
     
       
-          <div className="container rounded bg-white mt-5">
+          <div className="container rounded bg-white mt-5 mb-5">
              {submitted && valid ?  <div className={profilestyles["success-message"]}>Sucessfully Saved your Profile</div> : null}
     <div className="row">
         <div className="col-md-3 border-right">

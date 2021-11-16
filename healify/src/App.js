@@ -18,6 +18,7 @@ import { Score } from "./Components/Quiz/Score";
 import { Togglemenu } from "./Components/Milestones/Togglemenu";
 import { QuizStatistics } from "./Components/Statistics/QuizStatistics";
 import { Events } from "./Components/Events/Events";
+import { Eventview } from "./Components/Events/Eventview";
 import { MyEvents } from "./Components/OrganizersHome/MyEvents";
 import { UpcomingEvents } from "./Components/OrganizersHome/UpcomingEvents";
 import News from "./Components/News/News";
@@ -29,12 +30,14 @@ import { Mailer } from "./Components/Mailer";
 import { About } from "./Components/Milestones/About";
 import { ColorGame } from "./Components/ColorGame/ColorGame";
 import { Profile } from "./Components/Profile/Profile";
+import { useState } from "react";
 import "./App.css";
-
 import { useToken } from "./CustomHooks/useToken";
 import { Createnewevent } from "./Components/OrganizersHome/Createnewevent";
 function App() {
   const { token, setToken } = useToken();
+  const [gender, setGender] = useState();
+  const [agegroup, setAgegroup] = useState();
 
   if (!token) {
     return (
@@ -140,6 +143,9 @@ function App() {
           </Route>
           <Route path="/Events">
             <Events />
+          </Route>
+          <Route path="/Eventview">
+            <Eventview />
           </Route>
           <Route path="/MyEvents">
             <MyEvents />

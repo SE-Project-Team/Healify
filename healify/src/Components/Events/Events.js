@@ -26,6 +26,8 @@ export const Events = () => {
           {data.map((datum) => {
             return (
               <Col>
+               <Link to= {{ pathname: "/Eventview",aboutProps:{data:datum}
+                     }}>
                 <Card>
                   <CardImg
                     top
@@ -52,6 +54,7 @@ export const Events = () => {
                       <Button><i class="fas fa-comment"></i></Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   </CardBody>
                 </Card>
+                </Link>
               </Col>
             );
           })}
