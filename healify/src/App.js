@@ -30,14 +30,34 @@ import { Mailer } from "./Components/Mailer";
 import { About } from "./Components/Milestones/About";
 import { ColorGame } from "./Components/ColorGame/ColorGame";
 import { Profile } from "./Components/Profile/Profile";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
+import axios from "axios";
+
 import { useToken } from "./CustomHooks/useToken";
 import { Createnewevent } from "./Components/OrganizersHome/Createnewevent";
+let AgeGroup, Gender, Hobbies;
 function App() {
   const { token, setToken } = useToken();
-  const [gender, setGender] = useState();
-  const [agegroup, setAgegroup] = useState();
+
+  useEffect(() => {
+    axios
+      .get(`/api/v1/profile`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        AgeGroup = res.data.data.AgeGroup;
+        Gender = res.data.data.Gender;
+        Hobbies = res.data.data.Hobbies;
+      })
+      .catch((err) => {
+        if (err.response) {
+          console.log(err.response);
+        }
+      });
+  }, []);
 
   if (!token) {
     return (
@@ -112,19 +132,33 @@ function App() {
             <Quiz
               category={"Ill Being and Well Being"}
               questions={Questions1}
+              agegroup={AgeGroup}
+              gender={Gender}
             />
           </Route>
           <Route path="/Quiz2">
-            <Quiz category={"Control and Coping"} questions={Questions2} />
+            <Quiz
+              category={"Control and Coping"}
+              questions={Questions2}
+              agegroup={AgeGroup}
+              gender={Gender}
+            />
           </Route>
           <Route path="/Quiz3">
             <Quiz
               category={"Relationships and Belonging"}
               questions={Questions3}
+              agegroup={AgeGroup}
+              gender={Gender}
             />
           </Route>
           <Route path="/Quiz4">
-            <Quiz category={"Self Perception"} questions={Questions4} />
+            <Quiz
+              category={"Self Perception"}
+              questions={Questions4}
+              agegroup={AgeGroup}
+              gender={Gender}
+            />
           </Route>
           <Route path="/Score">
             <Score />

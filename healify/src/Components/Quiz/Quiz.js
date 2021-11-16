@@ -41,10 +41,29 @@ const freq = {
   prayer: 3,
 };
 
-export const Quiz = ({ questions, category }) => {
+const calculate_age = (dob) => {
+  var diff_ms = Date.now() - dob.getTime();
+  var age_dt = new Date(diff_ms);
+
+  return Math.abs(age_dt.getUTCFullYear() - 1970);
+};
+
+export const Quiz = ({ questions, category, gender, agegroup }) => {
   const [warning, setWarning] = useState(-1);
   const [option, setOption] = useState(0);
   const [score, setScore] = useState(0);
+
+  // For Checking whether api is working correctly
+  console.log("Gender is ", gender);
+  console.log("Age is ", agegroup);
+
+  // Age Group is actually bday
+  // Change birthday to age
+  //------------------------------------------------
+  let newDate = new Date(agegroup);
+  newDate = newDate.toString().slice(0, 15);
+
+  //---------------------------------------------//
   const handleChange = (e) => {
     const { value } = e.target;
     setOption(value);
@@ -57,13 +76,11 @@ export const Quiz = ({ questions, category }) => {
   const [questionSet, setQuestionSet] = useState(
     questions.filter(
       (qn) =>
-        (qn.agegroup === "all" || qn.agegroup === agegroup) &&
-        (qn.gender === "neutral" || qn.gender === gender)
+        qn.agegroup === "all" ||
+        (qn.agegroup === agegroup &&
+          (qn.gender === "neutral" || qn.gender === gender))
     )
   );
-
-  const [gender, setGender] = useState(null);
-  const [agegroup, setAgegroup] = useState(null);
 
   const newQue = () => {
     if (warning === -1 || warning === 1) {
