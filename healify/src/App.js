@@ -18,6 +18,7 @@ import { Score } from "./Components/Quiz/Score";
 import { Togglemenu } from "./Components/Milestones/Togglemenu";
 import { QuizStatistics } from "./Components/Statistics/QuizStatistics";
 import { Events } from "./Components/Events/Events";
+import { Eventview } from "./Components/Events/Eventview";
 import { MyEvents } from "./Components/OrganizersHome/MyEvents";
 import { UpcomingEvents } from "./Components/OrganizersHome/UpcomingEvents";
 import News from "./Components/News/News";
@@ -139,6 +140,9 @@ function App() {
           </Route>
           <Route path="/Events">
             <Events />
+          </Route>
+          <Route path="/Eventview">
+            <Eventview />
           </Route>
           <Route path="/MyEvents">
             <MyEvents />

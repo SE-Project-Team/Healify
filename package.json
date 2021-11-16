@@ -21,6 +21,8 @@
     "http-status-codes": "^2.1.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.11",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.4",
     "validator": "^13.7.0"
   },
   "devDependencies": {

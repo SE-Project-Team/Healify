@@ -27,52 +27,58 @@ export const Createnewevent = ({ _id }) => {
   return (
     <>
       <Header />
-      <div className={`${createStyles.flexWrapper}`}>
-        <Navbar />
-        <div className={`${createStyles.wrapper}`}>
-          <label htmlFor="eventName">Event Name</label>
-          <input type="text" name="eventName" onChange={onChange} />
+      <div className={createStyles.bodyy}>
+        <div className={createStyles.container}>
+           <br /><br />
+       <div className={createStyles.brandtitle}>Create Event</div>
+       <div className={createStyles.inputs}></div>
+       
+          <label htmlFor="eventName" className={createStyles.clabel}>Event Name</label>
+          <input type="text" name="eventName" onChange={onChange}  className={createStyles.cinput} />
+          <br /><br />
+          <label htmlFor="subtitle" className={createStyles.clabel}>Event Sub Title</label>
+          <input type="text" name="subtitle" onChange={onChange}  className={createStyles.cinput}/>
+          <br />
+          <label htmlFor="description" className={createStyles.clabel}>Event Description</label>
+          <textarea name="description" rows="4" cols="50" onChange={onChange}   className={createStyles.ctextarea}/>
+           <br />
+          <label htmlFor="" className={createStyles.clabel}>Date</label>
 
-          <label htmlFor="subtitle">Event Sub Title</label>
-          <input type="text" name="subtitle" onChange={onChange} />
-
-          <label htmlFor="description">Event Description</label>
-          <textarea name="description" rows="4" cols="50" onChange={onChange} />
-
-          <label htmlFor="">Date</label>
-
-          <button
+          <button className={createStyles.createbtn}
             onClick={() => {
               setChooseDate(chooseDate ? "" : "true");
             }}
-            className={`${createStyles.buttonStyle}`}
+            
           >
             {chooseDate
               ? "Click here to select the Date"
               : `${date ? date.toDateString() : "Please Select a Date"}`}
           </button>
           {chooseDate && <Calendar onChange={setDate} value={date} />}
-
-          <label htmlFor="platforms">Platform For Event</label>
-          <input type="text" name={`platforms`} placeholder={`eg: zoom`} />
-
-          <label htmlFor="phone">Contact Number</label>
+             <br /><br />
+          <label htmlFor="platforms" className={createStyles.clabel}>Platform For Event</label>
+          <input type="text" name={`platforms`} placeholder={`eg: zoom`} className={createStyles.cinput}/>
+         <br /><br />
+          <label htmlFor="phone" className={createStyles.clabel}>Contact Number</label>
           <input
+             className={createStyles.cinput}
             type="tel"
             id="phone"
             name="phone"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             required
           />
-
-          <button
-            className={`${createStyles.buttonStyle2}`}
+           <br /><br />
+          <button 
+           className={createStyles.btn}
+            
             onClick={handleSubmit}
           >
             Create New Event
           </button>
         </div>
-      </div>
+        </div>
+     
     </>
   );
 };
