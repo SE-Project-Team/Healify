@@ -29,6 +29,7 @@ const auth = require("./middleware/auth");
 app.use(express.json());
 app.use(cors());
 
+// static file serving
 const buildPath = path.join(__dirname, "healify", "build");
 app.use(express.static(buildPath));
 
@@ -41,9 +42,9 @@ app.use("/api/v1/milestones", milestonesRouter);
 
 app.use("/api/v1/quiz", quizRouter);
 
-app.get("/api/v1/events", eventsRouter);
+app.use("/api/v1/events", eventsRouter);
 
-app.get("/api/v1/profile", profileRouter);
+app.use("/api/v1/profile", profileRouter);
 
 app.get("/api/v1", auth, checkUser);
 

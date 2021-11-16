@@ -7,12 +7,56 @@ import phyImg from "../../Assets/physical.jpg";
 import controlImg from "../../Assets/control.jpg";
 import copingImg from "../../Assets/coping.jpg";
 
+import ConfirmDialog from "../Milestones/ConfirmDialog";
+
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { Header } from "../Home/Header";
+import { useHistory } from "react-router";
+
 export const QuizLanding = () => {
+  const [filled, setFilled] = useState(true);
+  const history = useHistory();
+  const [confirmDialog, setConfirmDialog] = useState({
+    isOpen: true,
+    title: "Please Enter Your Profile Details for a Better Evaluation",
+    subTitle: "Click On Your UserName to go to Profile Page",
+    onConfirm: () => {
+      history.push("/profile");
+    },
+  });
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    axios
+      .get(`/api/v1/profile`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        const { AgeGroup, Gender } = res.data.data;
+        if (!AgeGroup || !Gender) {
+          // do something
+          setFilled(false);
+        }
+      })
+      .catch((err) => {
+        if (err.response) {
+          console.log(err.response);
+        }
+      });
+  }, []);
   return (
     <>
       <Header />
+      {!filled && (
+        <ConfirmDialog
+          confirmDialog={confirmDialog}
+          setConfirmDialog={setConfirmDialog}
+        />
+      )}
       <div className={styles3.quizBody}>
         <div className={styles3.topDiv}>
           <img src={img} alt="" className={styles3.topDivImg} />

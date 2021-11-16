@@ -7,7 +7,6 @@ const authenticationMiddleware = async (req, res, next) => {
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     throw new UnauthenticatedError("No Token in Request");
   }
-
   // auth header = 'Bearer <Token>'
   const token = authHeader.split(" ")[1];
   try {
@@ -19,7 +18,6 @@ const authenticationMiddleware = async (req, res, next) => {
     } else if (role === "organizer") {
       req.organizer = { _id, username };
     }
-
     next();
   } catch (err) {
     console.log(err);

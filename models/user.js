@@ -57,13 +57,13 @@ const user = new mongoose.Schema(
         message: "Please provide valid email",
       },
     },
-    agegroup: {
-      type: String,
-      default: "all",
+    birthday: {
+      type: Date,
     },
     gender: {
       type: String,
       default: "neutral",
+      enums: ["neutral", "male", "female"],
     },
     hobbies: {
       type: String,
