@@ -28,12 +28,15 @@ import { Progressbar } from "./Components/Milestones/Progressbar";
 import { Mailer } from "./Components/Mailer";
 import { About } from "./Components/Milestones/About";
 import { ColorGame } from "./Components/ColorGame/ColorGame";
+import { useState } from "react";
 import "./App.css";
 
 import { useToken } from "./CustomHooks/useToken";
 import { Createnewevent } from "./Components/OrganizersHome/Createnewevent";
 function App() {
   const { token, setToken } = useToken();
+  const [gender, setGender] = useState();
+  const [agegroup, setAgegroup] = useState();
 
   if (!token) {
     return (
@@ -105,19 +108,33 @@ function App() {
             <Quiz
               category={"Ill Being and Well Being"}
               questions={Questions1}
+              gender={gender}
+              agegroup={agegroup}
             />
           </Route>
           <Route path="/Quiz2">
-            <Quiz category={"Control and Coping"} questions={Questions2} />
+            <Quiz
+              category={"Control and Coping"}
+              questions={Questions2}
+              gender={gender}
+              agegroup={agegroup}
+            />
           </Route>
           <Route path="/Quiz3">
             <Quiz
               category={"Relationships and Belonging"}
               questions={Questions3}
+              gender={gender}
+              agegroup={agegroup}
             />
           </Route>
           <Route path="/Quiz4">
-            <Quiz category={"Self Perception"} questions={Questions4} />
+            <Quiz
+              category={"Self Perception"}
+              questions={Questions4}
+              gender={gender}
+              agegroup={agegroup}
+            />
           </Route>
           <Route path="/Score">
             <Score />
