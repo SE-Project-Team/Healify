@@ -1,5 +1,6 @@
 .model {
   background-color: rgb(99, 39, 120);
+  display: flex;
 }
 
 .success-message {
@@ -20,6 +21,7 @@
   background: rgb(99, 39, 120);
   box-shadow: none;
   border: none;
+  margin-bottom: 25px;
 }
 
 .profile-button:hover {
