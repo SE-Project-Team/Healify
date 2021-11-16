@@ -28,12 +28,15 @@ import { Progressbar } from "./Components/Milestones/Progressbar";
 import { Mailer } from "./Components/Mailer";
 import { About } from "./Components/Milestones/About";
 import { ColorGame } from "./Components/ColorGame/ColorGame";
+import { useState } from "react";
 import "./App.css";
 
 import { useToken } from "./CustomHooks/useToken";
 import { Createnewevent } from "./Components/OrganizersHome/Createnewevent";
 function App() {
   const { token, setToken } = useToken();
+  const [gender, setGender] = useState();
+  const [agegroup, setAgegroup] = useState();
 
   if (!token) {
     return (

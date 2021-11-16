@@ -53,8 +53,17 @@ export const Quiz = ({ questions, category }) => {
   };
 
   const [counter, setCounter] = useState(1);
-  const [questionSet, setQuestionSet] = useState(questions);
   const [que, setQue] = useState(questions[0]);
+  const [questionSet, setQuestionSet] = useState(
+    questions.filter(
+      (qn) =>
+        (qn.agegroup === "all" || qn.agegroup === agegroup) &&
+        (qn.gender === "neutral" || qn.gender === gender)
+    )
+  );
+
+  const [gender, setGender] = useState(null);
+  const [agegroup, setAgegroup] = useState(null);
 
   const newQue = () => {
     if (warning === -1 || warning === 1) {

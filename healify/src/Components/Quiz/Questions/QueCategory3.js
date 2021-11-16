@@ -9,7 +9,7 @@ export const Questions3 = [
     op5: "Was given the least amount of contact by unhappy (perhaps angry) parent(s)",
     keywords: ["thankfulness", "thanksgiving", "kindness"],
     gender: "neutral",
-    agegroup: " ",
+    agegroup: "all",
   },
   {
     id: 36,
@@ -21,7 +21,7 @@ export const Questions3 = [
     op5: "To a very little extent",
     keywords: ["anger management", "anxiety", "kindness"],
     gender: "neutral",
-    agegroup: " ",
+    agegroup: "all",
   },
   {
     id: 37,
@@ -33,7 +33,7 @@ export const Questions3 = [
     op5: "Very uneasily",
     keywords: ["social anxiety", "friendliness", "kindness"],
     gender: "neutral",
-    agegroup: " ",
+    agegroup: "all",
   },
   {
     id: 38,
@@ -45,7 +45,7 @@ export const Questions3 = [
     op5: "Very unlikely",
     keywords: ["social anxiety", "friendliness"],
     gender: "neutral",
-    agegroup: " ",
+    agegroup: "all",
   },
   {
     id: 39,
@@ -57,7 +57,7 @@ export const Questions3 = [
     op5: "Highly likely",
     keywords: ["social anxiety", "friendliness"],
     gender: "neutral",
-    agegroup: " ",
+    agegroup: "all",
   },
   {
     id: 40,
@@ -69,7 +69,7 @@ export const Questions3 = [
     op5: "Almost always",
     keywords: ["overthinking", "social anxiety", "friendliness"],
     gender: "neutral",
-    agegroup: " ",
+    agegroup: "all",
   },
   {
     id: 41,
@@ -81,7 +81,7 @@ export const Questions3 = [
     op5: "Completely disappointed",
     keywords: ["social anxiety", "friendliness"],
     gender: "neutral",
-    agegroup: " ",
+    agegroup: "all",
   },
   {
     id: 42,
@@ -93,7 +93,7 @@ export const Questions3 = [
     op5: "Completely disappointed",
     keywords: ["loyalty"],
     gender: "neutral",
-    agegroup: " ",
+    agegroup: "all",
   },
   {
     id: 43,
@@ -105,7 +105,7 @@ export const Questions3 = [
     op5: "Completely disappointed",
     keywords: ["thankfulness", "peace"],
     gender: "neutral",
-    agegroup: " ",
+    agegroup: "all",
   },
   {
     id: 44,
@@ -117,7 +117,7 @@ export const Questions3 = [
     op5: "Seldom",
     keywords: ["spirituality", "prayer", "meditation"],
     gender: "neutral",
-    agegroup: " ",
+    agegroup: "all",
   },
   {
     id: 45,
@@ -129,7 +129,7 @@ export const Questions3 = [
     op5: "To a very little extent",
     keywords: ["spirituality", "thankfulness", "meditation"],
     gender: "neutral",
-    agegroup: " ",
+    agegroup: "all",
   },
   {
     id: 46,
@@ -141,7 +141,7 @@ export const Questions3 = [
     op5: "To a very little extent",
     keywords: ["spirituality", "thanksgiving", "meditation"],
     gender: "neutral",
-    agegroup: " ",
+    agegroup: "all",
   },
   {
     id: 47,
@@ -153,7 +153,7 @@ export const Questions3 = [
     op5: "Very little",
     keywords: ["spirituality", "thankfulness", "prayer"],
     gender: "neutral",
-    agegroup: " ",
+    agegroup: "all",
   },
   {
     id: 48,
@@ -165,6 +165,6 @@ export const Questions3 = [
     op5: "Completely disappointed",
     keywords: ["spirituality", "thankfulness", "meditation", "prayer"],
     gender: "neutral",
-    agegroup: " ",
+    agegroup: "all",
   },
 ];
