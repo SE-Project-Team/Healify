@@ -50,28 +50,41 @@ const freq = {
   therapy: 1,
 };
 
-const calculate_age = (dob) => {
-  var diff_ms = Date.now() - dob.getTime();
-  var age_dt = new Date(diff_ms);
-
-  return Math.abs(age_dt.getUTCFullYear() - 1970);
-};
-
-export const Quiz = ({ questions, category, gender, agegroup }) => {
+export const Quiz = ({ questions, category, gender, birthday }) => {
   const [warning, setWarning] = useState(-1);
   const [option, setOption] = useState(0);
   const [score, setScore] = useState(0);
 
   // For Checking whether api is working correctly
   console.log("Gender is ", gender);
-  console.log("Age is ", agegroup);
+  console.log("Birthday is ", birthday);
 
-  // Age Group is actually bday
-  // Change birthday to age
-  //------------------------------------------------
-  let newDate = new Date(agegroup);
-  newDate = newDate.toString().slice(0, 15);
+  const calculate_age = (dob) => {
+    var diff_ms = Date.now() - dob.getTime();
+    var age_dt = new Date(diff_ms);
 
+    return Math.abs(age_dt.getUTCFullYear() - 1970);
+  };
+  // birthday = "2014-12-14T10:50:42.389Z";
+  let date = new Date(birthday);
+  date = date.toString().slice(4, 15);
+  let reactDate = new Date(date);
+  const age = calculate_age(reactDate);
+  console.log(age);
+  let agegroup = "";
+
+  switch (true) {
+    case age < 12:
+      agegroup = "kid";
+      break;
+    case age < 45:
+      agegroup = "adult";
+      break;
+    default:
+      agegroup = "old";
+      break;
+  }
+  console.log(agegroup);
   //---------------------------------------------//
   const handleChange = (e) => {
     const { value } = e.target;
