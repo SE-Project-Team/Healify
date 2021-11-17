@@ -20,6 +20,7 @@ const quizRouter = require("./routes/quiz");
 const milestonesRouter = require("./routes/milestones");
 const eventsRouter = require("./routes/userEvents");
 const profileRouter = require("./routes/profile");
+const organizerRouter = require("./routes/organizer");
 
 // modules for authentication
 const { checkUser } = require("./controllers/home");
@@ -43,6 +44,8 @@ app.use("/api/v1/milestones", milestonesRouter);
 app.use("/api/v1/quiz", quizRouter);
 
 app.use("/api/v1/events", eventsRouter);
+
+app.use("/api/v1/organizer", organizerRouter);
 
 app.use("/api/v1/profile", profileRouter);
 

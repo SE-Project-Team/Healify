@@ -28,8 +28,8 @@ const event = new mongoose.Schema(
       type: Date,
       required: [true, "Date of event is required"],
     },
-    platforms: {
-      type: [String],
+    platform: {
+      type: String,
     },
     eventImage: {
       type: String,
@@ -41,12 +41,13 @@ const event = new mongoose.Schema(
       required: true,
     },
     contactNo: {
-      type: Number,
+      type: String,
       required: [true, "Phone Number is required"],
     },
     status: {
       type: String,
       enum: ["Completed", "Not Completed"],
+      default: "Not Completed",
     },
     link: {
       type: String,

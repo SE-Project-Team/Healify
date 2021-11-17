@@ -81,7 +81,18 @@ const patchEventById = async (req, res) => {
   await Event.findByIdAndUpdate(updatedEvent._id, updatedEvent);
 };
 
+const createEvent = async (req, res) => {
+  const { _id } = req.organizer;
+  const newEvent = { ...req.body, organizer: _id };
+
+  const created = await Event.create(newEvent);
+  if (!created) {
+    throw new BadRequestError("Event Not Created");
+  }
+};
+
 module.exports = {
+  createEvent,
   getAllEvents,
   getEventById,
   removeEventById,
