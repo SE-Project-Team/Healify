@@ -14,11 +14,10 @@ const getProfile = async (req, res) => {
     BirthDay: user.birthday,
     Gender: user.gender,
     Hobbies: user.hobbies,
+    Keywords: user.keywords,
   };
 
-  return res
-    .status(StatusCodes.OK)
-    .json({ status: "success", data: { profile } });
+  return res.status(StatusCodes.OK).json({ status: "success", data: profile });
 };
 
 const postProfile = async (req, res) => {
