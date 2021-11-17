@@ -11,7 +11,7 @@ const getProfile = async (req, res) => {
     throw new BadRequestError("No Such User");
   }
   const profile = {
-    AgeGroup: user.agegroup,
+    BirthDay: user.birthday,
     Gender: user.gender,
     Hobbies: user.hobbies,
   };
@@ -22,14 +22,14 @@ const getProfile = async (req, res) => {
 };
 
 const postProfile = async (req, res) => {
-  const { AgeGroup, Gender, Hobbies } = req.body;
+  const { BirthDay, Gender, Hobbies } = req.body;
   const { _id } = req.user;
 
   await User.findByIdAndUpdate(_id, {
-    $set: { agegroup: AgeGroup, gender: Gender, hobbies: Hobbies },
+    $set: { birthday: BirthDay, gender: Gender, hobbies: Hobbies },
   });
   res
     .status(StatusCodes.OK)
-    .json({ status: "success", data: { AgeGroup, Gender, Hobbies } });
+    .json({ status: "success", data: { BirthDay, Gender, Hobbies } });
 };
 module.exports = { postProfile, getProfile };

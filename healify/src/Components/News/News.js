@@ -19,7 +19,14 @@ const News = () => {
 
   useEffect(() => {
     if (suggesting) {
-      // axios.get(`api/v1/keywords/`);
+      axios
+        .get(`api/v1/keywords/`)
+        .then((res) => {})
+        .catch((err) => {
+          if (err.response) {
+            console.log(err.response.body);
+          }
+        });
 
       // Set Query over here
 
