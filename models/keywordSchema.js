@@ -141,7 +141,27 @@ const keywordSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  "self love": {
+  "self-love": {
+    type: Number,
+    default: 0,
+  },
+  "menstrual-health": {
+    type: Number,
+    default: 0,
+  },
+  "menstrual-hygiene": {
+    type: Number,
+    default: 0,
+  },
+  "menstrual-problems": {
+    type: Number,
+    default: 0,
+  },
+  loyalty: {
+    type: Number,
+    default: 0,
+  },
+  confidence: {
     type: Number,
     default: 0,
   },
