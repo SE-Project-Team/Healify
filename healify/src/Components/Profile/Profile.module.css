@@ -1,0 +1,57 @@
+.model {
+  background-color: rgb(99, 39, 120);
+  display: flex;
+}
+
+.success-message {
+  background-color: #ba68c8;
+  color: white;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.fontapply {
+  color: red;
+}
+.form-control:focus {
+  box-shadow: none;
+  border-color: #ba68c8;
+}
+
+.profile-button {
+  background: rgb(99, 39, 120);
+  box-shadow: none;
+  border: none;
+  margin-bottom: 25px;
+}
+
+.profile-button:hover {
+  background: #682773;
+}
+
+.profile-button:focus {
+  background: #682773;
+  box-shadow: none;
+}
+
+.profile-button:active {
+  background: #682773;
+  box-shadow: none;
+}
+
+.back:hover {
+  color: #682773;
+  cursor: pointer;
+}
+
+.labels {
+  font-size: 11px;
+
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.add-experience:hover {
+  background: #ba68c8;
+  color: #fff;
+  cursor: pointer;
+  border: solid 1px #ba68c8;
+}
