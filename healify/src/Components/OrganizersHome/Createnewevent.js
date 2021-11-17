@@ -7,6 +7,7 @@ import Navbar from "./Navbar";
 import { Header } from "../Home/Header";
 import axios from "axios";
 import { useHistory } from "react-router";
+import imgDef from "../../Assets/user.png";
 
 export const Createnewevent = () => {
   const [eventName, setEventName] = useState("");
@@ -19,7 +20,7 @@ export const Createnewevent = () => {
   const [date, setDate] = useState(new Date());
   const [link, setLink] = useState("");
 
-  const [warning, setWarning] = useState("SAY MY NAME");
+  const [warning, setWarning] = useState("");
   const history = useHistory();
   const displayWarning = async (msg) => {
     setWarning(msg);
@@ -84,46 +85,60 @@ export const Createnewevent = () => {
             <div className={createStyles.brandtitle}>Create Event</div>
             <div className={createStyles.inputs}></div>
 
-            <label htmlFor="eventName" className={createStyles.clabel}>
-              Event Name
-            </label>
-            <input
-              type="text"
-              name="eventName"
-              onChange={(e) => {
-                setEventName(e.target.value);
-              }}
-              className={createStyles.cinput}
-              value={eventName}
-            />
-            <br />
-            <br />
-            <label htmlFor="subtitle" className={createStyles.clabel}>
-              Event Sub Title
-            </label>
-            <input
-              type="text"
-              name="subtitle"
-              onChange={(e) => {
-                setSubtitle(e.target.value);
-              }}
-              value={subtitle}
-              className={createStyles.cinput}
-            />
-            <br />
-            <label htmlFor="description" className={createStyles.clabel}>
-              Event Description
-            </label>
-            <textarea
-              name="description"
-              rows="4"
-              cols="50"
-              onChange={(e) => {
-                setDescription(e.target.value);
-              }}
-              className={createStyles.ctextarea}
-              value={description}
-            />
+            <section className={`${createStyles.imageArea}`}>
+              <div>
+                <img
+                  src={imgDef}
+                  alt="No Img as of now"
+                  className={`${createStyles.eventImg}`}
+                />
+                <h4 className={`${createStyles.uploadBtn}`}>UPLOAD IMAGE</h4>
+              </div>
+              <section>
+                <label htmlFor="eventName" className={createStyles.clabel}>
+                  Event Name
+                </label>
+                <input
+                  type="text"
+                  name="eventName"
+                  onChange={(e) => {
+                    setEventName(e.target.value);
+                  }}
+                  className={createStyles.cinput}
+                  value={eventName}
+                />
+                <br />
+                <br />
+                <label htmlFor="subtitle" className={createStyles.clabel}>
+                  Event Sub Title
+                </label>
+                <input
+                  type="text"
+                  name="subtitle"
+                  onChange={(e) => {
+                    setSubtitle(e.target.value);
+                  }}
+                  value={subtitle}
+                  className={createStyles.cinput}
+                />
+
+                <br />
+                <label htmlFor="description" className={createStyles.clabel}>
+                  Event Description
+                </label>
+                <textarea
+                  name="description"
+                  rows="4"
+                  cols="50"
+                  onChange={(e) => {
+                    setDescription(e.target.value);
+                  }}
+                  className={createStyles.ctextarea}
+                  value={description}
+                />
+              </section>
+            </section>
+
             <br />
             <label htmlFor="" className={createStyles.clabel}>
               Date
@@ -139,7 +154,13 @@ export const Createnewevent = () => {
                 ? "Click here to select the Date"
                 : `${date ? date.toDateString() : "Please Select a Date"}`}
             </button>
-            {chooseDate && <Calendar onChange={setDate} value={date} />}
+            {chooseDate && (
+              <Calendar
+                onChange={setDate}
+                value={date}
+                className={`${createStyles.Calendar}`}
+              />
+            )}
             <br />
             <br />
             <label htmlFor="platform" className={createStyles.clabel}>

@@ -195,3 +195,64 @@
     opacity: 0;
   }
 }
+
+.imageArea {
+  display: flex;
+}
+
+.imageArea div {
+  margin-bottom: 10px;
+  position: relative;
+  width: 35%;
+  margin: 0px 5%;
+}
+
+.eventImg {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 850px) {
+  .imageArea {
+    display: block;
+    /* width: 100%; */
+    /* height: 50vh; */
+  }
+
+  .imageArea div {
+    margin: 10px auto;
+  }
+
+  .eventImg {
+    width: 100%;
+  }
+
+  .uploadBtn {
+    padding: 0px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .imageArea div {
+    width: 50%;
+    height: 50%;
+  }
+  .uploadBtn {
+    position: relative;
+  }
+}
+.uploadBtn {
+  position: absolute;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  left: 0px;
+  bottom: 0px;
+  opacity: 0.6;
+  background: rgb(184, 64, 64);
+}
+
+.Calendar {
+  margin: 10px auto;
+}
