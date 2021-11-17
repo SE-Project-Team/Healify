@@ -7,10 +7,20 @@ import dSound from "../../Assets/sounds/tom-4.mp3";
 import jSound from "../../Assets/sounds/snare.mp3";
 import kSound from "../../Assets/sounds/crash.mp3";
 import lSound from "../../Assets/sounds/kick-bass.mp3";
+import wImg from "../../Assets/images/w.png";
+import aImg from "../../Assets/images/a.png";
+import sImg from "../../Assets/images/s.png";
+import dImg from "../../Assets/images/d.png";
+import jImg from "../../Assets/images/j.png";
+import kImg from "../../Assets/images/k.png";
+import lImg from "../../Assets/images/l.png";
 import { Recorder } from "./Recorder";
 import { useEffect, useState } from "react";
+import { Notes } from "./Notes.js";
 export const Drumkit = () => {
   // Alternate way -> set State to the letter and evaluate class based on state=== letter && class
+
+  const note = [lImg, jImg, sImg, aImg, wImg, kImg];
 
   const [w, setW] = useState(false);
   const [a, setA] = useState(false);
@@ -111,6 +121,7 @@ export const Drumkit = () => {
         <div>
           <h1 className={styles.drumkith1}>Drum 🥁 Kit</h1>
           <div className={`${styles.set} ${styles.drum}`}>
+            <Notes note={note} />
             <button
               className={`${styles.w} ${w && styles.pressed}`}
               onClick={() => {
@@ -169,6 +180,7 @@ export const Drumkit = () => {
             </button>
           </div>
         </div>
+
         <Recorder />
 
         <footer className={styles.drumkitfooter}>
