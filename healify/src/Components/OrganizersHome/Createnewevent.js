@@ -1,6 +1,6 @@
-import React from "react";
+import React, { createRef } from "react";
 import Calendar from "react-calendar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import createStyles from "./create.module.css";
 import "react-calendar/dist/Calendar.css";
 import Navbar from "./Navbar";
@@ -19,9 +19,11 @@ export const Createnewevent = () => {
   const [chooseDate, setChooseDate] = useState("");
   const [date, setDate] = useState(new Date());
   const [link, setLink] = useState("");
+  const [image, setImage] = useState(null);
 
   const [warning, setWarning] = useState("");
   const history = useHistory();
+  const inputRef = createRef();
   const displayWarning = async (msg) => {
     setWarning(msg);
     setTimeout(() => {
@@ -29,6 +31,9 @@ export const Createnewevent = () => {
     }, 3000);
   };
 
+  const fileUploadButton = () => {
+    inputRef.current.click();
+  };
   const handleSubmit = async (e) => {
     const token = JSON.parse(localStorage.getItem("token"));
     e.preventDefault();
@@ -39,29 +44,31 @@ export const Createnewevent = () => {
       return;
     }
 
-    if (date < date.now()) {
+    if (date < Date.now()) {
       displayWarning("Please Make Sure That You Have Given A Valid Date");
     }
 
     // Possibly jst check validity of phone number
-    await axios
-      .post(
-        "/api/v1/organizer/create-event",
-        {
-          eventName,
-          subtitle,
-          description,
-          date,
-          platform,
-          contactNo: phone,
-          link: link,
+
+    const formData = new FormData();
+    if (image) {
+      formData.append("image", image);
+    }
+    formData.append("eventName", eventName);
+    formData.append("subtitle", subtitle);
+    formData.append("description", description);
+    formData.append("date", date);
+    formData.append("platform", platform);
+    formData.append("contactNo", phone);
+    formData.append("link", link);
+
+    const response = await axios
+      .post("/api/v1/organizer/create-event", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          authorization: `Bearer ${token}`,
         },
-        {
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        }
-      )
+      })
       .then((res) => {
         console.log(res.data);
       })
@@ -69,8 +76,11 @@ export const Createnewevent = () => {
         if (err.response) {
           console.log(err.response.data);
         }
+        return;
       });
-    history.push("/organizer");
+    // console.log(response);
+
+    history.push("/organizers");
   };
 
   return (
@@ -88,11 +98,26 @@ export const Createnewevent = () => {
             <section className={`${createStyles.imageArea}`}>
               <div>
                 <img
-                  src={imgDef}
-                  alt="No Img as of now"
+                  src={(!image && imgDef) || URL.createObjectURL(image)}
+                  alt={imgDef}
                   className={`${createStyles.eventImg}`}
                 />
-                <h4 className={`${createStyles.uploadBtn}`}>UPLOAD IMAGE</h4>
+                <h4
+                  className={`${createStyles.uploadBtn}`}
+                  onClick={fileUploadButton}
+                >
+                  UPLOAD IMAGE
+                </h4>
+                <input
+                  type="file"
+                  name="image"
+                  ref={inputRef}
+                  onChange={(e) => {
+                    console.log(e.target.files[0]);
+                    setImage(e.target.files[0]);
+                  }}
+                  hidden
+                />
               </div>
               <section>
                 <label htmlFor="eventName" className={createStyles.clabel}>

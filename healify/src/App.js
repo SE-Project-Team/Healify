@@ -178,9 +178,7 @@ function App() {
           <Route path="/Events">
             <Events />
           </Route>
-          <Route path="/Eventview">
-            <Eventview />
-          </Route>
+          <Route path="/Eventview:id" children={<Eventview />}></Route>
           <Route path="/MyEvents">
             <MyEvents />
           </Route>

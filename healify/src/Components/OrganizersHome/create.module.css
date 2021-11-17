@@ -242,6 +242,7 @@
     position: relative;
   }
 }
+
 .uploadBtn {
   position: absolute;
   width: 100%;
@@ -251,6 +252,7 @@
   bottom: 0px;
   opacity: 0.6;
   background: rgb(184, 64, 64);
+  margin: 0px;
 }
 
 .Calendar {

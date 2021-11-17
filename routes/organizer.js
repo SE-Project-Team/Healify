@@ -17,6 +17,8 @@ router.route("/").get(auth, getAllEvents);
 
 router.route("/create-event").post(auth, createEvent);
 
+// router.route("/create-event/uploads").post(auth, createEvent);
+
 router.route("/event").get(auth, getEventById);
 
 router.route("/modify-event").patch(auth, patchEventById);
