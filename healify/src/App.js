@@ -36,7 +36,7 @@ import axios from "axios";
 
 import { useToken } from "./CustomHooks/useToken";
 import { Createnewevent } from "./Components/OrganizersHome/Createnewevent";
-let AgeGroup, Gender, Hobbies;
+let BirthDay, Gender, Hobbies;
 function App() {
   const { token, setToken } = useToken();
 
@@ -48,7 +48,7 @@ function App() {
         },
       })
       .then((res) => {
-        AgeGroup = res.data.data.AgeGroup;
+        BirthDay = res.data.data.BirthDay;
         Gender = res.data.data.Gender;
         Hobbies = res.data.data.Hobbies;
       })
@@ -132,7 +132,7 @@ function App() {
             <Quiz
               category={"Ill Being and Well Being"}
               questions={Questions1}
-              agegroup={AgeGroup}
+              birthday={BirthDay}
               gender={Gender}
             />
           </Route>
@@ -140,7 +140,7 @@ function App() {
             <Quiz
               category={"Control and Coping"}
               questions={Questions2}
-              agegroup={AgeGroup}
+              birthday={BirthDay}
               gender={Gender}
             />
           </Route>
@@ -148,7 +148,7 @@ function App() {
             <Quiz
               category={"Relationships and Belonging"}
               questions={Questions3}
-              agegroup={AgeGroup}
+              birthday={BirthDay}
               gender={Gender}
             />
           </Route>
@@ -156,7 +156,7 @@ function App() {
             <Quiz
               category={"Self Perception"}
               questions={Questions4}
-              agegroup={AgeGroup}
+              birthday={BirthDay}
               gender={Gender}
             />
           </Route>

@@ -10,59 +10,81 @@ const freq = {
   stress: 16,
   anxiety: 6,
   depression: 5,
-  "anger management": 8,
+  "anger-management": 8,
   irritability: 3,
   phobia: 1,
   insomania: 3,
   exercise: 6,
   fitness: 7,
-  "physical health": 11,
-  "healthy diet": 6,
+  "physical-health": 11,
+  "healthy-diet": 6,
   nutrition: 4,
   "de-addiction": 2,
   rehab: 2,
-  "self control": 12,
-  "self management": 7,
+  "self-control": 12,
+  "self-management": 7,
   faith: 11,
   coping: 15,
   resilience: 4,
   yoga: 2,
   meditation: 6,
-  "decision making": 2,
+  "decision-making": 2,
   leadership: 2,
   peace: 3,
   thankfulness: 14,
   thanksgiving: 5,
   kindness: 5,
   overthinking: 3,
-  "social anxiety": 7,
+  "social-anxiety": 7,
   friendliness: 5,
   spirituality: 5,
   prayer: 3,
+  "menstrual-health": 9,
+  "menstrual-hygiene": 9,
+  "menstrual-problems": 9,
+  loyalty: 1,
+  satisfaction: 3,
+  "self-love": 4,
+  confidence: 2,
+  parenting: 1,
+  therapy: 1,
 };
 
-const calculate_age = (dob) => {
-  var diff_ms = Date.now() - dob.getTime();
-  var age_dt = new Date(diff_ms);
-
-  return Math.abs(age_dt.getUTCFullYear() - 1970);
-};
-
-export const Quiz = ({ questions, category, gender, agegroup }) => {
+export const Quiz = ({ questions, category, gender, birthday }) => {
   const [warning, setWarning] = useState(-1);
   const [option, setOption] = useState(0);
   const [score, setScore] = useState(0);
 
   // For Checking whether api is working correctly
   console.log("Gender is ", gender);
-  console.log("Age is ", agegroup);
+  console.log("Birthday is ", birthday);
 
-  // Age Group is actually bday
-  // Change birthday to age
-  //------------------------------------------------
-  let newDate = new Date(agegroup);
-  newDate = newDate.toString().slice(0, 15);
+  const calculate_age = (dob) => {
+    var diff_ms = Date.now() - dob.getTime();
+    var age_dt = new Date(diff_ms);
 
+    return Math.abs(age_dt.getUTCFullYear() - 1970);
+  };
+  // birthday = "2014-12-14T10:50:42.389Z";
+  let date = new Date(birthday);
+  date = date.toString().slice(4, 15);
+  let reactDate = new Date(date);
+  const age = calculate_age(reactDate);
+  console.log(age);
+  let agegroup = "";
+
+  switch (true) {
+    case age < 12:
+      agegroup = "kid";
+      break;
+    case age < 45:
+      agegroup = "adult";
+      break;
+    default:
+      agegroup = "old";
+      break;
+  }
+  console.log(agegroup);
   //---------------------------------------------//
   const handleChange = (e) => {
     const { value } = e.target;
