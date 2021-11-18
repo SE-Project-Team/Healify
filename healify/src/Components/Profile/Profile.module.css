@@ -44,9 +44,11 @@
 }
 
 .labels {
-  font-size: 11px;
-
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 12px;
+  font-weight: bold;
+  /* font-weight: 10; */
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* font-family: Georgia, "Times New Roman", Times, serif; */
 }
 
 .add-experience:hover {
