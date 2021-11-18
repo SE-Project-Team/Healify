@@ -13,6 +13,7 @@ const {
 const router = express.Router();
 
 // Add events to marked or view marked events
+router.route("/").get(getAllEvents);
 router
   .route("/favourites")
   .get(auth, getFavourites)

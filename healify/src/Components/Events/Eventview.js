@@ -25,28 +25,28 @@ import axios from "axios";
 export const Eventview = (props) => {
   const [event, setEvent] = useState();
 
-  const [role, setRole] = useState();
+  const [role, setRole] = useState(props.role);
   const { id } = useParams();
 
-  useEffect(() => {
-    const asyncWrapper = async () => {
-      const token = JSON.parse(localStorage.getItem("token"));
-      await axios
-        .get("/api/v1/", {
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        })
-        .then((res) => {
-          const { role } = res.data.data;
-          setRole(role);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-    asyncWrapper();
-  }, []);
+  // useEffect(() => {
+  //   const asyncWrapper = async () => {
+  //     const token = JSON.parse(localStorage.getItem("token"));
+  //     await axios
+  //       .get("/api/v1/", {
+  //         headers: {
+  //           authorization: `Bearer ${token}`,
+  //         },
+  //       })
+  //       .then((res) => {
+  //         const { role } = res.data.data;
+  //         setRole(role);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   };
+  //   asyncWrapper();
+  // }, []);
   useEffect(() => {
     const asyncWrapper = async () => {
       const token = JSON.parse(localStorage.getItem("token"));

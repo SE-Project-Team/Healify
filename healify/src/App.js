@@ -179,7 +179,15 @@ function App() {
           <Route path="/Events">
             <Events />
           </Route>
-          <Route path="/Eventview:id" children={<Eventview />}></Route>
+          <Route
+            path="/organizerEventview:id"
+            children={<Eventview role={"organizer"} />}
+          ></Route>
+
+          <Route
+            path="/userEventview:id"
+            children={<Eventview role={"user"} />}
+          ></Route>
           <Route path="/MyEvents">
             <MyEvents />
           </Route>
