@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import profilestyles from "./Profile.module.css";
 import { Calendar } from "react-calendar";
 import axios from "axios";
+import moment from "moment";
 export const Profile = () => {
   const [values, setValues] = useState({
     UserName: "",
@@ -64,14 +65,15 @@ export const Profile = () => {
   };
   const postData = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
-    let newDate = new Date(values.DateOfBirth);
-    newDate = newDate.toString().slice(0, 15);
+    const newDate = moment(date, "MM-DD-YYYY");
+    const dob = new Date(newDate);
+    console.log(dob);
     await axios
       .post(
         "/api/v1/profile/edit",
         {
-          Birthday: newDate,
-          Gender: gender,
+          BirthDay: dob,
+          Gender: gender.toLowerCase(),
           Hobbies: values.Hobbies,
           Interests: values.Interests,
           Phone: values.PhoneNumber,
