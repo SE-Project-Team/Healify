@@ -53,8 +53,7 @@ export const Profile = () => {
       values.DescribeYourself &&
       values.PhoneNumber &&
       values.Hobbies &&
-      values.Interests &&
-      values.DateOfBirth
+      values.Interests
     ) {
       setValid(true);
     }
@@ -90,52 +89,55 @@ export const Profile = () => {
               >
                 Email I'd
               </span>
-              {!editing ? (
-                <button
-                  onClick={() => {
-                    setEditing(true);
-                  }}
-                >
-                  Edit
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    setEditing(false);
-                  }}
-                >
-                  Cancel Changes
-                </button>
-              )}
-
+             
               <span> </span>
             </div>
           </div>
           <div className="col-md-5 border-right">
-            <div className="p-3 py-5">
+            <div className="p-2 py-5">
               <div className="d-flex justify-content-between align-items-center mb-3">
                 <h2 className="text-right">User Profile</h2>
               </div>
-              <div className="row mt-2">
+               <div className="row mt-2">
                 <div className="col-md-6">
-                  <label className={profilestyles.labels}>Name</label>
-                  <Box
+                   <label className={profilestyles.labels}>User Name</label>
+                   <label
                     className="form-control"
                     style={{
                       height: 35,
                       width: "100%",
-                      borderColor: "lightgray",
                       borderRadius: 20,
-                      color: "lightgray",
+                      color:'lightgray',
                       fontSize: 16,
                       marginBottom: 50,
                       fontFamily: "sans-serif",
                     }}
+                    readOnly
                   >
                     UserName
-                  </Box>
+                  </label>
                 </div>
-                <div className="col-md-6">
+                 <div className="col-md-6">
+                   <label className={profilestyles.labels}>Password</label>
+                
+                   <label
+                    className="form-control"
+                    style={{
+                      height: 35,
+                      width: "100%",
+                      borderRadius: 20,
+                      color:'lightgray',
+                      fontSize: 16,
+                      marginBottom: 50,
+                      fontFamily: "sans-serif",
+                    }}
+                    readOnly
+                  >
+                   Password
+                  </label>
+                </div>
+                </div>
+                 {/* <div className="col-md-6">
                   <label className={profilestyles.labels}>Password</label>
                   <label
                     className="form-control"
@@ -153,13 +155,28 @@ export const Profile = () => {
                   >
                     Password
                   </label>
-                </div>
-              </div>
-              <div className="row mt-3">
+                </div>  */}
+              
+             <div className="row mt-3"> 
                 <div className="col-md-12">
                   <label className={profilestyles.labels}>Mobile Number</label>
                   {!editing ? (
-                    <h4 className={profilestyles.view}> mobile</h4>
+                   <label
+                    className="form-control"
+                    style={{
+                      height: 35,
+                      width: "100%",
+                      borderRadius: 20,
+                      color:'lightgray',
+                      fontSize: 16,
+                      marginBottom: 50,
+                      fontFamily: "sans-serif",
+                    }}
+                    readOnly
+                  >
+                    Mobile Number
+                  </label>
+                
                   ) : (
                     <section>
                       <input
@@ -169,7 +186,8 @@ export const Profile = () => {
                         name="PhoneNumber"
                         value={values.PhoneNumber}
                       />
-                    </section>
+                      </section>
+                  
                   )}
 
                   {submitted && !values.PhoneNumber ? (
@@ -181,21 +199,21 @@ export const Profile = () => {
 
                 <div className="col-md-12">
                   <label className={profilestyles.labels}>Email ID</label>
-                  <Box
+                    <label
                     className="form-control"
                     style={{
                       height: 35,
                       width: "100%",
-                      borderColor: "lightgray",
                       borderRadius: 20,
-                      color: "lightgray",
+                      color:'lightgray',
                       fontSize: 16,
                       marginBottom: 50,
                       fontFamily: "sans-serif",
                     }}
+                    readOnly
                   >
                     Email Id
-                  </Box>
+                  </label>
                 </div>
                 <div className="col-md-12">
                   <label className={profilestyles.labels}>
@@ -210,9 +228,23 @@ export const Profile = () => {
                       value={values.DescribeYourself}
                     />
                   ) : (
-                    <h4 className={profilestyles.view}>Description</h4>
+                      <label
+                    className="form-control"
+                    style={{
+                      height: 35,
+                      width: "100%",
+                      borderRadius: 20,
+                      color:'lightgray',
+                      fontSize: 16,
+                      marginBottom: 50,
+                    
+                      fontFamily: "sans-serif",
+                    }}
+                    readOnly
+                  >
+                    Describe Yourself
+                  </label>
                   )}
-
                   {submitted && !values.DescribeYourself ? (
                     <span className={profilestyles.fontapply}>
                       Please fill this value
@@ -234,7 +266,7 @@ export const Profile = () => {
                     </span>
                   ) : null}
                 </div> */}
-              </div>
+               </div> 
               <br />
               <label className={profilestyles.labels}>Gender</label>
               <div>
@@ -262,7 +294,7 @@ export const Profile = () => {
               </div>
 
               <br />
-              <label className={profilestyles.labels}>D.O.B</label>
+              <label className={profilestyles.labels}>Date Of Birth</label>
               <br />
               <button
                 className={profilestyles.createbtn}
@@ -282,7 +314,8 @@ export const Profile = () => {
                 />
               )}
 
-              <div className="mt-5 text-center">
+              <div className="row mt-5 text-center">
+                <div className="col md-3">
                 <button
                   className={
                     "btn btn-primary" + " " + profilestyles["profile-button"]
@@ -292,24 +325,71 @@ export const Profile = () => {
                 >
                   Save Profile
                 </button>
+                </div>
+
+              <div className="col-md-5">
+                  {!editing ? (
+                <button
+                className={
+                    "btn btn-primary" + " " + profilestyles["profile-button"]}
+                  onClick={() => {
+                    setEditing(true);
+                  }}
+                >
+                  Edit Profile
+                </button>
+              ) : (
+                <button
+                className={
+                    "btn btn-primary" + " " + profilestyles["profile-button"]}
+                  onClick={() => {
+                    setEditing(false);
+                  }}
+                >
+                  Cancel Changes
+                </button>
+              )}
               </div>
+              
+              </div>
+          
             </div>
           </div>
           <div className="col-md-4">
             <div className="p-3 py-5">
               <div className="d-flex justify-content-between align-items-center Hobbies">
-                <span>Hobbies and Interests</span>
+                <h3>Hobbies and Interests</h3>
               </div>
               <br />
               <div className="col-md-12">
                 <label className={profilestyles.labels}>Hobbies</label>
-                <input
+                 {editing ? (
+                     <input
                   onChange={handleHobbiesInputChange}
                   className="form-control"
                   placeholder="Hobbies"
+                  
                   name="Hobbies"
                   value={values.Hobbies}
                 />
+                  ) : (
+                      <label
+                    className="form-control"
+                    style={{
+                      height: 150,
+                      width: "100%",
+                      borderRadius: 20,
+                      color:'lightgray',
+                      fontSize: 16,
+                      marginBottom: 50,
+                      fontFamily: "sans-serif",
+                    }}
+                    readOnly
+                  >
+                    Hobbies
+                  </label>
+                  )}
+               
                 {submitted && !values.Hobbies ? (
                   <span className={profilestyles.fontapply}>
                     Please enter your Hobbies
@@ -319,13 +399,36 @@ export const Profile = () => {
               <br />
               <div className="col-md-12">
                 <label className={profilestyles.labels}>Interests</label>
-                <input
+                 {editing ? (
+                    <textarea
                   onChange={handleInterestsInputChange}
                   className="form-control"
+                 
                   placeholder="additional Interests"
                   name="Interests"
+                  rows='6'
                   value={values.Interests}
                 />
+                
+                  ) : (
+                      <label
+                    className="form-control"
+                    style={{
+                      height: 150,
+                      width: "100%",
+                      borderRadius: 20,
+                      color:'lightgray',
+                      fontSize: 16,
+                      marginBottom: 50,
+                      
+                      fontFamily: "sans-serif",
+                    }}
+                    readOnly
+                  >
+                    Interests
+                  </label>
+                  )}
+               
                 {submitted && !values.Interests ? (
                   <span className={profilestyles.fontapply}>
                     Please enter your other Interests
