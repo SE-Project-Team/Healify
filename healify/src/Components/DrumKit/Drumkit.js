@@ -21,7 +21,9 @@ export const Drumkit = () => {
   // Alternate way -> set State to the letter and evaluate class based on state=== letter && class
 
   const note = [lImg, jImg, sImg, aImg, wImg, kImg];
-
+  const arr = ["l", "j", "s", "a", "w", "k"];
+  const [index, setIndex] = useState(0);
+  const [score, setScore] = useState(0);
   const [w, setW] = useState(false);
   const [a, setA] = useState(false);
   const [s, setS] = useState(false);
@@ -29,9 +31,20 @@ export const Drumkit = () => {
   const [j, setJ] = useState(false);
   const [k, setK] = useState(false);
   const [l, setL] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  const [isCompleted, setIsCompleted] = useState(false);
 
   const handleClick = (key) => {
+    if (arr[index] == key) {
+      setScore(() => score + 1);
+    }
+    setIndex(() => index + 1);
     makesound(key);
+    if (index === arr.length - 1) {
+      setIsCompleted(true);
+      setIsClicked(false);
+      console.log(score);
+    }
   };
 
   const keyHandle = (e) => {
@@ -45,6 +58,13 @@ export const Drumkit = () => {
       window.removeEventListener("keypress", keyHandle);
     };
   }, []);
+
+  const handlePlay = () => {
+    setIndex(0);
+    setScore(0);
+    setIsClicked(true);
+    setIsCompleted(false);
+  };
 
   const makesound = (key) => {
     let audio;
@@ -120,10 +140,16 @@ export const Drumkit = () => {
       <div className={styles.bdy}>
         <div>
           <h1 className={styles.drumkith1}>Drum 🥁 Kit</h1>
+          <button className={styles.btn} onClick={handlePlay}>
+            Play Note
+          </button>
+          {isClicked ? <Notes note={note} /> : null}
+          {isCompleted ? (
+            <h1 className={styles.score}>Your score is {score}</h1>
+          ) : null}
           <div className={`${styles.set} ${styles.drum}`}>
-            <Notes note={note} />
             <button
-              className={`${styles.w} ${w && styles.pressed}`}
+              className={`${styles.w} ${w && styles.pressed} ${styles.drumBtn}`}
               onClick={() => {
                 handleClick("w");
               }}
@@ -131,7 +157,7 @@ export const Drumkit = () => {
               w
             </button>
             <button
-              className={`${styles.a} ${a && styles.pressed}`}
+              className={`${styles.a} ${a && styles.pressed} ${styles.drumBtn}`}
               onClick={() => {
                 handleClick("a");
               }}
@@ -139,7 +165,7 @@ export const Drumkit = () => {
               a
             </button>
             <button
-              className={`${styles.s} ${s && styles.pressed}`}
+              className={`${styles.s} ${s && styles.pressed} ${styles.drumBtn}`}
               onClick={() => {
                 handleClick("s");
               }}
@@ -147,7 +173,7 @@ export const Drumkit = () => {
               s
             </button>
             <button
-              className={`${styles.d} ${d && styles.pressed}`}
+              className={`${styles.d} ${d && styles.pressed} ${styles.drumBtn}`}
               onClick={() => {
                 handleClick("d");
               }}
@@ -155,7 +181,7 @@ export const Drumkit = () => {
               d
             </button>
             <button
-              className={`${styles.j} ${j && styles.pressed}`}
+              className={`${styles.j} ${j && styles.pressed} ${styles.drumBtn}`}
               onClick={() => {
                 handleClick("j");
               }}
@@ -163,7 +189,7 @@ export const Drumkit = () => {
               j
             </button>
             <button
-              className={`${styles.k} ${k && styles.pressed}`}
+              className={`${styles.k} ${k && styles.pressed} ${styles.drumBtn}`}
               onClick={() => {
                 handleClick("k");
               }}
@@ -171,7 +197,7 @@ export const Drumkit = () => {
               k
             </button>
             <button
-              className={`${styles.l} ${l && styles.pressed}`}
+              className={`${styles.l} ${l && styles.pressed} ${styles.drumBtn}`}
               onClick={() => {
                 handleClick("l");
               }}

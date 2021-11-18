@@ -8,7 +8,7 @@ export const Notes = (props) => {
   React.useEffect(() => {
     let timeout;
     if (noteIndex < note.length - 1) {
-      timeout = setTimeout(() => setMessageIndex(noteIndex + 1), 1500);
+      timeout = setTimeout(() => setMessageIndex(noteIndex + 1), 1000);
     }
 
     return () => {
