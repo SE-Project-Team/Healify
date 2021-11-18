@@ -2,6 +2,7 @@ import { Box } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import profilestyles from "./Profile.module.css";
 import { Calendar } from "react-calendar";
+import axios from "axios";
 export const Profile = () => {
   const [values, setValues] = useState({
     UserName: "",
@@ -59,6 +60,35 @@ export const Profile = () => {
     }
     setSubmitted(true);
     setEditing(false);
+    postData();
+  };
+  const postData = async () => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    let newDate = new Date(values.DateOfBirth);
+    newDate = newDate.toString().slice(0, 15);
+    await axios
+      .post(
+        "/api/v1/profile/edit",
+        {
+          Birthday: newDate,
+          Gender: gender,
+          Hobbies: values.Hobbies,
+          Interests: values.Interests,
+          Phone: values.PhoneNumber,
+          About: values.DescribeYourself,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -89,7 +119,7 @@ export const Profile = () => {
               >
                 Email I'd
               </span>
-             
+
               <span> </span>
             </div>
           </div>
@@ -98,16 +128,16 @@ export const Profile = () => {
               <div className="d-flex justify-content-between align-items-center mb-3">
                 <h2 className="text-right">User Profile</h2>
               </div>
-               <div className="row mt-2">
+              <div className="row mt-2">
                 <div className="col-md-6">
-                   <label className={profilestyles.labels}>User Name</label>
-                   <label
+                  <label className={profilestyles.labels}>User Name</label>
+                  <label
                     className="form-control"
                     style={{
                       height: 35,
                       width: "100%",
                       borderRadius: 20,
-                      color:'lightgray',
+                      color: "lightgray",
                       fontSize: 16,
                       marginBottom: 50,
                       fontFamily: "sans-serif",
@@ -117,27 +147,27 @@ export const Profile = () => {
                     UserName
                   </label>
                 </div>
-                 <div className="col-md-6">
-                   <label className={profilestyles.labels}>Password</label>
-                
-                   <label
+                <div className="col-md-6">
+                  <label className={profilestyles.labels}>Password</label>
+
+                  <label
                     className="form-control"
                     style={{
                       height: 35,
                       width: "100%",
                       borderRadius: 20,
-                      color:'lightgray',
+                      color: "lightgray",
                       fontSize: 16,
                       marginBottom: 50,
                       fontFamily: "sans-serif",
                     }}
                     readOnly
                   >
-                   Password
+                    Password
                   </label>
                 </div>
-                </div>
-                 {/* <div className="col-md-6">
+              </div>
+              {/* <div className="col-md-6">
                   <label className={profilestyles.labels}>Password</label>
                   <label
                     className="form-control"
@@ -156,27 +186,26 @@ export const Profile = () => {
                     Password
                   </label>
                 </div>  */}
-              
-             <div className="row mt-3"> 
+
+              <div className="row mt-3">
                 <div className="col-md-12">
                   <label className={profilestyles.labels}>Mobile Number</label>
                   {!editing ? (
-                   <label
-                    className="form-control"
-                    style={{
-                      height: 35,
-                      width: "100%",
-                      borderRadius: 20,
-                      color:'lightgray',
-                      fontSize: 16,
-                      marginBottom: 50,
-                      fontFamily: "sans-serif",
-                    }}
-                    readOnly
-                  >
-                    Mobile Number
-                  </label>
-                
+                    <label
+                      className="form-control"
+                      style={{
+                        height: 35,
+                        width: "100%",
+                        borderRadius: 20,
+                        color: "lightgray",
+                        fontSize: 16,
+                        marginBottom: 50,
+                        fontFamily: "sans-serif",
+                      }}
+                      readOnly
+                    >
+                      Mobile Number
+                    </label>
                   ) : (
                     <section>
                       <input
@@ -186,8 +215,7 @@ export const Profile = () => {
                         name="PhoneNumber"
                         value={values.PhoneNumber}
                       />
-                      </section>
-                  
+                    </section>
                   )}
 
                   {submitted && !values.PhoneNumber ? (
@@ -199,13 +227,13 @@ export const Profile = () => {
 
                 <div className="col-md-12">
                   <label className={profilestyles.labels}>Email ID</label>
-                    <label
+                  <label
                     className="form-control"
                     style={{
                       height: 35,
                       width: "100%",
                       borderRadius: 20,
-                      color:'lightgray',
+                      color: "lightgray",
                       fontSize: 16,
                       marginBottom: 50,
                       fontFamily: "sans-serif",
@@ -228,22 +256,22 @@ export const Profile = () => {
                       value={values.DescribeYourself}
                     />
                   ) : (
-                      <label
-                    className="form-control"
-                    style={{
-                      height: 35,
-                      width: "100%",
-                      borderRadius: 20,
-                      color:'lightgray',
-                      fontSize: 16,
-                      marginBottom: 50,
-                    
-                      fontFamily: "sans-serif",
-                    }}
-                    readOnly
-                  >
-                    Describe Yourself
-                  </label>
+                    <label
+                      className="form-control"
+                      style={{
+                        height: 35,
+                        width: "100%",
+                        borderRadius: 20,
+                        color: "lightgray",
+                        fontSize: 16,
+                        marginBottom: 50,
+
+                        fontFamily: "sans-serif",
+                      }}
+                      readOnly
+                    >
+                      Describe Yourself
+                    </label>
                   )}
                   {submitted && !values.DescribeYourself ? (
                     <span className={profilestyles.fontapply}>
@@ -266,7 +294,7 @@ export const Profile = () => {
                     </span>
                   ) : null}
                 </div> */}
-               </div> 
+              </div>
               <br />
               <label className={profilestyles.labels}>Gender</label>
               <div>
@@ -316,43 +344,47 @@ export const Profile = () => {
 
               <div className="row mt-5 text-center">
                 <div className="col md-3">
-                <button
-                  className={
-                    "btn btn-primary" + " " + profilestyles["profile-button"]
-                  }
-                  type="button"
-                  onClick={handleSubmit}
-                >
-                  Save Profile
-                </button>
+                  <button
+                    className={
+                      "btn btn-primary" + " " + profilestyles["profile-button"]
+                    }
+                    type="button"
+                    onClick={handleSubmit}
+                  >
+                    Save Profile
+                  </button>
                 </div>
 
-              <div className="col-md-5">
+                <div className="col-md-5">
                   {!editing ? (
-                <button
-                className={
-                    "btn btn-primary" + " " + profilestyles["profile-button"]}
-                  onClick={() => {
-                    setEditing(true);
-                  }}
-                >
-                  Edit Profile
-                </button>
-              ) : (
-                <button
-                className={
-                    "btn btn-primary" + " " + profilestyles["profile-button"]}
-                  onClick={() => {
-                    setEditing(false);
-                  }}
-                >
-                  Cancel Changes
-                </button>
-              )}
+                    <button
+                      className={
+                        "btn btn-primary" +
+                        " " +
+                        profilestyles["profile-button"]
+                      }
+                      onClick={() => {
+                        setEditing(true);
+                      }}
+                    >
+                      Edit Profile
+                    </button>
+                  ) : (
+                    <button
+                      className={
+                        "btn btn-primary" +
+                        " " +
+                        profilestyles["profile-button"]
+                      }
+                      onClick={() => {
+                        setEditing(false);
+                      }}
+                    >
+                      Cancel Changes
+                    </button>
+                  )}
+                </div>
               </div>
-              
-              </div>
-          
             </div>
           </div>
           <div className="col-md-4">
@@ -363,23 +395,22 @@ export const Profile = () => {
               <br />
               <div className="col-md-12">
                 <label className={profilestyles.labels}>Hobbies</label>
-                 {editing ? (
-                     <input
-                  onChange={handleHobbiesInputChange}
-                  className="form-control"
-                  placeholder="Hobbies"
-                  
-                  name="Hobbies"
-                  value={values.Hobbies}
-                />
-                  ) : (
-                      <label
+                {editing ? (
+                  <input
+                    onChange={handleHobbiesInputChange}
+                    className="form-control"
+                    placeholder="Hobbies"
+                    name="Hobbies"
+                    value={values.Hobbies}
+                  />
+                ) : (
+                  <label
                     className="form-control"
                     style={{
                       height: 150,
                       width: "100%",
                       borderRadius: 20,
-                      color:'lightgray',
+                      color: "lightgray",
                       fontSize: 16,
                       marginBottom: 50,
                       fontFamily: "sans-serif",
@@ -388,8 +419,8 @@ export const Profile = () => {
                   >
                     Hobbies
                   </label>
-                  )}
-               
+                )}
+
                 {submitted && !values.Hobbies ? (
                   <span className={profilestyles.fontapply}>
                     Please enter your Hobbies
@@ -399,36 +430,34 @@ export const Profile = () => {
               <br />
               <div className="col-md-12">
                 <label className={profilestyles.labels}>Interests</label>
-                 {editing ? (
-                    <textarea
-                  onChange={handleInterestsInputChange}
-                  className="form-control"
-                 
-                  placeholder="additional Interests"
-                  name="Interests"
-                  rows='6'
-                  value={values.Interests}
-                />
-                
-                  ) : (
-                      <label
+                {editing ? (
+                  <textarea
+                    onChange={handleInterestsInputChange}
+                    className="form-control"
+                    placeholder="additional Interests"
+                    name="Interests"
+                    rows="6"
+                    value={values.Interests}
+                  />
+                ) : (
+                  <label
                     className="form-control"
                     style={{
                       height: 150,
                       width: "100%",
                       borderRadius: 20,
-                      color:'lightgray',
+                      color: "lightgray",
                       fontSize: 16,
                       marginBottom: 50,
-                      
+
                       fontFamily: "sans-serif",
                     }}
                     readOnly
                   >
                     Interests
                   </label>
-                  )}
-               
+                )}
+
                 {submitted && !values.Interests ? (
                   <span className={profilestyles.fontapply}>
                     Please enter your other Interests

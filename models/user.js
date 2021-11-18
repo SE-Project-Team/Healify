@@ -69,6 +69,18 @@ const user = new mongoose.Schema(
       type: String,
       default: "",
     },
+    interests: {
+      type: String,
+      default: "",
+    },
+    phone: {
+      type: String,
+      default: "",
+    },
+    about: {
+      type: String,
+      default: "",
+    },
     quizCat1: {
       type: [scoreSchema],
       default: [],

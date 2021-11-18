@@ -21,14 +21,22 @@ const getProfile = async (req, res) => {
 };
 
 const postProfile = async (req, res) => {
-  const { BirthDay, Gender, Hobbies } = req.body;
+  const { BirthDay, Gender, Hobbies, Interests, Phone, About } = req.body;
   const { _id } = req.user;
 
   await User.findByIdAndUpdate(_id, {
-    $set: { birthday: BirthDay, gender: Gender, hobbies: Hobbies },
+    $set: {
+      birthday: BirthDay,
+      gender: Gender,
+      hobbies: Hobbies,
+      interests: Interests,
+      phone: Phone,
+      about: About,
+    },
   });
-  res
-    .status(StatusCodes.OK)
-    .json({ status: "success", data: { BirthDay, Gender, Hobbies } });
+  res.status(StatusCodes.OK).json({
+    status: "success",
+    data: { BirthDay, Gender, Hobbies, Interests, Phone, About },
+  });
 };
 module.exports = { postProfile, getProfile };

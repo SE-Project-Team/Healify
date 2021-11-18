@@ -36,8 +36,9 @@ export const QuizLanding = () => {
       })
       .then((res) => {
         console.log(res);
-        const { AgeGroup, Gender } = res.data.data;
-        if (!AgeGroup || !Gender) {
+        const { BirthDay, Gender } = res.data.data;
+        console.log(BirthDay, Gender);
+        if (!BirthDay || !Gender) {
           // do something
           setFilled(false);
         }
