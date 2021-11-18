@@ -37,9 +37,12 @@ import axios from "axios";
 
 import { useToken } from "./CustomHooks/useToken";
 import { Createnewevent } from "./Components/OrganizersHome/Createnewevent";
-let BirthDay, Gender, Hobbies;
+
 function App() {
   const { token, setToken } = useToken();
+  const [birthday, setBirthday] = useState("");
+  const [gender, setGender] = useState("");
+  const [hobbies, setHobbies] = useState("");
 
   useEffect(() => {
     axios
@@ -49,9 +52,10 @@ function App() {
         },
       })
       .then((res) => {
-        BirthDay = res.data.data.BirthDay;
-        Gender = res.data.data.Gender;
-        Hobbies = res.data.data.Hobbies;
+        const { BirthDay, Gender, Hobbies } = res.data.data;
+        setBirthday(BirthDay);
+        setGender(Gender);
+        setHobbies(Hobbies);
       })
       .catch((err) => {
         if (err.response) {
@@ -133,32 +137,32 @@ function App() {
             <Quiz
               category={"Ill Being and Well Being"}
               questions={Questions1}
-              birthday={BirthDay}
-              gender={Gender}
+              birthday={birthday}
+              gender={gender}
             />
           </Route>
           <Route path="/Quiz2">
             <Quiz
               category={"Control and Coping"}
               questions={Questions2}
-              birthday={BirthDay}
-              gender={Gender}
+              birthday={birthday}
+              gender={gender}
             />
           </Route>
           <Route path="/Quiz3">
             <Quiz
               category={"Relationships and Belonging"}
               questions={Questions3}
-              birthday={BirthDay}
-              gender={Gender}
+              birthday={birthday}
+              gender={gender}
             />
           </Route>
           <Route path="/Quiz4">
             <Quiz
               category={"Self Perception"}
               questions={Questions4}
-              birthday={BirthDay}
-              gender={Gender}
+              birthday={birthday}
+              gender={gender}
             />
           </Route>
           <Route path="/Score">

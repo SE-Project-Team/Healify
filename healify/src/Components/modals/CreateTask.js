@@ -70,6 +70,7 @@ const CreateTask = ({ modal, toggle, save }) => {
     }
 
     const targetDate = new Date(date);
+    console.log(date, targetDate);
     if (targetDate == "Invalid Date") {
       setWarning("Date is Invalid");
       setTimeout(() => {
