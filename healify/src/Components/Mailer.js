@@ -1,21 +1,42 @@
 import React from "react";
 import { Header } from "./Home/Header";
 import emailjs from "emailjs-com";
+import axios from "axios";
+
 export const Mailer = () => {
-  function sendEmail(e) {
+  const sendEmail = (e) => {
+    const token = JSON.parse(localStorage.getItem("token"));
+
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_wuyqli6",
-        "template_po855sn",
-        e.target,
-        "user_eaglXsDsWq6chMZ7XTrDP"
+    // emailjs
+    //   .sendForm(
+    //     "service_wuyqli6",
+    //     "template_po855sn",
+    //     e.target,
+    //     "user_eaglXsDsWq6chMZ7XTrDP"
+    //   )
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => console.log(err));
+    axios
+      .post(
+        "/api/v1/mailer/",
+        {},
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
       )
       .then((res) => {
-        console.log(res);
+        console.log("success? ", res);
       })
-      .catch((err) => console.log(err));
-  }
+      .catch((err) => {
+        console.log(err);
+        console.log(err.response);
+      });
+  };
   return (
     <>
       <Header />

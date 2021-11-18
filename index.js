@@ -30,7 +30,7 @@ const milestonesRouter = require("./routes/milestones");
 const eventsRouter = require("./routes/userEvents");
 const profileRouter = require("./routes/profile");
 const organizerRouter = require("./routes/organizer");
-
+const mailRouter = require("./routes/mailer");
 // modules for authentication
 const { checkUser } = require("./controllers/home");
 const auth = require("./middleware/auth");
@@ -60,6 +60,8 @@ app.use("/api/v1/events", eventsRouter);
 app.use("/api/v1/organizer", organizerRouter);
 
 app.use("/api/v1/profile", profileRouter);
+
+app.use("/api/v1/mailer", mailRouter);
 
 app.get("/api/v1", auth, checkUser);
 
