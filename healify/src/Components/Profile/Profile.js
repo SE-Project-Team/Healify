@@ -98,8 +98,8 @@ export const Profile = () => {
               <div className="d-flex justify-content-between align-items-center mb-3">
                 <h2 className="text-right">User Profile</h2>
               </div>
-               
-                <div className="col-md-15">
+               <div className="row mt-2">
+                <div className="col-md-6">
                    <label className={profilestyles.labels}>User Name</label>
                    <label
                     className="form-control"
@@ -117,7 +117,7 @@ export const Profile = () => {
                     UserName
                   </label>
                 </div>
-                 <div className="col-md-15">
+                 <div className="col-md-6">
                    <label className={profilestyles.labels}>Password</label>
                 
                    <label
@@ -135,6 +135,7 @@ export const Profile = () => {
                   >
                    Password
                   </label>
+                </div>
                 </div>
                  {/* <div className="col-md-6">
                   <label className={profilestyles.labels}>Password</label>
@@ -185,7 +186,8 @@ export const Profile = () => {
                         name="PhoneNumber"
                         value={values.PhoneNumber}
                       />
-                    </section>
+                      </section>
+                  
                   )}
 
                   {submitted && !values.PhoneNumber ? (
