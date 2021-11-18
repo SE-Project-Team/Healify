@@ -5,6 +5,15 @@ const app = express();
 const connectDb = require("./db/connect");
 require("dotenv").config();
 
+const fileUpload = require("express-fileupload");
+// USE V2
+const cloudinary = require("cloudinary").v2;
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_API_SECRET,
+});
+
 const not_found = require("./middleware/not-found");
 const error_handler = require("./middleware/error-handler");
 
@@ -32,7 +41,10 @@ app.use(cors());
 
 // static file serving
 const buildPath = path.join(__dirname, "healify", "build");
+
 app.use(express.static(buildPath));
+
+app.use(fileUpload({ useTempFiles: true }));
 
 // get all routes ->routes are same as Middleware(more or less)
 app.use("/api/v1/login", loginRouter);

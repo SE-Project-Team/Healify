@@ -1,5 +1,8 @@
 const User = require("../models/user");
 const Event = require("../models/event");
+
+const cloudinary = require("cloudinary").v2;
+const fs = require("fs");
 const { StatusCodes } = require("http-status-codes");
 const { BadRequestError, UnauthenticatedError } = require("../errors");
 
@@ -83,15 +86,36 @@ const patchEventById = async (req, res) => {
 
 const createEvent = async (req, res) => {
   const { _id } = req.organizer;
-  const newEvent = { ...req.body, organizer: _id };
+
+  let result = {};
+  if (req.files) {
+    result = await cloudinary.uploader.upload(req.files.image.tempFilePath, {
+      use_filename: true,
+      folder: "file-upload",
+    });
+    fs.unlinkSync(req.files.image.tempFilePath);
+  }
+
+  const newEvent = {
+    ...req.body,
+    organizer: _id,
+    eventImage: result.secure_url,
+  };
 
   const created = await Event.create(newEvent);
   if (!created) {
     throw new BadRequestError("Event Not Created");
   }
+
+  res.status(200).json({ success: true, data: created });
 };
 
+// const uploadImage = async (req, res) => {
+//   const { _id } = req.organizer;
+// };
+
 module.exports = {
+  // uploadImage,
   createEvent,
   getAllEvents,
   getEventById,
