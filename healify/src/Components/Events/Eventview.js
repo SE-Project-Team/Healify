@@ -18,7 +18,8 @@ import { ReadMore } from "../Milestones/ReadMore";
 import eventsstyle from "../OrganizersHome/Eventsstyle.module.css";
 import { useParams } from "react-router-dom";
 import imgDef from "../../Assets/user.png";
-
+import { CreateAnnouncement } from "../modals/CreateAnnouncement";
+import { CreateReview } from "../modals/CreateReview";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -27,6 +28,18 @@ export const Eventview = (props) => {
 
   const [role, setRole] = useState(props.role);
   const { id } = useParams();
+
+  const [addAnnounce, setAddAnnounce] = useState(false);
+
+  const toggle = () => {
+    setAddAnnounce((prevState) => !prevState);
+  };
+
+  const [addReview, setAddReview] = useState(false);
+
+  const toggleReview = () => {
+    setAddReview((prevState) => !prevState);
+  };
 
   // useEffect(() => {
   //   const asyncWrapper = async () => {
@@ -51,23 +64,25 @@ export const Eventview = (props) => {
     const asyncWrapper = async () => {
       const token = JSON.parse(localStorage.getItem("token"));
       await axios
-        .get(`/api/v1/organizer/event?eventId=${id}`, {
+        .get(`/api/v1/events/event?eventId=${id}`, {
           headers: {
             authorization: `Bearer ${token}`,
           },
         })
         .then((res) => {
-          // console.log(res.data.data);
+          console.log(res.data.data);
+          console.log(res.data.data.reviews);
+
           setEvent(res.data.data);
         })
         .catch((err) => {
           if (err.response) {
-            console.log(err.response.body);
+            console.log(err.response);
           }
         });
     };
     asyncWrapper();
-  }, []);
+  }, [addAnnounce]);
 
   return (
     <>
@@ -146,7 +161,14 @@ export const Eventview = (props) => {
                   color="teal"
                   style={{ marginBottom: 0 }}
                 >
-                  <h2 textAlign="center">Announcements</h2>
+                  <section className={`${styles.announcementSection}`}>
+                    <h2 textAlign="center">Announcements </h2>
+                    {role === "organizer" && (
+                      <h4 id={`${styles.addAnnBtn}`} onClick={toggle}>
+                        Click Here To Add Announcement
+                      </h4>
+                    )}
+                  </section>
                 </Segment>
                 <div>
                   {announcement.map((props) => {
@@ -179,8 +201,18 @@ export const Eventview = (props) => {
             color="teal"
             style={{ marginBottom: 0 }}
           >
-            <h2 textAlign="center">Talk about event</h2>
-            <a class="ui red right ribbon label">Reviews</a>
+            <section className={`${styles.announcementSection}`}>
+              <h2 textAlign="center">Talk about event</h2>
+              {role === "user" && (
+                <h4 id={`${styles.addAnnBtn}`} onClick={toggleReview}>
+                  Click Here To add a Review{" "}
+                </h4>
+              )}
+            </section>
+
+            <a class="ui red right ribbon label" onClick={toggleReview}>
+              Reviews
+            </a>
           </Segment>
           <div>
             {comment.map((props) => {
@@ -203,6 +235,20 @@ export const Eventview = (props) => {
             })}
           </div>
         </div>
+      )}
+      {addAnnounce && (
+        <CreateAnnouncement
+          modal={addAnnounce}
+          toggle={toggle}
+          eventId={event._id}
+        />
+      )}
+      {addReview && (
+        <CreateReview
+          modal={addReview}
+          toggle={toggleReview}
+          eventId={event._id}
+        />
       )}
     </>
   );
