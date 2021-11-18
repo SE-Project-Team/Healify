@@ -18,6 +18,8 @@ import styles from "../Events/Events.module.css";
 import imgDef from "../../Assets/user.png";
 import { useHistory } from "react-router";
 
+import { ReadMore } from "../Milestones/ReadMore";
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -43,7 +45,7 @@ export const MyEvents = () => {
         });
     };
     asyncWrapper();
-  });
+  }, []);
   return (
     <div className="App">
       <Header />
@@ -54,11 +56,7 @@ export const MyEvents = () => {
             events.map((datum) => {
               return (
                 <Col key={datum._id}>
-                  <Card
-                    onClick={() => {
-                      history.push(`/eventview${datum._id}`);
-                    }}
-                  >
+                  <Card>
                     <CardImg
                       top
                       width="100%"
@@ -70,18 +68,18 @@ export const MyEvents = () => {
                       <CardSubtitle tag="h6" className="mb-2 text-muted">
                         Date : {datum.date}
                       </CardSubtitle>
-                      <CardText>{datum.description}</CardText>
+                      {/* <CardText>{datum.description}</CardText> */}
+                      <ReadMore>{datum.description}</ReadMore>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <Link
-                        to={{
-                          pathname: `${datum.link}`,
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        onClick={() => {
+                          history.push(`/eventview${datum._id}`);
                         }}
-                        target="_blank"
                       >
-                        <button type="button" class="btn btn-primary">
-                          &nbsp;&nbsp;&nbsp;&nbsp;View&nbsp;&nbsp;&nbsp;&nbsp;
-                        </button>
-                      </Link>
+                        View
+                      </button>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <button type="button" class="btn btn-outline-danger">
                         Cancel Event
