@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Quiz.module.css";
 import SpecificQuestion from "../Quiz/Questions/Question";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Score } from "./Score";
 import { Header } from "../Home/Header";
 
@@ -95,15 +95,18 @@ export const Quiz = ({ questions, category, gender, birthday }) => {
 
   const [counter, setCounter] = useState(1);
   const [que, setQue] = useState(questions[0]);
-  const [questionSet, setQuestionSet] = useState(
-    questions.filter(
-      (qn) =>
-        qn.agegroup === "all" ||
-        (qn.agegroup === agegroup &&
-          (qn.gender === "neutral" || qn.gender === gender))
-    )
-  );
-
+  const [questionSet, setQuestionSet] = useState({});
+  useEffect(() => {
+    setQuestionSet(
+      questions.filter(
+        (qn) =>
+          qn.agegroup === "all" ||
+          (qn.agegroup === agegroup &&
+            (qn.gender === "neutral" || qn.gender === gender))
+      )
+    );
+  }, []);
+  console.log(questionSet);
   const newQue = () => {
     if (warning === -1 || warning === 1) {
       setWarning(1);
