@@ -25,9 +25,28 @@ import axios from "axios";
 export const Eventview = (props) => {
   const [event, setEvent] = useState();
 
+  const [role, setRole] = useState();
   const { id } = useParams();
-  console.log(id);
 
+  useEffect(() => {
+    const asyncWrapper = async () => {
+      const token = JSON.parse(localStorage.getItem("token"));
+      await axios
+        .get("/api/v1/", {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          const { role } = res.data.data;
+          setRole(role);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    asyncWrapper();
+  }, []);
   useEffect(() => {
     const asyncWrapper = async () => {
       const token = JSON.parse(localStorage.getItem("token"));
@@ -38,7 +57,7 @@ export const Eventview = (props) => {
           },
         })
         .then((res) => {
-          console.log(res.data.data);
+          // console.log(res.data.data);
           setEvent(res.data.data);
         })
         .catch((err) => {
@@ -58,39 +77,67 @@ export const Eventview = (props) => {
           <h2 className={styles.heading}>Event View</h2>
           <div className={styles.Eventcontainer3}>
             <div>
-              <div className={styles.Eventcontainer}>
-                <h4 className={styles.counter}>{event.eventName}</h4>
-                <div>
-                  <form action="" className={styles.img}>
-                    <img
-                      src={event.eventImage || imgDef}
-                      alt="https://media.istockphoto.com/photos/paper-brain-and-heart-tree-world-heart-day-world-mental-health-day-picture-id1272715286?b=1&k=20&m=1272715286&s=170667a&w=0&h=z-N-PMBZcCH22mG33_AIY3Vr29nTMaUOyzBa4V8i85Y="
-                      width="1050px"
-                    />
-                  </form>
+              <section className={styles.firstSection}>
+                <div
+                  className={`${styles.Eventcontainer} ${styles.nullMargin}`}
+                >
+                  <h4 className={styles.counter}>{event.eventName}</h4>
+                  <div>
+                    <form action="" className={styles.img}>
+                      <img
+                        src={event.eventImage || imgDef}
+                        alt="https://media.istockphoto.com/photos/paper-brain-and-heart-tree-world-heart-day-world-mental-health-day-picture-id1272715286?b=1&k=20&m=1272715286&s=170667a&w=0&h=z-N-PMBZcCH22mG33_AIY3Vr29nTMaUOyzBa4V8i85Y="
+                        width="1050px"
+                      />
+                    </form>
+                  </div>
+                  <button type="button" class="btn btn-danger">
+                    {event.status}
+                  </button>
                 </div>
-                <button type="button" class="btn btn-danger">
-                  {event.status}
-                </button>
-              </div>
-              <div className={styles.Eventcontainer}>
-                <div className={styles.Eventcontainer2}>
-                  {" "}
-                  <Icon color="teal" name="info" />
-                  &nbsp;&nbsp;&nbsp;Attend the webinar on Mental Health
-                  Awareness to know more about Mental Health
+                <div
+                  className={`${styles.Eventcontainer} ${styles.nullMargin}`}
+                >
+                  <div className={styles.Eventcontainer2}>
+                    {" "}
+                    <Icon color="teal" name="info" />
+                    &nbsp;&nbsp;&nbsp;Attend the webinar on Mental Health
+                    Awareness to know more about Mental Health
+                  </div>
+                  <div className={styles.Eventcontainer2}>
+                    {" "}
+                    <Icon color="teal" name="info" />
+                    &nbsp;&nbsp;Subtitle : {event.subtitle}
+                  </div>
+                  <div className={styles.Eventcontainer2}>
+                    {" "}
+                    <Icon color="teal" name="info" />
+                    &nbsp;&nbsp;Description Of the event :{" "}
+                    <ReadMore>{event.description}</ReadMore>
+                  </div>
+                  <div className={styles.Eventcontainer2}>
+                    {" "}
+                    <Icon color="teal" name="calendar alternate outline" />
+                    &nbsp;&nbsp;Date and time : {event.date}
+                    <br />
+                  </div>
+                  <div className={styles.Eventcontainer2}>
+                    {" "}
+                    <Icon color="teal" name="map marker alternate" />
+                    &nbsp;&nbsp;Platform : {event.platform}
+                  </div>
+                  <div className={styles.Eventcontainer2}>
+                    {" "}
+                    <Icon color="teal" name="map marker alternate" />
+                    &nbsp;&nbsp;Link To Main Site : {event.link}
+                  </div>
+                  <div className={styles.Eventcontainer2}>
+                    {" "}
+                    <Icon color="teal" name="map marker alternate" />
+                    &nbsp;&nbsp;ContactNo : {event.contactNo}
+                  </div>
                 </div>
-                <div className={styles.Eventcontainer2}>
-                  {" "}
-                  <Icon color="teal" name="calendar alternate outline" />
-                  &nbsp;&nbsp;Date and time <br />
-                </div>
-                <div className={styles.Eventcontainer2}>
-                  {" "}
-                  <Icon color="teal" name="map marker alternate" />
-                  &nbsp;&nbsp;Zoom
-                </div>
-              </div>
+              </section>
 
               <div className={styles.Eventcontainer}>
                 <Segment
@@ -140,7 +187,6 @@ export const Eventview = (props) => {
               return (
                 <>
                   <div className={styles.Eventcontainer3}>
-                    <img src={userpng} alt="..." width="50px" />
                     <div>
                       <div style={{ fontWeight: "bold" }}>
                         {" "}
@@ -149,10 +195,6 @@ export const Eventview = (props) => {
                       <div>
                         {" "}
                         <ReadMore>{props.comment}</ReadMore>
-                      </div>
-                      <div style={{ color: "blue" }}>
-                        Edit &nbsp;&nbsp;&nbsp;&nbsp;
-                        <span style={{ color: "red" }}>Delete</span>
                       </div>
                     </div>
                   </div>
