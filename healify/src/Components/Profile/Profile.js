@@ -4,7 +4,9 @@ import profilestyles from "./Profile.module.css";
 import { Calendar } from "react-calendar";
 import axios from "axios";
 import moment from "moment";
+import { useToken } from "../../CustomHooks/useToken";
 export const Profile = () => {
+  const { token, setToken } = useToken();
   const [values, setValues] = useState({
     UserName: "",
     Password: "",
@@ -92,6 +94,43 @@ export const Profile = () => {
         console.log(err);
       });
   };
+  useEffect(() => {
+    axios
+      .get(`/api/v1/profile`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        const {
+          UserName,
+          EmailID,
+          BirthDay,
+          Gender,
+          Hobbies,
+          Interests,
+          Phone,
+          About,
+        } = res.data.data;
+        setValues({
+          ...values,
+          UserName: UserName,
+          EmailID: EmailID,
+          DateOfBirth: BirthDay,
+          Hobbies: Hobbies,
+          Interests: Interests,
+          PhoneNumber: Phone,
+          DescribeYourself: About,
+        });
+        setGender(Gender);
+        console.log(values);
+      })
+      .catch((err) => {
+        if (err.response) {
+          console.log(err.response);
+        }
+      });
+  }, []);
 
   return (
     <div className={profilestyles.model}>
@@ -113,13 +152,13 @@ export const Profile = () => {
                 className={profilestyles.fontapply}
                 className="font-weight-bold"
               >
-                User Name
+                {values.UserName}
               </span>
               <span
                 className={profilestyles.fontapply}
                 className="text-black-50"
               >
-                Email I'd
+                {values.EmailID}
               </span>
 
               <span> </span>
@@ -131,7 +170,7 @@ export const Profile = () => {
                 <h2 className="text-right">User Profile</h2>
               </div>
               <div className="row mt-2">
-                <div className="col-md-6">
+                <div className="col-md-12">
                   <label className={profilestyles.labels}>User Name</label>
                   <label
                     className="form-control"
@@ -146,10 +185,10 @@ export const Profile = () => {
                     }}
                     readOnly
                   >
-                    UserName
+                    {values.UserName}
                   </label>
                 </div>
-                <div className="col-md-6">
+                {/* <div className="col-md-6">
                   <label className={profilestyles.labels}>Password</label>
 
                   <label
@@ -167,7 +206,7 @@ export const Profile = () => {
                   >
                     Password
                   </label>
-                </div>
+                </div> */}
               </div>
               {/* <div className="col-md-6">
                   <label className={profilestyles.labels}>Password</label>
@@ -206,7 +245,7 @@ export const Profile = () => {
                       }}
                       readOnly
                     >
-                      Mobile Number
+                      {values.PhoneNumber}
                     </label>
                   ) : (
                     <section>
@@ -242,7 +281,7 @@ export const Profile = () => {
                     }}
                     readOnly
                   >
-                    Email Id
+                    {values.EmailID}
                   </label>
                 </div>
                 <div className="col-md-12">
@@ -272,7 +311,7 @@ export const Profile = () => {
                       }}
                       readOnly
                     >
-                      Describe Yourself
+                      {values.DescribeYourself}
                     </label>
                   )}
                   {submitted && !values.DescribeYourself ? (
@@ -419,7 +458,7 @@ export const Profile = () => {
                     }}
                     readOnly
                   >
-                    Hobbies
+                    {values.Hobbies}
                   </label>
                 )}
 
@@ -456,7 +495,7 @@ export const Profile = () => {
                     }}
                     readOnly
                   >
-                    Interests
+                    {values.Interests}
                   </label>
                 )}
 
