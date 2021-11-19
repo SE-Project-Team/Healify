@@ -114,6 +114,31 @@ const createEvent = async (req, res) => {
 //   const { _id } = req.organizer;
 // };
 
+const createAnnouncement = async (req, res) => {
+  const { _id } = req.organizer;
+  const { content, eventId } = req.body;
+
+  if (!_id || !eventId) {
+    throw new BadRequestError("No Such Item Exists");
+  }
+  const event = await Event.findById(eventId);
+  // console.log(event);
+
+  if (!event) {
+    throw new BadRequestError("No Such Event Exists");
+  }
+  if (event.organizer != _id) {
+    throw new UnauthenticatedError(
+      "You Are Not Authorized to Access This Event."
+    );
+  }
+
+  const returnValue = await Event.findByIdAndUpdate(eventId, {
+    $push: { announcements: { content } },
+  });
+
+  res.status(200).json({ success: "true", data: returnValue });
+};
 module.exports = {
   // uploadImage,
   createEvent,
@@ -121,4 +146,5 @@ module.exports = {
   getEventById,
   removeEventById,
   patchEventById,
+  createAnnouncement,
 };

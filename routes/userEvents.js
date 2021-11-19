@@ -8,12 +8,13 @@ const {
   addToFavourites,
   getAllEvents,
   getEventById,
+  createReview,
 } = require("../controllers/userEvents");
 
 const router = express.Router();
 
 // Add events to marked or view marked events
-router.route("/").get(getAllEvents);
+router.route("/").get(auth, getAllEvents);
 router
   .route("/favourites")
   .get(auth, getFavourites)
@@ -22,9 +23,6 @@ router
 // Get specific event by id->query parameter
 router.route("/event").get(auth, getEventById);
 
-// Questions/Faq
-router.route("/faq").post();
-
-router.route("/reviewevent").post();
+router.route("/reviews").post(auth, createReview);
 
 module.exports = router;

@@ -180,9 +180,14 @@ function App() {
           <Route path="/QuizStatistics/4">
             <QuizStatistics category="Self Perception" />
           </Route>
+          {/* Here I'm using Same component with a diff prop to get desired result */}
           <Route path="/Events">
-            <Events />
+            <Events markedEvents={false} />
           </Route>
+          <Route
+            path="/FavouriteEvents"
+            children={<Events markedEvents={true} />}
+          ></Route>
           <Route
             path="/organizerEventview:id"
             children={<Eventview role={"organizer"} />}

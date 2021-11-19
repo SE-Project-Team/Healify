@@ -4,6 +4,7 @@ const { UnauthenticatedError, BadRequestError } = require("../errors");
 // models required
 const Event = require("../models/event");
 const User = require("../models/user");
+const Review = require("../models/review");
 
 const getFavourites = async (req, res) => {
   const { _id } = req.user;
@@ -11,9 +12,12 @@ const getFavourites = async (req, res) => {
   console.log(favEvents);
 
   if (!favEvents) {
-    throw new BadRequestError("There Are No Favourite Events");
+    throw new BadRequestError("There is No Such User");
   }
-  res.status(200).json({ success: "true", data: favEvents });
+  res.status(200).json({
+    success: "true",
+    data: favEvents.toJSON({ virtuals: true }).favouriteEvents,
+  });
 };
 
 const addToFavourites = async (req, res) => {
@@ -44,12 +48,50 @@ const getAllEvents = async (req, res) => {
 };
 
 const getEventById = async (req, res) => {
-  const { _id } = req.query;
-  const event = await Event.findById(_id);
-  console.log(event);
+  // Very Important Controller -> Example for multilevel selective
+  // population
+
+  const { eventId } = req.query;
+  const event = await Event.findOne({ _id: eventId }).populate({
+    path: "reviews",
+    populate: { path: "user", select: "username" },
+  });
+  // console.log(event.toObject({ virtuals: true }));
+  // console.log(event.reviews);
   if (!event) {
     throw new BadRequestError("There Exists No Such Event. Please Check Again");
   }
-  res.status(200).json({ success: "true", data: event });
+  res.status(200).json({
+    success: "true",
+    data: event.toJSON({ virtuals: true }),
+  });
 };
-module.exports = { getFavourites, addToFavourites, getAllEvents, getEventById };
+
+const createReview = async (req, res) => {
+  const { eventId, content } = req.body;
+  const { _id } = req.user;
+
+  const event = await Event.findById(eventId);
+  if (!event || !_id) {
+    throw new BadRequestError("There Exists No Such Event. Please Check Again");
+  }
+
+  const exists = await Review.find({ user: _id, event: eventId });
+  console.log("exists", exists);
+  if (exists.length) {
+    throw new BadRequestError("There Already Exists A Review From You.");
+  }
+
+  const newReview = { content, user: _id, event: eventId };
+
+  console.log(newReview);
+  await Review.create(newReview);
+  res.status(200).json({ success: "true", data: newReview });
+};
+module.exports = {
+  createReview,
+  getFavourites,
+  addToFavourites,
+  getAllEvents,
+  getEventById,
+};

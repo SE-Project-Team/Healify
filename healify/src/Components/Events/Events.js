@@ -30,8 +30,10 @@ import { ReadMore } from "../Milestones/ReadMore";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export const Events = () => {
+export const Events = (props) => {
   const [events, setEvents] = useState();
+
+  const [pageIsInterested, setPageIsInterested] = useState(props.markedEvents);
   const history = useHistory();
 
   const markInterested = async (_id) => {
@@ -56,10 +58,14 @@ export const Events = () => {
       });
   };
   useEffect(() => {
+    // console.log(markedEvents);
     const token = JSON.parse(localStorage.getItem("token"));
+    const url = pageIsInterested
+      ? "/api/v1/events/favourites"
+      : "/api/v1/events/";
     const asyncWrapper = async () => {
       await axios
-        .get("/api/v1/events/", {
+        .get(url, {
           headers: {
             authorization: `Bearer ${token}`,
           },
@@ -117,15 +123,17 @@ export const Events = () => {
                         View
                       </button>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <button
-                        type="button"
-                        className="btn btn-outline-danger"
-                        onClick={() => {
-                          markInterested(datum._id);
-                        }}
-                      >
-                        Mark As Interested
-                      </button>
+                      {!pageIsInterested && (
+                        <button
+                          type="button"
+                          className="btn btn-outline-danger"
+                          onClick={() => {
+                            markInterested(datum._id);
+                          }}
+                        >
+                          Mark As Interested
+                        </button>
+                      )}
                     </CardBody>
                   </Card>
                 </Col>

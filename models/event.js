@@ -62,7 +62,7 @@ const event = new mongoose.Schema(
   }
 );
 
-event.virtual("review", {
+event.virtual("reviews", {
   ref: "review",
   localField: "_id",
   foreignField: "event",
