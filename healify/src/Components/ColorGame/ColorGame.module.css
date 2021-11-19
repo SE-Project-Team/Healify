@@ -81,7 +81,7 @@
   font-size: 30px;
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 869px) {
   .btn {
     height: 120px;
     width: 120px;
