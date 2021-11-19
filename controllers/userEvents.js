@@ -17,8 +17,8 @@ const getFavourites = async (req, res) => {
 };
 
 const addToFavourites = async (req, res) => {
-  const { _id, eventId } = req.body;
-
+  const { eventId } = req.body;
+  const { _id } = req.user;
   const event = await Event.findById(eventId);
   console.log("event is ", event);
   if (!event) {
@@ -34,12 +34,12 @@ const addToFavourites = async (req, res) => {
   }
 
   //   Return on a test basis
-  res.status(200).json({ success: "true", data: favEvents });
+  res.status(200).json({ success: "true", data: eventAddedToFavourites });
 };
 
 const getAllEvents = async (req, res) => {
   const allEvents = await Event.find({});
-  console.log(allEvents);
+  // console.log(allEvents);
   res.status(200).json({ success: "true", data: allEvents });
 };
 

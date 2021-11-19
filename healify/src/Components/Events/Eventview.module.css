@@ -19,7 +19,7 @@
   background-color: white;
 }
 
-.Eventcontainer div {
+.Eventcontainer > div {
   width: 100%;
 }
 
@@ -223,6 +223,7 @@
 
 .img img {
   width: 100%;
+  /* max-height: 500px; */
 }
 
 .firstSection {
@@ -240,6 +241,23 @@
   margin: 0px;
 }
 
+.announcementSection {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.announcementSection h2 {
+  margin: 0px;
+}
+
+#addAnnBtn {
+  margin: 0px;
+  margin-left: auto;
+  justify-self: right;
+  word-wrap: break-word;
+}
+
 @media screen and (max-width: 700px) {
   .firstSection {
     display: block;
@@ -247,5 +265,9 @@
 
   .firstSection > div {
     width: 100%;
+  }
+
+  .announcementSection {
+    display: block;
   }
 }

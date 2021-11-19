@@ -69,13 +69,15 @@ export const MyEvents = () => {
                         Date : {datum.date}
                       </CardSubtitle>
                       {/* <CardText>{datum.description}</CardText> */}
-                      <ReadMore>{datum.description}</ReadMore>
+                      <div>
+                        <ReadMore>{datum.description}</ReadMore>
+                      </div>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <button
                         type="button"
                         class="btn btn-primary"
                         onClick={() => {
-                          history.push(`/eventview${datum._id}`);
+                          history.push(`/organizerEventView${datum._id}`);
                         }}
                       >
                         View

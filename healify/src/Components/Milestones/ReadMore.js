@@ -7,7 +7,7 @@ export const ReadMore = ({ children }) => {
     setIsReadMore(!isReadMore);
   };
   return (
-    <p className="text">
+    <p className={styles.text}>
       {isReadMore ? text.slice(0, 100) : text}
 
       {text && text.length > 100 && (
