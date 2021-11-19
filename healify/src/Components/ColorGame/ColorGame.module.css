@@ -80,3 +80,11 @@
 .button:hover {
   font-size: 30px;
 }
+
+@media screen and (max-width: 860px) {
+  .btn {
+    height: 120px;
+    width: 120px;
+    margin: 5px;
+  }
+}
