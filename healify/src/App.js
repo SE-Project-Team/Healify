@@ -32,6 +32,7 @@ import { ColorGame } from "./Components/ColorGame/ColorGame";
 import { Profile } from "./Components/Profile/Profile";
 import { useState, useEffect } from "react";
 import { Notes } from "./Components/DrumKit/Notes";
+import { Email } from "./Components/Email/Email";
 import "./App.css";
 import axios from "axios";
 
@@ -125,6 +126,9 @@ function App() {
           <Route path="/About">
             <About />
           </Route>
+             <Route path="/Email">
+            <Email />
+          </Route>
           <Route path="/Togglemenu">
             <Togglemenu />
           </Route>
@@ -180,9 +184,14 @@ function App() {
           <Route path="/QuizStatistics/4">
             <QuizStatistics category="Self Perception" />
           </Route>
+          {/* Here I'm using Same component with a diff prop to get desired result */}
           <Route path="/Events">
-            <Events />
+            <Events markedEvents={false} />
           </Route>
+          <Route
+            path="/FavouriteEvents"
+            children={<Events markedEvents={true} />}
+          ></Route>
           <Route
             path="/organizerEventview:id"
             children={<Eventview role={"organizer"} />}

@@ -9,6 +9,7 @@ const {
   getEventById,
   removeEventById,
   patchEventById,
+  createAnnouncement,
 } = require("../controllers/organizer");
 
 const router = express.Router();
@@ -24,5 +25,7 @@ router.route("/event").get(auth, getEventById);
 router.route("/modify-event").patch(auth, patchEventById);
 
 router.route("/remove-event").post(auth, removeEventById);
+
+router.route("/announcements").post(auth, createAnnouncement);
 
 module.exports = router;

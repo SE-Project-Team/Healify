@@ -338,7 +338,8 @@ export const Profile = () => {
               </div>
               <br />
               <label className={profilestyles.labels}>Gender</label>
-              <div>
+                 {editing ? (
+                     <div>
                 <input
                   type="radio"
                   name="gender"
@@ -362,10 +363,71 @@ export const Profile = () => {
                 &nbsp;Other
               </div>
 
+                  ) : (
+                    <label
+                      className="form-control"
+                      style={{
+                        height: 35,
+                        width: "100%",
+                        borderRadius: 20,
+                        color: "lightgray",
+                        fontSize: 16,
+                        marginBottom: 50,
+
+                        fontFamily: "sans-serif",
+                      }}
+                      readOnly
+                    >
+                      Gender
+                    </label>
+                  )}
+              
+             
               <br />
               <label className={profilestyles.labels}>Date Of Birth</label>
               <br />
-              <button
+               {editing ? (
+                <div>
+                    <button
+                className={profilestyles.createbtn}
+                onClick={() => {
+                  setChooseDate(chooseDate ? "" : "true");
+                }}
+              >
+                {chooseDate
+                  ? "Click here to select the Date"
+                  : `${date ? date.toDateString() : "Please Select a Date"}`}
+              </button>
+              
+              { chooseDate && (
+                <Calendar
+                  onChange={setDate}
+                  value={date}
+                  className={`${profilestyles.Calendar}`}
+                />
+        
+                
+              )}
+                </div>
+                  ) : (
+                    <label
+                      className="form-control"
+                      style={{
+                        height: 35,
+                        width: "100%",
+                        borderRadius: 20,
+                        color: "lightgray",
+                        fontSize: 16,
+                        marginBottom: 50,
+
+                        fontFamily: "sans-serif",
+                      }}
+                      readOnly
+                    >
+                      Date Of Birth
+                    </label>
+                  )} 
+              {/* <button
                 className={profilestyles.createbtn}
                 onClick={() => {
                   setChooseDate(chooseDate ? "" : "true");
@@ -381,7 +443,7 @@ export const Profile = () => {
                   value={date}
                   className={`${profilestyles.Calendar}`}
                 />
-              )}
+              )} */}
 
               <div className="row mt-5 text-center">
                 <div className="col md-3">
