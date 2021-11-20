@@ -22,7 +22,28 @@ import { ReadMore } from "../Milestones/ReadMore";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+const deleteEvent = async (_id) => {
+    const token = JSON.parse(localStorage.getItem("token"));
 
+    await axios
+      .post(
+        "/api/v1/organizer/remove-event",
+        {
+          eventId: _id,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then(async (res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 export const MyEvents = () => {
   const [events, setEvents] = useState();
   const history = useHistory();
@@ -83,7 +104,7 @@ export const MyEvents = () => {
                         View
                       </button>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <button type="button" class="btn btn-outline-danger">
+                      <button type="button" class="btn btn-outline-danger" onClick={()=>{deleteEvent(datum._id)}}>
                         Cancel Event
                       </button>
                     </CardBody>
