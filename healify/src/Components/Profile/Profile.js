@@ -131,7 +131,7 @@ export const Profile = () => {
                 <h2 className="text-right">User Profile</h2>
               </div>
               <div className="row mt-2">
-                <div className="col-md-6">
+                <div className="col-md-12">
                   <label className={profilestyles.labels}>User Name</label>
                   <label
                     className="form-control"
@@ -149,7 +149,7 @@ export const Profile = () => {
                     UserName
                   </label>
                 </div>
-                <div className="col-md-6">
+                {/* <div className="col-md-6">
                   <label className={profilestyles.labels}>Password</label>
 
                   <label
@@ -167,7 +167,7 @@ export const Profile = () => {
                   >
                     Password
                   </label>
-                </div>
+                </div> */}
               </div>
               {/* <div className="col-md-6">
                   <label className={profilestyles.labels}>Password</label>
@@ -299,7 +299,8 @@ export const Profile = () => {
               </div>
               <br />
               <label className={profilestyles.labels}>Gender</label>
-              <div>
+                 {editing ? (
+                     <div>
                 <input
                   type="radio"
                   name="gender"
@@ -323,10 +324,71 @@ export const Profile = () => {
                 &nbsp;Other
               </div>
 
+                  ) : (
+                    <label
+                      className="form-control"
+                      style={{
+                        height: 35,
+                        width: "100%",
+                        borderRadius: 20,
+                        color: "lightgray",
+                        fontSize: 16,
+                        marginBottom: 50,
+
+                        fontFamily: "sans-serif",
+                      }}
+                      readOnly
+                    >
+                      Gender
+                    </label>
+                  )}
+              
+             
               <br />
               <label className={profilestyles.labels}>Date Of Birth</label>
               <br />
-              <button
+               {editing ? (
+                <div>
+                    <button
+                className={profilestyles.createbtn}
+                onClick={() => {
+                  setChooseDate(chooseDate ? "" : "true");
+                }}
+              >
+                {chooseDate
+                  ? "Click here to select the Date"
+                  : `${date ? date.toDateString() : "Please Select a Date"}`}
+              </button>
+              
+              { chooseDate && (
+                <Calendar
+                  onChange={setDate}
+                  value={date}
+                  className={`${profilestyles.Calendar}`}
+                />
+        
+                
+              )}
+                </div>
+                  ) : (
+                    <label
+                      className="form-control"
+                      style={{
+                        height: 35,
+                        width: "100%",
+                        borderRadius: 20,
+                        color: "lightgray",
+                        fontSize: 16,
+                        marginBottom: 50,
+
+                        fontFamily: "sans-serif",
+                      }}
+                      readOnly
+                    >
+                      Date Of Birth
+                    </label>
+                  )} 
+              {/* <button
                 className={profilestyles.createbtn}
                 onClick={() => {
                   setChooseDate(chooseDate ? "" : "true");
@@ -342,7 +404,7 @@ export const Profile = () => {
                   value={date}
                   className={`${profilestyles.Calendar}`}
                 />
-              )}
+              )} */}
 
               <div className="row mt-5 text-center">
                 <div className="col md-3">

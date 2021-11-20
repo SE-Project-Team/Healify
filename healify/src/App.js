@@ -32,6 +32,7 @@ import { ColorGame } from "./Components/ColorGame/ColorGame";
 import { Profile } from "./Components/Profile/Profile";
 import { useState, useEffect } from "react";
 import { Notes } from "./Components/DrumKit/Notes";
+import { Email } from "./Components/Email/Email";
 import "./App.css";
 import axios from "axios";
 
@@ -124,6 +125,9 @@ function App() {
           </Route>
           <Route path="/About">
             <About />
+          </Route>
+             <Route path="/Email">
+            <Email />
           </Route>
           <Route path="/Togglemenu">
             <Togglemenu />
