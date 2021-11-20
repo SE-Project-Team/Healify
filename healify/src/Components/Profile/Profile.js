@@ -123,7 +123,7 @@ export const Profile = () => {
           DescribeYourself: About,
         });
         setGender(Gender);
-        console.log(values);
+        // console.log(values);
       })
       .catch((err) => {
         if (err.response) {
