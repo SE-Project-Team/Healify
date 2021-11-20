@@ -33,6 +33,7 @@ import { Profile } from "./Components/Profile/Profile";
 import { useState, useEffect } from "react";
 import { Notes } from "./Components/DrumKit/Notes";
 import { Email } from "./Components/Email/Email";
+import { About_Us } from "./Components/Home/About_Us";
 import "./App.css";
 import axios from "axios";
 
@@ -125,6 +126,9 @@ function App() {
           </Route>
           <Route path="/About">
             <About />
+          </Route>
+           <Route path="/About_Us">
+            <About_Us />
           </Route>
              <Route path="/Email">
             <Email />
