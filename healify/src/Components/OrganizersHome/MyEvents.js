@@ -47,21 +47,7 @@ const deleteEvent = async (_id) => {
 export const MyEvents = () => {
   const [events, setEvents] = useState();
   const history = useHistory();
-  const [rowItems, setRowItems] = useState(3);
 
-  const resizeWrapper = () => {
-    if (window.innerWidth < 500) {
-      setRowItems(1);
-    } else if (window.innerWidth < 800) {
-      setRowItems(2);
-    } else {
-      setRowItems(3);
-    }
-  };
-  useEffect(() => {
-    resizeWrapper();
-    window.addEventListener("resize", resizeWrapper);
-  }, []);
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
     const asyncWrapper = async () => {
@@ -87,7 +73,7 @@ export const MyEvents = () => {
       <Header />
       <h1 className={styles.heading}>Mental Health Virtual Events</h1>
       <article className={`${styles.articleContainer}`}>
-        <section xs={rowItems} className={`${styles.sectionContainer}`}>
+        <section className={`${styles.sectionContainer}`}>
           {events &&
             events.map((datum) => {
               return (
