@@ -9,7 +9,6 @@ const Review = require("../models/review");
 const getFavourites = async (req, res) => {
   const { _id } = req.user;
   const favEvents = await User.findById(_id).populate("favouriteEvents");
-  console.log(favEvents);
 
   if (!favEvents) {
     throw new BadRequestError("There is No Such User");
@@ -32,7 +31,25 @@ const addToFavourites = async (req, res) => {
     $push: { favouriteEvents: eventId },
   });
 
-  console.log(eventAddedToFavourites);
+  if (!eventAddedToFavourites) {
+    throw new BadRequestError("There Was Some Error");
+  }
+
+  //   Return on a test basis
+  res.status(200).json({ success: "true", data: eventAddedToFavourites });
+};
+
+const removeFromFavourites = async (req, res) => {
+  const { eventId } = req.body;
+  const { _id } = req.user;
+  const event = await Event.findById(eventId);
+  if (!event) {
+    throw new BadRequestError("No Such Event");
+  }
+  const eventAddedToFavourites = await User.findByIdAndUpdate(_id, {
+    $pull: { favouriteEvents: eventId },
+  });
+
   if (!eventAddedToFavourites) {
     throw new BadRequestError("There Was Some Error");
   }
@@ -94,4 +111,5 @@ module.exports = {
   addToFavourites,
   getAllEvents,
   getEventById,
+  removeFromFavourites,
 };

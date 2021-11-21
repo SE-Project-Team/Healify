@@ -51,6 +51,42 @@ export const Events = (props) => {
           },
         }
       )
+      .then((res) => {
+        // Getting Changed Event by ref
+        const changedEvent = events.find((each) => each._id === _id);
+        changedEvent.marked = true;
+        const newEvents = [...events];
+        setEvents(() => newEvents);
+      })
+      .catch((err) => {
+        if (err.response) {
+          console.log(err.response.body);
+        }
+      });
+  };
+
+  const unMarkFromInterested = async (_id) => {
+    const token = JSON.parse(localStorage.getItem("token"));
+
+    await axios
+      .post(
+        "/api/v1/events/removeFromFavourites",
+        {
+          eventId: _id,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        // Getting Changed Event by ref
+        const changedEvent = events.find((each) => each._id === _id);
+        changedEvent.marked = false;
+        const newEvents = [...events];
+        setEvents(() => newEvents);
+      })
       .catch((err) => {
         if (err.response) {
           console.log(err.response.body);
@@ -159,7 +195,7 @@ export const Events = (props) => {
                             type="button"
                             className="btn btn-outline-danger"
                             onClick={() => {
-                              markInterested(datum._id);
+                              unMarkFromInterested(datum._id);
                             }}
                           >
                             Remove From Interested{" "}
