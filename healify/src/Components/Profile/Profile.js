@@ -4,7 +4,9 @@ import profilestyles from "./Profile.module.css";
 import { Calendar } from "react-calendar";
 import axios from "axios";
 import moment from "moment";
+import { useToken } from "../../CustomHooks/useToken";
 export const Profile = () => {
+  const { token, setToken } = useToken();
   const [values, setValues] = useState({
     UserName: "",
     Password: "",
@@ -92,6 +94,43 @@ export const Profile = () => {
         console.log(err);
       });
   };
+  useEffect(() => {
+    axios
+      .get(`/api/v1/profile`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        const {
+          UserName,
+          EmailID,
+          BirthDay,
+          Gender,
+          Hobbies,
+          Interests,
+          Phone,
+          About,
+        } = res.data.data;
+        setValues({
+          ...values,
+          UserName: UserName,
+          EmailID: EmailID,
+          DateOfBirth: BirthDay,
+          Hobbies: Hobbies,
+          Interests: Interests,
+          PhoneNumber: Phone,
+          DescribeYourself: About,
+        });
+        setGender(Gender);
+        // console.log(values);
+      })
+      .catch((err) => {
+        if (err.response) {
+          console.log(err.response);
+        }
+      });
+  }, []);
 
   return (
     <div className={profilestyles.model}>
@@ -113,13 +152,13 @@ export const Profile = () => {
                 className={profilestyles.fontapply}
                 className="font-weight-bold"
               >
-                User Name
+                {values.UserName}
               </span>
               <span
                 className={profilestyles.fontapply}
                 className="text-black-50"
               >
-                Email I'd
+                {values.EmailID}
               </span>
 
               <span> </span>
@@ -146,7 +185,7 @@ export const Profile = () => {
                     }}
                     readOnly
                   >
-                    UserName
+                    {values.UserName}
                   </label>
                 </div>
                 {/* <div className="col-md-6">
@@ -206,7 +245,7 @@ export const Profile = () => {
                       }}
                       readOnly
                     >
-                      Mobile Number
+                      {values.PhoneNumber}
                     </label>
                   ) : (
                     <section>
@@ -242,7 +281,7 @@ export const Profile = () => {
                     }}
                     readOnly
                   >
-                    Email Id
+                    {values.EmailID}
                   </label>
                 </div>
                 <div className="col-md-12">
@@ -272,7 +311,7 @@ export const Profile = () => {
                       }}
                       readOnly
                     >
-                      Describe Yourself
+                      {values.DescribeYourself}
                     </label>
                   )}
                   {submitted && !values.DescribeYourself ? (
@@ -299,95 +338,93 @@ export const Profile = () => {
               </div>
               <br />
               <label className={profilestyles.labels}>Gender</label>
-                 {editing ? (
-                     <div>
-                <input
-                  type="radio"
-                  name="gender"
-                  value="Male"
-                  onChange={(e) => setGender(e.target.value)}
-                />
-                &nbsp;Male &nbsp;&nbsp;
-                <input
-                  type="radio"
-                  name="gender"
-                  value="Female"
-                  onChange={(e) => setGender(e.target.value)}
-                />
-                &nbsp;Female &nbsp; &nbsp;
-                <input
-                  type="radio"
-                  name="gender"
-                  value="Other"
-                  onChange={(e) => setGender(e.target.value)}
-                />
-                &nbsp;Other
-              </div>
+              {editing ? (
+                <div>
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="Male"
+                    onChange={(e) => setGender(e.target.value)}
+                  />
+                  &nbsp;Male &nbsp;&nbsp;
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="Female"
+                    onChange={(e) => setGender(e.target.value)}
+                  />
+                  &nbsp;Female &nbsp; &nbsp;
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="Other"
+                    onChange={(e) => setGender(e.target.value)}
+                  />
+                  &nbsp;Other
+                </div>
+              ) : (
+                <label
+                  className="form-control"
+                  style={{
+                    height: 35,
+                    width: "100%",
+                    borderRadius: 20,
+                    color: "lightgray",
+                    fontSize: 16,
+                    marginBottom: 50,
 
-                  ) : (
-                    <label
-                      className="form-control"
-                      style={{
-                        height: 35,
-                        width: "100%",
-                        borderRadius: 20,
-                        color: "lightgray",
-                        fontSize: 16,
-                        marginBottom: 50,
+                    fontFamily: "sans-serif",
+                  }}
+                  readOnly
+                >
+                  {gender}
+                </label>
+              )}
 
-                        fontFamily: "sans-serif",
-                      }}
-                      readOnly
-                    >
-                      Gender
-                    </label>
-                  )}
-              
-             
               <br />
               <label className={profilestyles.labels}>Date Of Birth</label>
               <br />
-               {editing ? (
+              {editing ? (
                 <div>
-                    <button
-                className={profilestyles.createbtn}
-                onClick={() => {
-                  setChooseDate(chooseDate ? "" : "true");
-                }}
-              >
-                {chooseDate
-                  ? "Click here to select the Date"
-                  : `${date ? date.toDateString() : "Please Select a Date"}`}
-              </button>
-              
-              { chooseDate && (
-                <Calendar
-                  onChange={setDate}
-                  value={date}
-                  className={`${profilestyles.Calendar}`}
-                />
-        
-                
-              )}
-                </div>
-                  ) : (
-                    <label
-                      className="form-control"
-                      style={{
-                        height: 35,
-                        width: "100%",
-                        borderRadius: 20,
-                        color: "lightgray",
-                        fontSize: 16,
-                        marginBottom: 50,
+                  <button
+                    className={profilestyles.createbtn}
+                    onClick={() => {
+                      setChooseDate(chooseDate ? "" : "true");
+                    }}
+                  >
+                    {chooseDate
+                      ? "Click here to select the Date"
+                      : `${
+                          date ? date.toDateString() : "Please Select a Date"
+                        }`}
+                  </button>
 
-                        fontFamily: "sans-serif",
-                      }}
-                      readOnly
-                    >
-                      Date Of Birth
-                    </label>
-                  )} 
+                  {chooseDate && (
+                    <Calendar
+                      onChange={setDate}
+                      value={date}
+                      className={`${profilestyles.Calendar}`}
+                    />
+                  )}
+                </div>
+              ) : (
+                <label
+                  className="form-control"
+                  style={{
+                    height: 35,
+                    width: "100%",
+                    borderRadius: 20,
+                    color: "lightgray",
+                    fontSize: 16,
+                    marginBottom: 50,
+
+                    fontFamily: "sans-serif",
+                  }}
+                  readOnly
+                >
+                  {values.DateOfBirth.slice(0, 10)}
+                </label>
+              )}
               {/* <button
                 className={profilestyles.createbtn}
                 onClick={() => {
@@ -481,7 +518,7 @@ export const Profile = () => {
                     }}
                     readOnly
                   >
-                    Hobbies
+                    {values.Hobbies}
                   </label>
                 )}
 
@@ -518,7 +555,7 @@ export const Profile = () => {
                     }}
                     readOnly
                   >
-                    Interests
+                    {values.Interests}
                   </label>
                 )}
 

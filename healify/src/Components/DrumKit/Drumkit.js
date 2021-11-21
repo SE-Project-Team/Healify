@@ -20,8 +20,19 @@ import { Notes } from "./Notes.js";
 export const Drumkit = () => {
   // Alternate way -> set State to the letter and evaluate class based on state=== letter && class
 
-  const note = [lImg, jImg, sImg, aImg, wImg, kImg];
-  const arr = ["l", "j", "s", "a", "w", "k"];
+  const musicNotes = [
+    [lImg, jImg, sImg, aImg, wImg, kImg],
+    [dImg, sImg, dImg, sImg],
+    [dImg, jImg, dImg, sImg, jImg, dImg, jImg, dImg, sImg, jImg],
+  ];
+  const musicArrays = [
+    ["l", "j", "s", "a", "w", "k"],
+    ["d", "s", "d", "s"],
+    ["d", "j", "d", "s", "j", "d", "j", "d", "s", "j,"],
+  ];
+  const [note, setNote] = useState([]);
+  const [arr, setArr] = useState([]);
+
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [w, setW] = useState(false);
@@ -40,9 +51,11 @@ export const Drumkit = () => {
     }
     setIndex(() => index + 1);
     makesound(key);
-    if (index === arr.length - 1) {
+    if (index >= arr.length - 1) {
       setIsCompleted(true);
       setIsClicked(false);
+      // setIndex(0);
+      // setScore(0);
       console.log(score);
     }
   };
@@ -60,6 +73,9 @@ export const Drumkit = () => {
   }, []);
 
   const handlePlay = () => {
+    let rand1 = Math.floor(Math.random() * musicNotes.length);
+    setNote(musicNotes[rand1]);
+    setArr(musicArrays[rand1]);
     setIndex(0);
     setScore(0);
     setIsClicked(true);
@@ -140,12 +156,17 @@ export const Drumkit = () => {
       <div className={styles.bdy}>
         <div>
           <h1 className={styles.drumkith1}>Drum 🥁 Kit</h1>
-          <button className={styles.btn} onClick={handlePlay}>
-            Play Note
-          </button>
+          {isClicked ? null : (
+            <button className={styles.btn} onClick={handlePlay}>
+              Play Note
+            </button>
+          )}
+
           {isClicked ? <Notes note={note} /> : null}
           {isCompleted ? (
-            <h1 className={styles.score}>Your score is {score}</h1>
+            <h1 className={styles.score}>
+              Your score is {score}/{arr.length}
+            </h1>
           ) : null}
           <div className={`${styles.set} ${styles.drum}`}>
             <button

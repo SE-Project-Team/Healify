@@ -7,6 +7,8 @@ import styles from "./Home.module.css";
 import milestoneimg from "../../Assets/milestone.jpg";
 import eventsimg from "../../Assets/events.jpg";
 import drumkitimg from "../../Assets/drumkit.jpg";
+import mailimg from "../../Assets/images/mail.png";
+import colorgameimg from "../../Assets/images/colorgame.png";
 import { Card } from "./Card";
 import { Header } from "./Header";
 import { useState, useEffect } from "react";
@@ -107,6 +109,22 @@ export const Home = () => {
                   imgSrc={drumkitimg}
                   alt={"..."}
                   cardName={`Drumkit`}
+                  cardDesc={`Play our drumkit by clicking on the drums or by clicking the 
+              keyboard keys. You can also record and download it.`}
+                />
+                <Card
+                  path="/ColorGame"
+                  imgSrc={colorgameimg}
+                  alt={"..."}
+                  cardName={`Color Game`}
+                  cardDesc={`Play our drumkit by clicking on the drums or by clicking the 
+              keyboard keys. You can also record and download it.`}
+                />
+                <Card
+                  path="/Mailer"
+                  imgSrc={mailimg}
+                  alt={"..."}
+                  cardName={`Mailer`}
                   cardDesc={`Play our drumkit by clicking on the drums or by clicking the 
               keyboard keys. You can also record and download it.`}
                 />

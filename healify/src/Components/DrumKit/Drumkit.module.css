@@ -99,3 +99,13 @@
 .score {
   color: white;
 }
+@media screen and (max-width: 800px) {
+  .drumBtn {
+    height: 75px;
+    width: 75px;
+    margin: 5px;
+    font-size: 40px;
+    text-align: center;
+    line-height: 55px;
+  }
+}
