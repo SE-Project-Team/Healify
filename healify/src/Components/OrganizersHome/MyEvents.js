@@ -23,30 +23,31 @@ import { ReadMore } from "../Milestones/ReadMore";
 import { useState, useEffect } from "react";
 import axios from "axios";
 const deleteEvent = async (_id) => {
-    const token = JSON.parse(localStorage.getItem("token"));
+  const token = JSON.parse(localStorage.getItem("token"));
 
-    await axios
-      .post(
-        "/api/v1/organizer/remove-event",
-        {
-          eventId: _id,
+  await axios
+    .post(
+      "/api/v1/organizer/remove-event",
+      {
+        eventId: _id,
+      },
+      {
+        headers: {
+          authorization: `Bearer ${token}`,
         },
-        {
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then(async (res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+      }
+    )
+    .then(async (res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 export const MyEvents = () => {
   const [events, setEvents] = useState();
   const history = useHistory();
+
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
     const asyncWrapper = async () => {
@@ -71,24 +72,25 @@ export const MyEvents = () => {
     <div className="App">
       <Header />
       <h1 className={styles.heading}>Mental Health Virtual Events</h1>
-      <Container>
-        <Row xs={3}>
+      <article className={`${styles.articleContainer}`}>
+        <section className={`${styles.sectionContainer}`}>
           {events &&
             events.map((datum) => {
               return (
-                <Col key={datum._id}>
-                  <Card>
-                    <CardImg
-                      top
-                      width="100%"
-                      src={datum.eventImage || imgDef}
-                      alt="Card image cap"
-                    />
-                    <CardBody>
-                      <CardTitle tag="h5">{datum.eventName}</CardTitle>
-                      <CardSubtitle tag="h6" className="mb-2 text-muted">
-                        Date : {datum.date}
-                      </CardSubtitle>
+                <section key={datum._id} className={`${styles.cardContainer}`}>
+                  <div className={`${styles.cardSubContainer}`}>
+                    <div className={`${styles.imgContainer}`}>
+                      <img
+                        width="100%"
+                        top
+                        src={datum.eventImage || imgDef}
+                        alt="Card image cap"
+                      />
+                    </div>
+
+                    <div className={`${styles.cardInfo}`}>
+                      <div>{datum.eventName}</div>
+                      <div className="mb-2 text-muted">Date : {datum.date}</div>
                       {/* <CardText>{datum.description}</CardText> */}
                       <div>
                         <ReadMore>{datum.description}</ReadMore>
@@ -104,16 +106,22 @@ export const MyEvents = () => {
                         View
                       </button>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <button type="button" class="btn btn-outline-danger" onClick={()=>{deleteEvent(datum._id)}}>
+                      <button
+                        type="button"
+                        class="btn btn-outline-danger"
+                        onClick={() => {
+                          deleteEvent(datum._id);
+                        }}
+                      >
                         Cancel Event
                       </button>
-                    </CardBody>
-                  </Card>
-                </Col>
+                    </div>
+                  </div>
+                </section>
               );
             })}
-        </Row>
-      </Container>
+        </section>
+      </article>
     </div>
   );
 };

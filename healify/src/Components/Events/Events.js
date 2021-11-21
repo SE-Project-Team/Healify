@@ -57,6 +57,7 @@ export const Events = (props) => {
         }
       });
   };
+
   useEffect(() => {
     // console.log(markedEvents);
     const token = JSON.parse(localStorage.getItem("token"));
@@ -76,7 +77,10 @@ export const Events = (props) => {
           allEvents.sort((a, b) => {
             return a.date < b.date ? 1 : -1;
           });
+          // Cross Check with interested events in User's list
+          //  and add marked as interesting property to each event
           setEvents(allEvents);
+          // Show some info ig!!
         })
         .catch((err) => {
           if (err.response) {
@@ -90,24 +94,25 @@ export const Events = (props) => {
     <div className="App">
       <Header />
       <h1 className={styles.heading}>Mental Health Virtual Events</h1>
-      <Container>
-        <Row xs={3}>
+      <article className={`${styles.articleContainer}`}>
+        <section className={`${styles.sectionContainer}`}>
           {events &&
             events.map((datum) => {
               return (
-                <Col key={datum._id}>
-                  <Card>
-                    <CardImg
-                      top
-                      width="100%"
-                      src={datum.eventImage || imgDef}
-                      alt="Card image cap"
-                    />
-                    <CardBody>
-                      <CardTitle tag="h5">{datum.eventName}</CardTitle>
-                      <CardSubtitle tag="h6" className="mb-2 text-muted">
-                        Date : {datum.date}
-                      </CardSubtitle>
+                <section key={datum._id} className={`${styles.cardContainer}`}>
+                  <div className={`${styles.cardSubContainer}`}>
+                    <div className={`${styles.imgContainer}`}>
+                      <img
+                        width="100%"
+                        top
+                        src={datum.eventImage || imgDef}
+                        alt="Card image cap"
+                      />
+                    </div>
+
+                    <div className={`${styles.cardInfo}`}>
+                      <div>{datum.eventName}</div>
+                      <div className="mb-2 text-muted">Date : {datum.date}</div>
                       {/* <CardText>{datum.description}</CardText> */}
                       <div>
                         <ReadMore>{datum.description}</ReadMore>
@@ -134,13 +139,13 @@ export const Events = (props) => {
                           Mark As Interested
                         </button>
                       )}
-                    </CardBody>
-                  </Card>
-                </Col>
+                    </div>
+                  </div>
+                </section>
               );
             })}
-        </Row>
-      </Container>
+        </section>
+      </article>
     </div>
   );
 };

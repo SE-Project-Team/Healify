@@ -3,3 +3,55 @@
   text-align: center;
   color: rgb(107, 105, 105);
 }
+
+/* Overloads to reactStrap */
+
+.sectionContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 10px;
+}
+
+.cardContainer {
+  margin: 10px;
+  padding: 0px 10px;
+
+  width: 31%;
+}
+
+.cardSubContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid rgb(226 215 215);
+}
+
+.imgContainer {
+  position: relative;
+  /* height: 40%; */
+  margin-bottom: auto;
+  display: flex;
+  width: 100%;
+  /* height: auto; */
+}
+
+.cardInfo {
+  padding: 10px;
+  /* margin-top: auto; */
+  display: flex;
+  flex-direction: column;
+  /* flex-grow: 1 0 auto; */
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 880px) {
+  .cardContainer {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .cardContainer {
+    width: 90%;
+  }
+}
