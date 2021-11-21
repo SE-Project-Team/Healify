@@ -3,18 +3,36 @@ import axios from "axios";
 import { Header } from "../Home/Header";
 import newsstyles from "./News.module.css";
 import Search from "./SearchNews";
+import { randomqueries } from "./randomqueries";
+ import ReactPaginate from "react-paginate";
 
-const apiKey = "41dd8c7e43b8464296e19c0e8e647b72";
+const apiKey = "cf4be561623c457f984adbd633086100";
 
 let query = "mental-health+OR+literature+OR+vacation";
 const News = () => {
   const [data, setData] = useState();
   const [term, setTerm] = useState("");
   const [suggesting, setSuggesting] = useState(true);
-  const [page, setPage] = useState("1");
+  const [otherarticles, setotherarticles] = useState(false);
+  const [page, setPage] = useState(1);
+ const articlesperpage=16;
+const [totalresults,settotalresults]=useState(100);
+const [articlesVisited,setarticlesVisited] = useState(0);
 
+useEffect(()=>{
+    setarticlesVisited((Number(page)-1)*articlesperpage);
+    if(page>3)
+    {
+      setSuggesting(false);
+      setotherarticles(true);
+      setTerm("");
+    }
+    else
+    {
+      setSuggesting(true);
+    }
+},[page]);
   useEffect(() => {
-    console.log("page Chnages");
     const token = JSON.parse(localStorage.getItem("token"));
     let queryTerm;
     if (suggesting) {
@@ -30,6 +48,8 @@ const News = () => {
           temp.sort((a, b) => b[1] - a[1]);
           query = temp.slice(0, 3);
           queryTerm = `${query[0][0]}+OR+${query[1][0]}+OR+${query[2][0]}`;
+          settotalresults(res.data.totalResults);
+          console.log("totalresults-"+totalresults);
         })
         .catch((err) => {
           if (err.response) {
@@ -38,19 +58,24 @@ const News = () => {
           }
           console.log(err);
         });
-
-      // Set Query over here
-
-      // LENGTH_REQUIRED max1 = getMax(KEYWORDS);
-      // console.log(max1);
-
-      // console.log(KEYWORDS);
-
       axios
         .get(
           `https://newsapi.org/v2/everything?q=${queryTerm}&from= &language=en&sortBy=relevancy&apiKey=${apiKey}&page=${page}`
         )
         .then((response) => setData(response.data))
+        .catch((error) => console.log(error));
+    }
+    else if(otherarticles)
+    {
+        const otherterm =randomqueries[Math.floor(Math.random() % randomqueries.length)];
+       axios
+        .get(
+          `https://newsapi.org/v2/everything?q=${otherterm}&from= &language=en&sortBy=relevancy&apiKey=${apiKey}&page=${page-3}`
+        )
+        .then((response) =>{ 
+          setData(response.data);
+          settotalresults(response.data.totalResults);
+         setarticlesVisited(0)})
         .catch((error) => console.log(error));
     }
   }, [page]);
@@ -58,27 +83,24 @@ const News = () => {
     if (term) {
       const queryTerm = term.split(" ").join("-");
       setSuggesting(false);
+      setotherarticles(false);
       axios
         .get(
           `https://newsapi.org/v2/everything?q=${queryTerm}&from= &language=en&sortBy=relevancy&apiKey=${apiKey}&page=${page}`
         )
-        .then((response) => setData(response.data))
+        .then((response) =>{ 
+          setData(response.data);
+          settotalresults(response.data.totalResults);})
         .catch((error) => console.log(error));
     }
   }, [term, page]);
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       `https://newsapi.org/v2/top-headlines?category=health&language=en&apiKey=${apiKey}`
-  //     )
-  //     .then((response2) => setallData(response2.data))
-  //     .catch((error2) => console.log(error2));
-  // }, []);
+  const changePage = ({ selected }) => {
+    setPage(selected);
+  };
   return (
     <>
       <Header />
-
-      <div className={newsstyles.showcase}>
+       <div className={newsstyles.showcase}>
         <div className={newsstyles.overlay + " " + "px-5"}>
           <div className="text-4xl font-bold text-white mb-4 text-center">
             <h1>News Articles</h1>
@@ -94,7 +116,7 @@ const News = () => {
       <div className={newsstyles.bodyy}>
         {suggesting ? (
           <h4 className="px-5 pt-10 pb-20 ">Suggested articles:</h4>
-        ) : (
+        ) : (otherarticles?(<h4 className="px-5 pt-10 pb-20 ">Other articles :</h4>):
           <h4 className="px-5 pt-10 pb-20 ">Search Results for {term} :</h4>
         )}
         <div className={newsstyles.all__news}>
@@ -136,7 +158,7 @@ const News = () => {
               ))
             : "Loading"}
         </div>
-        <div className={`${newsstyles.page}`}>
+        {/* <div className={`${newsstyles.page}`}>
           <label htmlFor="page">Page No</label>
           <input
             type="number"
@@ -145,7 +167,19 @@ const News = () => {
               setPage(e.target.value.toString());
             }}
           />
-        </div>
+        </div> */}
+        <br /><br />
+         <ReactPaginate style={{'margin':'auto'}}
+        previousLabel={"Previous"}
+        nextLabel={"Next"}
+        pageCount={7}
+        onPageChange={changePage}
+        containerClassName={newsstyles.paginationBttns}
+        previousLinkClassName={newsstyles.previousBttn}
+        nextLinkClassName={newsstyles.nextBttn}
+        disabledClassName={newsstyles.paginationDisabled}
+        activeClassName={newsstyles.paginationActive}
+      />
       </div>
     </>
   );
