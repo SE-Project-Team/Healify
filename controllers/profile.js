@@ -39,4 +39,20 @@ const postProfile = async (req, res) => {
     data: { BirthDay, Gender, Hobbies, Interests, Phone, About },
   });
 };
-module.exports = { postProfile, getProfile };
+
+const getEventDetails = async (req, res) => {
+  const { _id } = req.user;
+  const user = await User.findById(_id);
+
+  if (!user) {
+    throw new BadRequestError("No Such User Exists");
+  }
+
+  const favEventsList = user.favouriteEvents;
+
+  console.log(favEventsList);
+
+  res.status(200).json({ success: "true", data: favEventsList });
+};
+
+module.exports = { postProfile, getProfile, getEventDetails };

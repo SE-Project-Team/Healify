@@ -71,7 +71,7 @@ export const Events = (props) => {
             authorization: `Bearer ${token}`,
           },
         })
-        .then((res) => {
+        .then(async (res) => {
           // Can Do Better Here
           const allEvents = res.data.data;
           allEvents.sort((a, b) => {
@@ -79,8 +79,34 @@ export const Events = (props) => {
           });
           // Cross Check with interested events in User's list
           //  and add marked as interesting property to each event
-          setEvents(allEvents);
           // Show some info ig!!
+          if (!pageIsInterested) {
+            await axios
+              .get("/api/v1/profile/event_details", {
+                headers: {
+                  authorization: `Bearer ${token}`,
+                },
+              })
+              .then((res) => {
+                const favEvents = res.data.data;
+                const newAllEvents = allEvents.map((each) => {
+                  if (favEvents.includes(each._id)) {
+                    return { ...each, marked: true };
+                  } else {
+                    return { ...each, marked: false };
+                  }
+                });
+                setEvents(newAllEvents);
+              })
+              .catch((err) => {
+                if (err.response) {
+                  console.log(err.response.body);
+                }
+                console.log(err);
+              });
+          } else {
+            setEvents(allEvents);
+          }
         })
         .catch((err) => {
           if (err.response) {
@@ -104,7 +130,6 @@ export const Events = (props) => {
                     <div className={`${styles.imgContainer}`}>
                       <img
                         width="100%"
-                        top
                         src={datum.eventImage || imgDef}
                         alt="Card image cap"
                       />
@@ -128,17 +153,28 @@ export const Events = (props) => {
                         View
                       </button>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      {!pageIsInterested && (
-                        <button
-                          type="button"
-                          className="btn btn-outline-danger"
-                          onClick={() => {
-                            markInterested(datum._id);
-                          }}
-                        >
-                          Mark As Interested
-                        </button>
-                      )}
+                      {!pageIsInterested &&
+                        ((datum.marked && (
+                          <button
+                            type="button"
+                            className="btn btn-outline-danger"
+                            onClick={() => {
+                              markInterested(datum._id);
+                            }}
+                          >
+                            Remove From Interested{" "}
+                          </button>
+                        )) || (
+                          <button
+                            type="button"
+                            className="btn btn-outline-danger"
+                            onClick={() => {
+                              markInterested(datum._id);
+                            }}
+                          >
+                            Mark As Interested
+                          </button>
+                        ))}
                     </div>
                   </div>
                 </section>
