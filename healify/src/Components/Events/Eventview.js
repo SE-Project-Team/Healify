@@ -82,7 +82,7 @@ export const Eventview = (props) => {
         });
     };
     asyncWrapper();
-  }, [addAnnounce]);
+  }, [addAnnounce,addReview]);
 
   return (
     <>
