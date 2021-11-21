@@ -77,7 +77,10 @@ export const Events = (props) => {
           allEvents.sort((a, b) => {
             return a.date < b.date ? 1 : -1;
           });
+          // Cross Check with interested events in User's list
+          //  and add marked as interesting property to each event
           setEvents(allEvents);
+          // Show some info ig!!
         })
         .catch((err) => {
           if (err.response) {

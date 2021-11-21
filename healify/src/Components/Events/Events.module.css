@@ -6,11 +6,6 @@
 
 /* Overloads to reactStrap */
 
-.articleContainer {
-  /* display: flex;
-  flex-wrap: wrap; */
-}
-
 .sectionContainer {
   display: flex;
   flex-wrap: wrap;
