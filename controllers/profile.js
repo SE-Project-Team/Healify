@@ -15,6 +15,11 @@ const getProfile = async (req, res) => {
     Gender: user.gender,
     Hobbies: user.hobbies,
     Keywords: user.keywords,
+    UserName: user.username,
+    EmailID: user.email,
+    Phone: user.phone,
+    Interests: user.interests,
+    About: user.about,
   };
 
   return res.status(StatusCodes.OK).json({ status: "success", data: profile });
