@@ -57,12 +57,12 @@ export const Responsivesidemenu1 = ({
               <i class="fas fa-pencil"></i>&nbsp; &nbsp;&nbsp;Create New
             </a>
           </li>
-
           <li
             className={styles["menu-item"]}
             onClick={() => {
               setNotifPage(true);
               setMissPage(false);
+              history.push("/Notifications");
             }}
           >
             {/* <a href="#"> */}
@@ -76,6 +76,7 @@ export const Responsivesidemenu1 = ({
             onClick={() => {
               setNotifPage(false);
               setMissPage(true);
+              history.push("/Missed");
             }}
           >
             {/* <a href="#"> */}
