@@ -20,6 +20,8 @@ export const MilestonesHome = ({
   const [modal, setModal] = useState(false);
   const [notifications, setNotifications] = useState(0);
   const [missed, setMissed] = useState(0);
+  const [notifPage, setNotifPage] = useState(notificationPage);
+  const [missPage, setMissPage] = useState(missedPage);
 
   // const [taskList, setTaskList] = useState([]);
   const toggle = () => setModal(!modal);
@@ -27,7 +29,9 @@ export const MilestonesHome = ({
     createTask();
     setModal(false);
   };
+
   const updatePage = async () => {
+    console.log("update page");
     const token = JSON.parse(localStorage.getItem("token"));
     await axios
       .get("/api/v1/milestones", {
@@ -84,13 +88,13 @@ export const MilestonesHome = ({
             completed,
           };
         });
-        if (notificationPage) {
+        if (notifPage) {
           const upcomingEvents = newActiveMilestones.filter((each) => {
             console.log(each.upcoming);
             return each.upcoming === true;
           });
           setTaskList(() => upcomingEvents);
-        } else if (missedPage) {
+        } else if (missPage) {
           const missedEvents = newActiveMilestones.filter((each) => {
             console.log(each.completed);
             return each.completed === false;
@@ -145,17 +149,19 @@ export const MilestonesHome = ({
   return (
     <div>
       <Header />
-      {notificationPage && (
+      {notifPage && (
         <h1 className={`${styles.notif}`}>
           Upcoming Tasks for the Next Seven Days
         </h1>
       )}
-      {missedPage && <h1 className={`${styles.notif}`}>Missed Tasks</h1>}
+      {missPage && <h1 className={`${styles.notif}`}>Missed Tasks</h1>}
       <article className={styles.flexWrapper}>
         <Responsivesidemenu1
           createTask={updateTask}
           notifications={notifications}
           missed={missed}
+          setNotifPage={setNotifPage}
+          setMissPage={setMissPage}
         />
 
         <div className={styles["task-container"]}>

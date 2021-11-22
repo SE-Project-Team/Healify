@@ -3,7 +3,15 @@ import CreateTask from "../modals/CreateTask";
 import About from "./About";
 import styles from "./ResponsiveSidemenu1.module.css";
 import { Link } from "react-router-dom";
-export const Responsivesidemenu1 = ({ createTask, notifications, missed }) => {
+import { useHistory } from "react-router";
+export const Responsivesidemenu1 = ({
+  createTask,
+  notifications,
+  missed,
+  setNotifPage,
+  setMissPage,
+}) => {
+  const history = useHistory();
   const [modal, setModal] = useState(false);
   // const [taskList, setTaskList] = useState([]);
   const toggle = () => setModal(!modal);
@@ -49,22 +57,32 @@ export const Responsivesidemenu1 = ({ createTask, notifications, missed }) => {
               <i class="fas fa-pencil"></i>&nbsp; &nbsp;&nbsp;Create New
             </a>
           </li>
-          <Link to="/Notifications">
-            <li className={styles["menu-item"]}>
-              <a href="#">
-                <i class="fas fa-bell"></i>&nbsp; &nbsp;&nbsp;
-                <span>Notifications ({notifications})</span>
-              </a>
-            </li>
-          </Link>
-          <Link to="/Missed">
-            <li className={styles["menu-item"]}>
-              <a href="#">
-                <i class="fas fa-bell"></i>&nbsp; &nbsp;&nbsp;
-                <span>Missed ({missed})</span>
-              </a>
-            </li>
-          </Link>
+
+          <li
+            className={styles["menu-item"]}
+            onClick={() => {
+              setNotifPage(true);
+              setMissPage(false);
+            }}
+          >
+            {/* <a href="#"> */}
+            <i class="fas fa-bell"></i>&nbsp; &nbsp;&nbsp;
+            <span>Notifications ({notifications})</span>
+            {/* </a> */}
+          </li>
+
+          <li
+            className={styles["menu-item"]}
+            onClick={() => {
+              setNotifPage(false);
+              setMissPage(true);
+            }}
+          >
+            {/* <a href="#"> */}
+            <i class="fas fa-bell"></i>&nbsp; &nbsp;&nbsp;
+            <span>Missed ({missed})</span>
+            {/* </a> */}
+          </li>
         </ul>
       </div>
       <CreateTask toggle={toggle} modal={modal} save={saveTask} />
