@@ -85,7 +85,25 @@
   font-family: "Josefin Sans", sans-serif;
   color: white;
   text-shadow: 1px 1px 3px rgb(0, 0, 0);
+  /* stroke: #ffa5d8;
+  stroke-width: 3;
+ 
+  animation: textAnimate 5s infinite alternate; */
 }
+/* @keyframes textAnimate {
+  0% {
+    stroke-dasharray: 0 50%;
+    stroke-dashoffset:  20%;
+    fill:hsl(189, 68%, 75%)
+
+  }
+  
+  100% {
+    stroke-dasharray: 50% 0;
+    stroke-dashoffstet: -20%;
+    fill: hsla(189, 68%, 75%,0%)
+  }
+} */
 .heading:hover {
   text-shadow: 1px 1px 6px rgb(14, 14, 13);
 }
