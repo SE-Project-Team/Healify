@@ -14,6 +14,7 @@ import { Header } from "../Home/Header";
 export const MilestonesHome = ({ createTask }) => {
   const [taskList, setTaskList] = useState([]);
   const [modal, setModal] = useState(false);
+  const [notifications, setNotifications] = useState(0);
 
   // const [taskList, setTaskList] = useState([]);
   const toggle = () => setModal(!modal);
@@ -91,7 +92,10 @@ export const MilestonesHome = ({ createTask }) => {
     <div>
       <Header />
       <article className={styles.flexWrapper}>
-        <Responsivesidemenu1 createTask={updateTask} />
+        <Responsivesidemenu1
+          createTask={updateTask}
+          notifications={notifications}
+        />
         <div className={styles["task-container"]}>
           {taskList &&
             taskList.map((obj, index) => (
