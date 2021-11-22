@@ -7,7 +7,7 @@ import { Progressbar } from "./Progressbar";
 import { NewReadMore } from "./NewReadMore";
 const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
   const [selected, setSelected] = useState(0);
-  const { title, subtasks, targetDate } = taskObj;
+  const { title, subtasks, targetDate, completed } = taskObj;
 
   useEffect(() => {
     const condn1 = subtasks.find((st) => !st.completed);

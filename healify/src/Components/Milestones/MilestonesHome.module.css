@@ -141,3 +141,8 @@
   /* max-width: 100px; */
   word-wrap: break-word;
 }
+
+.notif {
+  text-align: center;
+  color: rgb(142, 175, 93);
+}

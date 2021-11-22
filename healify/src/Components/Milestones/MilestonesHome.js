@@ -11,7 +11,7 @@ import { Responsivesidemenu1 } from "./Responsivesidemenu1";
 import axios from "axios";
 import { Header } from "../Home/Header";
 
-export const MilestonesHome = ({ createTask }) => {
+export const MilestonesHome = ({ createTask, notificationPage }) => {
   const [taskList, setTaskList] = useState([]);
   const [modal, setModal] = useState(false);
   const [notifications, setNotifications] = useState(0);
@@ -36,20 +36,56 @@ export const MilestonesHome = ({ createTask }) => {
           // For some reason db is inserting previous day -> default time == midnight issue??
           // Are mongoose and js considering 00 time as different days??
           // console.log(each.targetDate);
-
+          let upcoming = false;
           // But this method is returning value to proper date
           let newDate = new Date(each.targetDate);
+
+          // Date Comparison Logic to be done Here
+          // We are checking next Seven Days
+
+          // ------------------------------------------- //
+
+          const seventhDay = new Date(Date.now());
+          seventhDay.setDate(seventhDay.getDate() + 7);
+          upcoming = newDate > Date.now() && newDate < seventhDay;
+
+          // ------------------------------------------- //
+          if (upcoming) {
+            console.log("true");
+            setNotifications((prev) => prev + 1);
+          }
+
+          const condn1 = each.subtasks.find((st) => !st.completed);
+          const completed;
+          if (condn1) {
+            completed = true;
+          }
+          else {
+            completed = false;
+          }
+
           newDate = newDate.toString().slice(0, 15);
 
           return {
             ...each,
             targetDate: newDate,
+            upcoming: upcoming,
+            completed,
           };
         });
-        setTaskList(newActiveMilestones);
+        if (notificationPage) {
+          const upcomingEvents = newActiveMilestones.filter((each) => {
+            console.log(each.upcoming);
+            return each.upcoming === true;
+          });
+          setTaskList(upcomingEvents);
+        } else {
+          setTaskList(newActiveMilestones);
+        }
       })
       .catch((err) => {
         console.log(err.response);
+        console.log(err);
       });
   };
 
@@ -91,11 +127,17 @@ export const MilestonesHome = ({ createTask }) => {
   return (
     <div>
       <Header />
+      {notificationPage && (
+        <h1 className={`${styles.notif}`}>
+          Upcoming Events for the Next Seven Days
+        </h1>
+      )}
       <article className={styles.flexWrapper}>
         <Responsivesidemenu1
           createTask={updateTask}
           notifications={notifications}
         />
+
         <div className={styles["task-container"]}>
           {taskList &&
             taskList.map((obj, index) => (

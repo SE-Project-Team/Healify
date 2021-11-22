@@ -118,9 +118,10 @@ function App() {
           <Route path="/Profile">
             <Profile />
           </Route>
-          <Route path="/MilestonesHome">
-            <MilestonesHome />
-          </Route>
+          <Route
+            path="/MilestonesHome"
+            children={<MilestonesHome notificationPage={false} />}
+          ></Route>
           <Route
             path="/Notifications"
             children={<MilestonesHome notificationPage={true} />}
