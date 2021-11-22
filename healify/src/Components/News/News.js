@@ -7,7 +7,6 @@ import { randomqueries } from "./randomqueries";
 import ReactPaginate from "react-paginate";
 
 const apiKey = "cf4be561623c457f984adbd633086100";
-
 let query = "mental-health+OR+literature+OR+vacation";
 const News = () => {
   const [data, setData] = useState();
@@ -17,6 +16,7 @@ const News = () => {
   const [page, setPage] = useState(1);
   const articlesperpage = 16;
   const [totalresults, settotalresults] = useState(100);
+ const sortBy=['relevancy','popularity','publishedAt'];
   const [articlesVisited, setarticlesVisited] = useState(0);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const News = () => {
     const token = JSON.parse(localStorage.getItem("token"));
     let queryTerm;
     if (suggesting) {
-      axios
+      axios 
         .get(`/api/v1/profile`, {
           headers: {
             authorization: `Bearer ${token}`,
@@ -55,19 +55,21 @@ const News = () => {
           }
           console.log(err);
         });
+        let sortby=sortBy[Math.floor(Math.random() % sortBy.length)];
       axios
         .get(
-          `https://newsapi.org/v2/everything?q=${queryTerm}&from= &language=en&sortBy=relevancy&apiKey=${apiKey}&page=${page}`
+          `https://newsapi.org/v2/everything?q=${queryTerm}&from= &language=en&sortBy=${sortby}&apiKey=${apiKey}&page=${page}`
         )
         .then((response) => setData(response.data))
         .catch((error) => console.log(error));
     } else if (otherarticles) {
       const otherterm =
         randomqueries[Math.floor(Math.random() % randomqueries.length)];
+        let sortby=sortBy[Math.floor(Math.random() % sortBy.length)];
       axios
         .get(
-          `https://newsapi.org/v2/everything?q=${otherterm}&from= &language=en&sortBy=relevancy&apiKey=${apiKey}&page=${
-            page - 3
+          `https://newsapi.org/v2/everything?q=${otherterm}&from= &language=en&sortBy=${sortby}&apiKey=${apiKey}&page=${
+            page-3
           }`
         )
         .then((response) => {
@@ -83,9 +85,10 @@ const News = () => {
       const queryTerm = term.split(" ").join("-");
       setSuggesting(false);
       setotherarticles(false);
+      let sortby=sortBy[Math.floor(Math.random() % sortBy.length)];
       axios
         .get(
-          `https://newsapi.org/v2/everything?q=${queryTerm}&from= &language=en&sortBy=relevancy&apiKey=${apiKey}&page=${page}`
+          `https://newsapi.org/v2/everything?q=${queryTerm}&from= &language=en&sortBy=${sortby}&apiKey=${apiKey}&page=${page}`
         )
         .then((response) => {
           setData(response.data);
