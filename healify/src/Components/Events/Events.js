@@ -57,6 +57,7 @@ export const Events = (props) => {
         changedEvent.marked = true;
         const newEvents = [...events];
         setEvents(() => newEvents);
+        console.log("Hi");
       })
       .catch((err) => {
         if (err.response) {

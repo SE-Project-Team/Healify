@@ -3,7 +3,7 @@ import CreateTask from "../modals/CreateTask";
 import About from "./About";
 import styles from "./ResponsiveSidemenu1.module.css";
 import { Link } from "react-router-dom";
-export const Responsivesidemenu1 = ({ createTask }) => {
+export const Responsivesidemenu1 = ({ createTask, notifications }) => {
   const [modal, setModal] = useState(false);
   // const [taskList, setTaskList] = useState([]);
   const toggle = () => setModal(!modal);
@@ -31,7 +31,8 @@ export const Responsivesidemenu1 = ({ createTask }) => {
             <li className={styles["menu-item"]}>
               {" "}
               <a href="#">
-                <i className="fa fa-question-circle"></i>&nbsp; &nbsp;&nbsp;&nbsp;About 
+                <i className="fa fa-question-circle"></i>&nbsp;
+                &nbsp;&nbsp;&nbsp;About
               </a>
             </li>
           </Link>
@@ -42,13 +43,20 @@ export const Responsivesidemenu1 = ({ createTask }) => {
               </a>
             </li>
           </Link>
-     
+
           <li className={styles["menu-item"]} onClick={() => setModal(true)}>
             <a href="#">
               <i class="fas fa-pencil"></i>&nbsp; &nbsp;&nbsp;Create New
             </a>
           </li>
-          
+          <Link to="/Notifications">
+            <li className={styles["menu-item"]}>
+              <a href="#">
+                <i class="fas fa-bell"></i>&nbsp; &nbsp;&nbsp;
+                <span>Notifications ({notifications})</span>
+              </a>
+            </li>
+          </Link>
         </ul>
       </div>
       <CreateTask toggle={toggle} modal={modal} save={saveTask} />
