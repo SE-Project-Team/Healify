@@ -97,7 +97,8 @@
   left: 0;
 }
 
-.btn {
+.btn 
+{
   color: #fff;
   background: linear-gradient(135deg, #852d91, #312a6c);
   font-family: "Comfortaa", cursive;

@@ -195,6 +195,7 @@ export const Eventview = (props) => {
               ></div>
             </div> */}
           </div>
+            <div className={styles.Eventcontainer}>
           <Segment
             inverted
             size="large"
@@ -233,7 +234,7 @@ export const Eventview = (props) => {
                 </>
               );
             })}
-          </div>
+          </div> </div>
         </div>
       )}
       {addAnnounce && (
