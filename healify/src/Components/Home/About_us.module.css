@@ -2,6 +2,7 @@
   font-family: Arial;
   padding: 20px;
   background: #f1f1f1;
+  overflow-x: scroll;
 }
 
 /* Header/Blog Title */
@@ -28,15 +29,15 @@
 
 /* Fake image */
 .fakeimg {
-  background-color:lightpink;
+  background-color: lightpink;
   width: 100%;
   padding: 50px;
-} 
-.image1{
-    width:300px; 
-    /* padding:20px;
+}
+.image1 {
+  width: 300px;
+  /* padding:20px;
     margin-top: 20px; */
-     height:250px; 
+  height: 250px;
 }
 
 /* .imagestyle{
@@ -68,11 +69,13 @@
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
-  .leftcolumn, .rightcolumn {
+  .leftcolumn,
+  .rightcolumn {
     width: 100%;
     padding: 0;
   }
-}.aboutmain {
+}
+.aboutmain {
   font-family: Arial;
   padding: 20px;
   background: #f1f1f1;
@@ -131,7 +134,8 @@
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
-  .leftcolumn, .rightcolumn {
+  .leftcolumn,
+  .rightcolumn {
     width: 100%;
     padding: 0;
   }

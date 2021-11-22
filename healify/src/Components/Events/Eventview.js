@@ -82,7 +82,7 @@ export const Eventview = (props) => {
         });
     };
     asyncWrapper();
-  }, [addAnnounce,addReview]);
+  }, [addAnnounce, addReview]);
 
   return (
     <>
@@ -171,19 +171,23 @@ export const Eventview = (props) => {
                   </section>
                 </Segment>
                 <div>
-                  {announcement.map((props) => {
-                    return (
-                      <>
-                        {" "}
-                        <div className={styles.Eventcontainer2}>
-                          <a class="ui orange right ribbon label">
-                            {props.Date}
-                          </a>
-                          <ReadMore>{props.announcement}</ReadMore>
-                        </div>
-                      </>
-                    );
-                  })}
+                  {event.announcements.length === 0 ? (
+                    <ReadMore>No Announcements Yet</ReadMore>
+                  ) : (
+                    event.announcements.map((props) => {
+                      return (
+                        <>
+                          {" "}
+                          <div className={styles.Eventcontainer2}>
+                            <a class="ui orange right ribbon label">
+                              {props.Date}
+                            </a>
+                            <ReadMore>{props.content}</ReadMore>
+                          </div>
+                        </>
+                      );
+                    })
+                  )}
                 </div>
               </div>
             </div>
@@ -215,24 +219,28 @@ export const Eventview = (props) => {
             </a>
           </Segment>
           <div>
-            {comment.map((props) => {
-              return (
-                <>
-                  <div className={styles.Eventcontainer3}>
-                    <div>
-                      <div style={{ fontWeight: "bold" }}>
-                        {" "}
-                        {props.username}
-                      </div>
+            {event.reviews.length === 0 ? (
+              <ReadMore>No Reviews Yet</ReadMore>
+            ) : (
+              event.reviews.map((props) => {
+                return (
+                  <>
+                    <div className={styles.Eventcontainer3}>
                       <div>
-                        {" "}
-                        <ReadMore>{props.comment}</ReadMore>
+                        <div style={{ fontWeight: "bold" }}>
+                          {" "}
+                          {props.user.username}
+                        </div>
+                        <div>
+                          {" "}
+                          <ReadMore>{props.content}</ReadMore>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </>
-              );
-            })}
+                  </>
+                );
+              })
+            )}
           </div>
         </div>
       )}

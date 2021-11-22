@@ -95,7 +95,7 @@ const createReview = async (req, res) => {
 
   const exists = await Review.find({ user: _id, event: eventId });
   console.log("exists", exists);
-  if (exists.length) {
+  if (exists.length != 0) {
     throw new BadRequestError("There Already Exists A Review From You.");
   }
 
