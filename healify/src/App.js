@@ -120,11 +120,21 @@ function App() {
           </Route>
           <Route
             path="/MilestonesHome"
-            children={<MilestonesHome notificationPage={false} />}
+            children={
+              <MilestonesHome notificationPage={false} missedPage={false} />
+            }
           ></Route>
           <Route
             path="/Notifications"
-            children={<MilestonesHome notificationPage={true} />}
+            children={
+              <MilestonesHome notificationPage={true} missedPage={false} />
+            }
+          ></Route>
+          <Route
+            path="/Missed"
+            children={
+              <MilestonesHome notificationPage={false} missedPage={true} />
+            }
           ></Route>
           <Route path="/Timeline">
             <Timeline />

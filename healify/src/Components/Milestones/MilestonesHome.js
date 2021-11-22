@@ -11,10 +11,15 @@ import { Responsivesidemenu1 } from "./Responsivesidemenu1";
 import axios from "axios";
 import { Header } from "../Home/Header";
 
-export const MilestonesHome = ({ createTask, notificationPage }) => {
+export const MilestonesHome = ({
+  createTask,
+  notificationPage,
+  missedPage,
+}) => {
   const [taskList, setTaskList] = useState([]);
   const [modal, setModal] = useState(false);
   const [notifications, setNotifications] = useState(0);
+  const [missed, setMissed] = useState(0);
 
   // const [taskList, setTaskList] = useState([]);
   const toggle = () => setModal(!modal);
@@ -32,6 +37,8 @@ export const MilestonesHome = ({ createTask, notificationPage }) => {
       })
       .then((res) => {
         const activeMilestones = res.data.data;
+        setMissed(() => 0);
+        setNotifications(() => 0);
         const newActiveMilestones = activeMilestones.map((each) => {
           // For some reason db is inserting previous day -> default time == midnight issue??
           // Are mongoose and js considering 00 time as different days??
@@ -51,21 +58,25 @@ export const MilestonesHome = ({ createTask, notificationPage }) => {
 
           // ------------------------------------------- //
           if (upcoming) {
-            console.log("true");
             setNotifications((prev) => prev + 1);
           }
 
           const condn1 = each.subtasks.find((st) => !st.completed);
-          const completed;
+          let completed;
           if (condn1) {
+            completed = false;
+          } else {
             completed = true;
           }
-          else {
-            completed = false;
-          }
+          const isMissed = newDate < Date.now() && !completed;
 
           newDate = newDate.toString().slice(0, 15);
-
+          if (isMissed) {
+            setMissed((prev) => prev + 1);
+            completed = false;
+          } else {
+            completed = true;
+          }
           return {
             ...each,
             targetDate: newDate,
@@ -78,9 +89,16 @@ export const MilestonesHome = ({ createTask, notificationPage }) => {
             console.log(each.upcoming);
             return each.upcoming === true;
           });
-          setTaskList(upcomingEvents);
+          setTaskList(() => upcomingEvents);
+        } else if (missedPage) {
+          const missedEvents = newActiveMilestones.filter((each) => {
+            console.log(each.completed);
+            return each.completed === false;
+          });
+          console.log(missedEvents);
+          setTaskList(() => missedEvents);
         } else {
-          setTaskList(newActiveMilestones);
+          setTaskList(() => newActiveMilestones);
         }
       })
       .catch((err) => {
@@ -129,13 +147,15 @@ export const MilestonesHome = ({ createTask, notificationPage }) => {
       <Header />
       {notificationPage && (
         <h1 className={`${styles.notif}`}>
-          Upcoming Events for the Next Seven Days
+          Upcoming Tasks for the Next Seven Days
         </h1>
       )}
+      {missedPage && <h1 className={`${styles.notif}`}>Missed Tasks</h1>}
       <article className={styles.flexWrapper}>
         <Responsivesidemenu1
           createTask={updateTask}
           notifications={notifications}
+          missed={missed}
         />
 
         <div className={styles["task-container"]}>

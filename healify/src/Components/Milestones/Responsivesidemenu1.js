@@ -3,7 +3,7 @@ import CreateTask from "../modals/CreateTask";
 import About from "./About";
 import styles from "./ResponsiveSidemenu1.module.css";
 import { Link } from "react-router-dom";
-export const Responsivesidemenu1 = ({ createTask, notifications }) => {
+export const Responsivesidemenu1 = ({ createTask, notifications, missed }) => {
   const [modal, setModal] = useState(false);
   // const [taskList, setTaskList] = useState([]);
   const toggle = () => setModal(!modal);
@@ -54,6 +54,14 @@ export const Responsivesidemenu1 = ({ createTask, notifications }) => {
               <a href="#">
                 <i class="fas fa-bell"></i>&nbsp; &nbsp;&nbsp;
                 <span>Notifications ({notifications})</span>
+              </a>
+            </li>
+          </Link>
+          <Link to="/Missed">
+            <li className={styles["menu-item"]}>
+              <a href="#">
+                <i class="fas fa-bell"></i>&nbsp; &nbsp;&nbsp;
+                <span>Missed ({missed})</span>
               </a>
             </li>
           </Link>
