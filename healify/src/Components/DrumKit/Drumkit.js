@@ -17,6 +17,7 @@ import lImg from "../../Assets/images/l.png";
 import { Recorder } from "./Recorder";
 import { useEffect, useState } from "react";
 import { Notes } from "./Notes.js";
+import { Header } from "../Home/Header";
 export const Drumkit = () => {
   // Alternate way -> set State to the letter and evaluate class based on state=== letter && class
 
@@ -153,6 +154,7 @@ export const Drumkit = () => {
 
   return (
     <>
+      <Header />
       <div className={styles.bdy}>
         <div>
           <h1 className={styles.drumkith1}>Drum 🥁 Kit</h1>
