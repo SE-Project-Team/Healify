@@ -1,55 +1,127 @@
 import React from "react";
 import aboutstyles from "./About_us.module.css";
+import { Header } from "./Header";
 export const About_Us = () => {
   return (
-    <div className={aboutstyles.aboutmain}>
-      <div className={aboutstyles.header}>
-        <h2 style={{ color: "DeepPink" }}>A SHORT GUIDE TO HEALIFY</h2>
-      </div>
-      <h2 style={{ color: "lightpink", textAlign: "center" }}>About Healify</h2>
-      {/* <h5>Milestones</h5> */}
-      <div
-        className={aboutstyles.fakeimg}
-        style={{
-          backgroundColor: "lightpink",
-          color: "SlateGrey",
-          fontFamily: "sans-serif",
-          fontSize: 18,
-          lineHeight: 1.2,
-        }}
-      >
-        Dealing with mental health is what makes us human. But for a lot of us,
-        it's a struggle to be open about it. Even if we are open about it, there
-        is a global shortage of psychiatrists and lack of mental health care
-        access in rural regions s. In this context, we feel that apps can serve
-        as a viable tool to bridge the mental health treatment gap. Our app
-        serves as a user feedback system for self-management and maintaining
-        good mental health of every individual. This app encourages users to
-        maintain their milestones records so that they can focus on what is
-        important. We intend this to be a part of their self-care task so that
-        users feel active. The web-app provides an option to read good news
-        articles and some wholesome memes for recreation. This app can be
-        revisited every day, to keep oneself occupied with his goals and not
-        fall into the stress holes created by the world around him.{" "}
-        {/* <img clasName={aboutstyles.imagestyle}  src="https://static.vecteezy.com/system/resources/previews/000/425/393/original/outstanding-mental-health-vector.jpg" /> */}
-      </div>
-      <div className={aboutstyles.row}>
-        <div className={aboutstyles.leftcolumn}>
+    <>
+      <Header />
+      <div className={aboutstyles.aboutmain}>
+        <div className={aboutstyles.header}>
+          <h2>A SHORT GUIDE TO HEALIFY</h2>
+        </div>
+        <h2>About Healify</h2>
+        {/* <h5>Milestones</h5> */}
+        <div className={aboutstyles.fakeimg}>
+          Dealing with mental health is what makes us human. But for a lot of
+          us, it's a struggle to be open about it. Even if we are open about it,
+          there is a global shortage of psychiatrists and lack of mental health
+          care access in rural regions s. In this context, we feel that apps can
+          serve as a viable tool to bridge the mental health treatment gap. Our
+          app serves as a user feedback system for self-management and
+          maintaining good mental health of every individual. This app
+          encourages users to maintain their milestones records so that they can
+          focus on what is important. We intend this to be a part of their
+          self-care task so that users feel active. The web-app provides an
+          option to read good news articles and some wholesome memes for
+          recreation. This app can be revisited every day, to keep oneself
+          occupied with his goals and not fall into the stress holes created by
+          the world around him.{" "}
+          {/* <img clasName={aboutstyles.imagestyle}  src="https://static.vecteezy.com/system/resources/previews/000/425/393/original/outstanding-mental-health-vector.jpg" /> */}
+        </div>
+        <h2>Roles</h2>
+        {/* <h5>Milestones</h5> */}
+        <div className={aboutstyles.fakeimg}>
+          <b>Primary User:</b>
+          <p>
+            Healify tries to monitor mental health through well-detailed quizzes
+            and tries to keep the user active and positive through various
+            activities. To avail these services one may register as a{" "}
+            <b>user</b> in the signup page.
+          </p>
+          <br />
+          <b>Event Organizer:</b>
+          <p>
+            An Event Organizer can market virtual events, conferences and
+            related activities through the Events Section of healify. To do this
+            one must register as an <b>organizer</b> in the signup page.
+          </p>
+          {/* <img clasName={aboutstyles.imagestyle}  src="https://static.vecteezy.com/system/resources/previews/000/425/393/original/outstanding-mental-health-vector.jpg" /> */}
+        </div>
+
+        <div className={aboutstyles.row}>
+          <h2>Guide for primary user</h2>
+          <div className={aboutstyles.fakeimg}>
+            <b>Quiz Page:</b>
+            <p>
+              Healify tries to monitor mental health through well-detailed
+              quizzes and tries to keep the user active and positive through
+              various activities. To avail these services one may register as a{" "}
+              <b>user</b> in the signup page.
+            </p>
+            <br />
+            <b>Milestones:</b>
+            <p>
+              An Event Organizer can market virtual events, conferences and
+              related activities through the Events Section of healify. To do
+              this one must register as an <b>organizer</b> in the signup page.
+            </p>
+
+            <b>Articles:</b>
+            <p>
+              An Event Organizer can market virtual events, conferences and
+              related activities through the Events Section of healify. To do
+              this one must register as an <b>organizer</b> in the signup page.
+            </p>
+
+            <b>Events:</b>
+            <p>
+              An Event Organizer can market virtual events, conferences and
+              related activities through the Events Section of healify. To do
+              this one must register as an <b>organizer</b> in the signup page.
+            </p>
+            <b>Need To Talk?:</b>
+            <p>
+              An Event Organizer can market virtual events, conferences and
+              related activities through the Events Section of healify. To do
+              this one must register as an <b>organizer</b> in the signup page.
+            </p>
+            <b>Memes and Other Activities:</b>
+            <p>
+              An Event Organizer can market virtual events, conferences and
+              related activities through the Events Section of healify. To do
+              this one must register as an <b>organizer</b> in the signup page.
+            </p>
+            {/* <img clasName={aboutstyles.imagestyle}  src="https://static.vecteezy.com/system/resources/previews/000/425/393/original/outstanding-mental-health-vector.jpg" /> */}
+          </div>
+        </div>
+
+        <div className={aboutstyles.row}>
+          <h2>Guide for Event Organizer</h2>
+          <div className={aboutstyles.fakeimg}>
+            <b>Create Event:</b>
+            <p>
+              Healify tries to monitor mental health through well-detailed
+              quizzes and tries to keep the user active and positive through
+              various activities. To avail these services one may register as a{" "}
+              <b>user</b> in the signup page.
+            </p>
+            <br />
+            <b>Manage Events:</b>
+            <p>
+              An Event Organizer can market virtual events, conferences and
+              related activities through the Events Section of healify. To do
+              this one must register as an <b>organizer</b> in the signup page.
+            </p>
+          </div>
+        </div>
+        <div className={aboutstyles.row}>
+          {/* <div className={aboutstyles.leftcolumn}>
           <div className={aboutstyles.card}>
-            <h2 className={aboutstyles.H2} style={{ color: "skyblue" }}>
+            <h2 className={aboutstyles.h2} style={{ color: "skyblue" }}>
               Quiz
             </h2>
 
-            <div
-              className={aboutstyles.fakeimg}
-              style={{
-                backgroundColor: "skyblue",
-                color: "SlateGrey",
-                fontFamily: "sans-serif",
-                fontSize: 18,
-                lineHeight: 1.5,
-              }}
-            >
+            <div className={aboutstyles.fakeimg}>
               Through our app users can take the mental health self-assessment
               test daily or weekly. This test section comprises of 4 categories
               namely Ill being and well being, control and coping, Relationships
@@ -63,20 +135,14 @@ export const About_Us = () => {
               from these statistics.
             </div>
           </div>
+
           <br />
           <div className={aboutstyles.card}>
-            <h2 style={{ color: "#FF9966" }}>News Articles</h2>
+            <h2 className={aboutstyles.h2} style={{ color: "#FF9966" }}>
+              News Articles
+            </h2>
 
-            <div
-              className={aboutstyles.fakeimg}
-              style={{
-                backgroundColor: "#FF9966",
-                color: "SlateGrey",
-                fontFamily: "sans-serif",
-                fontSize: 18,
-                lineHeight: 1.5,
-              }}
-            >
+            <div className={aboutstyles.fakeimg}>
               This app provides a lot of news articles. A good article is like a
               wholesome healthy meal for our brain and mental well-being. It is
               a well-established fact that reading articles can help the brain's
@@ -87,18 +153,11 @@ export const About_Us = () => {
           </div>
           <br />
           <div className={aboutstyles.card}>
-            <h2 style={{ color: "#CCFF99" }}>Memes</h2>
+            <h2 className={aboutstyles.h2} style={{ color: "#CCFF99" }}>
+              Memes
+            </h2>
 
-            <div
-              className={aboutstyles.fakeimg}
-              style={{
-                backgroundColor: "#CCFF99",
-                color: "SlateGrey",
-                fontFamily: "sans-serif",
-                fontSize: 18,
-                lineHeight: 1.8,
-              }}
-            >
+            <div className={aboutstyles.fakeimg}>
               Humour is a well-known, effective coping strategy, and it enables
               to raise awareness of the society about issues that many would
               rather not speak about, including mental illness. Memes provide a
@@ -108,18 +167,11 @@ export const About_Us = () => {
           </div>
           <br />
           <div className={aboutstyles.card}>
-            <h2 style={{ color: "#CCFFFF" }}>Milestones</h2>
+            <h2 className={aboutstyles.h2} style={{ color: "#CCFFFF" }}>
+              Milestones
+            </h2>
 
-            <div
-              className={aboutstyles.fakeimg}
-              style={{
-                backgroundColor: "#CCFFFF",
-                color: "SlateGrey",
-                fontFamily: "sans-serif",
-                fontSize: 18,
-                lineHeight: 1.8,
-              }}
-            >
+            <div className={aboutstyles.fakeimg}>
               Our app encourages users to maintain a milestones record. This
               helps user be active and aware of their objectives and is a record
               of their biggest dreams and wishes. A timeline diagram will also
@@ -131,59 +183,34 @@ export const About_Us = () => {
           </div>
           <br />
           <div className={aboutstyles.card}>
-            <h2 style={{ color: "#CC99FF" }}>Virtual Events</h2>
+            <h2 className={aboutstyles.h2} style={{ color: "#CC99FF" }}>
+              Virtual Events
+            </h2>
 
-            <div
-              className={aboutstyles.fakeimg}
-              style={{
-                backgroundColor: "#CC99FF",
-                color: "SlateGrey",
-                fontFamily: "sans-serif",
-                fontSize: 18,
-                lineHeight: 1.5,
-              }}
-            ></div>
+            <div className={aboutstyles.fakeimg}></div>
           </div>
           <br />
           <div className={aboutstyles.card}>
             <h2 style={{ color: "#7FFFD4" }}>Mailer</h2>
 
-            <div
-              className={aboutstyles.fakeimg}
-              style={{
-                backgroundColor: "#7FFFD4",
-                color: "SlateGrey",
-                fontFamily: "sans-serif",
-                fontSize: 18,
-                lineHeight: 1.5,
-              }}
-            ></div>
+            <div className={aboutstyles.fakeimg}></div>
           </div>
           <br />
           <div className={aboutstyles.card}>
             <h2 style={{ color: "Khaki" }}>Games</h2>
 
-            <div
-              className={aboutstyles.fakeimg}
-              style={{
-                backgroundColor: "Khaki",
-                color: "SlateGrey",
-                fontFamily: "sans-serif",
-                fontSize: 18,
-                lineHeight: 1.5,
-              }}
-            ></div>
+            <div className={aboutstyles.fakeimg}></div>
           </div>
-        </div>
-        <div className={aboutstyles.rightcolumn}>
+        </div> */}
+          {/* <div className={aboutstyles.rightcolumn}>
           <div className={aboutstyles.card}>
             <img
               className={aboutstyles.image1}
               src=" https://static.vecteezy.com/system/resources/previews/000/425/393/original/outstanding-mental-health-vector.jpg"
             />
-            {/* <h2>About Me</h2> */}
-            {/* <div className={aboutstyles.fakeimg} style={{height:"100px"}}>Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p> */}
+            <h2>About Me</h2>
+            <div className={aboutstyles.fakeimg} style={{height:"100px"}}>Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
           </div>
           <br />
           <div className={aboutstyles.card}>
@@ -241,10 +268,11 @@ export const About_Us = () => {
               src="https://tse4.mm.bing.net/th?id=OIP.96I4vhKoFl8WcX-P8qLpVgAAAA&pid=Api&P=0&w=242&h=194"
             />
           </div>
-        </div>{" "}
-        <br />
+        </div>{" "} */}
+          <br />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 export default About_Us;

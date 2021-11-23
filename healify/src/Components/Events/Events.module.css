@@ -59,7 +59,8 @@
   border-radius: 50%;
   font-weight: 900;
   font-size: 1.2em;
-  border: 3px solid burlywood;
+  /* border: 3px solid burlywood; */
+  box-shadow: 0 0 0 4px white, 0 0 0 8px burlywood;
 }
 
 .fixedLink:hover {

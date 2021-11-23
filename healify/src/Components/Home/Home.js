@@ -117,16 +117,14 @@ export const Home = () => {
                   imgSrc={colorgameimg}
                   alt={"..."}
                   cardName={`Color Game`}
-                  cardDesc={`Play our drumkit by clicking on the drums or by clicking the 
-              keyboard keys. You can also record and download it.`}
+                  cardDesc={`Play our simple color-memory game to feel focused`}
                 />
                 <Card
                   path="/Mailer"
                   imgSrc={mailimg}
                   alt={"..."}
-                  cardName={`Mailer`}
-                  cardDesc={`Play our drumkit by clicking on the drums or by clicking the 
-              keyboard keys. You can also record and download it.`}
+                  cardName={`Need To Talk?`}
+                  cardDesc={`Feeling Down? Need to talk to someone but don't know how to start!? We're here for u. Just Let us alert your friends that u need a breather!! `}
                 />
               </section>
             </section>

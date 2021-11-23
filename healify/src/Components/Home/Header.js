@@ -85,7 +85,7 @@ export const Header = () => {
         </Link>
       </div>
       <ul className={"nav " + styles.settingsList + " " + toggle}>
-        <Link to="/About" className={styles.remove_underline}>
+        <Link to="/About_us" className={styles.remove_underline}>
           <li className={"nav-link"}>About</li>
         </Link>
 
