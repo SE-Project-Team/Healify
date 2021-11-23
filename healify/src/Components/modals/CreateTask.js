@@ -170,7 +170,7 @@ const CreateTask = ({ modal, toggle, save }) => {
               })}
             <input
               className="form-control"
-              placeholder={"Press Enter to add new Subtask"}
+              placeholder={"Press Enter Key to add new Subtask"}
               value={description}
               onChange={handleChange}
               name="description"

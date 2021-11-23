@@ -162,6 +162,7 @@ export const MilestonesHome = ({
           missed={missed}
           setNotifPage={setNotifPage}
           setMissPage={setMissPage}
+          totalTasks={taskList.length}
         />
 
         <div className={styles["task-container"]}>

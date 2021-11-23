@@ -10,6 +10,7 @@ export const Responsivesidemenu1 = ({
   missed,
   setNotifPage,
   setMissPage,
+  totalTasks,
 }) => {
   const history = useHistory();
   const [modal, setModal] = useState(false);
@@ -27,35 +28,32 @@ export const Responsivesidemenu1 = ({
         <br />
         <br />
         <ul>
-          <Link to="/MilestonesHome">
-            <li className={styles["menu-item"]}>
-              {" "}
-              <a href="#">
-                <i class="fas fa-home"></i> &nbsp; &nbsp;Home
-              </a>
-            </li>
-          </Link>
+          <li
+            className={styles["menu-item"]}
+            onClick={() => {
+              setNotifPage(false);
+              setMissPage(false);
+              history.push("/MilestonesHome");
+            }}
+          >
+            {" "}
+            <i class="fas fa-home"></i> &nbsp; &nbsp;Home ({totalTasks})
+          </li>
           <Link to="/About">
             <li className={styles["menu-item"]}>
               {" "}
-              <a href="#">
-                <i className="fa fa-question-circle"></i>&nbsp;
-                &nbsp;&nbsp;&nbsp;About
-              </a>
+              <i className="fa fa-question-circle"></i>&nbsp;
+              &nbsp;&nbsp;&nbsp;About
             </li>
           </Link>
           <Link to="/Timeline">
             <li className={styles["menu-item"]}>
-              <a href="#">
-                <i class="fas fa-list-alt"></i>&nbsp; &nbsp;&nbsp;Achievements
-              </a>
+              <i class="fas fa-list-alt"></i>&nbsp; &nbsp;&nbsp;Achievements
             </li>
           </Link>
 
           <li className={styles["menu-item"]} onClick={() => setModal(true)}>
-            <a href="#">
-              <i class="fas fa-pencil"></i>&nbsp; &nbsp;&nbsp;Create New
-            </a>
+            <i class="fas fa-pencil"></i>&nbsp; &nbsp;&nbsp;Create New
           </li>
           <li
             className={styles["menu-item"]}
@@ -65,10 +63,8 @@ export const Responsivesidemenu1 = ({
               history.push("/Notifications");
             }}
           >
-            {/* <a href="#"> */}
             <i class="fas fa-bell"></i>&nbsp; &nbsp;&nbsp;
             <span>Notifications ({notifications})</span>
-            {/* </a> */}
           </li>
 
           <li
@@ -79,10 +75,8 @@ export const Responsivesidemenu1 = ({
               history.push("/Missed");
             }}
           >
-            {/* <a href="#"> */}
             <i class="fas fa-bell"></i>&nbsp; &nbsp;&nbsp;
             <span>Missed ({missed})</span>
-            {/* </a> */}
           </li>
         </ul>
       </div>
