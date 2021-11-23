@@ -31,7 +31,7 @@ export const MilestonesHome = ({
   };
 
   const updatePage = async () => {
-    console.log("update page");
+    console.log("This is Called");
     const token = JSON.parse(localStorage.getItem("token"));
     await axios
       .get("/api/v1/milestones", {
@@ -116,7 +116,7 @@ export const MilestonesHome = ({
       await updatePage();
     };
     asyncwrapper();
-  }, []);
+  }, [notifPage, missPage]);
 
   const deleteTask = async (_id) => {
     const token = JSON.parse(localStorage.getItem("token"));
