@@ -9,6 +9,7 @@ import {
   IconButton,
 } from "@material-ui/core";
 import Controls from "../controls/Controls";
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   dialog: {
@@ -30,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
 export default function ConfirmDialog(props) {
   const { confirmDialog, setConfirmDialog } = props;
   const classes = useStyles();
-
+  const id = confirmDialog.param;
+  const history = useHistory();
   return (
     confirmDialog.isOpen && (
       <Dialog open={confirmDialog.isOpen} classes={{ paper: classes.dialog }}>
@@ -47,10 +49,20 @@ export default function ConfirmDialog(props) {
               setConfirmDialog({ ...ConfirmDialog, isOpen: false })
             }
           />
+          {/* If Param Is there then execute with param else do without param */}
           <Controls.Button
             text="Yes"
             color="secondary"
-            onClick={confirmDialog.onConfirm}
+            onClick={
+              !confirmDialog.param
+                ? confirmDialog.onConfirm
+                : () => {
+                    confirmDialog.onConfirm(id);
+                    setTimeout(() => {
+                      setConfirmDialog();
+                    }, 1000);
+                  }
+            }
           />
         </DialogActions>
       </Dialog>

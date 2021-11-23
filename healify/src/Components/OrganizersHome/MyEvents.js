@@ -19,12 +19,13 @@ import imgDef from "../../Assets/user.png";
 import { useHistory } from "react-router";
 
 import { ReadMore } from "../Milestones/ReadMore";
+import ConfirmDialog from "../Milestones/ConfirmDialog";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+
 const deleteEvent = async (_id) => {
   const token = JSON.parse(localStorage.getItem("token"));
-
   await axios
     .post(
       "/api/v1/organizer/remove-event",
@@ -38,15 +39,26 @@ const deleteEvent = async (_id) => {
       }
     )
     .then(async (res) => {
-      console.log(res.data);
+      // console.log(res.data);
     })
     .catch((err) => {
       console.log(err);
     });
 };
+
+const object = {
+  isOpen: true,
+  title: "Are you sure You Want to delete this Event?",
+  subTitle: "You can't undo this operation",
+  onConfirm: (_id) => {
+    deleteEvent(_id);
+  },
+};
+
 export const MyEvents = () => {
   const [events, setEvents] = useState();
   const history = useHistory();
+  const [confirmDialog, setConfirmDialog] = useState();
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
@@ -67,7 +79,7 @@ export const MyEvents = () => {
         });
     };
     asyncWrapper();
-  }, []);
+  }, [confirmDialog]);
   return (
     <div className="App">
       <Header />
@@ -110,7 +122,8 @@ export const MyEvents = () => {
                         type="button"
                         class="btn btn-outline-danger"
                         onClick={() => {
-                          deleteEvent(datum._id);
+                          setConfirmDialog({ ...object, param: datum._id });
+                          // deleteEvent(datum._id);
                         }}
                       >
                         Cancel Event
@@ -122,6 +135,13 @@ export const MyEvents = () => {
             })}
         </section>
       </article>
+
+      {confirmDialog && confirmDialog.isOpen && (
+        <ConfirmDialog
+          confirmDialog={confirmDialog}
+          setConfirmDialog={setConfirmDialog}
+        />
+      )}
     </div>
   );
 };
