@@ -144,7 +144,13 @@ export const Eventview = (props) => {
                   <div className={styles.Eventcontainer2}>
                     {" "}
                     <Icon color="teal" name="map marker alternate" />
-                    &nbsp;&nbsp;Link To Main Site : {event.link}
+                    &nbsp;&nbsp;Link To Main Site :{" "}
+                    <a
+                      href={event.link}
+                      style={{ textDecoration: "underline", color: "blue" }}
+                    >
+                      {event.link}
+                    </a>
                   </div>
                   <div className={styles.Eventcontainer2}>
                     {" "}

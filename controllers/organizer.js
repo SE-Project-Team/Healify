@@ -118,6 +118,7 @@ const createAnnouncement = async (req, res) => {
   const { _id } = req.organizer;
   const { content, eventId } = req.body;
 
+  console.log(_id, eventId);
   if (!_id || !eventId) {
     throw new BadRequestError("No Such Item Exists");
   }

@@ -27,6 +27,7 @@ export const CreateAnnouncement = ({ modal, toggle, eventId }) => {
         "/api/v1/organizer/announcements",
         {
           content: announcement,
+          eventId,
         },
         {
           headers: {
