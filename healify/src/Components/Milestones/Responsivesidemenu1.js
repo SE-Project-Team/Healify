@@ -33,7 +33,7 @@ export const Responsivesidemenu1 = ({
             onClick={() => {
               setNotifPage(false);
               setMissPage(false);
-              history.push("/MilestonesHome");
+              history.replace("/MilestonesHome");
             }}
           >
             {" "}
@@ -60,7 +60,7 @@ export const Responsivesidemenu1 = ({
             onClick={() => {
               setNotifPage(true);
               setMissPage(false);
-              history.push("/Notifications");
+              history.replace("/Notifications");
             }}
           >
             <i class="fas fa-bell"></i>&nbsp; &nbsp;&nbsp;
@@ -72,7 +72,7 @@ export const Responsivesidemenu1 = ({
             onClick={() => {
               setNotifPage(false);
               setMissPage(true);
-              history.push("/Missed");
+              history.replace("/Missed");
             }}
           >
             <i class="fas fa-bell"></i>&nbsp; &nbsp;&nbsp;

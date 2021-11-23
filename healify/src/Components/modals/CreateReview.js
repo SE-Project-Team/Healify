@@ -16,6 +16,7 @@ export const CreateReview = ({ modal, toggle, eventId }) => {
   };
   const handleSave = async (e) => {
     e.preventDefault();
+    let accepted = true;
     if (!review) {
       displayWarning("Review cannot be empty");
       return;
@@ -41,9 +42,15 @@ export const CreateReview = ({ modal, toggle, eventId }) => {
       .catch((err) => {
         if (err.response) {
           console.log(err.response);
+          if (err.response.data.msg) {
+            displayWarning(err.response.data.msg);
+            accepted = false;
+          }
         }
       });
-    toggle();
+    if (accepted) {
+      toggle();
+    }
   };
 
   return (

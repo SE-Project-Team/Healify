@@ -152,7 +152,7 @@ export const Events = (props) => {
         });
     };
     asyncWrapper();
-  }, []);
+  }, [pageIsInterested]);
   return (
     <div className="App">
       <Header />
@@ -219,6 +219,20 @@ export const Events = (props) => {
             })}
         </section>
       </article>
+      <div
+        className={`${styles.fixedLink}`}
+        onClick={() => {
+          if (pageIsInterested) {
+            setPageIsInterested(false);
+            history.replace("/Events");
+          } else {
+            setPageIsInterested(true);
+            history.replace("/FavouriteEvents");
+          }
+        }}
+      >
+        {pageIsInterested ? "Go_Back To All Events" : "Go To Interested Events"}
+      </div>
     </div>
   );
 };
