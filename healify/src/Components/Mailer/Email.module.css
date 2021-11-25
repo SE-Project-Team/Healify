@@ -113,6 +113,21 @@ textarea {
   background-color: #fff;
 }
 
+.wrapperDiv {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: stretch;
+}
+
+.zeroMargin {
+  margin: 0 !important;
+}
+
+.contactsWrapper {
+  flex: 1 0 auto;
+}
+
 @media screen and (max-width: 880px) {
   .contact-box {
     grid-template-columns: 1fr;

@@ -26,16 +26,16 @@ import { Recorder } from "./Components/DrumKit/Recorder";
 import { Drumkit } from "./Components/DrumKit/Drumkit";
 import Organizers from "./Components/OrganizersHome/Organizers";
 import { Progressbar } from "./Components/Milestones/Progressbar";
-import { Mailer } from "./Components/Mailer";
+import { Mailer } from "./Components/Mailer/Mailer";
 import { About } from "./Components/Milestones/About";
 import { ColorGame } from "./Components/ColorGame/ColorGame";
 import { Profile } from "./Components/Profile/Profile";
 import { useState, useEffect } from "react";
 import { Notes } from "./Components/DrumKit/Notes";
-import { Email } from "./Components/Email/Email";
-import { AddUser } from "./Components/ContactList/AddUser";
-import {ContactHome } from "./Components/ContactList/ContactHome";
-import {GlobalProvider } from "./Components/context/GlobalState";
+import { Email } from "./Components/Mailer/Email";
+import { AddUser } from "./Components/Mailer/AddUser";
+import { ContactHome } from "./Components/Mailer/ContactHome";
+import { GlobalProvider } from "./Components/context/GlobalState";
 import { About_Us } from "./Components/Home/About_Us";
 import "./App.css";
 import axios from "axios";
@@ -94,171 +94,170 @@ function App() {
   }
 
   return (
-     <GlobalProvider>
-    <div className="App">
-      
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/login">
-            <Signup setToken={setToken} />
-          </Route>
-          <Route path="/Registration">
-            <Registration setToken={setToken} />
-          </Route>
-          <Route exact path="/News">
-            <News />
-          </Route>
-          <Route exact path="/Organizers">
-            <Organizers />
-          </Route>
-          <Route path="/Memes">
-            <Memes />
-          </Route>
-          <Route path="/Mailer">
-            <Mailer />
-          </Route>
-          <Route path="/Profile">
-            <Profile />
-          </Route>
-          <Route exact path="/AddUser">
-            <AddUser />
-          </Route>
+    <GlobalProvider>
+      <div className="App">
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/login">
+              <Signup setToken={setToken} />
+            </Route>
+            <Route path="/Registration">
+              <Registration setToken={setToken} />
+            </Route>
+            <Route exact path="/News">
+              <News />
+            </Route>
+            <Route exact path="/Organizers">
+              <Organizers />
+            </Route>
+            <Route path="/Memes">
+              <Memes />
+            </Route>
+            <Route path="/Mailer">
+              <Mailer />
+            </Route>
+            <Route path="/Profile">
+              <Profile />
+            </Route>
+            <Route exact path="/AddUser">
+              <AddUser />
+            </Route>
             <Route path="/ContactHome">
-            <ContactHome />
-          </Route> 
-          <Route
-            path="/MilestonesHome"
-            children={
-              <MilestonesHome notificationPage={false} missedPage={false} />
-            }
-          ></Route>
-          <Route
-            path="/Notifications"
-            children={
-              <MilestonesHome notificationPage={true} missedPage={false} />
-            }
-          ></Route>
-          <Route
-            path="/Missed"
-            children={
-              <MilestonesHome notificationPage={false} missedPage={true} />
-            }
-          ></Route>
-          <Route path="/Timeline">
-            <Timeline />
-          </Route>
-          <Route path="/About">
-            <About />
-          </Route>
-          <Route path="/About_Us">
-            <About_Us />
-          </Route>
-          <Route path="/Email">
-            <Email />
-          </Route>
-          <Route path="/Togglemenu">
-            <Togglemenu />
-          </Route>
+              <ContactHome />
+            </Route>
+            <Route
+              path="/MilestonesHome"
+              children={
+                <MilestonesHome notificationPage={false} missedPage={false} />
+              }
+            ></Route>
+            <Route
+              path="/Notifications"
+              children={
+                <MilestonesHome notificationPage={true} missedPage={false} />
+              }
+            ></Route>
+            <Route
+              path="/Missed"
+              children={
+                <MilestonesHome notificationPage={false} missedPage={true} />
+              }
+            ></Route>
+            <Route path="/Timeline">
+              <Timeline />
+            </Route>
+            <Route path="/About">
+              <About />
+            </Route>
+            <Route path="/About_Us">
+              <About_Us />
+            </Route>
+            <Route path="/Email">
+              <Email />
+            </Route>
+            <Route path="/Togglemenu">
+              <Togglemenu />
+            </Route>
 
-          <Route path="/QuizLanding">
-            <QuizLanding />
-          </Route>
+            <Route path="/QuizLanding">
+              <QuizLanding />
+            </Route>
 
-          <Route path="/Quiz1">
-            <Quiz
-              category={"Ill Being and Well Being"}
-              questions={Questions1}
-              birthday={birthday}
-              gender={gender}
-            />
-          </Route>
-          <Route path="/Quiz2">
-            <Quiz
-              category={"Control and Coping"}
-              questions={Questions2}
-              birthday={birthday}
-              gender={gender}
-            />
-          </Route>
-          <Route path="/Quiz3">
-            <Quiz
-              category={"Relationships and Belonging"}
-              questions={Questions3}
-              birthday={birthday}
-              gender={gender}
-            />
-          </Route>
-          <Route path="/Quiz4">
-            <Quiz
-              category={"Self Perception"}
-              questions={Questions4}
-              birthday={birthday}
-              gender={gender}
-            />
-          </Route>
-          <Route path="/Score">
-            <Score />
-          </Route>
-          <Route path="/QuizStatistics/1">
-            <QuizStatistics category="Ill Being and Well Being" />
-          </Route>
-          <Route path="/QuizStatistics/2">
-            <QuizStatistics category="Control and Coping" />
-          </Route>
-          <Route path="/QuizStatistics/3">
-            <QuizStatistics category="Relationships and Belonging" />
-          </Route>
-          <Route path="/QuizStatistics/4">
-            <QuizStatistics category="Self Perception" />
-          </Route>
-          {/* Here I'm using Same component with a diff prop to get desired result */}
-          <Route path="/Events">
-            <Events markedEvents={false} />
-          </Route>
-          <Route
-            path="/FavouriteEvents"
-            children={<Events markedEvents={true} />}
-          ></Route>
-          <Route
-            path="/organizerEventview:id"
-            children={<Eventview role={"organizer"} />}
-          ></Route>
+            <Route path="/Quiz1">
+              <Quiz
+                category={"Ill Being and Well Being"}
+                questions={Questions1}
+                birthday={birthday}
+                gender={gender}
+              />
+            </Route>
+            <Route path="/Quiz2">
+              <Quiz
+                category={"Control and Coping"}
+                questions={Questions2}
+                birthday={birthday}
+                gender={gender}
+              />
+            </Route>
+            <Route path="/Quiz3">
+              <Quiz
+                category={"Relationships and Belonging"}
+                questions={Questions3}
+                birthday={birthday}
+                gender={gender}
+              />
+            </Route>
+            <Route path="/Quiz4">
+              <Quiz
+                category={"Self Perception"}
+                questions={Questions4}
+                birthday={birthday}
+                gender={gender}
+              />
+            </Route>
+            <Route path="/Score">
+              <Score />
+            </Route>
+            <Route path="/QuizStatistics/1">
+              <QuizStatistics category="Ill Being and Well Being" />
+            </Route>
+            <Route path="/QuizStatistics/2">
+              <QuizStatistics category="Control and Coping" />
+            </Route>
+            <Route path="/QuizStatistics/3">
+              <QuizStatistics category="Relationships and Belonging" />
+            </Route>
+            <Route path="/QuizStatistics/4">
+              <QuizStatistics category="Self Perception" />
+            </Route>
+            {/* Here I'm using Same component with a diff prop to get desired result */}
+            <Route path="/Events">
+              <Events markedEvents={false} />
+            </Route>
+            <Route
+              path="/FavouriteEvents"
+              children={<Events markedEvents={true} />}
+            ></Route>
+            <Route
+              path="/organizerEventview:id"
+              children={<Eventview role={"organizer"} />}
+            ></Route>
 
-          <Route
-            path="/userEventview:id"
-            children={<Eventview role={"user"} />}
-          ></Route>
-          <Route path="/MyEvents">
-            <MyEvents />
-          </Route>
-          <Route path="/UpcomingEvents">
-            <UpcomingEvents />
-          </Route>
+            <Route
+              path="/userEventview:id"
+              children={<Eventview role={"user"} />}
+            ></Route>
+            <Route path="/MyEvents">
+              <MyEvents />
+            </Route>
+            <Route path="/UpcomingEvents">
+              <UpcomingEvents />
+            </Route>
 
-          <Route path="/Createnewevent">
-            <Createnewevent />
-          </Route>
-          <Route path="/Recorder">
-            <Recorder />
-          </Route>
-          <Route path="/Drumkit">
-            <Drumkit />
-          </Route>
-          <Route path="/Progressbar">
-            <Progressbar />
-          </Route>
-          <Route path="/ColorGame">
-            <ColorGame />
-          </Route>
-          <Route path="/Notes">
-            <Notes />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+            <Route path="/Createnewevent">
+              <Createnewevent />
+            </Route>
+            <Route path="/Recorder">
+              <Recorder />
+            </Route>
+            <Route path="/Drumkit">
+              <Drumkit />
+            </Route>
+            <Route path="/Progressbar">
+              <Progressbar />
+            </Route>
+            <Route path="/ColorGame">
+              <ColorGame />
+            </Route>
+            <Route path="/Notes">
+              <Notes />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
     </GlobalProvider>
   );
 }
