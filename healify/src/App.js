@@ -33,6 +33,9 @@ import { Profile } from "./Components/Profile/Profile";
 import { useState, useEffect } from "react";
 import { Notes } from "./Components/DrumKit/Notes";
 import { Email } from "./Components/Email/Email";
+import { AddUser } from "./Components/ContactList/AddUser";
+import {ContactHome } from "./Components/ContactList/ContactHome";
+import {GlobalProvider } from "./Components/context/GlobalState";
 import { About_Us } from "./Components/Home/About_Us";
 import "./App.css";
 import axios from "axios";
@@ -91,7 +94,9 @@ function App() {
   }
 
   return (
+     <GlobalProvider>
     <div className="App">
+      
       <Router>
         <Switch>
           <Route exact path="/">
@@ -118,6 +123,12 @@ function App() {
           <Route path="/Profile">
             <Profile />
           </Route>
+          <Route exact path="/AddUser">
+            <AddUser />
+          </Route>
+            <Route path="/ContactHome">
+            <ContactHome />
+          </Route> 
           <Route
             path="/MilestonesHome"
             children={
@@ -248,6 +259,7 @@ function App() {
         </Switch>
       </Router>
     </div>
+    </GlobalProvider>
   );
 }
 export default App;
