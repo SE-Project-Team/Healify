@@ -9,7 +9,7 @@ const Organizers = () => {
       <Header />
       <div className="container-fluid">
         <div className="row flex-nowrap">
-          <Navbar />
+          {/* <Navbar /> */}
           <div className="col py-3">
             <OrganizersHome />
           </div>
