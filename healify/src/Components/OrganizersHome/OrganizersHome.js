@@ -4,7 +4,7 @@ import commentimg from "../../Assets/comment.png";
 import styles from "../Home/Home.module.css";
 import { Card } from "../Home/Card";
 import { QuotesArray } from "../Home/Quotes";
-
+import createeventimg from "../../Assets/createevent.png"
 export const OrganizersHome = () => {
   const [quote1, setQuote1] = useState("This is a Quote");
   const [quote2, setQuote2] = useState("This is a Quote2");
@@ -46,26 +46,26 @@ export const OrganizersHome = () => {
           
           <section className={`${styles.mdbCustom}`}>
             <Card
-              path="/Comments"
-              imgSrc={commentimg}
+              path="./Createnewevent"
+              imgSrc={createeventimg}
               alt={"..."}
-              cardName={`Comments`}
-              cardDesc={`Total Comments:`}
+              cardName={`Create new event`}
+              cardDesc={`Create new event:`}
             />
             <Card
-              path="/UpcomingEvents"
+              path="/Events"
               imgSrc="https://www.nicepng.com/png/detail/831-8319932_event-management-event-icon-purple.png"
               
               alt={"..."}
-              cardName={`Registered Events`}
-              cardDesc={`RegisteredEvents:`}
+              cardName={`Events`}
+              cardDesc={`Events:`}
             />
             <Card
               path="/MyEvents"
               imgSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdNv_PE48h-tqIs-XQhXaSngh9RtW8Jo1zwg&usqp=CAU"
               alt={"..."}
-              cardName={`Your Events`}
-              cardDesc={`Your Events:.`}
+              cardName={`My Events`}
+              cardDesc={`My Events:.`}
             />
           </section>
           

@@ -87,7 +87,7 @@ export const Createnewevent = () => {
     <>
       <Header />
       <div className={`${createStyles.flexWrapper}`}>
-        <Navbar />
+        {/* <Navbar /> */}
         <div className={createStyles.bodyy}>
           <div className={createStyles.container}>
             <br />
