@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import { Link } from "react-router-dom";
 import { ListGroup, ListGroupItem, Button } from "reactstrap";
 import styles from "./Email.module.css";
 
 export const UserList = () => {
-  const { users, removeUser } = useContext(GlobalContext);
-
-  return (
+  const { users, removeUser, setUsers } = useContext(GlobalContext);
+  useEffect(() => {
+    console.log("DAMN");
+    setUsers();
+    console.log("These are the users,", users);
+  }, []);
+  return users ? (
     <ListGroup className={`mt-5 ${styles.zeroMargin}`}>
       {users.length > 0 ? (
         <div>
@@ -34,5 +38,7 @@ export const UserList = () => {
         <h3 className="text-center">No Contacts</h3>
       )}
     </ListGroup>
+  ) : (
+    <div>Empty</div>
   );
 };

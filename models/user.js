@@ -37,6 +37,21 @@ const milestoneSchema = new mongoose.Schema({
   },
 });
 
+const friendSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, "Name is required"],
+  },
+  email: {
+    type: String,
+    required: [true, "email is required"],
+    validate: {
+      validator: validator.isEmail,
+      message: "Please provide valid email",
+    },
+  },
+});
+
 const user = new mongoose.Schema(
   {
     username: {
@@ -106,6 +121,7 @@ const user = new mongoose.Schema(
       default: {},
     },
     favouriteEvents: [{ type: mongoose.Schema.ObjectId, ref: "event" }],
+    friends: [friendSchema],
   },
   {
     writeConcern: {
