@@ -75,9 +75,10 @@ export const UserList = ({ contacts, setContacts, sendEmail }) => {
                 {/* Add or remove a property based on selected */}
                 <Button
                   color="warning"
-                  onClick={(e) => {
-                    alert("mail Sent");
-                    sendEmail(e);
+                  onClick={() => {
+                    // Add Functionality to send e-mail
+                    // alert("mail Sent");
+                    sendEmail(users);
                   }}
                 >
                   Send Mail

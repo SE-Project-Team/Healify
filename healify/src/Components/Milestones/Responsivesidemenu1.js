@@ -37,23 +37,25 @@ export const Responsivesidemenu1 = ({
             }}
           >
             {" "}
-            <i class="fas fa-home"></i> &nbsp; &nbsp;Home ({totalTasks})
+            <i class="fas fa-home"></i> &nbsp;&nbsp; &nbsp;&nbsp;Home (
+            {totalTasks})
           </li>
           <Link to="/About">
             <li className={styles["menu-item"]}>
               {" "}
-              <i className="fa fa-question-circle"></i>&nbsp;
-              &nbsp;&nbsp;&nbsp;About
+              <i className="fa fa-question-circle"></i>&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;About
             </li>
           </Link>
-          <Link to="/Timeline">
+          {/* <Link to="/Timeline">
             <li className={styles["menu-item"]}>
               <i class="fas fa-list-alt"></i>&nbsp; &nbsp;&nbsp;Achievements
             </li>
-          </Link>
+          </Link> */}
 
           <li className={styles["menu-item"]} onClick={() => setModal(true)}>
-            <i class="fas fa-pencil"></i>&nbsp; &nbsp;&nbsp;Create New
+            <i class="fas fa-pencil"></i>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Create
+            New
           </li>
           <li
             className={styles["menu-item"]}
@@ -63,7 +65,7 @@ export const Responsivesidemenu1 = ({
               history.replace("/Notifications");
             }}
           >
-            <i class="fas fa-bell"></i>&nbsp; &nbsp;&nbsp;
+            <i class="fas fa-bell"></i>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
             <span>Notifications ({notifications})</span>
           </li>
 
@@ -75,7 +77,7 @@ export const Responsivesidemenu1 = ({
               history.replace("/Missed");
             }}
           >
-            <i class="fas fa-bell"></i>&nbsp; &nbsp;&nbsp;
+            <i class="fas fa-bell"></i>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
             <span>Missed ({missed})</span>
           </li>
         </ul>

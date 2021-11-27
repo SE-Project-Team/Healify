@@ -4,7 +4,7 @@ import commentimg from "../../Assets/comment.png";
 import styles from "../Home/Home.module.css";
 import { Card } from "../Home/Card";
 import { QuotesArray } from "../Home/Quotes";
-import createeventimg from "../../Assets/createevent.png"
+import createeventimg from "../../Assets/createevent.png";
 export const OrganizersHome = () => {
   const [quote1, setQuote1] = useState("This is a Quote");
   const [quote2, setQuote2] = useState("This is a Quote2");
@@ -38,12 +38,13 @@ export const OrganizersHome = () => {
       <div className={styles.container}>
         <div className={styles["top-container"]}>
           <section className={`${styles.OblurImage}`}>
-          <div className={styles.img}>
-            <img src={image} alt="home" />
-            {quote1 && <h4 className={styles.quote1}>{quote1}</h4>}
-            {quote2 && <h4 className={styles.quote2}>{quote2}</h4>}
-          </div></section>
-          
+            <div className={styles.img}>
+              <img src={image} alt="home" />
+              {quote1 && <h4 className={styles.quote1}>{quote1}</h4>}
+              {quote2 && <h4 className={styles.quote2}>{quote2}</h4>}
+            </div>
+          </section>
+
           <section className={`${styles.mdbCustom}`}>
             <Card
               path="./Createnewevent"
@@ -53,22 +54,13 @@ export const OrganizersHome = () => {
               cardDesc={`Create new event:`}
             />
             <Card
-              path="/Events"
+              path="/MyEvents"
               imgSrc="https://www.nicepng.com/png/detail/831-8319932_event-management-event-icon-purple.png"
-              
               alt={"..."}
               cardName={`Events`}
               cardDesc={`Events:`}
             />
-            <Card
-              path="/MyEvents"
-              imgSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdNv_PE48h-tqIs-XQhXaSngh9RtW8Jo1zwg&usqp=CAU"
-              alt={"..."}
-              cardName={`My Events`}
-              cardDesc={`My Events:.`}
-            />
           </section>
-          
         </div>
       </div>
     </>

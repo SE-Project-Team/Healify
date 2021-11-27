@@ -186,7 +186,7 @@ export const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
                     }`}
                     onClick={toggleSubTask}
                   >
-                    <div
+                    {/* <div
                       style={{
                         position: "absolute",
                         right: "25px",
@@ -194,11 +194,11 @@ export const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
                       }}
                     >
                       <i className="far fa-edit "></i>
-                    </div>
+                    </div> */}
                     <div
                       style={{
                         position: "absolute",
-                        right: "50px",
+                        right: "25px",
                         cursor: "pointer",
                       }}
                     >

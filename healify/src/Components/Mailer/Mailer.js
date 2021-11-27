@@ -6,31 +6,59 @@ import { Email } from "./Email";
 import ContactHome from "./ContactHome";
 import styles from "./Email.module.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 export const Mailer = () => {
   const [contacts, setContacts] = useState([]);
-  const sendEmail = (e) => {
-    const token = JSON.parse(localStorage.getItem("token"));
+  const [user, setUser] = useState("default");
+  useEffect(() => {
+    const asyncWrapper = async () => {
+      const token = JSON.parse(localStorage.getItem("token"));
+      await axios
+        .get("/api/v1/", {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          const { username } = res.data.data;
+          setUser(username);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    asyncWrapper();
+  }, []);
 
-    e.preventDefault();
+  const sendEmail = async (contact) => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    console.log(contact);
+    // e.preventDefault();
+
+    const templateObject = {
+      from_name: user,
+      recipient_email: contact.email,
+      to_name: contact.name,
+      message: "Blah",
+    };
 
     emailjs
-      .sendForm(
+      .send(
         "service_e630rg9",
         "template_k8pk08h",
-        e.target,
+        templateObject,
         "user_qWGvWJS0Y3RuCm6dL7cXk"
       )
-
       .then(
         (result) => {
+          console.log("hjashjsafhjfsahj");
           alert("Your message has been sent successfully ! 👍");
         },
         (error) => {
           alert(error.message);
         }
       );
-    e.target.reset();
+    // e.target.reset();
   };
   // return (
   //   <>
