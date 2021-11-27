@@ -6,10 +6,17 @@ import { Email } from "./Email";
 import ContactHome from "./ContactHome";
 import styles from "./Email.module.css";
 
+import { MessageBody } from "./MessageTemplates";
+
 import { useState, useEffect } from "react";
 export const Mailer = () => {
+  const [messageTemplate, setMessageTemplate] = useState(0);
   const [contacts, setContacts] = useState([]);
   const [user, setUser] = useState("default");
+
+  // useEffect(() => {
+  //   console.log("Do Something");
+  // }, [messageTemplate]);
   useEffect(() => {
     const asyncWrapper = async () => {
       const token = JSON.parse(localStorage.getItem("token"));
@@ -39,7 +46,7 @@ export const Mailer = () => {
       from_name: user,
       recipient_email: contact.email,
       to_name: contact.name,
-      message: "Blah",
+      message: MessageBody[messageTemplate],
     };
 
     emailjs
@@ -51,7 +58,6 @@ export const Mailer = () => {
       )
       .then(
         (result) => {
-          console.log("hjashjsafhjfsahj");
           alert("Your message has been sent successfully ! 👍");
         },
         (error) => {
@@ -129,7 +135,12 @@ export const Mailer = () => {
 
   return (
     <div className={`${styles.wrapperDiv}`}>
-      <Email />
+      <Email
+        maxLimit={MessageBody.length}
+        message={MessageBody[messageTemplate]}
+        messageTemplate={messageTemplate}
+        setMessageTemplate={setMessageTemplate}
+      />
       <ContactHome
         contacts={contacts}
         setContacts={setContacts}
