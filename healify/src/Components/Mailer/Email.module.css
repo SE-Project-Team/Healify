@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
+  width: 100%;
 }
 
 .allabove {
@@ -118,6 +119,7 @@ textarea {
   flex-wrap: wrap;
   align-items: center;
   justify-content: stretch;
+  flex: 1 0 auto;
 }
 
 .zeroMargin {
@@ -125,7 +127,7 @@ textarea {
 }
 
 .contactsWrapper {
-  flex: 1 0 auto;
+  flex: 1 1 auto;
 }
 
 .messageBodyContainer {

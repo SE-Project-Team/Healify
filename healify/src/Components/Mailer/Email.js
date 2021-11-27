@@ -28,7 +28,9 @@ export const Email = ({
                   &#8249;
                 </i>
 
-                <section>{message}</section>
+                <section style={{ minWidth: 150, minHeight: 150 }}>
+                  {message}
+                </section>
                 <i
                   href="#"
                   class="next round"

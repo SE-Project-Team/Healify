@@ -134,19 +134,23 @@ export const Mailer = () => {
   // );
 
   return (
-    <div className={`${styles.wrapperDiv}`}>
-      <Email
-        maxLimit={MessageBody.length}
-        message={MessageBody[messageTemplate]}
-        messageTemplate={messageTemplate}
-        setMessageTemplate={setMessageTemplate}
-      />
-      <ContactHome
-        contacts={contacts}
-        setContacts={setContacts}
-        sendEmail={sendEmail}
-      />
-    </div>
+    <>
+      <Header />
+
+      <div className={`${styles.wrapperDiv}`}>
+        <Email
+          maxLimit={MessageBody.length}
+          message={MessageBody[messageTemplate]}
+          messageTemplate={messageTemplate}
+          setMessageTemplate={setMessageTemplate}
+        />
+        <ContactHome
+          contacts={contacts}
+          setContacts={setContacts}
+          sendEmail={sendEmail}
+        />
+      </div>
+    </>
   );
 };
 
