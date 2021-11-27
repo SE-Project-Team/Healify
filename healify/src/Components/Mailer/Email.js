@@ -30,9 +30,10 @@ export const Email = () => {
         <div className={emailstyles.container}>
           <div className={emailstyles["contact-box"]}>
             <div className={emailstyles.left}></div>
-            <form className={emailstyles.right} onSubmit={sendEmail}>
+            {/* <form className={emailstyles.right} onSubmit={sendEmail}> */}
+            <div className={emailstyles.right}>
               <h2>Send Email</h2>
-              <input
+              {/* <input
                 type="text"
                 className={emailstyles.field}
                 placeholder="User Name"
@@ -55,11 +56,23 @@ export const Email = () => {
                 placeholder="Message"
                 className={emailstyles.field}
                 name="message"
-              ></textarea>
-              <button className={emailstyles.btn} type="submit">
+              ></textarea> */}
+              <section>
+                This is a Random Body For the Email. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Repellendus, facere! Quibusdam,
+                temporibus illum modi perspiciatis culpa facere perferendis
+                nostrum a! Qui possimus, a nam in molestiae sequi et atque
+                praesentium. Lorem ipsum dolor sit amet consectetur, adipisicing
+                elit. Voluptas obcaecati doloribus officiis quibusdam ducimus,
+                facere vitae fugiat hic architecto. Dolor ducimus itaque culpa
+                quod voluptatem, fuga expedita voluptate mollitia possimus?
+              </section>
+              {/* <button className={emailstyles.btn} type="submit">
                 Send
-              </button>
-            </form>
+              </button> */}
+            </div>
+
+            {/* </form> */}
           </div>
         </div>
       </div>

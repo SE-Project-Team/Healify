@@ -6,40 +6,32 @@ import { Email } from "./Email";
 import ContactHome from "./ContactHome";
 import styles from "./Email.module.css";
 
+import { useState } from "react";
 export const Mailer = () => {
-  // const sendEmail = (e) => {
-  //   const token = JSON.parse(localStorage.getItem("token"));
+  const [contacts, setContacts] = useState([]);
+  const sendEmail = (e) => {
+    const token = JSON.parse(localStorage.getItem("token"));
 
-  //   e.preventDefault();
-  //   // emailjs
-  //   //   .sendForm(
-  //   //     "service_wuyqli6",
-  //   //     "template_po855sn",
-  //   //     e.target,
-  //   //     "user_eaglXsDsWq6chMZ7XTrDP"
-  //   //   )
-  //   //   .then((res) => {
-  //   //     console.log(res);
-  //   //   })
-  //   //   .catch((err) => console.log(err));
-  //   axios
-  //     .post(
-  //       "/api/v1/mailer/",
-  //       {},
-  //       {
-  //         headers: {
-  //           authorization: `Bearer ${token}`,
-  //         },
-  //       }
-  //     )
-  //     .then((res) => {
-  //       console.log("success? ", res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       console.log(err.response);
-  //     });
-  // };
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_e630rg9",
+        "template_k8pk08h",
+        e.target,
+        "user_qWGvWJS0Y3RuCm6dL7cXk"
+      )
+
+      .then(
+        (result) => {
+          alert("Your message has been sent successfully ! 👍");
+        },
+        (error) => {
+          alert(error.message);
+        }
+      );
+    e.target.reset();
+  };
   // return (
   //   <>
   //     <Header />
@@ -110,7 +102,11 @@ export const Mailer = () => {
   return (
     <div className={`${styles.wrapperDiv}`}>
       <Email />
-      <ContactHome />
+      <ContactHome
+        contacts={contacts}
+        setContacts={setContacts}
+        sendEmail={sendEmail}
+      />
     </div>
   );
 };

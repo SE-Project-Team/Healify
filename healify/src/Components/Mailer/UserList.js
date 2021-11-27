@@ -1,22 +1,67 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import { Link } from "react-router-dom";
 import { ListGroup, ListGroupItem, Button } from "reactstrap";
 import styles from "./Email.module.css";
+import axios from "axios";
 
-export const UserList = () => {
-  const { users, removeUser, setUsers } = useContext(GlobalContext);
+export const UserList = ({ contacts, setContacts, sendEmail }) => {
+  const token = JSON.parse(localStorage.getItem("token"));
+  const updateContacts = async () => {
+    let allFriends;
+    await axios
+      .get("/api/v1/mailer/get-all-contacts", {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        console.log("here", res.data.data);
+        allFriends = res.data.data;
+      })
+      .catch((err) => {
+        if (err.response) {
+          console.log(err.response.body);
+        }
+        allFriends = {};
+      });
+
+    console.log(allFriends);
+    setContacts(allFriends);
+  };
+  const removeUser = async (id) => {
+    console.log(id);
+    await axios
+      .post(
+        "/api/v1/mailer/remove-contact",
+        {
+          id,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        updateContacts();
+      })
+      .catch((err) => {
+        if (err.response) {
+          console.log(err.response.data);
+        }
+      });
+  };
   useEffect(() => {
-    console.log("DAMN");
-    setUsers();
-    console.log("These are the users,", users);
+    updateContacts();
   }, []);
-  return users ? (
+  return contacts ? (
     <ListGroup className={`mt-5 ${styles.zeroMargin}`}>
-      {users.length > 0 ? (
+      {contacts.length > 0 ? (
         <div>
-          {users.map((users) => (
+          {contacts.map((users) => (
             <ListGroupItem
+              key={users._id}
               className="d-flex"
               style={{ border: "0.25px solid black" }}
             >
@@ -27,7 +72,17 @@ export const UserList = () => {
               <h6>{users.email}</h6>
               {/* <p>bukkeroopa@gmail.com</p>  */}
               <div className="ml-auto">
-                <Button onClick={() => removeUser(users.id)} color="danger">
+                {/* Add or remove a property based on selected */}
+                <Button
+                  color="warning"
+                  onClick={(e) => {
+                    alert("mail Sent");
+                    sendEmail(e);
+                  }}
+                >
+                  Send Mail
+                </Button>
+                <Button onClick={() => removeUser(users._id)} color="danger">
                   Delete
                 </Button>
               </div>

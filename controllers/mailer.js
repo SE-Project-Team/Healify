@@ -38,9 +38,9 @@ const addContact = async (req, res) => {
 
 const removeContact = async (req, res) => {
   const { _id } = req.user;
-
+  console.log("deleting");
   const { friends } = await User.findByIdAndUpdate(_id, {
-    $pull: { friends: req.body },
+    $pull: { friends: { _id: req.body.id } },
   });
 
   if (!friends) {
@@ -56,7 +56,7 @@ const getAllContacts = async (req, res) => {
   if (!friends) {
     throw new BadRequestError("Something went wrong..!! Bad Request");
   }
-  // console.log(friends);
+  console.log(friends);
   res.status(200).json({ success: "true", data: friends });
 };
 module.exports = { sendAnEmail, addContact, removeContact, getAllContacts };
