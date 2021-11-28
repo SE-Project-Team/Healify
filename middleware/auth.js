@@ -14,9 +14,9 @@ const authenticationMiddleware = async (req, res, next) => {
     const { _id, username, role } = decoded;
     // add user to request object
     if (role === "user") {
-      req.user = { _id, username };
+      req.user = { _id, username, role };
     } else if (role === "organizer") {
-      req.organizer = { _id, username };
+      req.organizer = { _id, username, role };
     }
     next();
   } catch (err) {

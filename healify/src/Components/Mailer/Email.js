@@ -14,7 +14,7 @@ export const Email = ({
             <div className={emailstyles.left}></div>
             {/* <form className={emailstyles.right} onSubmit={sendEmail}> */}
             <div className={emailstyles.right}>
-              <h2>Send Email</h2>
+              <h2>Send an Email With The Following Template</h2>
 
               <section className={`${emailstyles.messageBodyContainer}`}>
                 <i
@@ -42,6 +42,12 @@ export const Email = ({
                   &#8250;
                 </i>
               </section>
+              {messageTemplate == 0 && (
+                <h6>----------starting of templates----------</h6>
+              )}
+              {messageTemplate == maxLimit - 1 && (
+                <h6>----------end of templates----------</h6>
+              )}
               {/* <button className={emailstyles.btn} type="submit">
                 Send
               </button> */}
