@@ -126,10 +126,9 @@ export const About_Us = () => {
           <div className={aboutstyles.fakeimg}>
             <b>Create Event:</b>
             <p>
-              Healify tries to monitor mental health through well-detailed
-              quizzes and tries to keep the User active and positive through
-              various activities. To avail these services one may register as a{" "}
-              <b>User</b> in the signup page.
+             An Event organizer can create a virtual events,create a platform for users to register wheras a primary user can view the events
+             and mark them as interested if they are interested and view those, register for them . To avail these services an Event Orgainzer has to register as a{" "}
+              <b>orgainzer</b> and a user has to register as <b>Primary User</b>{' '}in the signup page.
             </p>
             <br />
             <b>Manage Events:</b>
