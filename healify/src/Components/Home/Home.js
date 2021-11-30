@@ -69,7 +69,7 @@ export const Home = () => {
         your mental health. Answer all the questions honestly.`}
                 />
                 <Card
-                  path="/News2"
+                  path="/News"
                   imgSrc={newsimg}
                   alt={"..."}
                   cardName={`Articles`}
