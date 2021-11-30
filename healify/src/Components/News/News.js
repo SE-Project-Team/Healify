@@ -16,7 +16,7 @@ const News = () => {
   const [page, setPage] = useState(1);
   const articlesperpage = 16;
   const [totalresults, settotalresults] = useState(100);
- const sortBy=['relevancy','popularity','publishedAt'];
+  const sortBy = ["relevancy", "popularity", "publishedAt"];
   const [articlesVisited, setarticlesVisited] = useState(0);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const News = () => {
     const token = JSON.parse(localStorage.getItem("token"));
     let queryTerm;
     if (suggesting) {
-      axios 
+      axios
         .get(`/api/v1/profile`, {
           headers: {
             authorization: `Bearer ${token}`,
@@ -55,7 +55,7 @@ const News = () => {
           }
           console.log(err);
         });
-        let sortby=sortBy[Math.floor(Math.random() % sortBy.length)];
+      let sortby = sortBy[Math.floor(Math.random() % sortBy.length)];
       axios
         .get(
           `https://newsapi.org/v2/everything?q=${queryTerm}&from= &language=en&sortBy=${sortby}&apiKey=${apiKey}&page=${page}`
@@ -65,11 +65,11 @@ const News = () => {
     } else if (otherarticles) {
       const otherterm =
         randomqueries[Math.floor(Math.random() % randomqueries.length)];
-        let sortby=sortBy[Math.floor(Math.random() % sortBy.length)];
+      let sortby = sortBy[Math.floor(Math.random() % sortBy.length)];
       axios
         .get(
           `https://newsapi.org/v2/everything?q=${otherterm}&from= &language=en&sortBy=${sortby}&apiKey=${apiKey}&page=${
-            page-3
+            page - 3
           }`
         )
         .then((response) => {
@@ -85,7 +85,7 @@ const News = () => {
       const queryTerm = term.split(" ").join("-");
       setSuggesting(false);
       setotherarticles(false);
-      let sortby=sortBy[Math.floor(Math.random() % sortBy.length)];
+      let sortby = sortBy[Math.floor(Math.random() % sortBy.length)];
       axios
         .get(
           `https://newsapi.org/v2/everything?q=${queryTerm}&from= &language=en&sortBy=${sortby}&apiKey=${apiKey}&page=${page}`
