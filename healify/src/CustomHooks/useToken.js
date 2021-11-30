@@ -21,7 +21,7 @@ export const useToken = () => {
   const [role, setRole] = useState(getRole());
 
   useEffect(() => {
-    console.log("dead");
+    console.log("");
   }, [role]);
 
   const saveRole = (newRole) => {

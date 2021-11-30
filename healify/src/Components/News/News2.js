@@ -5,6 +5,7 @@ import newsstyles from "./News.module.css";
 import Search from "./SearchNews";
 import { randomqueries } from "./randomqueries";
 import ReactPaginate from "react-paginate";
+// import axios from "axios";
 let query = "mental-health";
 
 const News2 = () => {
@@ -15,7 +16,7 @@ const News2 = () => {
   const [page, setPage] = useState(1);
   const articlesperpage = 16;
   const sortBy = ["Date"];
-  const [offset,setoffset]=useState(0);
+  const [offset, setoffset] = useState(0);
   useEffect(() => {
     if (page > 3) {
       setSuggesting(false);
@@ -28,9 +29,9 @@ const News2 = () => {
   useEffect(() => {
     const token1 = JSON.parse(localStorage.getItem("token"));
     let queryTerm;
-    var axios = require("axios").default;
     if (suggesting) {
-      axios.get(`/api/v1/profile`, {
+      axios
+        .get(`/api/v1/profile`, {
           headers: {
             authorization: `Bearer ${token1}`,
           },
@@ -40,7 +41,7 @@ const News2 = () => {
           const temp = Object.entries(Keywords);
           temp.sort((a, b) => b[1] - a[1]);
           query = temp.slice(0, 3);
-          queryTerm = `${query[0][0]}`;
+          queryTerm = `${query[0][0]} OR ${query[1][0]} OR ${query[2][0]}`;
         })
         .catch((err) => {
           if (err.response) {
@@ -51,13 +52,13 @@ const News2 = () => {
         });
       let sortby = sortBy[Math.floor(Math.random() % sortBy.length)];
       const token = JSON.parse(localStorage.getItem("token"));
-      var axios = require("axios").default;
-      var options = {
+      // let axios = require("axios").default;
+      let options = {
         method: "GET",
-        url: "https://bing-news-search1.p.rapidapi.com/news",
+        url: "https://bing-news-search1.p.rapidapi.com/news/search",
         params: {
-          offset: {offset},
-          q: { queryTerm },
+          offset: offset,
+          q: queryTerm,
           count: "20",
           //sortBy: { sortby },
           setLang: "english",
@@ -69,29 +70,32 @@ const News2 = () => {
           "x-bingapis-sdk": "true",
           "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
           "x-rapidapi-key":
-            "e567b0d709msh519f62e1920d6a5p1d368ajsnc618f74f7e5a",
+            "b8d8d0450cmsh3237aa422af86dfp134a6bjsn21c78dc82a2a",
         },
       };
       axios
         .request(options)
         .then(function (response) {
+          console.log("queryTerm", queryTerm);
+          console.log(response.data);
           setData(response.data);
         })
         .catch(function (error) {
-          console.error(error);
+          console.error(error.response);
         });
     } else if (otherarticles) {
-      const otherterm = randomqueries[Math.floor(Math.random() % randomqueries.length)];
+      const otherterm =
+        randomqueries[Math.floor(Math.random() % randomqueries.length)];
       let sortby = sortBy[Math.floor(Math.random() % sortBy.length)];
-       var axios = require("axios").default;
-      var options = {
+      // let axios = require("axios").default;
+      let options = {
         method: "GET",
-        url: "https://bing-news-search1.p.rapidapi.com/news",
+        url: "https://bing-news-search1.p.rapidapi.com/news/search",
         params: {
-         offset: {offset}-40,
-          q: { otherterm },
+          offset: offset - 40,
+          q: otherterm,
           count: "20",
-         // sortBy: { sortby },
+          // sortBy: { sortby },
           setLang: "english",
           textFormat: "Raw",
           safeSearch: "Strict",
@@ -101,16 +105,18 @@ const News2 = () => {
           "x-bingapis-sdk": "true",
           "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
           "x-rapidapi-key":
-            "e567b0d709msh519f62e1920d6a5p1d368ajsnc618f74f7e5a",
+            "b8d8d0450cmsh3237aa422af86dfp134a6bjsn21c78dc82a2a",
         },
       };
       axios
         .request(options)
         .then(function (response) {
+          console.log("queryTerm", queryTerm);
+          console.log(response.data);
           setData(response.data);
         })
         .catch(function (error) {
-          console.error(error);
+          console.error(error.response);
         });
     }
   }, [page]);
@@ -121,15 +127,15 @@ const News2 = () => {
       setotherarticles(false);
       let sortby = sortBy[Math.floor(Math.random() % sortBy.length)];
       const token = JSON.parse(localStorage.getItem("token"));
-      var axios = require("axios").default;
-      var options = {
+      // let axios = require("axios").default;
+      let options = {
         method: "GET",
-        url: "https://bing-news-search1.p.rapidapi.com/news",
+        url: "https://bing-news-search1.p.rapidapi.com/news/search",
         params: {
-         offset: {offset},
-          q: { queryTerm },
+          offset: offset,
+          q: queryTerm,
           count: "20",
-         // sortBy: { sortby },
+          // sortBy: { sortby },
           setLang: "english",
           textFormat: "Raw",
           safeSearch: "Strict",
@@ -139,22 +145,24 @@ const News2 = () => {
           "x-bingapis-sdk": "true",
           "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
           "x-rapidapi-key":
-            "e567b0d709msh519f62e1920d6a5p1d368ajsnc618f74f7e5a",
+            "b8d8d0450cmsh3237aa422af86dfp134a6bjsn21c78dc82a2a",
         },
       };
       axios
         .request(options)
         .then(function (response) {
+          console.log("queryTerm", queryTerm);
+          console.log(response.data);
           setData(response.data);
         })
         .catch(function (error) {
-          console.error(error);
+          console.error(error.response);
         });
     }
   }, [term, page]);
   const changePage = ({ selected }) => {
     setPage(selected);
-    setoffset(offset+20)
+    setoffset(offset + 20);
   };
   return (
     <>
@@ -185,9 +193,9 @@ const News2 = () => {
             ? data.value.map((news) => (
                 <div className={newsstyles.news}>
                   <img
-                    src={news.image.thumbnail.contentUrl}
+                    src={news.image ? news.image : ""}
                     className={newsstyles.news__image}
-                    alt="Not Found"
+                    alt="Image Not Found"
                     onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX9JgRB8c-unjPmV8cuIw2S_kGq3uMI21CkA&usqp=CAU'"
                   />
                   <div className={`${newsstyles.contentWrapper}`}>
