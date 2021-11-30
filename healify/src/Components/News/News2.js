@@ -5,7 +5,7 @@ import newsstyles from "./News.module.css";
 import Search from "./SearchNews";
 import { randomqueries } from "./randomqueries";
 import ReactPaginate from "react-paginate";
-let query = "mental-health+OR+literature+OR+vacation";
+let query = "mental-health";
 
 const News2 = () => {
   const [data, setData] = useState();
@@ -14,11 +14,9 @@ const News2 = () => {
   const [otherarticles, setotherarticles] = useState(false);
   const [page, setPage] = useState(1);
   const articlesperpage = 16;
-  const [totalresults, settotalresults] = useState(100);
-  const sortBy = ["relevancy", "popularity", "publishedAt"];
-  const [articlesVisited, setarticlesVisited] = useState(0);
+  const sortBy = ["Date"];
+  const [offset,setoffset]=useState(0);
   useEffect(() => {
-    setarticlesVisited((Number(page) - 1) * articlesperpage);
     if (page > 3) {
       setSuggesting(false);
       setotherarticles(true);
@@ -42,9 +40,7 @@ const News2 = () => {
           const temp = Object.entries(Keywords);
           temp.sort((a, b) => b[1] - a[1]);
           query = temp.slice(0, 3);
-          queryTerm = `${query[0][0]}+OR+${query[1][0]}+OR+${query[2][0]}`;
-          settotalresults(res.data.totalResults);
-          console.log("totalresults-" + totalresults);
+          queryTerm = `${query[0][0]}`;
         })
         .catch((err) => {
           if (err.response) {
@@ -60,9 +56,10 @@ const News2 = () => {
         method: "GET",
         url: "https://bing-news-search1.p.rapidapi.com/news",
         params: {
+          offset: {offset},
           q: { queryTerm },
           count: "20",
-          sortBy: { sortby },
+          //sortBy: { sortby },
           setLang: "english",
           textFormat: "Raw",
           safeSearch: "Strict",
@@ -72,7 +69,7 @@ const News2 = () => {
           "x-bingapis-sdk": "true",
           "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
           "x-rapidapi-key":
-            "58cf773c4cmshce14a05c016cf8cp15c782jsnb2c454aae6d8",
+            "e567b0d709msh519f62e1920d6a5p1d368ajsnc618f74f7e5a",
         },
       };
       axios
@@ -91,9 +88,10 @@ const News2 = () => {
         method: "GET",
         url: "https://bing-news-search1.p.rapidapi.com/news",
         params: {
+         offset: {offset}-40,
           q: { otherterm },
           count: "20",
-          sortBy: { sortby },
+         // sortBy: { sortby },
           setLang: "english",
           textFormat: "Raw",
           safeSearch: "Strict",
@@ -103,7 +101,7 @@ const News2 = () => {
           "x-bingapis-sdk": "true",
           "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
           "x-rapidapi-key":
-            "58cf773c4cmshce14a05c016cf8cp15c782jsnb2c454aae6d8",
+            "e567b0d709msh519f62e1920d6a5p1d368ajsnc618f74f7e5a",
         },
       };
       axios
@@ -128,9 +126,10 @@ const News2 = () => {
         method: "GET",
         url: "https://bing-news-search1.p.rapidapi.com/news",
         params: {
+         offset: {offset},
           q: { queryTerm },
           count: "20",
-          sortBy: { sortby },
+         // sortBy: { sortby },
           setLang: "english",
           textFormat: "Raw",
           safeSearch: "Strict",
@@ -140,7 +139,7 @@ const News2 = () => {
           "x-bingapis-sdk": "true",
           "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
           "x-rapidapi-key":
-            "58cf773c4cmshce14a05c016cf8cp15c782jsnb2c454aae6d8",
+            "e567b0d709msh519f62e1920d6a5p1d368ajsnc618f74f7e5a",
         },
       };
       axios
@@ -155,6 +154,7 @@ const News2 = () => {
   }, [term, page]);
   const changePage = ({ selected }) => {
     setPage(selected);
+    setoffset(offset+20)
   };
   return (
     <>
