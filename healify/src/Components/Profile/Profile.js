@@ -422,7 +422,9 @@ export const Profile = () => {
                   }}
                   readOnly
                 >
-                  {values.DateOfBirth.slice(0, 10)}
+                  {values.DateOfBirth
+                    ? values.DateOfBirth.slice(0, 10)
+                    : "--Date-of-Birth--"}
                 </label>
               )}
               {/* <button
