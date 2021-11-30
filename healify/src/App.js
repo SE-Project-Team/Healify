@@ -22,6 +22,7 @@ import { Eventview } from "./Components/Events/Eventview";
 import { MyEvents } from "./Components/OrganizersHome/MyEvents";
 import { UpcomingEvents } from "./Components/OrganizersHome/UpcomingEvents";
 import News from "./Components/News/News";
+import News2 from "./Components/News/News2";
 import { Recorder } from "./Components/DrumKit/Recorder";
 import { Drumkit } from "./Components/DrumKit/Drumkit";
 import Organizers from "./Components/OrganizersHome/Organizers";
@@ -398,6 +399,8 @@ function App() {
                   </Route>
                   <Route exact path="/News">
                     <News />
+                  </Route><Route exact path="/News2">
+                    <News2 />
                   </Route>
                   <Route path="/Memes">
                     <Memes />
