@@ -333,6 +333,9 @@ function App() {
               <Route exact path="/">
                 <Home />
               </Route>
+              <Route path="/About_Us">
+                <About_Us />
+              </Route>
               <Route path="/login">
                 <Signup
                   setToken={setToken}
