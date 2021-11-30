@@ -64,6 +64,7 @@ const News2 = () => {
           setLang: "english",
           textFormat: "Raw",
           safeSearch: "Strict",
+          originalImg: true,
         },
         headers: {
           "accept-language": "english",
@@ -99,6 +100,7 @@ const News2 = () => {
           setLang: "english",
           textFormat: "Raw",
           safeSearch: "Strict",
+          originalImg: true,
         },
         headers: {
           "accept-language": "english",
@@ -139,6 +141,7 @@ const News2 = () => {
           setLang: "english",
           textFormat: "Raw",
           safeSearch: "Strict",
+          originalImg: true,
         },
         headers: {
           "accept-language": "english",
@@ -193,7 +196,7 @@ const News2 = () => {
             ? data.value.map((news) => (
                 <div className={newsstyles.news}>
                   <img
-                    src={news.image ? news.image : ""}
+                    src={news.image ? news.image.contentUrl : ""}
                     className={newsstyles.news__image}
                     alt="Image Not Found"
                     onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX9JgRB8c-unjPmV8cuIw2S_kGq3uMI21CkA&usqp=CAU'"
