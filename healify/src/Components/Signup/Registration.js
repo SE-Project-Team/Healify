@@ -10,7 +10,7 @@ import axios from "axios";
 import { postLogin } from "./SignUpUtilityFn";
 import { Link } from "react-router-dom";
 
-export const Registration = ({ setToken }) => {
+export const Registration = ({ setToken, setRole }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -18,9 +18,9 @@ export const Registration = ({ setToken }) => {
 
   const changeRole = () => {
     const newRole = role === "user" ? "organizer" : "user";
-    setRole(newRole);
+    setRole2(newRole);
   };
-  const [role, setRole] = useState("user");
+  const [role, setRole2] = useState("user");
 
   const [warning, setWarning] = useState("");
 
@@ -73,6 +73,7 @@ export const Registration = ({ setToken }) => {
         username,
         password,
         setWarning,
+        setRole,
         setToken,
         history,
         role,
