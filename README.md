@@ -27,7 +27,7 @@ Our app serves as a user feedback system for self-management and maintaining goo
 ## User Guide
 
 ### Mental Health Self Assessment test
-> Through our app users can take the mental health self-assessment test daily or weekly. This test section comprises of 4 categories namely Ill being and well being, control and coping, Relationships and belonging and self perception. After completing the test, the app gives score report of in the respective category. Based on these results, the users can understand in which aspects they should focus on and take care of in order to improve their mental health. The app also keeps track of the scores of the users and provides the statistics of the scores. So, the users can check on which day their score was good or bad and draw various results from these statistics.
+> Through our website users can take the mental health self-assessment test daily or weekly. This test section comprises of 4 categories namely Ill being and well being, control and coping, Relationships and belonging and self perception. After completing the test, the app gives score report of in the respective category. Based on these results, the users can understand in which aspects they should focus on and take care of in order to improve their mental health. The app also keeps track of the scores of the users and provides the statistics of the scores. So, the users can check on which day their score was good or bad and draw various results from these statistics.
 
 ### Milestones
 > Our app encourages users to maintain a milestones record. This helps user be active and aware of their objectives and is a record of their biggest dreams and wishes. A timeline diagram will also be available which when done completely will show the entire list of objectives the user have had and how many were completed and at when. This could be a good trip down memory lane or even help user motivated to stay on course of their objectives.
@@ -37,6 +37,24 @@ Our app serves as a user feedback system for self-management and maintaining goo
 
 ### Memes
 > Humour is a well-known, effective coping strategy, and it enables to raise awareness of the society about issues that many would rather not speak about, including mental illness. Memes provide a safe space to deal with depression and anxiety. Our app provides a feature to watch some wholesome memes.
+
+### Games
+> Mini Games for fun 
+A music based game called “Drumkit” in which users can play drums and record them as well. Users can also play along the displayed notes and score points
+A memory based game called “ColorGame” in which users have to memorize the colors that are blinked and click on them in the same order to go to the next level
+
+### Virtual Events 
+> Event organizers will have separate Login and Registration pages. 
+Organizers will also have a different Home page so that they can easily create, edit and delete events
+Users can view all these events on Mental Health created by different organizers
+Users can add and remove events from favorite
+Users can also write a review on these events
+Event organizers will be able to see the user reviews
+Organizers can also give announcements for their events which the users can see
+
+### Mailer
+> Providing an option to the users to write mails to their family or friends to seek help from depression and loneliness
+Users can save their contacts in a contact book and can easily write a mail to them whenever they feel it necessary
 
 # Instruction to Run Application in localhost
 >clone the repository
