@@ -13,7 +13,8 @@ import { Card } from "./Card";
 import { Header } from "./Header";
 import { useState, useEffect } from "react";
 import { QuotesArray } from "./Quotes";
-
+import { FadeWrapper } from "../FadeWrapper";
+import "../../App.css";
 export const Home = () => {
   const [quote1, setQuote1] = useState("Your mental health is a priority");
   const [quote2, setQuote2] = useState(
@@ -60,77 +61,95 @@ export const Home = () => {
 
             <section className={`${styles.blur}`}>
               <section className={`${styles.mdbCustom}`}>
-                <Card
-                  path="/QuizLanding"
-                  imgSrc={quizimg}
-                  alt={"..."}
-                  cardName={`Quiz`}
-                  cardDesc={`Take our Mental Health Self Assessment Test to know about
+                <FadeWrapper>
+                  <Card
+                    path="/QuizLanding"
+                    imgSrc={quizimg}
+                    alt={"..."}
+                    cardName={`Quiz`}
+                    cardDesc={`Take our Mental Health Self Assessment Test to know about
         your mental health. Answer all the questions honestly.`}
-                />
-                <Card
-                  path="/News2"
-                  imgSrc={newsimg}
-                  alt={"..."}
-                  cardName={`Articles`}
-                  cardDesc={`
+                  />
+                </FadeWrapper>
+                <FadeWrapper>
+                  <Card
+                    path="/News2"
+                    imgSrc={newsimg}
+                    alt={"..."}
+                    cardName={`Articles`}
+                    cardDesc={`
             A good article is like a wholesome healthy meal for your
             brain and mental well-being. So check out some latest news
             and feed your brain.`}
-                />
-                <Card
-                  path="/Memes"
-                  imgSrc={memeimg}
-                  alt={"..."}
-                  cardName={`Memes`}
-                  cardDesc={`Watch some wholesome memes and share them with your family
+                  />
+                </FadeWrapper>
+                <FadeWrapper>
+                  <Card
+                    path="/Memes"
+                    imgSrc={memeimg}
+                    alt={"..."}
+                    cardName={`Memes`}
+                    cardDesc={`Watch some wholesome memes and share them with your family
             and friends.`}
-                />
-                <Card
-                  path="/MilestonesHome"
-                  imgSrc={milestoneimg}
-                  alt={"..."}
-                  cardName={`Milestones`}
-                  cardDesc={`Create tasks and mark them as completed upon successful
+                  />
+                </FadeWrapper>
+                <FadeWrapper>
+                  <Card
+                    path="/MilestonesHome"
+                    imgSrc={milestoneimg}
+                    alt={"..."}
+                    cardName={`Milestones`}
+                    cardDesc={`Create tasks and mark them as completed upon successful
             completion. You can see your achievements in the form of a
             timeline and keep yourselves motivated.`}
-                />
-                <Card
-                  path="/Events"
-                  imgSrc={eventsimg}
-                  alt={"..."}
-                  cardName={` Virtual Events`}
-                  cardDesc={`Explore virtual events on mental health. Register to the
+                  />
+                </FadeWrapper>
+                <FadeWrapper>
+                  <Card
+                    path="/Events"
+                    imgSrc={eventsimg}
+                    alt={"..."}
+                    cardName={` Virtual Events`}
+                    cardDesc={`Explore virtual events on mental health. Register to the
               events and improve your well-being. Rate the events and ask your
               questions in the FAQ section.`}
-                />
-                <Card
-                  path="/Drumkit"
-                  imgSrc={drumkitimg}
-                  alt={"..."}
-                  cardName={`Drumkit`}
-                  cardDesc={`Play our drumkit by clicking on the drums or by clicking the 
+                  />
+                </FadeWrapper>
+                <FadeWrapper>
+                  {" "}
+                  <Card
+                    path="/Drumkit"
+                    imgSrc={drumkitimg}
+                    alt={"..."}
+                    cardName={`Drumkit`}
+                    cardDesc={`Play our drumkit by clicking on the drums or by clicking the 
               keyboard keys. You can also record and download it.`}
-                />
-                <Card
-                  path="/ColorGame"
-                  imgSrc={colorgameimg}
-                  alt={"..."}
-                  cardName={`Color Game`}
-                  cardDesc={`Play our simple color-memory game to feel focused`}
-                />
-                <Card
-                  path="/Mailer"
-                  imgSrc={mailimg}
-                  alt={"..."}
-                  cardName={`Need To Talk?`}
-                  cardDesc={`Feeling Down? Need to talk to someone but don't know how to start!? We're here for u. Just Let us alert your friends that u need a breather!! `}
-                />
+                  />
+                </FadeWrapper>
+                <FadeWrapper>
+                  <Card
+                    path="/ColorGame"
+                    imgSrc={colorgameimg}
+                    alt={"..."}
+                    cardName={`Color Game`}
+                    cardDesc={`Play our simple color-memory game to feel focused`}
+                  />
+                </FadeWrapper>
+                <FadeWrapper>
+                  <Card
+                    path="/Mailer"
+                    imgSrc={mailimg}
+                    alt={"..."}
+                    cardName={`Need To Talk?`}
+                    cardDesc={`Feeling Down? Need to talk to someone but don't know how to start!? We're here for u. Just Let us alert your friends that u need a breather!! `}
+                  />
+                </FadeWrapper>
               </section>
             </section>
           </div>
         </div>
       </div>
+
       <footer>
         {" "}
         <div className={styles["bottom-container"]}>
