@@ -7,12 +7,11 @@ export const FadeWrapper = (props) => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => setVisible(entry.isIntersecting));
     });
-    observer.observe(domRef.current);
-    return () => {
-      if (domRef.current) {
-        observer.unobserve(domRef.current);
-      }
-    };
+    const { current } = domRef;
+    observer.observe(current);
+
+    //                      👇
+    return () => observer.unobserve(current);
   }, []);
   return (
     <div
