@@ -44,11 +44,11 @@ button:focus {
   color: #000 !important;
 }
 a {
-  color: #000;
+  color: #000 !important;
 }
 
 a:hover {
-  color: #000;
+  color: #000 !important;
 }
 
 .nav-link:hover {
@@ -59,17 +59,19 @@ a:hover {
   font-weight: bold;
   color: #000;
 }
+
 @keyframes move {
   0% {
     /* transform: translateX(0px); */
     transform: scale3d(1, 1, 1);
   }
-  30% {
+  30%,
+  40% {
     /* transform: translateX(0px); */
     transform: scale3d(1.1, 1.1, 1);
   }
 
-  60% {
+  70% {
     /* transform: translateX(0px); */
     transform: scale3d(1, 1, 1);
   }

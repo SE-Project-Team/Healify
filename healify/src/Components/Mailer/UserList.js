@@ -16,7 +16,6 @@ export const UserList = ({ contacts, setContacts, sendEmail }) => {
         },
       })
       .then((res) => {
-        console.log("here", res.data.data);
         allFriends = res.data.data;
       })
       .catch((err) => {
@@ -26,11 +25,9 @@ export const UserList = ({ contacts, setContacts, sendEmail }) => {
         allFriends = {};
       });
 
-    console.log(allFriends);
     setContacts(allFriends);
   };
   const removeUser = async (id) => {
-    console.log(id);
     await axios
       .post(
         "/api/v1/mailer/remove-contact",
