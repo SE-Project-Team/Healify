@@ -146,8 +146,11 @@
   border-radius: 20px;
 }
 .navLoginBtn:hover {
-  box-shadow: 2px 2px 7px 2px rgb(95, 18, 18);
-  font-size: 1.2em;
+  /* box-shadow: 2px 2px 7px 2px rgb(95, 18, 18);
+  font-size: 1.2em; */
+  animation: move 5s infinite forwards;
+  animation-timing-function: cubic-bezier();
+  font-weight: bold;
 }
 #navSignUp {
   border: none;
@@ -224,5 +227,21 @@
   .settingsList li {
     margin-bottom: 5px;
     margin-left: 10px;
+  }
+}
+
+@keyframes move {
+  0% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1.1, 1.1, 1);
+  }
+
+  60% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1, 1, 1);
   }
 }

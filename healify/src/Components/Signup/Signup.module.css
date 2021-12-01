@@ -35,6 +35,12 @@
   font-weight: bold;
 }
 
+.loginRedirect:hover {
+  animation: move 5s infinite forwards;
+  animation-timing-function: cubic-bezier();
+  font-weight: bold;
+}
+
 .card {
   border-radius: 0;
   border: none;
@@ -96,26 +102,11 @@
 } */
 
 .btnColor:hover {
-  animation: move 3s forwards;
+  animation: move 5s infinite forwards;
   animation-timing-function: cubic-bezier();
+  font-weight: bold;
 }
-@keyframes move {
-  0% {
-    /* transform: translateX(0px); */
-    transform: scale3d(1, 1, 1);
-  }
-  33% {
-    /* transform: translateX(-10px); */
-    /* transform: scale3d(1, 1, 1); */
-  }
-  66% {
-    /* transform: translateX(10px); */
-  }
-  100% {
-    /* transform: translateX(0px); */
-    transform: scale3d(1.1, 1.1, 1);
-  }
-}
+
 .btnWhite {
   border-radius: 50px;
   color: #d500f9;
@@ -128,6 +119,9 @@
 .btnWhite:hover {
   color: #fff;
   background-image: linear-gradient(to right, #ffd54f, #d500f9);
+  animation: move 5s infinite forwards;
+  animation-timing-function: cubic-bezier();
+  font-weight: bold;
 }
 
 .bottom {
@@ -139,6 +133,21 @@
 .smText {
   font-size: 15px;
   align-self: center;
+}
+@keyframes move {
+  0% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1.1, 1.1, 1);
+  }
+
+  60% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1, 1, 1);
+  }
 }
 
 @media screen and (max-width: 992px) {
