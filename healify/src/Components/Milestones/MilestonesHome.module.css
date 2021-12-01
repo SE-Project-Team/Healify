@@ -12,7 +12,7 @@
 
 .card-wrapper {
   width: 280px;
-  height: 230px;
+  height: 250px;
   margin-left: 50px;
   margin-bottom: 50px;
   border-bottom: 1px solid gray;
@@ -45,8 +45,8 @@
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 2px;
-  max-width: 150px;
-  height: 30px;
+  /* max-width: 150px; */
+  /* height: 30px; */
   padding: 1px 1px !important;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -140,6 +140,29 @@
   padding: 2px;
   margin: 2px;
   text-align: center;
+}
+
+.viewBtn:hover {
+  cursor: pointer;
+  animation: move 5s infinite forwards;
+  animation-timing-function: cubic-bezier();
+  font-weight: bold;
+  color: #000;
+}
+@keyframes move {
+  0% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  60% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1, 1, 1);
+  }
 }
 
 .text {

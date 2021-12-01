@@ -85,7 +85,7 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
           <NewReadMore subtasks={subtasks} />
 
           <br />
-          <div style={{ position: "absolute", right: "20px", top: "175px" }}>
+          <div style={{ position: "absolute", right: "20px", top: "200px" }}>
             <i
               class="far fa-edit  "
               style={{
@@ -96,7 +96,7 @@ const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
             ></i>
           </div>
 
-          <div style={{ position: "absolute", right: "50px", top: "175px" }}>
+          <div style={{ position: "absolute", right: "50px", top: "200px" }}>
             <i
               class="fas fa-trash-alt"
               style={{
