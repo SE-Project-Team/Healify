@@ -7,6 +7,7 @@
   width: 180px;
   box-shadow: 0px 3px 50px #a5a5a5;
   padding: 40px 100px;
+ 
 }
 
 .card-wrapper {
@@ -17,7 +18,8 @@
   border-bottom: 1px solid gray;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
-
+ transition: 0.5s ease;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   font-size: medium;
@@ -50,7 +52,10 @@
     "Lucida Sans", Arial, sans-serif;
   text-align: center;
 }
-
+.card-wrapper:hover {
+  transform: scale(1.05);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
 .task-container {
   height: 100%;
   width: 100%;
