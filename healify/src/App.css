@@ -78,7 +78,8 @@ a:hover {
   }
 } */
 
-.previous {
+/* Dont Know what else this is used for */
+/* .previous {
   background-color: #f1f1f1;
   color: black;
 }
@@ -86,7 +87,7 @@ a:hover {
 .next {
   background-color: #04aa6d;
   color: white;
-}
+} */
 
 .round {
   text-decoration: none;

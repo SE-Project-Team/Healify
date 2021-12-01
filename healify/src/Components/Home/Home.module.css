@@ -40,10 +40,12 @@
 }
 .homecard:hover {
   box-shadow: 0 2px 20px 0 #ccd2d8;
+  animation: translateUp 1s forwards;
   /* position: relative;
   top: 5px;
   right: 5px; */
 }
+
 .img {
   position: relative;
   background: rgb(3, 8, 4);

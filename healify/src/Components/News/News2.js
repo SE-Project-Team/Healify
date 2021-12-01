@@ -14,7 +14,7 @@ const News2 = () => {
   const [suggesting, setSuggesting] = useState(true);
   const [otherarticles, setotherarticles] = useState(false);
   const [page, setPage] = useState(1);
-  const articlesperpage = 16;
+  const [pageCount, setPageCount] = useState(1);
   const sortBy = ["Date"];
   const [offset, setoffset] = useState(0);
   useEffect(() => {
@@ -80,6 +80,12 @@ const News2 = () => {
           console.log("queryTerm", queryTerm);
           console.log(response.data);
           setData(response.data);
+          const pageLim =
+            response.data.totalEstimatedMatches &&
+            Math.min(20, response.data.totalEstimatedMatches / 20);
+          if (pageLim) {
+            setPageCount(pageLim);
+          }
         })
         .catch(function (error) {
           console.error(error.response);
@@ -116,6 +122,12 @@ const News2 = () => {
           console.log("queryTerm", queryTerm);
           console.log(response.data);
           setData(response.data);
+          const pageLim =
+            response.data.totalEstimatedMatches &&
+            Math.min(20, response.data.totalEstimatedMatches / 20);
+          if (pageLim) {
+            setPageCount(pageLim);
+          }
         })
         .catch(function (error) {
           console.error(error.response);
@@ -157,15 +169,29 @@ const News2 = () => {
           console.log("queryTerm", queryTerm);
           console.log(response.data);
           setData(response.data);
+          const pageLim =
+            response.data.totalEstimatedMatches &&
+            Math.min(20, response.data.totalEstimatedMatches / 20);
+          if (pageLim) {
+            setPageCount(pageLim);
+          }
         })
         .catch(function (error) {
           console.error(error.response);
         });
     }
   }, [term, page]);
+
+  let timeoutId;
   const changePage = ({ selected }) => {
-    setPage(selected);
-    setoffset(offset + 20);
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    setData();
+    timeoutId = setTimeout(() => {
+      setPage(selected);
+      setoffset(offset + 20);
+    }, 1000);
   };
   return (
     <>
@@ -236,7 +262,7 @@ const News2 = () => {
           style={{ margin: "auto" }}
           previousLabel={"Previous"}
           nextLabel={"Next"}
-          pageCount={7}
+          pageCount={pageCount}
           onPageChange={changePage}
           containerClassName={newsstyles.paginationBttns}
           previousLinkClassName={newsstyles.previousBttn}

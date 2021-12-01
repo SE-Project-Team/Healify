@@ -22,6 +22,7 @@
 
 .loginRedirect {
   /* background-image: linear-gradient(to right, #ffd54f, #d500f9); */
+  cursor: pointer;
   padding: 5px;
   font-size: 20px;
   margin-left: 3px;
@@ -79,11 +80,42 @@
   margin-top: 40px;
 }
 
-.btnColor:hover {
+/* .btnColor:hover {
   color: #fff;
-  background-image: linear-gradient(to right, #d500f9, #ffd54f);
+  animation: scaleSize 1s forwards;
 }
 
+@keyframes scaleSize {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 90%;
+  }
+} */
+
+.btnColor:hover {
+  animation: move 3s forwards;
+  animation-timing-function: cubic-bezier();
+}
+@keyframes move {
+  0% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1, 1, 1);
+  }
+  33% {
+    /* transform: translateX(-10px); */
+    /* transform: scale3d(1, 1, 1); */
+  }
+  66% {
+    /* transform: translateX(10px); */
+  }
+  100% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
 .btnWhite {
   border-radius: 50px;
   color: #d500f9;
