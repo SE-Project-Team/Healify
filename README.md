@@ -14,7 +14,9 @@ Our app serves as a user feedback system for self-management and maintaining goo
 - [Milestones](#milestones)
 - [News Articles](#news-articles)
 - [Memes](#memes)
-
+- [Games](#games)
+- [Virtual Events](#virtual-events)
+- [Mailer](#mailer)
 ### Brief problem statement :
 >The Web Application “Healify” is a mental health monitoring app that focuses on personalizing user needs when it comes to the mental health front. The primary premise of the app is in-depth monitoring of mental health of the user through detailed quizzes and positive reinforcement of the mind through achievements timeline, memes, games and personalized blogs etc. The possibility of an AR-based friend/companion in this aspect is also going to be experimented. 
 
@@ -56,7 +58,7 @@ Organizers can also give announcements for their events which the users can see
 > Providing an option to the users to write mails to their family or friends to seek help from depression and loneliness
 Users can save their contacts in a contact book and can easily write a mail to them whenever they feel it necessary
 
-# Instruction to Run Application in localhost
+## Instruction to Run Application in localhost
 >clone the repository
 >go to root folder. Open vscode integrated terminal and go to the root directory.
 >execute the following commands:
@@ -65,9 +67,7 @@ Users can save their contacts in a contact book and can easily write a mail to t
 now open a new terminal and navigate to /healify folder.
 Now execute the following commands:
 >1. npm install
->2. npm start
-</br>
+>2. npm start</br>
 Now in your browser you can access the app in localhost:3000.
 </br>
-### Naote
->  You can change environment variables like PORT for server using your own .env file
+Note: You can change environment variables like PORT for server using your own .env file
