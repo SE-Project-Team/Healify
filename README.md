@@ -69,4 +69,5 @@ Now execute the following commands:
 </br>
 Now in your browser you can access the app in localhost:3000.
 </br>
-> NOTE: You can change environment variables like PORT for server using your own .env file
+### Naote
+>  You can change environment variables like PORT for server using your own .env file
