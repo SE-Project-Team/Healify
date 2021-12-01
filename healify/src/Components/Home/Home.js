@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../../Assets/homePage.webp";
+import image from "../../Assets/homePage.jpg";
 import quizimg from "../../Assets/quiz.jpg";
 import newsimg from "../../Assets/news.jpg";
 import memeimg from "../../Assets/meme.jpg";

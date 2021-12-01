@@ -133,7 +133,7 @@
 .blurImage {
   margin: 10px;
   flex-direction: row;
-  background-image: url("https://www.verywellmind.com/thmb/33e7FO-jy7abF2uIgqsfkiia7J8=/2780x1564/smart/filters:no_upscale()/mental-health-tracker-banner-03-db4c074daa7f4b719dfec6b4b4279c2d.png"),
+  background-image: url("http://localhost:3000/static/media/homePage.a69400cd.jpg"),
     linear-gradient(rgb(219, 166, 166), rgb(0, 0, 172));
   background-position: center center;
   background-repeat: no-repeat;

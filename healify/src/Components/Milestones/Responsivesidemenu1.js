@@ -66,7 +66,7 @@ export const Responsivesidemenu1 = ({
             }}
           >
             <i class="fas fa-bell"></i>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-            <span>Notifications ({notifications})</span>
+            <span>Upcoming ({notifications})</span>
           </li>
 
           <li
