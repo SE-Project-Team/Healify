@@ -22,6 +22,7 @@ export const MilestonesHome = ({
   const [missed, setMissed] = useState(0);
   const [notifPage, setNotifPage] = useState(notificationPage);
   const [missPage, setMissPage] = useState(missedPage);
+  const [totalTasks, setTotalTasks] = useState(0);
 
   // const [taskList, setTaskList] = useState([]);
   const toggle = () => setModal(!modal);
@@ -43,6 +44,7 @@ export const MilestonesHome = ({
         const activeMilestones = res.data.data;
         setMissed(() => 0);
         setNotifications(() => 0);
+        setTotalTasks(() => activeMilestones.length);
         const newActiveMilestones = activeMilestones.map((each) => {
           // For some reason db is inserting previous day -> default time == midnight issue??
           // Are mongoose and js considering 00 time as different days??
@@ -162,7 +164,7 @@ export const MilestonesHome = ({
           missed={missed}
           setNotifPage={setNotifPage}
           setMissPage={setMissPage}
-          totalTasks={taskList.length}
+          totalTasks={totalTasks}
         />
 
         <div className={styles["task-container"]}>

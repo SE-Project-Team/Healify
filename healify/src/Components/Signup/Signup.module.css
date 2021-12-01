@@ -22,6 +22,7 @@
 
 .loginRedirect {
   /* background-image: linear-gradient(to right, #ffd54f, #d500f9); */
+  cursor: pointer;
   padding: 5px;
   font-size: 20px;
   margin-left: 3px;
@@ -31,6 +32,12 @@
 }
 
 .loginRedirect span {
+  font-weight: bold;
+}
+
+.loginRedirect:hover {
+  animation: move 5s infinite forwards;
+  animation-timing-function: cubic-bezier();
   font-weight: bold;
 }
 
@@ -79,9 +86,25 @@
   margin-top: 40px;
 }
 
-.btnColor:hover {
+/* .btnColor:hover {
   color: #fff;
-  background-image: linear-gradient(to right, #d500f9, #ffd54f);
+  animation: scaleSize 1s forwards;
+}
+
+@keyframes scaleSize {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 90%;
+  }
+} */
+
+.btnColor:hover {
+  animation: move 5s infinite forwards;
+  animation-timing-function: cubic-bezier();
+  font-weight: bold;
 }
 
 .btnWhite {
@@ -96,6 +119,9 @@
 .btnWhite:hover {
   color: #fff;
   background-image: linear-gradient(to right, #ffd54f, #d500f9);
+  animation: move 5s infinite forwards;
+  animation-timing-function: cubic-bezier();
+  font-weight: bold;
 }
 
 .bottom {
@@ -107,6 +133,21 @@
 .smText {
   font-size: 15px;
   align-self: center;
+}
+@keyframes move {
+  0% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1.1, 1.1, 1);
+  }
+
+  60% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1, 1, 1);
+  }
 }
 
 @media screen and (max-width: 992px) {

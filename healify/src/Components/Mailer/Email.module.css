@@ -133,6 +133,7 @@ textarea {
 .messageBodyContainer {
   display: flex;
   align-items: center;
+  text-shadow: 0 0 1px #c53939, 0 0 2px #000000;
 }
 
 @media screen and (max-width: 880px) {

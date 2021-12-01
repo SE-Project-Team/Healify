@@ -82,7 +82,7 @@
 
 .news {
   margin: 1%;
-  max-width: 400px;
+  max-width: 350px;
   border: 1px solid lightgray;
   border-radius: 5px;
   display: flex;
@@ -164,21 +164,21 @@
   margin: 8px;
   border-radius: 5px;
   border: 1px solid #2b2eff;
-  color: #2b2eff;
+  /* color: #2b2eff; */
   cursor: pointer;
 }
 
 .paginationBttns a:hover {
-  color: white;
-  background-color: #2b2eff;
+  color: rgb(0, 0, 0);
+  /* background-color: #2b2eff; */
 }
 
 .paginationActive a {
-  color: white;
-  background-color: #2b2eff;
+  color: rgb(0, 0, 0);
+  background-color: #a3a4e6;
 }
 
 .paginationDisabled a {
   color: grey;
-  background-color: grey;
+  /* background-color: grey; */
 }

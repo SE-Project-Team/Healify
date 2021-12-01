@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const useToken = () => {
   const getToken = () => {
@@ -13,8 +13,26 @@ export const useToken = () => {
     setToken(newToken);
   };
 
+  const getRole = () => {
+    const roleString = localStorage.getItem("role");
+    const role = JSON.parse(roleString);
+    return role;
+  };
+  const [role, setRole] = useState(getRole());
+
+  useEffect(() => {
+    console.log("");
+  }, [role]);
+
+  const saveRole = (newRole) => {
+    localStorage.setItem("role", JSON.stringify(newRole));
+    setRole(newRole);
+  };
+
   return {
     setToken: saveToken,
     token,
+    role,
+    setRole: saveRole,
   };
 };

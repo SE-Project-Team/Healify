@@ -27,6 +27,7 @@ export const Header = () => {
     localStorage.clear();
     setUser("");
     history.replace("/");
+    window.location.reload();
   };
   const scrollHandler = () => {
     if (scrollClass === "" && window.scrollY > 80) {

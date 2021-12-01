@@ -13,10 +13,6 @@
 }
 
 @keyframes imgBorder {
-  0% {
-    box-shadow: none;
-  }
-
   100% {
     box-shadow: 2px 2px 7px 2px rgb(104, 97, 97);
   }
@@ -50,6 +46,39 @@
   /* border-radius: 10px; */
   background: rgb(255, 255, 255);
 }
+
+.arrow {
+  display: none;
+  font-weight: 900;
+  animation: forwards;
+  background: rgba(0, 0, 255, 0);
+}
 .homecard:hover {
-  box-shadow: 2px 2px 6px #000000;
+  box-shadow: inset 0 2px 20px 0 #ddcaca;
+  animation: translateUp 1s forwards;
+}
+
+.homecard:hover .arrow {
+  display: block;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.2;
+    display: block;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes translateUp {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-12px);
+  }
 }

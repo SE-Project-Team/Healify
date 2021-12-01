@@ -65,37 +65,9 @@ export const Profile = () => {
     setEditing(false);
     postData();
   };
-  const postData = async () => {
-    const token = JSON.parse(localStorage.getItem("token"));
-    const newDate = moment(date, "MM-DD-YYYY");
-    const dob = new Date(newDate);
-    console.log(dob);
+
+  const getData = async () => {
     await axios
-      .post(
-        "/api/v1/profile/edit",
-        {
-          BirthDay: dob,
-          Gender: gender.toLowerCase(),
-          Hobbies: values.Hobbies,
-          Interests: values.Interests,
-          Phone: values.PhoneNumber,
-          About: values.DescribeYourself,
-        },
-        {
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  useEffect(() => {
-    axios
       .get(`/api/v1/profile`, {
         headers: {
           authorization: `Bearer ${token}`,
@@ -130,6 +102,40 @@ export const Profile = () => {
           console.log(err.response);
         }
       });
+  };
+  const postData = async () => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    const newDate = moment(date, "MM-DD-YYYY");
+    const dob = new Date(newDate);
+    dob.setDate(dob.getDate() + 1);
+    console.log(dob);
+    await axios
+      .post(
+        "/api/v1/profile/edit",
+        {
+          BirthDay: dob,
+          Gender: gender.toLowerCase(),
+          Hobbies: values.Hobbies,
+          Interests: values.Interests,
+          Phone: values.PhoneNumber,
+          About: values.DescribeYourself,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        // console.log(res.data);
+        getData();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    getData();
   }, []);
 
   return (
@@ -422,7 +428,9 @@ export const Profile = () => {
                   }}
                   readOnly
                 >
-                  {values.DateOfBirth.slice(0, 10)}
+                  {values.DateOfBirth
+                    ? values.DateOfBirth.substring(0, 10)
+                    : "--Date-of-Birth--"}
                 </label>
               )}
               {/* <button

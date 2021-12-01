@@ -3,6 +3,7 @@ export const postLogin = async ({
   username,
   password,
   setToken,
+  setRole,
   setWarning,
   history,
   role,
@@ -13,8 +14,13 @@ export const postLogin = async ({
     .then((res) => {
       const { token } = res.data.data;
       setToken(token);
+      setRole(role);
       const newUrl = role === "user" ? "/" : "/organizers";
-      history.push(newUrl);
+
+      setTimeout(() => {
+        history.push(newUrl);
+        window.location.reload();
+      }, 200);
     })
     .catch((err) => {
       if (err.response) {

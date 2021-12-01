@@ -7,7 +7,7 @@ import { postLogin } from "./SignUpUtilityFn";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 
-export const Signup = ({ setToken }) => {
+export const Signup = ({ setToken, setRole }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,9 +16,9 @@ export const Signup = ({ setToken }) => {
 
   const changeRole = () => {
     const newRole = role === "user" ? "organizer" : "user";
-    setRole(newRole);
+    setRole2(newRole);
   };
-  const [role, setRole] = useState("user");
+  const [role, setRole2] = useState("user");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +27,7 @@ export const Signup = ({ setToken }) => {
       username,
       password,
       setToken,
+      setRole,
       setWarning,
       history,
       role,
