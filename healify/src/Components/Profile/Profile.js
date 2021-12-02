@@ -353,6 +353,7 @@ export const Profile = () => {
                       name="gender"
                       value="Male"
                       onChange={(e) => setGender(e.target.value)}
+                      checked={gender === "male"}
                     />
                     &nbsp;Male &nbsp;&nbsp;
                     <input
@@ -360,6 +361,7 @@ export const Profile = () => {
                       name="gender"
                       value="Female"
                       onChange={(e) => setGender(e.target.value)}
+                      checked={gender === "female"}
                     />
                     &nbsp;Female &nbsp; &nbsp;
                     <input
@@ -367,6 +369,7 @@ export const Profile = () => {
                       name="gender"
                       value="Other"
                       onChange={(e) => setGender(e.target.value)}
+                      checked={gender === "other"}
                     />
                     &nbsp;Other
                   </div>
