@@ -2,10 +2,7 @@ import React from "react";
 import { Header } from "../Home/Header";
 import styles from "./ColorGame.module.css";
 import { useState, useEffect } from "react";
-import blue from "../../Assets/sounds/blue.mp3";
-import red from "../../Assets/sounds/red.mp3";
 import green from "../../Assets/sounds/green.mp3";
-import yellow from "../../Assets/sounds/yellow.mp3";
 
 export const ColorGame = () => {
   let buttonColours = ["red", "blue", "green", "yellow"];
@@ -149,24 +146,8 @@ export const ColorGame = () => {
 
   const playSound = (name) => {
     let audio;
-    switch (name) {
-      case "blue":
-        audio = new Audio(blue);
-        audio.play();
-        break;
-      case "red":
-        audio = new Audio(red);
-        audio.play();
-        break;
-      case "yellow":
-        audio = new Audio(yellow);
-        audio.play();
-        break;
-      case "green":
-        audio = new Audio(green);
-        audio.play();
-        break;
-    }
+    audio = new Audio(green);
+    audio.play();
   };
 
   const startOver = () => {
@@ -184,6 +165,7 @@ export const ColorGame = () => {
           <div>
             <h1 className={`${styles.pass}`}>Level Passed</h1>
             <button
+              className={`btn btn-outline-info ${styles.padding}`}
               onClick={() => {
                 setLevelPassed("");
                 nextSequence();
@@ -197,6 +179,7 @@ export const ColorGame = () => {
             <div>
               <h1 className={`${styles.pass}`}>Game Over</h1>
               <button
+                className={`btn btn-outline-info ${styles.padding}`}
                 onClick={() => {
                   setLevelPassed("");
                   startOver();
@@ -262,10 +245,25 @@ export const ColorGame = () => {
             </section>
           )}
         {level == 0 ? (
-          <button className={`${styles.button}`} onClick={start}>
+          <button className={`btn btn-outline-warning`} onClick={start}>
             Start
           </button>
         ) : null}
+        <h4
+          style={{
+            color: "white",
+            font: "18px arial bold",
+            width: "50%",
+            margin: "auto",
+            marginTop: "20px",
+          }}
+        >
+          Instructions: Click on the Start Button to start the game.In Each
+          level a set of color pattern will be generated. Please wait for the
+          animations to complete. Once the animations are over Player can Click
+          on the Colors in the order and win the game. PS: IT GETS TOUGH AS YOU
+          GO ALONG .... SO BE COOL
+        </h4>
       </div>
     </>
   );
