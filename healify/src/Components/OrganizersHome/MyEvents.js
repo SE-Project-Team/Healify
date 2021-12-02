@@ -38,9 +38,6 @@ const deleteEvent = async (_id) => {
         },
       }
     )
-    .then(async (res) => {
-      // console.log(res.data);
-    })
     .catch((err) => {
       console.log(err);
     });

@@ -5,12 +5,9 @@ require("dotenv").config();
 const checkUser = async (req, res) => {
   let username, role;
   if (req.user) {
-    console.log(req.user);
     username = req.user.username;
     role = req.user.role;
   } else if (req.organizer) {
-    console.log(req.organizer);
-
     username = req.organizer.username;
     role = req.organizer.role;
   }

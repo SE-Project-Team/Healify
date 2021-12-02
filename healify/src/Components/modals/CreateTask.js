@@ -21,7 +21,6 @@ const CreateTask = ({ modal, toggle, save }) => {
         return;
       }
       const newSubTask = { content: `+ ${e.target.value}`, completed: false };
-      // console.log(newSubTask);
       setSubtasks((currentState) => {
         return [...currentState, newSubTask];
       });
@@ -70,7 +69,6 @@ const CreateTask = ({ modal, toggle, save }) => {
     }
 
     const targetDate = new Date(date);
-    console.log(date, targetDate);
     if (targetDate == "Invalid Date") {
       setWarning("Date is Invalid");
       setTimeout(() => {
@@ -107,7 +105,6 @@ const CreateTask = ({ modal, toggle, save }) => {
         }
       )
       .then((res) => {
-        console.log(res.data);
         setTitleName("");
         setDate("");
         setDescription("");

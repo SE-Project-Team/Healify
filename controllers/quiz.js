@@ -3,7 +3,6 @@ const { BadRequestError } = require("../errors");
 const User = require("../models/user");
 const postScore = async (req, res) => {
   const { quizId, score, remarks, KEYWORDS } = req.body;
-  console.log(KEYWORDS);
   const { _id } = req.user;
 
   if (quizId < 1 || quizId > 4) {

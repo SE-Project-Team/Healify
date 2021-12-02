@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Header } from "../Home/Header";
 import { Togglemenu } from "./Togglemenu";
 import { useState, useEffect } from "react";
-import {Responsivesidemenu } from "./Responsivesidemenu";
+import { Responsivesidemenu } from "./Responsivesidemenu";
 import axios from "axios";
 export const Timeline = () => {
   const [taskList, setTaskList] = useState([]);
@@ -25,12 +25,11 @@ export const Timeline = () => {
         const newActiveMilestones = milestones.map((each) => {
           // For some reason db is inserting previous day -> default time == midnight issue??
           // Are mongoose and js considering 00 time as different days??
-          // console.log(each.targetDate);
 
           // But this method is returning value to proper date
           let newDate = new Date(each.targetDate);
           newDate = newDate.toString().slice(0, 15);
-          
+
           return {
             ...each,
             targetDate: newDate,
@@ -44,7 +43,6 @@ export const Timeline = () => {
   };
   useEffect(() => {
     const asyncWrapper = async () => {
-      console.log("calling");
       await updatePage();
     };
     asyncWrapper();

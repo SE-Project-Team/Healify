@@ -35,12 +35,8 @@ export const QuizLanding = () => {
         },
       })
       .then((res) => {
-        //console.log(res);
         const { BirthDay, Gender, UserName } = res.data.data;
-        // console.log(BirthDay, Gender);
-        console.log("UserName: ", UserName);
         if (!BirthDay || !Gender) {
-          // do something
           setFilled(false);
         }
       })

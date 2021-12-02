@@ -14,9 +14,6 @@ export const Mailer = () => {
   const [contacts, setContacts] = useState([]);
   const [user, setUser] = useState("default");
 
-  // useEffect(() => {
-  //   console.log("Do Something");
-  // }, [messageTemplate]);
   useEffect(() => {
     const asyncWrapper = async () => {
       const token = JSON.parse(localStorage.getItem("token"));
@@ -39,8 +36,6 @@ export const Mailer = () => {
 
   const sendEmail = async (contact) => {
     const token = JSON.parse(localStorage.getItem("token"));
-    console.log(contact);
-    // e.preventDefault();
 
     const templateObject = {
       from_name: user,

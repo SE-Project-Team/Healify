@@ -55,22 +55,17 @@ export const Quiz = ({ questions, category, gender, birthday }) => {
   const [option, setOption] = useState(0);
   const [score, setScore] = useState(0);
 
-  // For Checking whether api is working correctly
-  // console.log("Gender is ", gender);
-  // console.log("Birthday is ", birthday);
-
   const calculate_age = (dob) => {
     var diff_ms = Date.now() - dob.getTime();
     var age_dt = new Date(diff_ms);
 
     return Math.abs(age_dt.getUTCFullYear() - 1970);
   };
-  // birthday = "2014-12-14T10:50:42.389Z";
+  // birthdayFormat = "2014-12-14T10:50:42.389Z";
   let date = new Date(birthday);
   date = date.toString().slice(4, 15);
   let reactDate = new Date(date);
   const age = calculate_age(reactDate);
-  // console.log(age);
   let agegroup = "";
 
   switch (true) {
@@ -84,12 +79,11 @@ export const Quiz = ({ questions, category, gender, birthday }) => {
       agegroup = "old";
       break;
   }
-  // console.log(agegroup);
+
   //---------------------------------------------//
   const handleChange = (e) => {
     const { value } = e.target;
     setOption(value);
-    console.log(option);
     setWarning(0);
   };
 
@@ -97,8 +91,6 @@ export const Quiz = ({ questions, category, gender, birthday }) => {
   const [que, setQue] = useState(questions[0]);
   const [questionSet, setQuestionSet] = useState({});
   useEffect(() => {
-    console.log(gender);
-    console.log(agegroup);
     setQuestionSet(
       questions.filter(
         (qn) =>
@@ -107,9 +99,7 @@ export const Quiz = ({ questions, category, gender, birthday }) => {
             (qn.gender === "neutral" || qn.gender === gender))
       )
     );
-    console.log(questionSet);
   }, []);
-  // console.log(questionSet);
   const newQue = () => {
     if (warning === -1 || warning === 1) {
       setWarning(1);

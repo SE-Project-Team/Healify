@@ -96,7 +96,6 @@ export const Profile = () => {
           DescribeYourself: About,
         });
         setGender(Gender);
-        // console.log(values);
       })
       .catch((err) => {
         if (err.response) {
@@ -109,7 +108,6 @@ export const Profile = () => {
     const newDate = moment(date, "MM-DD-YYYY");
     const dob = new Date(newDate);
     dob.setDate(dob.getDate() + 1);
-    console.log(dob);
     await axios
       .post(
         "/api/v1/profile/edit",
@@ -128,7 +126,6 @@ export const Profile = () => {
         }
       )
       .then((res) => {
-        // console.log(res.data);
         getData();
       })
       .catch((err) => {

@@ -2,13 +2,6 @@ import React from "react";
 import styles from "./Question.module.css";
 
 const Question = ({ qnObject, onChangeHandle, selectedOption }) => {
-  /* Lifting state up */
-  // const [option, setOption] = useState(-1);
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setOption(value);
-  //   console.log(option);
-  // };
   return (
     <div>
       <div>
