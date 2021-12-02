@@ -1,7 +1,7 @@
 .maindiv {
   text-align: center;
   background-color: #011f3f;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .leveltitle {

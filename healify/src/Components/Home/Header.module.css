@@ -149,7 +149,7 @@
   font-size: 1.2em; */
   animation: move 5s infinite forwards;
   animation-timing-function: cubic-bezier();
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 #navSignUp {
   border: none;

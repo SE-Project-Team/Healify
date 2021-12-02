@@ -38,7 +38,7 @@
 .loginRedirect:hover {
   animation: move 5s infinite forwards;
   animation-timing-function: cubic-bezier();
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .card {
@@ -104,7 +104,7 @@
 .btnColor:hover {
   animation: move 5s infinite forwards;
   animation-timing-function: cubic-bezier();
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .btnWhite {
@@ -121,7 +121,7 @@
   background-image: linear-gradient(to right, #ffd54f, #d500f9);
   animation: move 5s infinite forwards;
   animation-timing-function: cubic-bezier();
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .bottom {

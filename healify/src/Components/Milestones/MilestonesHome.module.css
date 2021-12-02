@@ -146,7 +146,7 @@
   cursor: pointer;
   animation: move 5s infinite forwards;
   animation-timing-function: cubic-bezier();
-  font-weight: bold;
+  /* font-weight: bold; */
   color: #000;
 }
 @keyframes move {
