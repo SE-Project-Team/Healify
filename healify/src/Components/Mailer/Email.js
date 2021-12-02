@@ -12,7 +12,6 @@ export const Email = ({
         <div className={emailstyles.container}>
           <div className={emailstyles["contact-box"]}>
             <div className={emailstyles.left}></div>
-            {/* <form className={emailstyles.right} onSubmit={sendEmail}> */}
             <div className={emailstyles.right}>
               <h2>Send an Email With The Following Template</h2>
 
@@ -48,12 +47,7 @@ export const Email = ({
               {messageTemplate == maxLimit - 1 && (
                 <h6>----------end of templates----------</h6>
               )}
-              {/* <button className={emailstyles.btn} type="submit">
-                Send
-              </button> */}
             </div>
-
-            {/* </form> */}
           </div>
         </div>
       </div>

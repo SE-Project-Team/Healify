@@ -1,18 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  Button,
-  Container,
-  Row,
-  Col,
-} from "reactstrap";
-import { Link } from "react-router-dom";
-import { data } from "../Events/data";
+
 import { Header } from "../Home/Header";
 import styles from "../Events/Events.module.css";
 import imgDef from "../../Assets/user.png";

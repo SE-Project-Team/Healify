@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-// import { GlobalContext } from "../context/GlobalState";
+import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { v4 as uuid } from "uuid";
 import { Link, useHistory } from "react-router-dom";

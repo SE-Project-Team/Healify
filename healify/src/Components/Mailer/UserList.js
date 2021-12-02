@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { ListGroup, ListGroupItem, Button } from "reactstrap";
 import styles from "./Email.module.css";

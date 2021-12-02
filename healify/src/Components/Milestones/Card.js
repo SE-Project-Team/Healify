@@ -3,7 +3,6 @@ import EditTask from "../modals/EditTask";
 import ConfirmDialog from "./ConfirmDialog";
 import ViewModal from "../modals/ViewModal";
 import styles from "./MilestonesHome.module.css";
-import { Progressbar } from "./Progressbar";
 import { NewReadMore } from "./NewReadMore";
 const Card = ({ _id, taskObj, index, deleteTask, updateTask }) => {
   const [selected, setSelected] = useState(0);
