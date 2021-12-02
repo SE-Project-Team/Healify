@@ -7,7 +7,6 @@
 }
 
 .top-container {
-  /* background-color: #a4ccb5; */
   background: rgb(238, 232, 232);
   position: relative;
 }
@@ -16,7 +15,6 @@
   padding-bottom: 10px;
 }
 .bottom-container {
-  /* background-color: #32bbd3;*/
   background: linear-gradient(to left, #e6b65c, #fdc830);
   padding: 50px 0 20px;
   text-align: center;
@@ -41,9 +39,6 @@
 .homecard:hover {
   box-shadow: 0 2px 20px 0 #ccd2d8;
   animation: translateUp 1s forwards;
-  /* position: relative;
-  top: 5px;
-  right: 5px; */
 }
 
 .img {
@@ -103,9 +98,7 @@
 }
 
 .mdbCustom {
-  /* margin: 120px; */
   margin-bottom: 0px;
-  /* padding: 20px; */
   display: flex;
   gap: 80px;
   justify-content: space-evenly;

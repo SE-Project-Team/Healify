@@ -43,7 +43,9 @@ const CreateTask = ({ modal, toggle, save }) => {
     const value = e.target.value;
 
     if (name === "titleName") {
-      setTitleName(value);
+      if (value.length <= 60) {
+        setTitleName(value);
+      }
     } else if (name === "description") {
       setDescription(value);
     } else {
@@ -131,7 +133,12 @@ const CreateTask = ({ modal, toggle, save }) => {
       <ModalBody>
         <form>
           <div className="form-group">
-            <label>Title Name</label>
+            <label>
+              Title Name{" "}
+              <span style={{ fontSize: "12px", fontWeight: "bolder" }}>
+                {titleName.length}/60
+              </span>
+            </label>
             <input
               type="text"
               className="form-control"

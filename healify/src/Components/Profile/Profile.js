@@ -194,45 +194,7 @@ export const Profile = () => {
                       {values.UserName}
                     </label>
                   </div>
-                  {/* <div className="col-md-6">
-                  <label className={profilestyles.labels}>Password</label>
-
-                  <label
-                    className="form-control"
-                    style={{
-                      height: 35,
-                      width: "100%",
-                      borderRadius: 20,
-                      color: "lightgray",
-                      fontSize: 16,
-                      marginBottom: 50,
-                      fontFamily: "sans-serif",
-                    }}
-                    readOnly
-                  >
-                    Password
-                  </label>
-                </div> */}
                 </div>
-                {/* <div className="col-md-6">
-                  <label className={profilestyles.labels}>Password</label>
-                  <label
-                    className="form-control"
-                    style={{
-                      height: 35,
-                      width: "100%",
-                      borderColor: "lightgray",
-                      borderRadius: 20,
-                      color: "lightgray",
-                      fontSize: 16,
-                      marginBottom: 50,
-                      fontFamily: "sans-serif",
-                    }}
-                    readOnly
-                  >
-                    Password
-                  </label>
-                </div>  */}
 
                 <div className="row mt-3">
                   <div className="col-md-12">
@@ -328,21 +290,6 @@ export const Profile = () => {
                       </span>
                     ) : null}
                   </div>
-                  {/* <div className="col-md-12">
-                  <label className={profilestyles.labels}>Date Of Birth</label>
-                  <input
-                    onChange={handleDateOfBirthInputChange}
-                    className="form-control"
-                    placeholder="Date Of Birth"
-                    name="DateOfBith"
-                    value={values.DateOfBirth}
-                  />
-                  {submitted && !values.DateOfBirth ? (
-                    <span className={profilestyles.fontapply}>
-                      Please fill this value
-                    </span>
-                  ) : null}
-                </div> */}
                 </div>
                 <br />
                 <label className={profilestyles.labels}>Gender</label>
@@ -435,23 +382,6 @@ export const Profile = () => {
                       : "--Date-of-Birth--"}
                   </label>
                 )}
-                {/* <button
-                className={profilestyles.createbtn}
-                onClick={() => {
-                  setChooseDate(chooseDate ? "" : "true");
-                }}
-              >
-                {chooseDate
-                  ? "Click here to select the Date"
-                  : `${date ? date.toDateString() : "Please Select a Date"}`}
-              </button>
-              {chooseDate && (
-                <Calendar
-                  onChange={setDate}
-                  value={date}
-                  className={`${profilestyles.Calendar}`}
-                />
-              )} */}
 
                 <div className="row mt-5 text-center">
                   <div className="col md-3">

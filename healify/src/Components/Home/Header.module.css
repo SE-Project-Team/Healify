@@ -4,7 +4,6 @@
   min-height: 100%;
   display: flex;
   align-items: flex-end;
-  /* background: linear-gradient(168deg, #ea4555 1%, #fa705c 89%); */
   background: #fdc830; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to left,

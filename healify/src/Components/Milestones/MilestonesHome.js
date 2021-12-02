@@ -24,13 +24,6 @@ export const MilestonesHome = ({
   const [missPage, setMissPage] = useState(missedPage);
   const [totalTasks, setTotalTasks] = useState(0);
 
-  // const [taskList, setTaskList] = useState([]);
-  const toggle = () => setModal(!modal);
-  const saveTask = () => {
-    createTask();
-    setModal(false);
-  };
-
   const updatePage = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
     await axios

@@ -69,30 +69,6 @@ a:hover {
   /* animation: warningFade 3s forwards; */
 }
 
-/* @keyframes warningFade {
-  0% {
-    opacity: 0.1;
-  }
-  20%,
-  80% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-} */
-
-/* Dont Know what else this is used for */
-/* .previous {
-  background-color: #f1f1f1;
-  color: black;
-}
-
-.next {
-  background-color: #04aa6d;
-  color: white;
-} */
-
 .round {
   text-decoration: none;
   display: inline-block;
