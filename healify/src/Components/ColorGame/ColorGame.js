@@ -52,7 +52,6 @@ export const ColorGame = () => {
   };
 
   const checkAnswer = (currentLevel, userChosenColour) => {
-    console.log(currentLevel);
     if (gamePattern[currentLevel] === userChosenColour) {
       if (userClickedPattern.length === gamePattern.length - 1) {
         setLevelPassed("true");
@@ -138,8 +137,6 @@ export const ColorGame = () => {
         return newGamePattern;
       });
     }
-
-    console.log("What is this", newGamePattern);
   };
 
   const animatePress = (currentColor) => {

@@ -69,16 +69,12 @@ export const Createnewevent = () => {
           authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => {
-        console.log(res.data);
-      })
       .catch((err) => {
         if (err.response) {
           console.log(err.response.data);
         }
         return;
       });
-    // console.log(response);
 
     history.push("/organizers");
   };
@@ -113,7 +109,6 @@ export const Createnewevent = () => {
                   name="image"
                   ref={inputRef}
                   onChange={(e) => {
-                    console.log(e.target.files[0]);
                     setImage(e.target.files[0]);
                   }}
                   hidden

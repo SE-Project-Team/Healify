@@ -37,7 +37,6 @@ export const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
         return;
       }
       const newSubTask = { content: `+ ${e.target.value}`, completed: false };
-      // console.log(newSubTask);
       // This is updating for every single person
       // Overcame by using specific name for form based on ID
       setSubtasks((currentState) => {
@@ -140,8 +139,6 @@ export const EditTask = ({ _id, modal, toggle, taskObj, save }) => {
         }
       )
       .then((res) => {
-        console.log(res.data);
-
         save();
       })
       .catch((err) => {

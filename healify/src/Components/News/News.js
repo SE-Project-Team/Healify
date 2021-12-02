@@ -46,7 +46,6 @@ const News = () => {
           query = temp.slice(0, 3);
           queryTerm = `${query[0][0]}+OR+${query[1][0]}+OR+${query[2][0]}`;
           settotalresults(res.data.totalResults);
-          console.log("totalresults-" + totalresults);
         })
         .catch((err) => {
           if (err.response) {

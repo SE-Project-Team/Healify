@@ -55,8 +55,6 @@ const getEventDetails = async (req, res) => {
 
   const favEventsList = user.favouriteEvents;
 
-  console.log(favEventsList);
-
   res.status(200).json({ success: "true", data: favEventsList });
 };
 

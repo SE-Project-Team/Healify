@@ -32,7 +32,6 @@ export const MilestonesHome = ({
   };
 
   const updatePage = async () => {
-    console.log("This is Called");
     const token = JSON.parse(localStorage.getItem("token"));
     await axios
       .get("/api/v1/milestones", {
@@ -48,7 +47,6 @@ export const MilestonesHome = ({
         const newActiveMilestones = activeMilestones.map((each) => {
           // For some reason db is inserting previous day -> default time == midnight issue??
           // Are mongoose and js considering 00 time as different days??
-          // console.log(each.targetDate);
           let upcoming = false;
           // But this method is returning value to proper date
           let newDate = new Date(each.targetDate);
@@ -92,16 +90,13 @@ export const MilestonesHome = ({
         });
         if (notifPage) {
           const upcomingEvents = newActiveMilestones.filter((each) => {
-            console.log(each.upcoming);
             return each.upcoming === true;
           });
           setTaskList(() => upcomingEvents);
         } else if (missPage) {
           const missedEvents = newActiveMilestones.filter((each) => {
-            console.log(each.completed);
             return each.completed === false;
           });
-          console.log(missedEvents);
           setTaskList(() => missedEvents);
         } else {
           setTaskList(() => newActiveMilestones);
@@ -136,7 +131,6 @@ export const MilestonesHome = ({
         }
       )
       .then(async (res) => {
-        console.log(res.data);
         await updatePage();
       })
       .catch((err) => {

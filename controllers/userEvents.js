@@ -23,7 +23,6 @@ const addToFavourites = async (req, res) => {
   const { eventId } = req.body;
   const { _id } = req.user;
   const event = await Event.findById(eventId);
-  console.log("event is ", event);
   if (!event) {
     throw new BadRequestError("No Such Event");
   }
@@ -60,7 +59,7 @@ const removeFromFavourites = async (req, res) => {
 
 const getAllEvents = async (req, res) => {
   const allEvents = await Event.find({});
-  // console.log(allEvents);
+
   res.status(200).json({ success: "true", data: allEvents });
 };
 
@@ -73,8 +72,6 @@ const getEventById = async (req, res) => {
     path: "reviews",
     populate: { path: "user", select: "username" },
   });
-  // console.log(event.toObject({ virtuals: true }));
-  // console.log(event.reviews);
   if (!event) {
     throw new BadRequestError("There Exists No Such Event. Please Check Again");
   }
@@ -94,14 +91,12 @@ const createReview = async (req, res) => {
   }
 
   const exists = await Review.find({ user: _id, event: eventId });
-  console.log("exists", exists);
   if (exists.length != 0) {
     throw new BadRequestError("There Already Exists A Review From You.");
   }
 
   const newReview = { content, user: _id, event: eventId };
 
-  console.log(newReview);
   await Review.create(newReview);
   res.status(200).json({ success: "true", data: newReview });
 };

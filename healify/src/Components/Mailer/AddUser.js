@@ -1,19 +1,37 @@
 import React, { useContext, useState } from "react";
-import { GlobalContext } from "../context/GlobalState";
+// import { GlobalContext } from "../context/GlobalState";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { v4 as uuid } from "uuid";
 import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 export const AddUser = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const { addUser } = useContext(GlobalContext);
   const history = useHistory();
-  const onSubmit = () => {
+  const onSubmit = async () => {
+    const token = JSON.parse(localStorage.getItem("token"));
     const newUser = {
       name,
       email,
     };
-    addUser(newUser);
+    await axios
+      .post(
+        "/api/v1/mailer/add-contact",
+        {
+          user: newUser,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .catch((err) => {
+        if (err.response) {
+          console.log(err.response.data);
+        }
+      });
+
     history.push("/Mailer");
   };
   const onChange = (e) => {

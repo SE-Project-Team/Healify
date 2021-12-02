@@ -21,7 +21,7 @@ export const QuizLanding = () => {
   const [confirmDialog, setConfirmDialog] = useState({
     isOpen: true,
     title: "Please Enter Your Profile Details for a Better Evaluation",
-    subTitle: "Click On Your UserName to go to Profile Page",
+    subTitle: "Click On Your UserName in the Header to go to Profile Page",
     onConfirm: () => {
       history.push("/profile");
     },
@@ -35,12 +35,8 @@ export const QuizLanding = () => {
         },
       })
       .then((res) => {
-        //console.log(res);
         const { BirthDay, Gender, UserName } = res.data.data;
-        // console.log(BirthDay, Gender);
-        console.log("UserName: ", UserName);
         if (!BirthDay || !Gender) {
-          // do something
           setFilled(false);
         }
       })

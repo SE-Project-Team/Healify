@@ -12,7 +12,6 @@ const getAllEvents = async (req, res) => {
     throw new BadRequestError("No Id was recieved");
   }
   const events = await Event.find({ organizer: _id });
-  // console.log(events);
   if (!events) {
     throw new BadRequestError("No events created by the organization");
   }
@@ -27,7 +26,6 @@ const getEventById = async (req, res) => {
     throw new BadRequestError("No Such Item Exists");
   }
   const event = await Event.findById(eventId);
-  // console.log(event);
   if (!event) {
     throw new BadRequestError("No Such Event Exists");
   }
@@ -47,7 +45,6 @@ const removeEventById = async (req, res) => {
     throw new BadRequestError("No Such Item Exists");
   }
   const event = await Event.findById(eventId);
-  // console.log(event);
   if (!event) {
     throw new BadRequestError("No Such Event Exists");
   }
@@ -71,7 +68,6 @@ const patchEventById = async (req, res) => {
   }
   //   Checking for event and if the current organization is the owner
   const event = await Event.findById(updatedEvent._id);
-  // console.log(event);
   if (!event) {
     throw new BadRequestError("No Such Event Exists");
   }
@@ -118,12 +114,10 @@ const createAnnouncement = async (req, res) => {
   const { _id } = req.organizer;
   const { content, eventId } = req.body;
 
-  console.log(_id, eventId);
   if (!_id || !eventId) {
     throw new BadRequestError("No Such Item Exists");
   }
   const event = await Event.findById(eventId);
-  // console.log(event);
 
   if (!event) {
     throw new BadRequestError("No Such Event Exists");

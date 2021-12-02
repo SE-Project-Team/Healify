@@ -20,7 +20,6 @@ export const Recorder = () => {
   //audioData contains blob and blobUrl
   const onStop = (audioData) => {
     setMusic(audioData);
-    console.log("audioData", audioData);
     // window.location.href = audioData.url;
   };
 

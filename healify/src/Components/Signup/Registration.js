@@ -29,7 +29,6 @@ export const Registration = ({ setToken, setRole }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let value = 1;
-    console.log(1);
     if (!username || !password || !email || !rePassword) {
       setWarning("Please Enter all form columns");
       setTimeout(() => setWarning(""), 3000);

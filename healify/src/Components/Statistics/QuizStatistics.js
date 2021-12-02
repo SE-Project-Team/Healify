@@ -43,7 +43,6 @@ export const QuizStatistics = ({ category }) => {
         })
         .then((res) => {
           const { scoreArr } = res.data.data;
-          console.log(scoreArr, "Something");
           // date,id,score,remark
           if (!scoreArr) {
             setData(-1);

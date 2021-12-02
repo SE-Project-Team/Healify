@@ -89,6 +89,7 @@
   flex-direction: column;
 }
 .readmore {
+  font-weight: bold;
   color: blue;
 }
 .news__image {

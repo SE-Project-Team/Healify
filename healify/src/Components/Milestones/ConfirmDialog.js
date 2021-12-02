@@ -31,7 +31,12 @@ const useStyles = makeStyles((theme) => ({
 export default function ConfirmDialog(props) {
   const { confirmDialog, setConfirmDialog } = props;
   const classes = useStyles();
-  const id = confirmDialog.param;
+  let id;
+  let user;
+  if (confirmDialog) {
+    id = confirmDialog.param;
+    user = confirmDialog.paramMail;
+  }
   const history = useHistory();
   return (
     confirmDialog.isOpen && (
@@ -54,14 +59,29 @@ export default function ConfirmDialog(props) {
             text="Yes"
             color="secondary"
             onClick={
-              !confirmDialog.param
-                ? confirmDialog.onConfirm
-                : () => {
-                    confirmDialog.onConfirm(id);
-                    setTimeout(() => {
-                      setConfirmDialog();
-                    }, 1000);
-                  }
+              // !confirmDialog.param
+              //   ? confirmDialog.onConfirm
+              //   : () => {
+              //       confirmDialog.onConfirm(id);
+              //       setTimeout(() => {
+              //         setConfirmDialog();
+              //       }, 1000);
+              //     }
+              () => {
+                if (confirmDialog.param) {
+                  confirmDialog.onConfirm(id);
+                  setTimeout(() => {
+                    setConfirmDialog();
+                  }, 1000);
+                } else if (confirmDialog.paramMail) {
+                  confirmDialog.onConfirm(user);
+                  setTimeout(() => {
+                    setConfirmDialog();
+                  }, 1000);
+                } else {
+                  confirmDialog.onConfirm();
+                }
+              }
             }
           />
         </DialogActions>

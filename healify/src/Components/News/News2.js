@@ -77,8 +77,6 @@ const News2 = () => {
       axios
         .request(options)
         .then(function (response) {
-          console.log("queryTerm", queryTerm);
-          console.log(response.data);
           setData(response.data);
           const pageLim =
             response.data.totalEstimatedMatches &&
@@ -119,8 +117,6 @@ const News2 = () => {
       axios
         .request(options)
         .then(function (response) {
-          console.log("queryTerm", queryTerm);
-          console.log(response.data);
           setData(response.data);
           const pageLim =
             response.data.totalEstimatedMatches &&
@@ -166,8 +162,6 @@ const News2 = () => {
       axios
         .request(options)
         .then(function (response) {
-          console.log("queryTerm", queryTerm);
-          console.log(response.data);
           setData(response.data);
           const pageLim =
             response.data.totalEstimatedMatches &&
@@ -246,7 +240,11 @@ const News2 = () => {
                     </span>{" "}
                     <br />
                     <span className={newsstyles.news__published}>
-                      {news.datePublished}
+                      {news.datePublished
+                        .substring(0, 10)
+                        .split("-")
+                        .reverse()
+                        .join("-")}
                     </span>
                     <span className={newsstyles.news__source}>
                       {news.provider[0].name}

@@ -55,9 +55,6 @@ export const Drumkit = () => {
     if (index >= arr.length - 1) {
       setIsCompleted(true);
       setIsClicked(false);
-      // setIndex(0);
-      // setScore(0);
-      console.log(score);
     }
   };
 

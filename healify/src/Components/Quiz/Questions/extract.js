@@ -656,5 +656,4 @@ function toObject(arr, attr) {
 
 for (var i = 0; i < ques.length; i++) {
   ques[i] = toObject(ques[i], attr);
-  //console.log(ques[i]);
 }

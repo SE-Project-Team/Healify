@@ -36,9 +36,6 @@ export const CreateReview = ({ modal, toggle, eventId }) => {
           },
         }
       )
-      .then((res) => {
-        console.log(res.data.data);
-      })
       .catch((err) => {
         if (err.response) {
           console.log(err.response);
