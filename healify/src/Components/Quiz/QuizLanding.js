@@ -6,7 +6,7 @@ import illImg from "../../Assets/ill.jpg";
 import phyImg from "../../Assets/physical.jpg";
 import controlImg from "../../Assets/control.jpg";
 import copingImg from "../../Assets/coping.jpg";
-
+import anime2 from "../../Assets/anime2.mp4";
 import ConfirmDialog from "../Milestones/ConfirmDialog";
 
 import { useEffect, useState } from "react";
@@ -57,8 +57,11 @@ export const QuizLanding = () => {
       )}
       <div className={styles3.quizBody}>
         <div className={styles3.topDiv}>
-          <img src={img} alt="" className={styles3.topDivImg} />
-          <p>
+          {/* <img src={img} alt="" className={styles3.topDivImg} /> */}
+          <video autoPlay loop muted height="450px" width="70%">
+            <source src={anime2} type="video/mp4" />
+          </video>
+          <p className={styles3.para1}>
             Online screening is one of the quickest and easiest ways to
             determine whether you are experiencing symptoms of a mental health
             condition. Mental health conditions, such as depression or anxiety,
