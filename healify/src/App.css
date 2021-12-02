@@ -60,23 +60,6 @@ a:hover {
   color: #000;
 }
 
-@keyframes move {
-  0% {
-    /* transform: translateX(0px); */
-    transform: scale3d(1, 1, 1);
-  }
-  30%,
-  40% {
-    /* transform: translateX(0px); */
-    transform: scale3d(1.1, 1.1, 1);
-  }
-
-  70% {
-    /* transform: translateX(0px); */
-    transform: scale3d(1, 1, 1);
-  }
-}
-
 .warning {
   font: bold 1.8em sans-serif;
   color: rgb(0, 0, 0);
@@ -136,4 +119,46 @@ a:hover {
   opacity: 1;
   transform: none;
   visibility: visible;
+  animation: appear 4s;
+}
+
+@keyframes move {
+  0% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1, 1, 1);
+  }
+  30%,
+  40% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1.1, 1.1, 1);
+  }
+
+  70% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes appear {
+  0% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1, 1, 1);
+    opacity: 0.5;
+  }
+  30%,
+  40% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1.05, 1.05, 1);
+  }
+
+  50% {
+    opacity: 1;
+  }
+  70% {
+    /* transform: translateX(0px); */
+    transform: scale3d(1.08, 1.08, 1.08);
+  }
+  80% {
+    transform: scale3d(1.08, 1.08, 1.08);
+  }
 }

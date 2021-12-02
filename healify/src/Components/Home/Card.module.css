@@ -43,7 +43,7 @@
   color: #272727;
   padding: 20px;
   align-self: stretch;
-  border-radius: 10% 0 15% 0;
+  border-radius: 3% 1% 10% 3%;
   background: rgb(255, 255, 255);
 }
 
@@ -79,13 +79,16 @@
     transform: translateY(0px);
   }
   20% {
-    transform: translateY(-12px) rotateZ(3deg);
+    box-shadow: inset 0 2px 20px 0 #ddcaca, 0 1px 10px 0 #000000;
+
+    transform: translateY(-12px);
   }
   40% {
-    transform: scale(1.05) rotateZ(3deg);
+    transform: scale(1.05);
   }
   60% {
-    transform: rotateZ(0deg) translateY(0px);
+    box-shadow: inset 0 2px 20px 0 #ddcaca, 0 2px 20px 0 #000000;
+    transform: translateY(0px) scale(1.1);
   }
 }
 

@@ -116,7 +116,7 @@
   text-align: center;
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(10px);
-  padding: 20px 40px;
+  padding: 40px 40px;
 }
 .mdbCustom div {
   flex-basis: 275px;

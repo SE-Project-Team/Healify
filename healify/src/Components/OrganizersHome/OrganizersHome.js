@@ -7,8 +7,8 @@ import { Card } from "../Home/Card";
 import { QuotesArray } from "../Home/Quotes";
 import createeventimg from "../../Assets/createevent.png";
 export const OrganizersHome = () => {
-  const [quote1, setQuote1] = useState("This is a Quote");
-  const [quote2, setQuote2] = useState("This is a Quote2");
+  const [quote1, setQuote1] = useState("");
+  const [quote2, setQuote2] = useState("");
   useEffect(() => {
     let id;
     const asyncWrapper = async () => {
