@@ -1,21 +1,9 @@
 import React from "react";
-import {
-  Card,
-  Segment,
-  Grid,
-  Icon,
-  Button,
-  Dimmer,
-  Loader,
-} from "semantic-ui-react";
+import { Segment, Icon } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import styles from "./Eventview.module.css";
-import userpng from "../../Assets/user.png";
-import { comment } from "./comments_data";
-import { annoouncement, announcement } from "./announcements_data";
 import { Header } from "../Home/Header";
 import { ReadMore } from "../Milestones/ReadMore";
-import eventsstyle from "../OrganizersHome/Eventsstyle.module.css";
 import { useParams } from "react-router-dom";
 import imgDef from "../../Assets/user.png";
 import { CreateAnnouncement } from "../modals/CreateAnnouncement";
@@ -175,13 +163,6 @@ export const Eventview = (props) => {
                 </div>
               </div>
             </div>
-
-            {/* <div>
-              <div
-                className={styles.Eventcontainer}
-                style={{ marginBottom: 0 }}
-              ></div>
-            </div> */}
           </div>
           <div className={styles.Eventcontainer}>
             <Segment
@@ -193,7 +174,11 @@ export const Eventview = (props) => {
               <section className={`${styles.announcementSection}`}>
                 <h2 textAlign="center">Talk about event</h2>
                 {role === "user" && (
-                  <h4 id={`${styles.addAnnBtn}`} onClick={toggleReview}>
+                  <h4
+                    id={`${styles.addAnnBtn}`}
+                    className={`${styles.hoverAnim}`}
+                    onClick={toggleReview}
+                  >
                     Click Here To add a Review{" "}
                   </h4>
                 )}

@@ -180,7 +180,7 @@ export const Events = (props) => {
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <button
                         type="button"
-                        className="btn btn-primary"
+                        className={`btn btn-primary ${styles.btnScale}`}
                         onClick={() => {
                           history.push(`/userEventView${datum._id}`);
                         }}
@@ -192,7 +192,7 @@ export const Events = (props) => {
                         ((datum.marked && (
                           <button
                             type="button"
-                            className="btn btn-outline-danger"
+                            className={`btn btn-outline-danger ${styles.btnScale}`}
                             onClick={() => {
                               unMarkFromInterested(datum._id);
                             }}
@@ -202,7 +202,7 @@ export const Events = (props) => {
                         )) || (
                           <button
                             type="button"
-                            className="btn btn-outline-danger"
+                            className={`btn btn-outline-danger ${styles.btnScale}`}
                             onClick={() => {
                               markInterested(datum._id);
                             }}
