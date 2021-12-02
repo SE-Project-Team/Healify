@@ -57,7 +57,6 @@ export const Events = (props) => {
         changedEvent.marked = true;
         const newEvents = [...events];
         setEvents(() => newEvents);
-        console.log("Hi");
       })
       .catch((err) => {
         if (err.response) {
@@ -96,7 +95,6 @@ export const Events = (props) => {
   };
 
   useEffect(() => {
-    // console.log(markedEvents);
     const token = JSON.parse(localStorage.getItem("token"));
     const url = pageIsInterested
       ? "/api/v1/events/favourites"
