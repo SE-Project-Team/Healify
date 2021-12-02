@@ -98,6 +98,20 @@ a:hover {
   animation: appear 4s;
 }
 
+.classAlways {
+  opacity: 0;
+  transform: translateX(-7vw);
+  visibility: hidden;
+  transition: opacity 1s ease-out, transform 1.2s ease-out;
+  will-change: opacity, visibility;
+  width: 48%;
+}
+
+.classAlways.classVisible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
 @keyframes move {
   0% {
     /* transform: translateX(0px); */
@@ -136,5 +150,11 @@ a:hover {
   }
   80% {
     transform: scale3d(1.08, 1.08, 1.08);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .classAlways {
+    width: 100%;
   }
 }

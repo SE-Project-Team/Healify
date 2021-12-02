@@ -16,7 +16,7 @@ import { useState, useEffect } from "react";
 import { QuotesArray } from "./Quotes";
 import { FadeWrapper } from "../FadeWrapper";
 import "../../App.css";
-import styles3 from "../Quiz/QuizLanding.module.css";
+import { AppearWrapper } from "../AppearWrapper";
 export const Home = () => {
   const [quote1, setQuote1] = useState("Your mental health is a priority");
   const [quote2, setQuote2] = useState(
@@ -61,10 +61,12 @@ export const Home = () => {
               </div>
             </section>
             <div className={styles.topDiv}>
-              {/* <img src={image} alt="" className={styles.topDivImg} /> */}
-              <video autoPlay loop muted className={styles.video}>
-                <source src={anime1} type="video/mp4" />
-              </video>
+              <AppearWrapper>
+                <video autoPlay loop muted className={styles.video}>
+                  <source src={anime1} type="video/mp4" />
+                </video>
+              </AppearWrapper>
+
               <p>
                 Just as physical fitness helps our bodies to stay strong, mental
                 fitness helps us to achieve and sustain a state of good mental

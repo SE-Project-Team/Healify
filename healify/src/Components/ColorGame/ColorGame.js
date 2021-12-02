@@ -80,34 +80,34 @@ export const ColorGame = () => {
     let max;
     switch (true) {
       case l < 3:
-        max = 2;
-        break;
-      case l < 5:
         max = 3;
         break;
-      case l < 8:
+      case l < 5:
         max = 4;
         break;
-      case l < 12:
+      case l < 8:
         max = 5;
         break;
-      case l < 16:
+      case l < 12:
         max = 6;
         break;
-      case l < 20:
+      case l < 16:
         max = 7;
         break;
-      case l < 23:
+      case l < 20:
         max = 8;
         break;
-      case l < 27:
+      case l < 23:
         max = 9;
         break;
-      case l < 31:
+      case l < 27:
         max = 10;
         break;
+      case l < 31:
+        max = 11;
+        break;
       default:
-        max = 2;
+        max = 20;
         break;
     }
     for (let i = 0; i < max; i++) {
