@@ -72,6 +72,9 @@ export const Quiz = ({ questions, category, gender, birthday }) => {
     case age < 12:
       agegroup = "kid";
       break;
+    case age < 26:
+      agegroup = "teen";
+      break;
     case age < 45:
       agegroup = "adult";
       break;
