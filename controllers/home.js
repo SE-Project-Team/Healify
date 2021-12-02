@@ -2,6 +2,7 @@ const { StatusCodes } = require("http-status-codes");
 const { UnauthenticatedError } = require("../errors");
 require("dotenv").config();
 
+/* Checking Status of User -> Role And UserName */
 const checkUser = async (req, res) => {
   let username, role;
   if (req.user) {

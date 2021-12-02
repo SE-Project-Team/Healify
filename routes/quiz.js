@@ -1,3 +1,5 @@
+/* Secure Routes related to QuizScore module => Uses Auth Middleware */
+
 const express = require("express");
 const auth = require("../middleware/auth");
 

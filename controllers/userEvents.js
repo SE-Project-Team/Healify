@@ -1,5 +1,4 @@
-const { StatusCodes } = require("http-status-codes");
-const { UnauthenticatedError, BadRequestError } = require("../errors");
+const { BadRequestError } = require("../errors");
 
 // models required
 const Event = require("../models/event");

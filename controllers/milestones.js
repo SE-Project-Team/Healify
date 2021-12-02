@@ -3,6 +3,8 @@ const { StatusCodes } = require("http-status-codes");
 const { BadRequestError, UnauthenticatedError } = require("../errors");
 
 // Post Methods
+
+/* Methods For Creating Milestones, Editing Milestones, Getting all Milestones and For Deleting and Viewing single Milestone  */
 const createNewMilestone = async (req, res) => {
   const { title, targetDate, subtasks } = req.body;
 
@@ -53,23 +55,6 @@ const editMilestone = async (req, res) => {
   return res.status(StatusCodes.OK).send("Milestone Edited");
 };
 
-// get Methods
-// Currently messed up
-const getActiveMilestones = async (req, res) => {
-  // Auth middleware basically adds user prop to request object
-  const { _id } = req.user;
-
-  const { milestones } = await User.findOne({ _id });
-  const activeMilestones = await milestones.filter((each) => {
-    const result = each.subtasks.find((st) => !st.completed);
-    return result ? true : false;
-  });
-
-  return res
-    .status(StatusCodes.OK)
-    .json({ success: true, data: activeMilestones });
-};
-
 const getAllMilestones = async (req, res) => {
   const { _id } = req.user;
 
@@ -117,7 +102,6 @@ module.exports = {
   createNewMilestone,
   editMilestone,
   getAllMilestones,
-  getActiveMilestones,
   getMilestone,
   deleteMilestone,
 };

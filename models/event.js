@@ -61,6 +61,7 @@ const event = new mongoose.Schema(
     },
   }
 );
+/* Collecting Reviews Belonging to each event using mongoose virtuals */
 
 event.virtual("reviews", {
   ref: "review",
@@ -69,9 +70,4 @@ event.virtual("reviews", {
   justOne: false,
 });
 
-event.virtual("faq", {
-  ref: "faq",
-  localField: "_id",
-  foreignField: "event",
-});
 module.exports = mongoose.model("event", event);

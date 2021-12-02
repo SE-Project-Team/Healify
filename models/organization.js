@@ -29,7 +29,7 @@ const organizer = new mongoose.Schema(
   }
 );
 
-// Virtual Field containing all events ->
+/* Virtual Field containing all events with _id Matching given Organizer */
 
 organizer.virtual("events", {
   ref: "event",

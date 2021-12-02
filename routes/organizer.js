@@ -1,5 +1,5 @@
-// Taking care of "events" module as seen by organizer
-
+/*  Taking care of "events" module as seen by organizer */
+/*  Module For Organizers -> Creating and Managing events */
 const express = require("express");
 const auth = require("../middleware/auth");
 

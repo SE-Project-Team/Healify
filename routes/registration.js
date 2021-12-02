@@ -1,3 +1,5 @@
+/* Routes For Registration -> Separate Routes for Organizer and User*/
+
 const express = require("express");
 const {
   registerUser,

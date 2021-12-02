@@ -1,4 +1,5 @@
-// Taking care of "events" module as seen by user
+/* Secure Routes related to Events module => Uses Auth Middleware */
+/* Taking care of "events" module as seen by user -> Marking Events as interested and Adding Reviews */
 
 const express = require("express");
 const auth = require("../middleware/auth");

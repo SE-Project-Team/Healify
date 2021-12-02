@@ -6,7 +6,7 @@ const Organizer = require("../models/organization");
 const { UnauthenticatedError, BadRequestError } = require("../errors");
 require("dotenv").config();
 
-// post controller for login -> req contains token!!?
+/* Login Handler User*/
 const postLogin = async (req, res) => {
   const { username, password } = req.body;
 
@@ -36,6 +36,8 @@ const postLogin = async (req, res) => {
   );
   res.status(StatusCodes.OK).json({ success: true, data: { token: token } });
 };
+
+/* Login Handler -> Organizer */
 
 const postLoginOrganizer = async (req, res) => {
   const { username, password } = req.body;

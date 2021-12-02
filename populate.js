@@ -1,3 +1,6 @@
+/* Populate Function For Database */
+/* Used Only While in Development */
+
 require("dotenv").config();
 const connectDb = require("./db/connect");
 const bcrypt = require("bcryptjs");

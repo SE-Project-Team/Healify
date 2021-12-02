@@ -1,9 +1,7 @@
-const User = require("../models/user");
 const Event = require("../models/event");
 
 const cloudinary = require("cloudinary").v2;
 const fs = require("fs");
-const { StatusCodes } = require("http-status-codes");
 const { BadRequestError, UnauthenticatedError } = require("../errors");
 
 const getAllEvents = async (req, res) => {
@@ -105,10 +103,6 @@ const createEvent = async (req, res) => {
 
   res.status(200).json({ success: true, data: created });
 };
-
-// const uploadImage = async (req, res) => {
-//   const { _id } = req.organizer;
-// };
 
 const createAnnouncement = async (req, res) => {
   const { _id } = req.organizer;

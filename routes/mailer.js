@@ -1,16 +1,15 @@
+/* Secure Routes related to mailer module => Uses Auth Middleware */
+
 const express = require("express");
 const auth = require("../middleware/auth");
 
 const {
-  sendAnEmail,
   addContact,
   removeContact,
   getAllContacts,
 } = require("../controllers/mailer");
 
 const router = express.Router();
-
-router.route("/").post(auth, sendAnEmail);
 
 router.route("/remove-contact").post(auth, removeContact);
 

@@ -1,3 +1,5 @@
+/* Secure Routes related to Milestones module => Uses Auth Middleware */
+
 const express = require("express");
 const auth = require("../middleware/auth");
 
@@ -5,7 +7,6 @@ const {
   createNewMilestone,
   editMilestone,
   getAllMilestones,
-  getActiveMilestones,
   getMilestone,
   deleteMilestone,
 } = require("../controllers/milestones");
@@ -13,8 +14,6 @@ const {
 const router = express.Router();
 
 router.route("/").get(auth, getAllMilestones);
-
-router.route("/timeline").get(auth, getAllMilestones);
 
 router.route("/create").post(auth, createNewMilestone);
 
