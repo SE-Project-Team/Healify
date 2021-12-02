@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { GlobalContext } from "../context/GlobalState";
-import { Link } from "react-router-dom";
+
 import { ListGroup, ListGroupItem, Button } from "reactstrap";
 import styles from "./Email.module.css";
 import axios from "axios";
