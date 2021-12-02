@@ -35,8 +35,6 @@ export const Mailer = () => {
   }, []);
 
   const sendEmail = async (contact) => {
-    const token = JSON.parse(localStorage.getItem("token"));
-
     const templateObject = {
       from_name: user,
       recipient_email: contact.email,

@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+/* Modal For Viewing Milestones */
+
+import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import modalStyles from "./modal.module.css";
 

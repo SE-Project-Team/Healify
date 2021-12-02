@@ -14,7 +14,7 @@
   text-align: initial;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   background-color: white;
 }
 .remove_underline {

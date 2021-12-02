@@ -153,7 +153,7 @@ export const Events = (props) => {
                       <img
                         width="100%"
                         src={datum.eventImage || imgDef}
-                        alt="Card image cap"
+                        alt="Card for Event"
                       />
                     </div>
 

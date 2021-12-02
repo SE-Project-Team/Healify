@@ -1,7 +1,5 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import image from "../../Assets/pic2.jpg";
-import video from "../../Assets/video.mp4";
-import commentimg from "../../Assets/comment.png";
 import styles from "../Home/Home.module.css";
 import { Card } from "../Home/Card";
 import { QuotesArray } from "../Home/Quotes";
@@ -40,10 +38,7 @@ export const OrganizersHome = () => {
         <div className={styles["top-container"]}>
           <section className={`${styles.OblurImage}`}>
             <div className={styles.img}>
-              <img
-                src="https://ak.picdn.net/shutterstock/videos/1050297883/preview/stock-footage-senior-male-doctor-videoconferencing-woman-remote-patient-consulting-about-corona-virus-pandemic.webm"
-                alt="home"
-              />
+              <img src={image} alt="home" />
               {/* <video autoPlay loop muted className={styles.video}>
                 <source src={video} type="video/mp4" />
               </video> */}

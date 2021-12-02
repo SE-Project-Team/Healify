@@ -47,7 +47,7 @@ export const Drumkit = () => {
   const [isCompleted, setIsCompleted] = useState(false);
 
   const handleClick = (key) => {
-    if (arr[index] == key) {
+    if (arr[index] === key) {
       setScore(() => score + 1);
     }
     setIndex(() => index + 1);

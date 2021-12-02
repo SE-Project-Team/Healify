@@ -1,6 +1,5 @@
 import React from "react";
 import { Header } from "../Home/Header";
-import Navbar from "./Navbar";
 import styles from "../Home/Home.module.css";
 import OrganizersHome from "./OrganizersHome";
 const Organizers = () => {

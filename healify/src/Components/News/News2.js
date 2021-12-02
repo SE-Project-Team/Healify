@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Header } from "../Home/Header";
 import newsstyles from "./News.module.css";
@@ -50,8 +50,6 @@ const News2 = () => {
           }
           console.log(err);
         });
-      let sortby = sortBy[Math.floor(Math.random() % sortBy.length)];
-      const token = JSON.parse(localStorage.getItem("token"));
       // let axios = require("axios").default;
       let options = {
         method: "GET",
@@ -91,7 +89,7 @@ const News2 = () => {
     } else if (otherarticles) {
       const otherterm =
         randomqueries[Math.floor(Math.random() % randomqueries.length)];
-      let sortby = sortBy[Math.floor(Math.random() % sortBy.length)];
+      // let sortby = sortBy[Math.floor(Math.random() % sortBy.length)];
       // let axios = require("axios").default;
       let options = {
         method: "GET",
@@ -136,8 +134,6 @@ const News2 = () => {
       setSuggesting(false);
       setotherarticles(false);
       let sortby = sortBy[Math.floor(Math.random() % sortBy.length)];
-      const token = JSON.parse(localStorage.getItem("token"));
-      // let axios = require("axios").default;
       let options = {
         method: "GET",
         url: "https://bing-news-search1.p.rapidapi.com/news/search",

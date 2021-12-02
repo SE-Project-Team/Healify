@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import CreateTask from "../modals/CreateTask";
-import About from "./About";
 import styles from "./ResponsiveSidemenu1.module.css";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";

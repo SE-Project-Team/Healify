@@ -1,11 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import { useState } from "react";
 import AudioReactRecorder, { RecordState } from "audio-react-recorder";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router";
 
 export const Recorder = () => {
-  let history = useHistory();
   const [recordState, setRecordState] = useState(RecordState.STOP);
   const [music, setMusic] = useState({});
 

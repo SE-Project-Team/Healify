@@ -1,23 +1,15 @@
 import React, { useEffect, useState } from "react";
-import * as ReactBootStrap from "react-bootstrap";
-import CreateTask from "../modals/CreateTask";
-import EditTask from "../modals/EditTask";
+
 import Card from "./Card";
-import { Link } from "react-router-dom";
-import { Togglemenu } from "./Togglemenu";
+
 import styles from "./MilestonesHome.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Responsivesidemenu1 } from "./Responsivesidemenu1";
 import axios from "axios";
 import { Header } from "../Home/Header";
 
-export const MilestonesHome = ({
-  createTask,
-  notificationPage,
-  missedPage,
-}) => {
+export const MilestonesHome = ({ notificationPage, missedPage }) => {
   const [taskList, setTaskList] = useState([]);
-  const [modal, setModal] = useState(false);
   const [notifications, setNotifications] = useState(0);
   const [missed, setMissed] = useState(0);
   const [notifPage, setNotifPage] = useState(notificationPage);

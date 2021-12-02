@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+/* Modal For Creating Announcements */
+
+import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import modalStyles from "./modal.module.css";
 import axios from "axios";

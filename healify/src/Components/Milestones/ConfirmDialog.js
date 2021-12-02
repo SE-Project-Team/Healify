@@ -6,10 +6,8 @@ import {
   DialogActions,
   Typography,
   makeStyles,
-  IconButton,
 } from "@material-ui/core";
 import Controls from "../controls/Controls";
-import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   dialog: {
@@ -37,7 +35,6 @@ export default function ConfirmDialog(props) {
     id = confirmDialog.param;
     user = confirmDialog.paramMail;
   }
-  const history = useHistory();
   return (
     confirmDialog.isOpen && (
       <Dialog open={confirmDialog.isOpen} classes={{ paper: classes.dialog }}>

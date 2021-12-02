@@ -1,7 +1,7 @@
 import React from "react";
 import aboutstyles from "./About_us.module.css";
 import { Header } from "./Header";
-export const About_Us = () => {
+export const AboutUs = () => {
   return (
     <>
       <Header />
@@ -138,4 +138,4 @@ export const About_Us = () => {
     </>
   );
 };
-export default About_Us;
+export default AboutUs;

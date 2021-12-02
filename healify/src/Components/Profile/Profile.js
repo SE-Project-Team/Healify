@@ -1,4 +1,3 @@
-import { Box } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import profilestyles from "./Profile.module.css";
 import { Calendar } from "react-calendar";
@@ -26,22 +25,10 @@ export const Profile = () => {
   const [chooseDate, setChooseDate] = useState(false);
   const [date, setDate] = useState();
 
-  const handleUserNameInputChange = (event) => {
-    setValues({ ...values, UserName: event.target.value });
-  };
-  const handlePasswordInputChange = (event) => {
-    setValues({ ...values, Password: event.target.value });
-  };
   const handlePhoneNumbereInputChange = (event) => {
     setValues({ ...values, PhoneNumber: event.target.value });
   };
-  const handleDateOfBirthInputChange = (event) => {
-    setValues({ ...values, DateOfBirth: event.target.value });
-  };
 
-  const handleEmailIDInputChange = (event) => {
-    setValues({ ...values, EmailID: event.target.value });
-  };
   const handleDescribeYourselfInputChange = (event) => {
     setValues({ ...values, DescribeYourself: event.target.value });
   };

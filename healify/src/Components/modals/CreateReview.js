@@ -1,3 +1,5 @@
+/* Modal For Creating Reviews */
+
 import React, { useState, useEffect } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import modalStyles from "./modal.module.css";

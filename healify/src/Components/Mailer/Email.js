@@ -41,10 +41,10 @@ export const Email = ({
                   &#8250;
                 </i>
               </section>
-              {messageTemplate == 0 && (
+              {messageTemplate === 0 && (
                 <h6>----------starting of templates----------</h6>
               )}
-              {messageTemplate == maxLimit - 1 && (
+              {messageTemplate === maxLimit - 1 && (
                 <h6>----------end of templates----------</h6>
               )}
             </div>

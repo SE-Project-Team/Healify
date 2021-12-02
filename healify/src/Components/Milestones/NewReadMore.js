@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 export const NewReadMore = ({ subtasks }) => {
   const [isNewReadMore, setIsNewReadMore] = useState(true);
-  const toggleNewReadMore = () => {
-    setIsNewReadMore(!isNewReadMore);
-  };
+  // const toggleNewReadMore = () => {
+  //   setIsNewReadMore(!isNewReadMore);
+  // };
 
   if (subtasks && subtasks.length) {
     return (

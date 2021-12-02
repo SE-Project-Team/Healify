@@ -18,7 +18,11 @@ export const Notes = (props) => {
 
   return (
     <div>
-      <img src={note[noteIndex]} className={styles.letter}></img>
+      <img
+        src={note[noteIndex]}
+        className={styles.letter}
+        alt={"KeyNote"}
+      ></img>
     </div>
   );
 };

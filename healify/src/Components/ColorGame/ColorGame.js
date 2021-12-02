@@ -119,7 +119,7 @@ export const ColorGame = () => {
           return randomChosenColour;
         });
         playSound(randomChosenColour);
-        if (i != max - 1) {
+        if (i !== max - 1) {
           setTimeout(() => {
             setGenerated(() => "reset");
           }, 500);
@@ -244,7 +244,7 @@ export const ColorGame = () => {
               </div>
             </section>
           )}
-        {level == 0 ? (
+        {level === 0 ? (
           <button className={`btn btn-outline-warning`} onClick={start}>
             Start
           </button>

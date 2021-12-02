@@ -18,7 +18,6 @@ import { QuizStatistics } from "./Components/Statistics/QuizStatistics";
 import { Events } from "./Components/Events/Events";
 import { Eventview } from "./Components/Events/Eventview";
 import { MyEvents } from "./Components/OrganizersHome/MyEvents";
-import News from "./Components/News/News";
 import News2 from "./Components/News/News2";
 import { Recorder } from "./Components/DrumKit/Recorder";
 import { Drumkit } from "./Components/DrumKit/Drumkit";
@@ -32,7 +31,7 @@ import { Notes } from "./Components/DrumKit/Notes";
 import { Email } from "./Components/Mailer/Email";
 import { AddUser } from "./Components/Mailer/AddUser";
 import { ContactHome } from "./Components/Mailer/ContactHome";
-import { About_Us } from "./Components/Home/About_Us";
+import { AboutUs } from "./Components/Home/About_Us";
 import "./App.css";
 import axios from "axios";
 
@@ -43,7 +42,6 @@ function App() {
   const { token, setToken, role, setRole } = useToken();
   const [birthday, setBirthday] = useState("");
   const [gender, setGender] = useState("");
-  const [hobbies, setHobbies] = useState("");
 
   const [condn, setCond] = useState("");
 
@@ -57,10 +55,9 @@ function App() {
           },
         })
         .then((res) => {
-          const { BirthDay, Gender, Hobbies } = res.data.data;
+          const { BirthDay, Gender } = res.data.data;
           setBirthday(BirthDay);
           setGender(Gender);
-          setHobbies(Hobbies);
         })
         .catch((err) => {
           if (err.response) {
@@ -81,7 +78,7 @@ function App() {
                 <Home />
               </Route>
               <Route path="/About_Us">
-                <About_Us />
+                <AboutUs />
               </Route>
               <Route path="/login">
                 <Signup
@@ -140,9 +137,7 @@ function App() {
                     }}
                   />
                 </Route>
-                <Route exact path="/News">
-                  <News />
-                </Route>
+
                 <Route exact path="/News2">
                   <News2 />
                 </Route>
@@ -192,7 +187,7 @@ function App() {
                   <About />
                 </Route>
                 <Route path="/About_Us">
-                  <About_Us />
+                  <AboutUs />
                 </Route>
                 <Route path="/Email">
                   <Email />
@@ -307,7 +302,7 @@ function App() {
                   <Organizers />
                 </Route>
                 <Route path="/About_Us">
-                  <About_Us />
+                  <AboutUs />
                 </Route>
                 <Route
                   path="/organizerEventview:id"

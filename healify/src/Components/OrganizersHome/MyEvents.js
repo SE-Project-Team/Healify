@@ -1,5 +1,6 @@
-import React from "react";
+/* Events Page(Of management) for organizers */
 
+import React from "react";
 import { Header } from "../Home/Header";
 import styles from "../Events/Events.module.css";
 import imgDef from "../../Assets/user.png";
