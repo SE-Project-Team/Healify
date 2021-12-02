@@ -71,3 +71,9 @@ Now execute the following commands:
 Now in your browser you can access the app in localhost:3000.
 </br>
 Note: You can change environment variables like PORT for server using your own .env file
+
+## Instruction to Run Application in Browser
+Link For the app is :
+https://healify-web.herokuapp.com/
+
+-> If the app doesn't load Clear the cache/local Storage OR try running the same in incognito mode
