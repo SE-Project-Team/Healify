@@ -73,25 +73,25 @@ export const QuizLanding = () => {
           <div className={styles3.category}>
             <Link to="/Quiz1" className={styles2.remove_underline}>
               <img className={styles3.logo} src={illImg} alt="" />
-              <p>Ill being and Well being</p>
+              <p className={styles3.txt}>Ill being and Well being</p>
             </Link>
           </div>
           <div className={styles3.category}>
             <Link to="/Quiz2" className={styles2.remove_underline}>
               <img className={styles3.logo} src={phyImg} alt="" />
-              <p>Control and Coping</p>
+              <p className={styles3.txt}>Control and Coping</p>
             </Link>
           </div>
           <div className={styles3.category}>
             <Link to="/Quiz3" className={styles2.remove_underline}>
               <img className={styles3.logo} src={controlImg} alt="" />
-              <p>Relationships and Belonging</p>
+              <p className={styles3.txt}>Relationships and Belonging</p>
             </Link>
           </div>
           <div className={styles3.category}>
             <Link to="/Quiz4" className={styles2.remove_underline}>
               <img className={styles3.logo} src={copingImg} alt="" />
-              <p>Self Perception</p>
+              <p className={styles3.txt}>Self Perception</p>
             </Link>
           </div>
         </div>
@@ -100,25 +100,25 @@ export const QuizLanding = () => {
           <div className={styles3.category}>
             <Link to="/QuizStatistics/1" className={styles2.remove_underline}>
               <img className={styles3.logo} src={illImg} alt="" />
-              <p>Ill being and Well being</p>
+              <p className={styles3.txt}>Ill being and Well being</p>
             </Link>
           </div>
           <div className={styles3.category}>
             <Link to="/QuizStatistics/2" className={styles2.remove_underline}>
               <img className={styles3.logo} src={phyImg} alt="" />
-              <p>Control and Coping</p>
+              <p className={styles3.txt}>Control and Coping</p>
             </Link>
           </div>
           <div className={styles3.category}>
             <Link to="/QuizStatistics/3" className={styles2.remove_underline}>
               <img className={styles3.logo} src={controlImg} alt="" />
-              <p>Relationships and Belonging</p>
+              <p className={styles3.txt}>Relationships and Belonging</p>
             </Link>
           </div>
           <div className={styles3.category}>
             <Link to="/QuizStatistics/4" className={styles2.remove_underline}>
               <img className={styles3.logo} src={copingImg} alt="" />
-              <p>Self Perception</p>
+              <p className={styles3.txt}>Self Perception</p>
             </Link>
           </div>
         </div>
