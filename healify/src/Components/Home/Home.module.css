@@ -177,3 +177,30 @@
 .video {
   height: 500px;
 }
+.topDivImg {
+  width: 50%;
+}
+.video {
+  background-color: transparent;
+}
+.topDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background: rgb(245, 241, 7);
+  background: radial-gradient(
+    circle,
+    rgb(204, 229, 235) 0%,
+    rgb(240, 228, 235) 100%
+  );
+  padding: 2rem;
+  text-align: center;
+}
+
+.topDiv p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.3rem;
+  padding: 3%;
+  color: #504f4b;
+}

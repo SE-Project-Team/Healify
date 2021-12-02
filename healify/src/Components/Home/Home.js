@@ -1,4 +1,5 @@
 import React from "react";
+import anime1 from "../../Assets/anime1.mp4";
 import image from "../../Assets/homePage.jpg";
 import quizimg from "../../Assets/quiz.jpg";
 import newsimg from "../../Assets/news.jpg";
@@ -15,6 +16,7 @@ import { useState, useEffect } from "react";
 import { QuotesArray } from "./Quotes";
 import { FadeWrapper } from "../FadeWrapper";
 import "../../App.css";
+import styles3 from "../Quiz/QuizLanding.module.css";
 export const Home = () => {
   const [quote1, setQuote1] = useState("Your mental health is a priority");
   const [quote2, setQuote2] = useState(
@@ -58,6 +60,29 @@ export const Home = () => {
                 {quote2 && <h4 className={styles.quote2}>{quote2}</h4>}
               </div>
             </section>
+            <div className={styles.topDiv}>
+              {/* <img src={image} alt="" className={styles.topDivImg} /> */}
+              <video autoPlay loop muted className={styles.video}>
+                <source src={anime1} type="video/mp4" />
+              </video>
+              <p>
+                Just as physical fitness helps our bodies to stay strong, mental
+                fitness helps us to achieve and sustain a state of good mental
+                health. When we are mentally healthy, we enjoy our life and
+                environment, and the people in it. We can be creative, learn,
+                try new things, and take risks. We are better able to cope with
+                difficult times in our personal and professional lives. We feel
+                the sadness and anger that can come with the death of a loved
+                one, a job loss or relationship problems and other difficult
+                events, but in time, we are able to get on with and enjoy our
+                lives once again. Nurturing our mental health can also help us
+                combat or prevent the mental health problems that are sometimes
+                associated with a chronic physical illness. In some cases, it
+                can prevent the onset or relapse of a physical or mental
+                illness. Managing stress well, for instance, can have a positive
+                impact on heart disease.
+              </p>
+            </div>
 
             <section className={`${styles.blur}`}>
               <section className={`${styles.mdbCustom}`}>
