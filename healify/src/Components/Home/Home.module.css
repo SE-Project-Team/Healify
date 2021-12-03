@@ -124,7 +124,7 @@
   margin: 10px;
   flex-direction: row;
   background-image: url("../../Assets/abstractBg.jpeg"),
-    linear-gradient(rgb(219, 166, 166), rgb(0, 0, 172));
+    linear-gradient(rgb(219, 166, 166), rgb(196, 179, 156));
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -133,8 +133,8 @@
 .blurImage {
   margin: 10px;
   flex-direction: row;
-  background-image: url("http://localhost:3000/static/media/homePage.a69400cd.jpg"),
-    linear-gradient(rgb(219, 166, 166), rgb(0, 0, 172));
+  background-image: url("../../Assets/homePage.jpg"),
+    linear-gradient(rgb(188, 230, 154), rgb(136, 204, 120));
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
